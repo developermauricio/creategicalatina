@@ -4,10 +4,10 @@
             <div class="col-12">
                 <splide :slides="optionsTypeProject" :options="options">
                     <splide-slide v-for="typeProject in optionsTypeProject" :key="typeProject.id">
-                        <div class="card" style="height: 16.7rem !important;">
+                        <div class="card">
                             <img class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
                             <div class="card-body" style="padding-top: 1rem !important;">
-                                <h6 class="card-title text-center" style="margin-bottom: 0.30rem !important;">{{ typeProject.name[language] }}</h6>
+                                <h6 class="card-title text-center text-title-card-mobile" style="font-size: 1.2rem; margin-bottom: 0.30rem !important;">{{ typeProject.name[language] }}</h6>
                                 <p class="card-text text-center">
                                     Más info
                                 </p>
@@ -103,6 +103,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
+.card-title.text-title-card-mobile {
+    /*display: block;*/
+    /*width: 100px;*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 </style>
