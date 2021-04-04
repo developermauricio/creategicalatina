@@ -8679,7 +8679,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#splide02-slide01{\n    width: 7% !important;\n}\n#splide02-slide02{\n     width: 7% !important;\n}\n#splide02-slide03{\n     width: 7% !important;\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 1024px)  and (min-width: 320px) {\n#splide02-slide01{\n       width: 190px !important;\n}\n#splide02-slide02{\n        width: 190px !important;\n}\n#splide02-slide03{\n        width: 190px !important;\n}\n}\n", ""]);
 
 // exports
 

@@ -68,14 +68,15 @@ export default {
 </script>
 
 <style>
-
+@media (max-width: 1024px)  and (min-width: 320px) {
    #splide02-slide01{
-       width: 7% !important;
+       width: 190px !important;
    }
     #splide02-slide02{
-        width: 7% !important;
+        width: 190px !important;
     }
     #splide02-slide03{
-        width: 7% !important;
+        width: 190px !important;
     }
+}
 </style>
