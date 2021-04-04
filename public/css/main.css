@@ -1,0 +1,151 @@
+.display-none-main {
+    display: none !important;
+}
+
+.color-text-links-footer-red {
+    color: #F05E7D;
+}
+
+.color-text-links-footer-red:hover {
+    color: #283046 !important;
+}
+
+.color-text-links-footer-green {
+    color: #79ebdf;
+}
+
+.icon-moon .feather-moon {
+    color: #d0d2d6 !important;
+}
+
+.dropdown-language .dropdown-menu-right {
+    background-color: #283046 !important;
+}
+
+.menu-toggle .feather-menu {
+    color: #d0d2d6 !important;
+}
+
+.dropdown-notification .feather-bell {
+    color: #d0d2d6 !important;
+}
+
+.frontend-menu span {
+    color: #d0d2d6 !important;
+}
+
+.frontend-menu .active span {
+    color: #79ebdf !important;
+}
+
+.frontend-menu span:hover {
+    border-radius: 4px !important;
+    color: #79ebdf !important;
+    transition: 0.3s !important;
+}
+
+.horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li:hover > a {
+    /*background: #79ebdf;*/
+    border-radius: 4px;
+    color: #79ebdf;
+    transition: 0.3s;
+}
+
+.icon-logo-dark .feather-moon {
+    color: #6e6b7b !important;
+}
+
+.row-menu-horizontal.header-navbar.navbar-horizontal .active .nav-link.dropdown-toggle::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+@media (max-width: 1115px)  and (min-width: 1025px) {
+
+    .row-menu-horizontal #main-menu-navigation {
+        display: none;
+    }
+
+    .horizontal-menu-wrapper {
+        display: block !important;
+    }
+
+    .logo-mobile {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1024px)  and (min-width: 320px) {
+
+    .row-menu-horizontal #main-menu-navigation {
+        display: none;
+    }
+
+    .horizontal-menu-wrapper {
+        display: block !important;
+    }
+
+    .logo-mobile {
+        display: block !important;
+    }
+}
+
+@media (max-width: 319px)  and (min-width: 200px) {
+
+    .row-menu-horizontal #main-menu-navigation {
+        display: none;
+    }
+
+    .horizontal-menu-wrapper {
+        display: block !important;
+    }
+
+}
+
+/* DARK TARJETAS REGISTAR PROYECT*/
+
+.dark-mode-cards-vue {
+    background-color: #283046 !important;
+}
+
+.dark-mode-cards-text-vue p {
+    color: #d0d2d6 !important;
+}
+
+.light-mode-cards-vue {
+    background-color: #ffffff !important;
+}
+
+.card-title.theme-change {
+    font-weight: 500;
+    font-size: 1.285rem;
+    margin-bottom: 0.53rem !important;
+}
+
+.card.icon-theme {
+    cursor: pointer;
+}
+
+.card.border-dark-card-change-theme {
+    border: 1px solid #3d455d;
+}
+
+.card.icon-theme:hover {
+    border: 3px solid #79ebdf;
+    transition: 0.5s;
+}
+
+.card.active {
+    border: 2px solid #79ebdf;
+}
+
+/*@media (max-width:768px)  and (min-width:320px){*/
+/*    .logo-mobile{*/
+/*        margin-right: 8rem;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width:375px)  and (min-width:320px){*/
+/*    .logo-mobile{*/
+/*        margin-left: 2rem;*/
+/*    }*/
+/*}*/
