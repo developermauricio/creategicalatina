@@ -2,42 +2,48 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <section id="component-swiper-centered-slides">
-                    <div class="card bg-transparent shadow-none">
-                        <div class="card-header">
-                            <h4 class="card-title">{{ $t('frontend.register-client.selecciona_tipo_proyecto') }}</h4>
+                <splide :slides="optionsTypeProject" :options="options">
+                    <splide-slide v-for="typeProject in optionsTypeProject" :key="typeProject.id">
+                        <div class="card">
+                            <img class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
+                            <div class="card-body" style="padding: 1rem !important;">
+                                <h5 class="card-title text-center" style="margin-bottom: 0.30rem !important;">{{ typeProject.name[language] }}</h5>
+                                <p class="card-text text-center">
+                                    Más info
+                                </p>
+                            </div>
                         </div>
-                        <div class="card-body" >
-                            <div  class="swiper-centered-slides swiper-container p-1 swiper-container-initialized swiper-container-horizontal">
-                                <div class="swiper-wrapper" id="swiper-wrapper-b5b27b4ba7b5720b" aria-live="polite"
-                                     style="transition: 0ms; transform: translate3d(391.7109375px, 0px, 0px);">
-                                    <div v-for="typeProject in optionsTypeProject" :key="typeProject.id" class="swiper-slide rounded swiper-shadow swiper-slide-active" role="group"
-                                         :aria-label="`${typeProject.id}` / 5" style="margin-right: 30px;">
-                                        <img width="160" :src="typeProject.picture">
-                                        <div class="swiper-text pt-1">{{ typeProject.name[language] }}</div>
-                                    </div>
-
-                                </div>
-                                <!-- Add Arrows -->
-                                <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
-                                     aria-controls="swiper-wrapper-b5b27b4ba7b5720b" aria-disabled="false"></div>
-                                <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button"
-                                     aria-label="Previous slide" aria-controls="swiper-wrapper-b5b27b4ba7b5720b"
-                                     aria-disabled="true"></div>
-                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                        </div>
-                    </div>
-                </section>
+                    </splide-slide>
+                </splide>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
+import {Splide, SplideSlide} from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+
 export default {
     name: "CardProjectMobile",
+    components: {
+        Splide,
+        SplideSlide,
+    },
     data() {
         return {
+            options: {
+                gap: '1rem',
+                focus : 'center',
+                perPage: 2,
+                pagination: false,
+                trimSpace: false,
+                breakpoints: {
+                    height: '6rem',
+                }
+            },
+
             language: window.lang, //Idioma actual de la aplicación
             colorCardLoading: window.cardsLoadingColor, //color de las tarjetas cargando segun el tema
             skeletonValue: 1,
@@ -46,10 +52,8 @@ export default {
             selectProjectCategory: null,
             optionsTypeProject: [], //Arreglo con los tipos de proyectos
             optionsCategoriesProject: [], //Arreglo con las categorias de proyectos
-
-        }
+        };
     },
-
     methods: {
 
         typeProjectSelected(typeProject) {
@@ -66,6 +70,9 @@ export default {
         },
         getTypeProjects() {
             axios.get('/api/get-type-projects').then(resp => {
+                setTimeout(() => {
+                    this.skeletonValue = 0
+                }, 2000)
                 this.optionsTypeProject = resp.data.data
             }).catch(err => {
 
@@ -92,6 +99,7 @@ export default {
     mounted() {
         this.getTypeProjects();
     },
+
 }
 </script>
 

@@ -11,16 +11,17 @@ $(function () {
         }
     });
     var swiperLength = $('.swiper-slide').length;
+    // activeSlide(swiperLength);
     // Active slide change on swipe
-    mySwiper.on('slideChange', function () {
-        activeSlide(mySwiper.realIndex);
-    });
+    // mySwiper.on('slideChange', function () {
+    //     activeSlide(mySwiper.realIndex);
+    // });
 
     //add class active content of active slide
-    function activeSlide(index) {
-        var slideEl = mySwiper.slides[index];
-        var slideId = $(slideEl).attr('id');
-        $('.wrapper-content').removeClass('active');
-        $('[data-faq=' + slideId + ']').addClass('active');
-    }
+    // function activeSlide(index) {
+    //     var slideEl = mySwiper.slides[index];
+    //     var slideId = $(slideEl).attr('id');
+    //     $('.wrapper-content').removeClass('active');
+    //     $('[data-faq=' + slideId + ']').addClass('active');
+    // }
 })

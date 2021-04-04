@@ -20,6 +20,7 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/extensions/swiper.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -31,11 +32,9 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/semi-dark-layout.css">
 
-    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/extensions/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-swiper.css">
-
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-swiper.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/charts/chart-apex.css">
@@ -201,6 +200,7 @@
 <!-- BEGIN: Vendor JS-->
 <script src="/app-assets/vendors/js/vendors.min.js"></script>
 <script src="/app-assets/vendors/js/extensions/swiper.min.js"></script>
+
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
@@ -211,10 +211,13 @@
 <!-- BEGIN: Theme JS-->
 <script src="/app-assets/js/core/app-menu.js"></script>
 <script src="/app-assets/js/core/app.js"></script>
+
+
 <!-- END: Theme JS-->
 <script src="/js/change-template.js"></script>
-{{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
+
 <script src="{{ asset('js/app-frontend.js') }}"></script>
+{{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
 <script src="/js/swiper-sliders.js"></script>
 <script>
     $(window).on('load', function () {
