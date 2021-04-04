@@ -26,10 +26,12 @@
     "dependencies": {
         "@splidejs/splide": "^2.4.21",
         "@splidejs/vue-splide": "^0.3.5",
+        "material-icons": "^0.5.4",
         "vue-i18n": "^8.24.2",
         "vue-info-card": "^0.1.4",
         "vue-scrollto": "^2.20.0",
         "vue-tour": "^2.0.0",
-        "vue-ultimate-skeleton-cards": "^1.0.3"
+        "vue-ultimate-skeleton-cards": "^1.0.3",
+        "vuesax": "^3.12.2"
     }
 }

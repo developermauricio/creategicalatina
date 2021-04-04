@@ -54,8 +54,8 @@ export default {
         return {
             options: {
                 // gap: '1rem',
-                focus: 'center',
-                perPage: 2,
+                // focus: 'center',
+                perPage: 1,
                 pagination: false,
                 padding: {
                     left : 0,
@@ -73,14 +73,14 @@ export default {
 
 <style>
 /*@media (max-width: 1024px)  and (min-width: 320px) {*/
-/*   #splide02-slide01{*/
-/*       width: 210px !important;*/
-/*   }*/
-/*    #splide02-slide02{*/
-/*        width: 210px !important;*/
-/*    }*/
-/*    #splide02-slide03{*/
-/*        width: 210px !important;*/
-/*    }*/
+   #splide02-slide01{
+       width: 210px !important;
+   }
+    #splide02-slide02{
+        width: 210px !important;
+    }
+    #splide02-slide03{
+        width: 210px !important;
+    }
 /*}*/
 </style>

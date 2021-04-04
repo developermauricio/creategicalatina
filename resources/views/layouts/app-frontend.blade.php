@@ -218,7 +218,7 @@
 
 <script src="{{ asset('js/app-frontend.js') }}"></script>
 {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
-<script src="/js/swiper-sliders.js"></script>
+{{--<script src="/js/swiper-sliders.js"></script>--}}
 <script>
     $(window).on('load', function () {
         if (feather) {

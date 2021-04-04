@@ -117,7 +117,7 @@
 
 .card-title.theme-change {
     font-weight: 500;
-    font-size: 1.285rem;
+    font-size: 1.2rem;
     margin-bottom: 0.53rem !important;
 }
 
@@ -136,6 +136,23 @@
 
 .card.active {
     border: 2px solid #79ebdf;
+}
+
+/* The heart of the matter */
+.modal-body > .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.modal-body > .row > .col-6 {
+    flex: 0 0 auto;
+}
+.card.card-theme-change{
+    height: 77%;
+}
+
+.card-theme-change .card-body{
+    padding-top: 0.8rem !important;
 }
 
 /*@media (max-width:768px)  and (min-width:320px){*/
