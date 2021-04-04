@@ -14,15 +14,19 @@
                         <p>Elige cómo se ve <img width="100" src="/images/creategica-logo.png" alt="">. Seleccione un solo tema o sincronícelo con su sistema y cambie automáticamente entre temas diurnos y nocturnos.</p>
                     </div>
                 </div>
+<!-- Tarjetas para cambiar el tema para mobile-->
                 <div class="row">
+                    <div class="col-12">
+                        <cards-change-theme></cards-change-theme>
+                    </div>
+                </div>
+<!-- Tarjetas para cambiar el tema para escritorio-->
+                <div class="row" style="display: none">
                     <div class="col-6 col-lg-4 col-md-4">
                         <div class="card icon-theme card-light card-theme-change  active" value-theme="2">
                             <img class="card-img-top" src="/images/theme/img-light-mode.png" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title theme-change">Light Mode</h4>
-                                <p class="card-text">
-                                    Some quick example text to build on the card.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -31,9 +35,6 @@
                             <img class="card-img-top" src="/images/theme/img-dark-mode.png" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title theme-change">Dark Mode</h4>
-                                <p class="card-text">
-                                    Some quick example text to build on the card.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -42,9 +43,6 @@
                             <img class="card-img-top" src="/images/theme/img-system-theme.png" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title theme-change">Según el sistema</h4>
-                                <p class="card-text">
-                                    Según la configuración del sistema
-                                </p>
                             </div>
                         </div>
                     </div>

@@ -26,6 +26,7 @@ Vue.use(VueScrollTo)
 /*COMPONENTES*/
 Vue.component('cards-projects', require('./components/components/cardsrproject/CardProject.vue').default); //Tarjetas dinamicas con animación para escritorio
 Vue.component('cards-projects-mobile', require('./components/components/cardsrproject/CardProjectMobile.vue').default); //Tarjetas dinamicas para la versión mobile
+Vue.component('cards-change-theme', require('./components/components/change-theme-frontend').default); //Tarjetas dinamicas para la versión mobile
 
 
 Vue.component('register-client', require('./components/frontend/pages/RegisterClient').default);

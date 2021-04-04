@@ -21,7 +21,7 @@
                     <div :class="typeProject.id === ( selectProjectType ? selectProjectType.id : 0 ) ? 'active': ''"
                          @click="typeProjectSelected( typeProject )"
                     >
-                        <div class="card-container" id="card-info-animation" style="cursor:pointer">
+                        <div class="card-container card-info-animation" style="cursor:pointer">
                             <div class="card-flip">
                                 <div class="front">
                                     <div class="card no-b">

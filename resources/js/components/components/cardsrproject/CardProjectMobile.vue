@@ -4,7 +4,7 @@
             <div class="col-12">
                 <splide :slides="optionsTypeProject" :options="options">
                     <splide-slide v-for="typeProject in optionsTypeProject" :key="typeProject.id">
-                        <div class="card">
+                        <div class="card card-info-animation">
                             <img class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
                             <div class="card-body" style="padding-top: 1rem !important;">
                                 <h6 class="card-title text-center text-title-card-mobile" style="font-size: 1.2rem; margin-bottom: 0.30rem !important;">{{ typeProject.name[language] }}</h6>
@@ -17,7 +17,6 @@
                 </splide>
             </div>
         </div>
-
     </div>
 </template>
 

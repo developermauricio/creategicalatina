@@ -82,7 +82,7 @@ export default {
                     }
                 },
                 {
-                    target: '#card-info-animation',
+                    target: '.card-info-animation',
                     content: this.$t('frontend.register-client.text_paso_6') +`
                     <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
                     params: {
