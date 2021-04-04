@@ -31648,36 +31648,45 @@ var render = function() {
             { attrs: { slides: _vm.optionsTypeProject, options: _vm.options } },
             _vm._l(_vm.optionsTypeProject, function(typeProject) {
               return _c("splide-slide", { key: typeProject.id }, [
-                _c("div", { staticClass: "card" }, [
-                  _c("img", {
-                    staticClass: "card-img-top pt-1 pr-1 pl-1",
-                    attrs: { src: typeProject.picture, alt: "Card image cap" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "card-body",
-                      staticStyle: { padding: "1rem !important" }
-                    },
-                    [
-                      _c(
-                        "h5",
-                        {
-                          staticClass: "card-title text-center",
-                          staticStyle: { "margin-bottom": "0.30rem !important" }
-                        },
-                        [_vm._v(_vm._s(typeProject.name[_vm.language]))]
-                      ),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text text-center" }, [
-                        _vm._v(
-                          "\n                                Más info\n                            "
-                        )
-                      ])
-                    ]
-                  )
-                ])
+                _c(
+                  "div",
+                  {
+                    staticClass: "card",
+                    staticStyle: { height: "16.7rem !important" }
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top pt-1 pr-1 pl-1",
+                      attrs: { src: typeProject.picture, alt: "Card image cap" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "card-body",
+                        staticStyle: { "padding-top": "1rem !important" }
+                      },
+                      [
+                        _c(
+                          "h6",
+                          {
+                            staticClass: "card-title text-center",
+                            staticStyle: {
+                              "margin-bottom": "0.30rem !important"
+                            }
+                          },
+                          [_vm._v(_vm._s(typeProject.name[_vm.language]))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text text-center" }, [
+                          _vm._v(
+                            "\n                                Más info\n                            "
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                )
               ])
             }),
             1
