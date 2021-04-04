@@ -57,10 +57,14 @@ export default {
                 focus: 'center',
                 perPage: 2,
                 pagination: false,
-                trimSpace: false,
-                breakpoints: {
-                    height: '6rem',
+                padding: {
+                    left : 0,
+                    right: 0,
                 }
+                // trimSpace: false,
+                // breakpoints: {
+                //     height: '6rem',
+                // }
             },
         };
     },
@@ -68,15 +72,15 @@ export default {
 </script>
 
 <style>
-@media (max-width: 1024px)  and (min-width: 320px) {
-   #splide02-slide01{
-       width: 190px !important;
-   }
-    #splide02-slide02{
-        width: 190px !important;
-    }
-    #splide02-slide03{
-        width: 190px !important;
-    }
-}
+/*@media (max-width: 1024px)  and (min-width: 320px) {*/
+/*   #splide02-slide01{*/
+/*       width: 210px !important;*/
+/*   }*/
+/*    #splide02-slide02{*/
+/*        width: 210px !important;*/
+/*    }*/
+/*    #splide02-slide03{*/
+/*        width: 210px !important;*/
+/*    }*/
+/*}*/
 </style>

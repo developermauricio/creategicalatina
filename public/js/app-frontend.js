@@ -8437,10 +8437,14 @@ __webpack_require__.r(__webpack_exports__);
         focus: 'center',
         perPage: 2,
         pagination: false,
-        trimSpace: false,
-        breakpoints: {
-          height: '6rem'
-        }
+        padding: {
+          left: 0,
+          right: 0
+        } // trimSpace: false,
+        // breakpoints: {
+        //     height: '6rem',
+        // }
+
       }
     };
   }
@@ -8679,7 +8683,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n@media (max-width: 1024px)  and (min-width: 320px) {\n#splide02-slide01{\n       width: 190px !important;\n}\n#splide02-slide02{\n        width: 190px !important;\n}\n#splide02-slide03{\n        width: 190px !important;\n}\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*@media (max-width: 1024px)  and (min-width: 320px) {*/\n/*   #splide02-slide01{*/\n/*       width: 210px !important;*/\n/*   }*/\n/*    #splide02-slide02{*/\n/*        width: 210px !important;*/\n/*    }*/\n/*    #splide02-slide03{*/\n/*        width: 210px !important;*/\n/*    }*/\n/*}*/\n", ""]);
 
 // exports
 
