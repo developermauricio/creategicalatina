@@ -8070,6 +8070,85 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_info_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-info-card */ "./node_modules/vue-info-card/dist/vue-info-card.js");
 /* harmony import */ var vue_info_card__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_info_card__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _splidejs_vue_splide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @splidejs/vue-splide */ "./node_modules/@splidejs/vue-splide/src/js/index.js");
+/* harmony import */ var _splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @splidejs/splide/dist/css/themes/splide-default.min.css */ "./node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css");
+/* harmony import */ var _splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8183,13 +8262,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CardProject",
   components: {
-    InfoCard: vue_info_card__WEBPACK_IMPORTED_MODULE_0___default.a
+    InfoCard: vue_info_card__WEBPACK_IMPORTED_MODULE_0___default.a,
+    Splide: _splidejs_vue_splide__WEBPACK_IMPORTED_MODULE_1__["Splide"],
+    SplideSlide: _splidejs_vue_splide__WEBPACK_IMPORTED_MODULE_1__["SplideSlide"]
   },
   data: function data() {
     return {
+      options: {
+        gap: '1rem',
+        focus: 'center',
+        perPage: 2,
+        accessibility: true,
+        pagination: false,
+        trimSpace: false,
+        breakpoints: {
+          height: '6rem'
+        }
+      },
+      optionsCategoriesProjectCards: {
+        gap: '1rem',
+        focus: 'center',
+        perPage: 2,
+        accessibility: true,
+        pagination: false,
+        trimSpace: false,
+        breakpoints: {
+          height: '6rem'
+        }
+      },
       language: window.lang,
       //Idioma actual de la aplicación
       colorCardLoading: window.cardsLoadingColor,
@@ -8491,6 +8596,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8502,7 +8608,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       selectedTypeProject: null,
       valueSessionTour: window.sessionTourRegisterProject,
-      steps: [{
+      stepsDesktop: [{
         target: '#title-register-project',
         content: this.$t('frontend.register-client.text_paso_1') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/others/think-box-dark.png\" alt=\"\">",
         params: {
@@ -8541,6 +8647,45 @@ __webpack_require__.r(__webpack_exports__);
           enableScrolling: false
         }
       }],
+      stepsMobile: [{
+        target: '#title-register-project',
+        content: this.$t('frontend.register-client.text_paso_1') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/others/think-box-dark.png\" alt=\"\">",
+        params: {
+          enableScrolling: false
+        }
+      }, {
+        target: '#title-register-project',
+        content: this.$t('frontend.register-client.text_paso_2') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/others/think-box-light.png\" alt=\"\">",
+        params: {
+          enableScrolling: false
+        }
+      }, {
+        target: '#title-register-project',
+        content: this.$t('frontend.register-client.text_paso_3') + "\n                             <br><img class=\"pt-1\" width=\"100\" src=\"/images/others/think-box-dark.png\" alt=\"\">",
+        params: {
+          enableScrolling: false
+        }
+      }, {
+        target: '#title-register-project',
+        content: this.$t('frontend.register-client.text_paso_4') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/others/think-box-light.png\" alt=\"\">",
+        params: {
+          enableScrolling: false
+        }
+      }, {
+        target: '#text-usted-las-pinta',
+        content: this.$t('frontend.register-client.text_paso_5') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/creategica-logo.png\" alt=\"\">",
+        params: {
+          placement: 'top',
+          enableScrolling: false
+        }
+      }, {
+        target: '.card-info-animation-mobile',
+        content: this.$t('frontend.register-client.text_paso_6') + "\n                    <br><img class=\"pt-1\" width=\"100\" src=\"/images/creategica-logo.png\" alt=\"\">",
+        params: {
+          placement: 'top',
+          enableScrolling: false
+        }
+      }],
       myOptions: {
         useKeyboardNavigation: false,
         labels: {
@@ -8563,13 +8708,20 @@ __webpack_require__.r(__webpack_exports__);
     saveSessionTour: function saveSessionTour() {
       axios.post('/api/save-session-tour').then(function (resp) {});
     },
-    showTour: function showTour() {
+    showTourDesktop: function showTourDesktop() {
       this.$tours['myTour'].start();
+    },
+    showTourMobile: function showTourMobile() {
+      this.$tours['myTourMobile'].start();
     }
   },
   mounted: function mounted() {
     if (this.valueSessionTour !== '1') {
-      this.$tours['myTour'].start();
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        this.$tours['myTourMobile'].start();
+      } else {
+        this.$tours['myTour'].start();
+      }
     }
   }
 });
@@ -8684,7 +8836,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.card-container {\n    perspective: 700px;\n}\n.card-flip, .card-container {\n    transform-style: preserve-3d;\n    transition: all 0.7s ease;\n}\n.card-flip div {\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    transform-style: preserve-3d;\n}\n.card-container:hover .card-flip, .active .card-flip {\n    transform: rotateY(180deg);\n}\n.card-flip {\n    display: grid;\n    grid-template: 1fr / 1fr;\n    grid-template-areas: \"frontAndBack\";\n    transform-style: preserve-3d;\n    transition: all 0.7s ease;\n}\n.front {\n    grid-area: frontAndBack;\n}\n.back {\n    grid-area: frontAndBack;\n    transform: rotateY(-180deg);\n}\n.front .title.grey-background {\n    display: none !important;\n}\n.back .title.grey-background {\n    display: none !important;\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 1024px)  and (min-width: 320px) {\n.section-categories-project-mobile{\n        display: block !important;\n}\n.section-categories-project-desktop{\n        display: none !important;\n}\n.row-cards-mobile-register-project {\n        display: block !important;\n}\n.row-cards-desktop-register-project {\n        display: none;\n}\n}\n.card-container {\n    perspective: 700px;\n}\n.card-flip, .card-container {\n    transform-style: preserve-3d;\n    transition: all 0.7s ease;\n}\n.card-flip div {\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    transform-style: preserve-3d;\n}\n.card-container:hover .card-flip, .active .card-flip {\n    transform: rotateY(180deg);\n}\n.card-flip {\n    display: grid;\n    grid-template: 1fr / 1fr;\n    grid-template-areas: \"frontAndBack\";\n    transform-style: preserve-3d;\n    transition: all 0.7s ease;\n}\n.front {\n    grid-area: frontAndBack;\n}\n.back {\n    grid-area: frontAndBack;\n    transform: rotateY(-180deg);\n}\n.front .title.grey-background {\n    display: none !important;\n}\n.back .title.grey-background {\n    display: none !important;\n}\n", ""]);
 
 // exports
 
@@ -8741,7 +8893,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.v-tour__target--highlighted {\n    box-shadow: 0 0 0 99999px rgba(0, 0, 0, .4);\n}\n", ""]);
+exports.push([module.i, "\n@media (max-width: 1024px)  and (min-width: 320px) {\n.more-info-card-desktop {\n        display: none !important;\n}\n.more-info-card-mobile{\n        display: block !important;\n}\n}\n.v-tour__target--highlighted {\n    box-shadow: 0 0 0 99999px rgba(0, 0, 0, .4);\n}\n", ""]);
 
 // exports
 
@@ -31754,141 +31906,198 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.skeletonValue == 1
-      ? _c("div", [
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(6, function(skele) {
-              return _c(
-                "div",
-                { staticClass: "col-12 col-md-3 col-lg-3 pt-3" },
-                [
-                  _c(
-                    "SkeletonScaffold",
-                    {
-                      attrs: {
-                        primary: _vm.colorCardLoading,
-                        borderRadius: "0px",
-                        animTimingFunction: "ease-in"
-                      }
-                    },
-                    [
-                      _c("div", {
-                        directives: [
-                          { name: "mBox", rawName: "v-mBox" },
-                          { name: "mDark", rawName: "v-mDark" }
-                        ],
-                        staticStyle: { height: "1.5em" }
-                      }),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("div", {
-                        directives: [
-                          { name: "mCardImg", rawName: "v-mCardImg" }
-                        ]
-                      })
-                    ]
-                  )
-                ],
-                1
-              )
-            }),
-            0
+    _c(
+      "div",
+      {
+        staticClass: "row row-cards-mobile-register-project",
+        staticStyle: { display: "none" }
+      },
+      [
+        _c("p", { staticClass: "pb-1 text-center" }, [
+          _vm._v(
+            _vm._s(_vm.$t("frontend.register-client.selecciona_tipo_proyecto"))
           )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.skeletonValue === 0
-      ? _c("div", [
-          _c("p", { staticClass: "pb-1" }, [
-            _vm._v(
-              _vm._s(
-                _vm.$t("frontend.register-client.selecciona_tipo_proyecto")
-              )
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row" },
-            _vm._l(_vm.optionsTypeProject, function(typeProject) {
-              return _c(
-                "div",
-                { key: typeProject.id, staticClass: "col-6 col-lg-3 col-md-3" },
-                [
-                  _c(
-                    "div",
-                    {
-                      class:
-                        typeProject.id ===
-                        (_vm.selectProjectType ? _vm.selectProjectType.id : 0)
-                          ? "active"
-                          : "",
-                      on: {
-                        click: function($event) {
-                          return _vm.typeProjectSelected(typeProject)
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
+            _c(
+              "splide",
+              {
+                attrs: { slides: _vm.optionsTypeProject, options: _vm.options }
+              },
+              _vm._l(_vm.optionsTypeProject, function(typeProject) {
+                return _c(
+                  "splide-slide",
+                  { key: typeProject.id, attrs: { id: typeProject.id } },
+                  [
+                    _c(
+                      "div",
+                      {
+                        class:
+                          typeProject.id ===
+                          (_vm.selectProjectType ? _vm.selectProjectType.id : 0)
+                            ? "card  active"
+                            : "card ",
+                        on: {
+                          click: function($event) {
+                            return _vm.typeProjectSelected(typeProject)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-container card-info-animation",
-                          staticStyle: { cursor: "pointer" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-flip" }, [
-                            _c("div", { staticClass: "front" }, [
-                              _c("div", { staticClass: "card no-b" }, [
-                                _c(
-                                  "div",
-                                  { staticClass: "card-body text-center" },
-                                  [
-                                    _c(
-                                      "h3",
-                                      {
-                                        staticClass: "p-t-10  font-weight-bold"
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(typeProject.name[_vm.language])
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("img", {
-                                      staticStyle: { "margin-top": "0.5rem" },
-                                      attrs: {
-                                        width: "170",
-                                        src: typeProject.picture,
-                                        alt: ""
-                                      }
-                                    })
-                                  ]
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "card-img-top pt-1 pr-1 pl-1",
+                          attrs: {
+                            src: typeProject.picture,
+                            alt: "Card image cap"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "card-body",
+                            staticStyle: { "padding-top": "1rem !important" }
+                          },
+                          [
+                            _c(
+                              "h6",
+                              {
+                                staticClass:
+                                  "card-title text-center text-title-card-mobile",
+                                staticStyle: {
+                                  "font-size": "1.2rem",
+                                  "margin-bottom": "0.30rem !important"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(typeProject.name[_vm.language])
                                 )
-                              ])
-                            ]),
+                              ]
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "back" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "card",
-                                  staticStyle: { border: "2px solid #79ebdf" }
-                                },
-                                [
+                            _c("p", { staticClass: "card-text text-center" }, [
+                              _vm._v(
+                                "\n                                    Más info\n                                "
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              }),
+              1
+            )
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row-cards-desktop-register-project" }, [
+      _vm.skeletonValue == 1
+        ? _c("div", [
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(6, function(skele) {
+                return _c(
+                  "div",
+                  { staticClass: "col-12 col-md-3 col-lg-3 pt-3" },
+                  [
+                    _c(
+                      "SkeletonScaffold",
+                      {
+                        attrs: {
+                          primary: _vm.colorCardLoading,
+                          borderRadius: "0px",
+                          animTimingFunction: "ease-in"
+                        }
+                      },
+                      [
+                        _c("div", {
+                          directives: [
+                            { name: "mBox", rawName: "v-mBox" },
+                            { name: "mDark", rawName: "v-mDark" }
+                          ],
+                          staticStyle: { height: "1.5em" }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("div", {
+                          directives: [
+                            { name: "mCardImg", rawName: "v-mCardImg" }
+                          ]
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                )
+              }),
+              0
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.skeletonValue === 0
+        ? _c("div", [
+            _c("p", { staticClass: "pb-1" }, [
+              _vm._v(
+                _vm._s(
+                  _vm.$t("frontend.register-client.selecciona_tipo_proyecto")
+                )
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.optionsTypeProject, function(typeProject) {
+                return _c(
+                  "div",
+                  {
+                    key: typeProject.id,
+                    staticClass: "col-6 col-lg-3 col-md-3"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        class:
+                          typeProject.id ===
+                          (_vm.selectProjectType ? _vm.selectProjectType.id : 0)
+                            ? "active"
+                            : "",
+                        on: {
+                          click: function($event) {
+                            return _vm.typeProjectSelected(typeProject)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "card-container card-info-animation",
+                            staticStyle: { cursor: "pointer" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-flip" }, [
+                              _c("div", { staticClass: "front" }, [
+                                _c("div", { staticClass: "card no-b" }, [
                                   _c(
                                     "div",
-                                    { staticClass: "card-body cardPatterType" },
+                                    { staticClass: "card-body text-center" },
                                     [
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-check-circle text-success checkPatterType"
-                                      }),
-                                      _vm._v(" "),
                                       _c(
                                         "h3",
                                         {
@@ -31904,40 +32113,88 @@ var render = function() {
                                         ]
                                       ),
                                       _vm._v(" "),
-                                      _c(
-                                        "p",
-                                        {
-                                          staticClass: "mt-1 text-justify",
-                                          staticStyle: {
-                                            "line-height": "1.3rem !important"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            " Lorem\n                                            ipsum\n                                            dolor sit amet,\n                                            consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                            dolorum\n                                            esse,\n                                            fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                            provident\n                                            recusandae repudiandae saepe tempore veniam voluptatum."
-                                          )
-                                        ]
-                                      )
+                                      _c("img", {
+                                        staticStyle: { "margin-top": "0.5rem" },
+                                        attrs: {
+                                          width: "170",
+                                          src: typeProject.picture,
+                                          alt: ""
+                                        }
+                                      })
                                     ]
                                   )
-                                ]
-                              )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "back" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "card",
+                                    staticStyle: { border: "2px solid #79ebdf" }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "card-body cardPatterType"
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-check-circle text-success checkPatterType"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "h3",
+                                          {
+                                            staticClass:
+                                              "p-t-10  font-weight-bold"
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                typeProject.name[_vm.language]
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "p",
+                                          {
+                                            staticClass: "mt-1 text-justify",
+                                            staticStyle: {
+                                              "line-height": "1.3rem !important"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
                             ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              )
-            }),
-            0
-          )
-        ])
-      : _vm._e(),
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _vm.selectProjectType
-      ? _c("div", { staticStyle: { height: "35rem" } }, [
+      ? _c("div", [
           _c(
             "div",
             {
@@ -31953,116 +32210,218 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row pt-2 pb-1 justify-content-center" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c(
-                "h2",
-                { staticClass: "font-weight-bolder display-4 text-center" },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.selectProjectType.name[_vm.language])
-                  )
-                ]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "pt-1" }, [
-            _vm._v(
-              _vm._s(
-                _vm.$t("frontend.register-client.selecciona_categoria_proyecto")
-              )
-            )
-          ]),
-          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "row" },
-            _vm._l(_vm.optionsCategoriesProject, function(categoryProject) {
-              return _c(
+            {
+              staticClass: "section-categories-project-mobile",
+              staticStyle: { display: "none" }
+            },
+            [
+              _c(
                 "div",
-                {
-                  key: categoryProject.id,
-                  staticClass: "col-6 col-lg-3 col-md-3"
-                },
+                { staticClass: "row pt-2 pb-1 justify-content-center" },
                 [
-                  _c(
-                    "div",
-                    {
-                      class:
-                        categoryProject.id ===
-                        (_vm.selectProjectCategory
-                          ? _vm.selectProjectCategory.id
-                          : 0)
-                          ? "active"
-                          : "",
-                      on: {
-                        click: function($event) {
-                          return _vm.categoryProjectSelected(categoryProject)
+                  _c("div", { staticClass: "col-12" }, [
+                    _c(
+                      "h3",
+                      {
+                        staticClass: "font-weight-bolder display-4 text-center"
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.selectProjectType.name[_vm.language])
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "pt-1 text-center" }, [
+                _vm._v(
+                  _vm._s(
+                    _vm.$t(
+                      "frontend.register-client.selecciona_categoria_proyecto"
+                    )
+                  )
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-12" },
+                  [
+                    _c(
+                      "splide",
+                      {
+                        attrs: {
+                          slides: _vm.optionsCategoriesProject,
+                          options: _vm.optionsCategoriesProjectCards
                         }
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "card-container",
-                          staticStyle: { cursor: "pointer" },
-                          attrs: { id: "card-info-animation-category" }
-                        },
-                        [
-                          _c("div", { staticClass: "card-flip" }, [
-                            _c("div", { staticClass: "front" }, [
-                              _c("div", { staticClass: "card no-b" }, [
+                      },
+                      _vm._l(_vm.optionsCategoriesProject, function(
+                        categoryProject
+                      ) {
+                        return _c(
+                          "splide-slide",
+                          {
+                            key: categoryProject.id,
+                            attrs: { id: categoryProject.id }
+                          },
+                          [
+                            _c(
+                              "div",
+                              {
+                                class:
+                                  categoryProject.id ===
+                                  (_vm.selectProjectCategory
+                                    ? _vm.selectProjectCategory.id
+                                    : 0)
+                                    ? "card  active"
+                                    : "card ",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.categoryProjectSelected(
+                                      categoryProject
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("img", {
+                                  staticClass: "card-img-top pt-1",
+                                  attrs: {
+                                    width: "200",
+                                    src: categoryProject.picture,
+                                    alt: "Card image cap"
+                                  }
+                                }),
+                                _vm._v(" "),
                                 _c(
                                   "div",
-                                  { staticClass: "card-body text-center" },
+                                  {
+                                    staticClass: "card-body",
+                                    staticStyle: {
+                                      "padding-top": "1rem !important"
+                                    }
+                                  },
                                   [
                                     _c(
-                                      "h3",
+                                      "h6",
                                       {
-                                        staticClass: "p-t-10  font-weight-bold"
+                                        staticClass:
+                                          "card-title text-center text-title-card-mobile",
+                                        staticStyle: {
+                                          "font-size": "1.2rem",
+                                          "margin-bottom": "0.30rem !important"
+                                        }
                                       },
                                       [
                                         _vm._v(
-                                          _vm._s(
-                                            categoryProject.name[_vm.language]
-                                          )
+                                          "\n                                            " +
+                                            _vm._s(
+                                              categoryProject.name[_vm.language]
+                                            )
                                         )
                                       ]
                                     ),
                                     _vm._v(" "),
-                                    _c("img", {
-                                      staticStyle: { "margin-top": "0.5rem" },
-                                      attrs: {
-                                        width: "170",
-                                        src: categoryProject.picture,
-                                        alt: ""
-                                      }
-                                    })
+                                    _c(
+                                      "p",
+                                      { staticClass: "card-text text-center" },
+                                      [
+                                        _vm._v(
+                                          "\n                                            Más info\n                                        "
+                                        )
+                                      ]
+                                    )
                                   ]
                                 )
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "back" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "card",
-                                  staticStyle: { border: "2px solid #79ebdf" }
-                                },
-                                [
+                              ]
+                            )
+                          ]
+                        )
+                      }),
+                      1
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "section-categories-project-desktop" }, [
+            _c("div", { staticClass: "row pt-2 pb-1 justify-content-center" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c(
+                  "h3",
+                  { staticClass: "font-weight-bolder display-4 text-center" },
+                  [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.selectProjectType.name[_vm.language])
+                    )
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "pt-1" }, [
+              _vm._v(
+                _vm._s(
+                  _vm.$t(
+                    "frontend.register-client.selecciona_categoria_proyecto"
+                  )
+                )
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row" },
+              _vm._l(_vm.optionsCategoriesProject, function(categoryProject) {
+                return _c(
+                  "div",
+                  {
+                    key: categoryProject.id,
+                    staticClass: "col-6 col-lg-3 col-md-3"
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        class:
+                          categoryProject.id ===
+                          (_vm.selectProjectCategory
+                            ? _vm.selectProjectCategory.id
+                            : 0)
+                            ? "active"
+                            : "",
+                        on: {
+                          click: function($event) {
+                            return _vm.categoryProjectSelected(categoryProject)
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "card-container",
+                            staticStyle: { cursor: "pointer" },
+                            attrs: { id: "card-info-animation-category" }
+                          },
+                          [
+                            _c("div", { staticClass: "card-flip" }, [
+                              _c("div", { staticClass: "front" }, [
+                                _c("div", { staticClass: "card no-b" }, [
                                   _c(
                                     "div",
-                                    { staticClass: "card-body cardPatterType" },
+                                    { staticClass: "card-body text-center" },
                                     [
-                                      _c("i", {
-                                        staticClass:
-                                          "fa fa-check-circle text-success checkPatterType"
-                                      }),
-                                      _vm._v(" "),
                                       _c(
                                         "h3",
                                         {
@@ -32078,35 +32437,85 @@ var render = function() {
                                         ]
                                       ),
                                       _vm._v(" "),
-                                      _c(
-                                        "p",
-                                        {
-                                          staticClass: "mt-1 text-justify",
-                                          staticStyle: {
-                                            "line-height": "1.3rem !important"
-                                          }
-                                        },
-                                        [
-                                          _vm._v(
-                                            " Lorem\n                                            ipsum\n                                            dolor sit amet,\n                                            consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                            dolorum\n                                            esse,\n                                            fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                            provident\n                                            recusandae repudiandae saepe tempore veniam voluptatum."
-                                          )
-                                        ]
-                                      )
+                                      _c("img", {
+                                        staticStyle: { "margin-top": "0.5rem" },
+                                        attrs: {
+                                          width: "170",
+                                          src: categoryProject.picture,
+                                          alt: ""
+                                        }
+                                      })
                                     ]
                                   )
-                                ]
-                              )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "back" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "card",
+                                    staticStyle: { border: "2px solid #79ebdf" }
+                                  },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "card-body cardPatterType"
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass:
+                                            "fa fa-check-circle text-success checkPatterType"
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "h3",
+                                          {
+                                            staticClass:
+                                              "p-t-10  font-weight-bold"
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                categoryProject.name[
+                                                  _vm.language
+                                                ]
+                                              )
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "p",
+                                          {
+                                            staticClass: "mt-1 text-justify",
+                                            staticStyle: {
+                                              "line-height": "1.3rem !important"
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
                             ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ]
-              )
-            }),
-            0
-          )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ])
         ])
       : _vm._e()
   ])
@@ -32408,7 +32817,7 @@ var render = function() {
             _c(
               "p",
               {
-                staticClass: "text-center",
+                staticClass: "text-center more-info-card-desktop",
                 staticStyle: { "font-size": "1rem" }
               },
               [
@@ -32416,7 +32825,29 @@ var render = function() {
                   "a",
                   {
                     staticStyle: { color: "#636b6f" },
-                    on: { click: _vm.showTour }
+                    on: { click: _vm.showTourDesktop }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(_vm.$t("frontend.register-client.mostrar_info"))
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                staticClass: "text-center more-info-card-mobile",
+                staticStyle: { "font-size": "1rem", display: "none" }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticStyle: { color: "#636b6f" },
+                    on: { click: _vm.showTourMobile }
                   },
                   [
                     _vm._v(
@@ -32431,16 +32862,22 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("cards-projects", {
-        staticStyle: { display: "none" },
         on: { selectTypeProject: _vm.selectTypeProject }
       }),
-      _vm._v(" "),
-      _c("cards-projects-mobile"),
       _vm._v(" "),
       _c("v-tour", {
         attrs: {
           name: "myTour",
-          steps: _vm.steps,
+          steps: _vm.stepsDesktop,
+          options: _vm.myOptions,
+          callbacks: _vm.myCallbacks
+        }
+      }),
+      _vm._v(" "),
+      _c("v-tour", {
+        attrs: {
+          name: "myTourMobile",
+          steps: _vm.stepsMobile,
           options: _vm.myOptions,
           callbacks: _vm.myCallbacks
         }
@@ -70786,8 +71223,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuesax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuesax__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var vuesax_dist_vuesax_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuesax/dist/vuesax.css */ "./node_modules/vuesax/dist/vuesax.css");
 /* harmony import */ var vuesax_dist_vuesax_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuesax_dist_vuesax_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! material-icons/iconfont/material-icons.css */ "./node_modules/material-icons/iconfont/material-icons.css");
-/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! material-icons/iconfont/material-icons.css */ "./node_modules/material-icons/iconfont/material-icons.css");
+/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vue_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-i18n */ "./node_modules/vue-i18n/dist/vue-i18n.esm.js");
 /* harmony import */ var _vue_i18n_locales_generated__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./vue-i18n-locales.generated */ "./resources/js/vue-i18n-locales.generated.js");
 /**
@@ -70982,15 +71419,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************************!*\
   !*** ./resources/js/components/components/cardsrproject/CardProjectMobile.vue ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CardProjectMobile_vue_vue_type_template_id_0afaea50___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardProjectMobile.vue?vue&type=template&id=0afaea50& */ "./resources/js/components/components/cardsrproject/CardProjectMobile.vue?vue&type=template&id=0afaea50&");
 /* harmony import */ var _CardProjectMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardProjectMobile.vue?vue&type=script&lang=js& */ "./resources/js/components/components/cardsrproject/CardProjectMobile.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _CardProjectMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _CardProjectMobile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _CardProjectMobile_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardProjectMobile.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/components/cardsrproject/CardProjectMobile.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CardProjectMobile_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardProjectMobile.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/components/cardsrproject/CardProjectMobile.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -71022,7 +71458,7 @@ component.options.__file = "resources/js/components/components/cardsrproject/Car
 /*!*********************************************************************************************************!*\
   !*** ./resources/js/components/components/cardsrproject/CardProjectMobile.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

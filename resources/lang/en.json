@@ -14,5 +14,9 @@
     "Aceptar": "Accept",
     "Cancelar": "Cancel",
 
-    "Términos y Condiciones": "Terms and Conditions"
+    "Términos y Condiciones": "Terms and Conditions",
+
+    "mode_light": "Light Mode",
+    "mode_dark": "Dark Mode",
+    "mode_system": "System"
 }

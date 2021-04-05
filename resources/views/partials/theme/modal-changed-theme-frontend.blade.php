@@ -16,27 +16,27 @@
                 </div>
 <!-- Tarjetas para cambiar el tema para escritorio-->
                 <div class="row row-change-theme">
-                    <div class="col-6 col-lg-4 col-md-4">
+                    <div class="col-12 col-lg-4 col-md-4">
                         <div class="card icon-theme card-light card-theme-change  active" value-theme="2">
                             <img class="card-img-top" src="/images/theme/img-light-mode.png" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title theme-change text-center">Light Mode</h5>
+                                <h5 class="card-title theme-change text-center">{{ __('mode_light') }}</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-4 col-md-4">
+                    <div class="col-12 col-lg-4 col-md-4">
                         <div class="card icon-theme card-dark card-theme-change" value-theme="1">
                             <img class="card-img-top" src="/images/theme/img-dark-mode.png" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title theme-change text-center">Dark Mode</h5>
+                                <h5 class="card-title theme-change text-center">{{ __('mode_dark') }}</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-4 col-md-4">
+                    <div class="col-12 col-lg-4 col-md-4">
                         <div class="card icon-theme card-system card-theme-change" value-theme="3">
                             <img class="card-img-top" src="/images/theme/img-system-theme.png" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title theme-change text-center">Según el sistema</h5>
+                                <h5 class="card-title theme-change text-center">{{ __('mode_system') }}</h5>
                             </div>
                         </div>
                     </div>

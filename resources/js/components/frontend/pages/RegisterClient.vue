@@ -10,16 +10,17 @@
                         {{ $t('frontend.register-client.Usted_no_las_pinta') }}
                         <img style="padding-bottom: 0.7rem" width="11" src="/images/others/comi-final.png" alt="">
                     </p>
-                    <p class="text-center" style="font-size: 1rem"> <a @click="showTour" style="color: #636b6f">{{ $t('frontend.register-client.mostrar_info') }}</a></p>
+                    <p class="text-center more-info-card-desktop" style="font-size: 1rem"> <a @click="showTourDesktop" style="color: #636b6f">{{ $t('frontend.register-client.mostrar_info') }}</a></p>
+                    <p class="text-center more-info-card-mobile" style="font-size: 1rem; display: none"> <a @click="showTourMobile" style="color: #636b6f">{{ $t('frontend.register-client.mostrar_info') }}</a></p>
                 </blockquote>
             </div>
         </div>
 <!-- Tarjetas con animación para el escritorio  -->
-        <cards-projects style="display: none" @selectTypeProject="selectTypeProject"></cards-projects>
-<!-- Tarjetas para la versión mobile -->
-        <cards-projects-mobile></cards-projects-mobile>
-<!-- Componente para mostrar el tour -->
-        <v-tour name="myTour" :steps="steps" :options="myOptions" :callbacks="myCallbacks"></v-tour>
+        <cards-projects @selectTypeProject="selectTypeProject"></cards-projects>
+<!-- Componente para mostrar el tour desktop -->
+        <v-tour name="myTour" :steps="stepsDesktop" :options="myOptions" :callbacks="myCallbacks"></v-tour>
+        <!-- Componente para mostrar el tour mobile -->
+        <v-tour name="myTourMobile" :steps="stepsMobile" :options="myOptions" :callbacks="myCallbacks"></v-tour>
     </div>
 
 </template>
@@ -39,7 +40,7 @@ export default {
             selectedTypeProject: null,
             valueSessionTour:  window.sessionTourRegisterProject,
 
-            steps: [
+            stepsDesktop: [
                 {
                     target: '#title-register-project',
                     content: this.$t('frontend.register-client.text_paso_1') +`
@@ -91,6 +92,58 @@ export default {
                     }
                 },
             ],
+            stepsMobile: [
+                {
+                    target: '#title-register-project',
+                    content: this.$t('frontend.register-client.text_paso_1') +`
+                    <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
+                    params: {
+                        enableScrolling: false
+                    }
+                },
+                {
+                    target: '#title-register-project',
+                    content: this.$t('frontend.register-client.text_paso_2') +`
+                    <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
+                    params: {
+                        enableScrolling: false
+                    }
+                },
+                {
+                    target: '#title-register-project',
+                    content: this.$t('frontend.register-client.text_paso_3') +`
+                             <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
+                    params: {
+                        enableScrolling: false
+                    }
+                },
+                {
+                    target: '#title-register-project',
+                    content: this.$t('frontend.register-client.text_paso_4') +`
+                    <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
+                    params: {
+                        enableScrolling: false
+                    }
+                },
+                {
+                    target: '#text-usted-las-pinta',
+                    content: this.$t('frontend.register-client.text_paso_5') +`
+                    <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
+                    params: {
+                        placement: 'top',
+                        enableScrolling: false
+                    }
+                },
+                {
+                    target: '.card-info-animation-mobile',
+                    content: this.$t('frontend.register-client.text_paso_6') +`
+                    <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
+                    params: {
+                        placement: 'top',
+                        enableScrolling: false
+                    }
+                },
+            ],
             myOptions: {
                 useKeyboardNavigation: false,
                 labels: {
@@ -115,19 +168,35 @@ export default {
 
            });
         },
-        showTour(){
+        showTourDesktop(){
             this.$tours['myTour'].start()
+        },
+        showTourMobile(){
+            this.$tours['myTourMobile'].start()
         }
     },
     mounted() {
         if (this.valueSessionTour !== '1'){
-            this.$tours['myTour'].start()
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                this.$tours['myTourMobile'].start()
+            }else{
+                this.$tours['myTour'].start()
+            }
         }
     },
 }
 </script>
 
 <style>
+
+@media (max-width: 1024px)  and (min-width: 320px) {
+    .more-info-card-desktop {
+        display: none !important;
+    }
+    .more-info-card-mobile{
+        display: block !important;
+    }
+}
 
 .v-tour__target--highlighted {
     box-shadow: 0 0 0 99999px rgba(0, 0, 0, .4);
