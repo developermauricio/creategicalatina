@@ -8073,6 +8073,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splidejs_vue_splide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @splidejs/vue-splide */ "./node_modules/@splidejs/vue-splide/src/js/index.js");
 /* harmony import */ var _splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @splidejs/splide/dist/css/themes/splide-default.min.css */ "./node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css");
 /* harmony import */ var _splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_splidejs_splide_dist_css_themes_splide_default_min_css__WEBPACK_IMPORTED_MODULE_2__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8273,6 +8300,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      popupMoreInfoProjectActivo: false,
+      infoTypeProjectShowModal: {
+        name: {
+          es: null,
+          en: null
+        },
+        description: null
+      },
+      colorLoading: '#161d31',
       options: {
         gap: '1rem',
         focus: 'center',
@@ -8301,7 +8337,7 @@ __webpack_require__.r(__webpack_exports__);
       //color de las tarjetas cargando segun el tema
       skeletonValue: 1,
       selectProjectType: null,
-      selectProjectCategory: null,
+      listCategoriesProject: [],
       optionsTypeProject: [],
       //Arreglo con los tipos de proyectos
       optionsCategoriesProject: [] //Arreglo con las categorias de proyectos
@@ -8310,16 +8346,80 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     typeProjectSelected: function typeProjectSelected(typeProject) {
+      this.$vs.loading({
+        color: this.colorLoading,
+        text: 'Cargando...'
+      });
       this.selectProjectType = typeProject;
-      this.$emit('selectTypeProject', this.selectProjectType);
-      this.eventSelectScroll('#section-projects-categories'); //Enviamos el tipo del projecto al componente padre
+      this.$emit('selectTypeProject', this.selectProjectType); //Enviamos el tipo del projecto al componente padre
 
-      console.log(typeProject.id);
       this.getCategoriesProjects(typeProject.id);
       this.$tours['myTour'].finish();
     },
-    categoryProjectSelected: function categoryProjectSelected(categoriesProjects) {
-      alert('Seleccionó', categoriesProjects.id);
+    categoriesProjectSelected: function categoriesProjectSelected(categoriesProject) {
+      console.log(categoriesProject);
+
+      if (this.listCategoriesProject.length == 0) {
+        this.listCategoriesProject.push(categoriesProject);
+        this.eventSelectScroll("#section-tags-categories-project"); // this.fourthSeccion = true;
+        // this.openNotification('Datos complementarios de la campaña', true);
+
+        return;
+      }
+
+      var add = 0;
+
+      var _iterator = _createForOfIteratorHelper(this.listCategoriesProject),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var item = _step.value;
+          if (parseInt(item.id) == parseInt(categoriesProject.id)) add++;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      if (add == 0) {
+        this.listCategoriesProject.push(categoriesProject);
+        this.eventSelectScroll("#section-tags-categories-project");
+      } else {
+        var index = this.listCategoriesProject.indexOf(categoriesProject);
+        if (index != -1) this.listCategoriesProject.splice(index, 1);
+      }
+    },
+    selectedCategoriesProjectActive: function selectedCategoriesProjectActive(categoriesProject) {
+      if (this.listCategoriesProject.length == 0) return false;
+
+      var _iterator2 = _createForOfIteratorHelper(this.listCategoriesProject),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var item = _step2.value;
+
+          if (parseInt(item.id) == parseInt(categoriesProject.id)) {
+            return true;
+          }
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      return false;
+    },
+    removeTagsCategoriesProject: function removeTagsCategoriesProject(categoriesProject) {
+      this.listCategoriesProject.splice(this.listCategoriesProject.indexOf(categoriesProject), 1);
+    },
+    moreInformationProject: function moreInformationProject(typeProject) {
+      this.popupMoreInfoProjectActivo = true;
+      this.infoTypeProjectShowModal = Object.assign({}, typeProject);
+      console.log(this.infoTypeProjectShowModal);
     },
     getTypeProjects: function getTypeProjects() {
       var _this = this;
@@ -8336,6 +8436,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/get-categories-projects/' + id).then(function (resp) {
         _this2.optionsCategoriesProject = resp.data.data;
+
+        _this2.$vs.loading.close();
+
+        _this2.eventSelectScroll('#section-projects-categories');
       })["catch"](function (err) {});
     },
     eventSelectScroll: function eventSelectScroll(option) {
@@ -31905,318 +32009,527 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "row row-cards-mobile-register-project",
-        staticStyle: { display: "none" }
-      },
-      [
-        _c("p", { staticClass: "pb-1 text-center" }, [
-          _vm._v(
-            _vm._s(_vm.$t("frontend.register-client.selecciona_tipo_proyecto"))
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "col-12" },
-          [
-            _c(
-              "splide",
-              {
-                attrs: { slides: _vm.optionsTypeProject, options: _vm.options }
-              },
-              _vm._l(_vm.optionsTypeProject, function(typeProject) {
-                return _c(
-                  "splide-slide",
-                  { key: typeProject.id, attrs: { id: typeProject.id } },
-                  [
-                    _c(
-                      "div",
-                      {
-                        class:
-                          typeProject.id ===
-                          (_vm.selectProjectType ? _vm.selectProjectType.id : 0)
-                            ? "card  active"
-                            : "card ",
-                        on: {
-                          click: function($event) {
-                            return _vm.typeProjectSelected(typeProject)
-                          }
-                        }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "card-img-top pt-1 pr-1 pl-1",
-                          attrs: {
-                            src: typeProject.picture,
-                            alt: "Card image cap"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "card-body",
-                            staticStyle: { "padding-top": "1rem !important" }
-                          },
-                          [
-                            _c(
-                              "h6",
-                              {
-                                staticClass:
-                                  "card-title text-center text-title-card-mobile",
-                                staticStyle: {
-                                  "font-size": "1.2rem",
-                                  "margin-bottom": "0.30rem !important"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(typeProject.name[_vm.language])
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "card-text text-center" }, [
-                              _vm._v(
-                                "\n                                    Más info\n                                "
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              }),
-              1
-            )
-          ],
-          1
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "row-cards-desktop-register-project" }, [
-      _vm.skeletonValue == 1
-        ? _c("div", [
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(6, function(skele) {
-                return _c(
-                  "div",
-                  { staticClass: "col-12 col-md-3 col-lg-3 pt-3" },
-                  [
-                    _c(
-                      "SkeletonScaffold",
-                      {
-                        attrs: {
-                          primary: _vm.colorCardLoading,
-                          borderRadius: "0px",
-                          animTimingFunction: "ease-in"
-                        }
-                      },
-                      [
-                        _c("div", {
-                          directives: [
-                            { name: "mBox", rawName: "v-mBox" },
-                            { name: "mDark", rawName: "v-mDark" }
-                          ],
-                          staticStyle: { height: "1.5em" }
-                        }),
-                        _vm._v(" "),
-                        _c("br"),
-                        _vm._v(" "),
-                        _c("div", {
-                          directives: [
-                            { name: "mCardImg", rawName: "v-mCardImg" }
-                          ]
-                        })
-                      ]
-                    )
-                  ],
-                  1
-                )
-              }),
-              0
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.skeletonValue === 0
-        ? _c("div", [
-            _c("p", { staticClass: "pb-1" }, [
-              _vm._v(
-                _vm._s(
-                  _vm.$t("frontend.register-client.selecciona_tipo_proyecto")
-                )
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        {
+          staticClass: "row row-cards-mobile-register-project",
+          staticStyle: { display: "none" }
+        },
+        [
+          _c("p", { staticClass: "pb-1 text-center" }, [
+            _vm._v(
+              _vm._s(
+                _vm.$t("frontend.register-client.selecciona_tipo_proyecto")
               )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.optionsTypeProject, function(typeProject) {
-                return _c(
-                  "div",
-                  {
-                    key: typeProject.id,
-                    staticClass: "col-6 col-lg-3 col-md-3"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        class:
-                          typeProject.id ===
-                          (_vm.selectProjectType ? _vm.selectProjectType.id : 0)
-                            ? "active"
-                            : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.typeProjectSelected(typeProject)
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-12" },
+            [
+              _c(
+                "splide",
+                {
+                  attrs: {
+                    slides: _vm.optionsTypeProject,
+                    options: _vm.options
+                  }
+                },
+                _vm._l(_vm.optionsTypeProject, function(typeProject) {
+                  return _c(
+                    "splide-slide",
+                    { key: typeProject.id, attrs: { id: typeProject.id } },
+                    [
+                      _c(
+                        "div",
+                        {
+                          class:
+                            typeProject.id ===
+                            (_vm.selectProjectType
+                              ? _vm.selectProjectType.id
+                              : 0)
+                              ? "card  active"
+                              : "card "
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "card-img-top pt-1 pr-1 pl-1",
+                            attrs: {
+                              src: typeProject.picture,
+                              alt: "Card image cap"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.typeProjectSelected(typeProject)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card-body",
+                              staticStyle: { "padding-top": "1rem !important" }
+                            },
+                            [
+                              _c(
+                                "h6",
+                                {
+                                  staticClass:
+                                    "card-title text-center text-title-card-mobile",
+                                  staticStyle: {
+                                    "font-size": "1.2rem",
+                                    "margin-bottom": "0.30rem !important"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(typeProject.name[_vm.language])
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  staticClass: "card-text text-center",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.moreInformationProject(
+                                        typeProject
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(_vm.$t("mas_info")) +
+                                      "\n                                "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                1
+              )
+            ],
+            1
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row-cards-desktop-register-project" }, [
+        _vm.skeletonValue == 1
+          ? _c("div", [
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(6, function(skele) {
+                  return _c(
+                    "div",
+                    { staticClass: "col-12 col-md-3 col-lg-3 pt-3" },
+                    [
+                      _c(
+                        "SkeletonScaffold",
+                        {
+                          attrs: {
+                            primary: _vm.colorCardLoading,
+                            borderRadius: "0px",
+                            animTimingFunction: "ease-in"
                           }
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "card-container card-info-animation",
-                            staticStyle: { cursor: "pointer" }
-                          },
-                          [
-                            _c("div", { staticClass: "card-flip" }, [
-                              _c("div", { staticClass: "front" }, [
-                                _c("div", { staticClass: "card no-b" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "card-body text-center" },
-                                    [
+                        },
+                        [
+                          _c("div", {
+                            directives: [
+                              { name: "mBox", rawName: "v-mBox" },
+                              { name: "mDark", rawName: "v-mDark" }
+                            ],
+                            staticStyle: { height: "1.5em" }
+                          }),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("div", {
+                            directives: [
+                              { name: "mCardImg", rawName: "v-mCardImg" }
+                            ]
+                          })
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.skeletonValue === 0
+          ? _c("div", [
+              _c("p", { staticClass: "pb-1" }, [
+                _vm._v(
+                  _vm._s(
+                    _vm.$t("frontend.register-client.selecciona_tipo_proyecto")
+                  )
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.optionsTypeProject, function(typeProject) {
+                  return _c(
+                    "div",
+                    {
+                      key: typeProject.id,
+                      staticClass: "col-6 col-lg-3 col-md-3"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          class:
+                            typeProject.id ===
+                            (_vm.selectProjectType
+                              ? _vm.selectProjectType.id
+                              : 0)
+                              ? "active"
+                              : ""
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card-container card-info-animation",
+                              staticStyle: { cursor: "pointer" }
+                            },
+                            [
+                              _c("div", { staticClass: "card-flip" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "front",
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.typeProjectSelected(
+                                          typeProject
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("div", { staticClass: "card no-b" }, [
                                       _c(
-                                        "h3",
+                                        "div",
                                         {
-                                          staticClass:
-                                            "p-t-10  font-weight-bold"
+                                          staticClass: "card-body text-center"
                                         },
                                         [
-                                          _vm._v(
-                                            _vm._s(
-                                              typeProject.name[_vm.language]
-                                            )
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass:
+                                                "p-t-10  font-weight-bold"
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  typeProject.name[_vm.language]
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c("img", {
+                                            staticStyle: {
+                                              "margin-top": "0.5rem"
+                                            },
+                                            attrs: {
+                                              width: "170",
+                                              src: typeProject.picture,
+                                              alt: ""
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "back" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "card",
+                                      staticStyle: {
+                                        border: "2px solid #79ebdf"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "card-body cardPatterType pt-1 pr- pl-1 pb-0",
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.typeProjectSelected(
+                                                typeProject
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-check-circle text-success checkPatterType"
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass:
+                                                "p-t-10  font-weight-bold"
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  typeProject.name[_vm.language]
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "p",
+                                            {
+                                              staticClass: "mt-1 text-justify",
+                                              staticStyle: {
+                                                "line-height":
+                                                  "1.3rem !important"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
+                                              )
+                                            ]
                                           )
                                         ]
                                       ),
                                       _vm._v(" "),
-                                      _c("img", {
-                                        staticStyle: { "margin-top": "0.5rem" },
-                                        attrs: {
-                                          width: "170",
-                                          src: typeProject.picture,
-                                          alt: ""
-                                        }
-                                      })
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "float-right btn btn-flat-primary waves-effect link",
+                                          attrs: { type: "button" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.moreInformationProject(
+                                                typeProject
+                                              )
+                                            }
+                                          }
+                                        },
+                                        [_vm._v(_vm._s(_vm.$t("mas_info")))]
+                                      )
                                     ]
                                   )
                                 ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "back" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "card",
-                                    staticStyle: { border: "2px solid #79ebdf" }
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "card-body cardPatterType"
-                                      },
-                                      [
-                                        _c("i", {
-                                          staticClass:
-                                            "fa fa-check-circle text-success checkPatterType"
-                                        }),
-                                        _vm._v(" "),
-                                        _c(
-                                          "h3",
-                                          {
-                                            staticClass:
-                                              "p-t-10  font-weight-bold"
-                                          },
-                                          [
-                                            _vm._v(
-                                              _vm._s(
-                                                typeProject.name[_vm.language]
-                                              )
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass: "mt-1 text-justify",
-                                            staticStyle: {
-                                              "line-height": "1.3rem !important"
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
                               ])
-                            ])
-                          ]
-                        )
-                      ]
-                    )
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _vm.selectProjectType
+        ? _c("div", [
+            _c(
+              "div",
+              {
+                staticClass: "divider",
+                attrs: { id: "section-projects-categories" }
+              },
+              [
+                _c("div", { staticClass: "divider-text" }, [
+                  _vm._v(
+                    _vm._s(_vm.$t("frontend.register-client.siguiente_paso"))
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "section-categories-project-mobile",
+                staticStyle: { display: "none" }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "row pt-2 pb-2 justify-content-center" },
+                  [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticClass:
+                            "font-weight-bolder display-4 text-center"
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.selectProjectType.name[_vm.language])
+                          )
+                        ]
+                      )
+                    ])
                   ]
-                )
-              }),
-              0
-            )
-          ])
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _vm.selectProjectType
-      ? _c("div", [
-          _c(
-            "div",
-            {
-              staticClass: "divider",
-              attrs: { id: "section-projects-categories" }
-            },
-            [
-              _c("div", { staticClass: "divider-text" }, [
-                _vm._v(
-                  _vm._s(_vm.$t("frontend.register-client.siguiente_paso"))
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "section-categories-project-mobile",
-              staticStyle: { display: "none" }
-            },
-            [
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "pt-1 text-center" }, [
+                  _vm._v(
+                    _vm._s(
+                      _vm.$t(
+                        "frontend.register-client.selecciona_categoria_proyecto"
+                      )
+                    )
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-12" },
+                    [
+                      _c(
+                        "splide",
+                        {
+                          attrs: {
+                            slides: _vm.optionsCategoriesProject,
+                            options: _vm.optionsCategoriesProjectCards
+                          }
+                        },
+                        _vm._l(_vm.optionsCategoriesProject, function(
+                          categoriesProject
+                        ) {
+                          return _c(
+                            "splide-slide",
+                            {
+                              key: categoriesProject.id,
+                              attrs: { id: categoriesProject.id }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  class: _vm.selectedCategoriesProjectActive(
+                                    categoriesProject
+                                  )
+                                    ? "card  active"
+                                    : "card",
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.categoriesProjectSelected(
+                                        categoriesProject
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass: "card-img-top pt-1",
+                                    attrs: {
+                                      width: "200",
+                                      src: categoriesProject.picture,
+                                      alt: "Card image cap"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "card-body",
+                                      staticStyle: {
+                                        "padding-top": "1rem !important"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "h6",
+                                        {
+                                          staticClass:
+                                            "card-title text-center text-title-card-mobile",
+                                          staticStyle: {
+                                            "font-size": "1.2rem",
+                                            "margin-bottom":
+                                              "0.30rem !important"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(
+                                                categoriesProject.name[
+                                                  _vm.language
+                                                ]
+                                              )
+                                          )
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass: "card-text text-center"
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                            " +
+                                              _vm._s(_vm.$t("mas_info")) +
+                                              "\n                                        "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "section-categories-project-desktop" }, [
               _c(
                 "div",
                 { staticClass: "row pt-2 pb-1 justify-content-center" },
@@ -32238,7 +32551,7 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("p", { staticClass: "pt-1 text-center" }, [
+              _c("p", { staticClass: "pt-1" }, [
                 _vm._v(
                   _vm._s(
                     _vm.$t(
@@ -32248,227 +32561,51 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "col-12" },
-                  [
-                    _c(
-                      "splide",
-                      {
-                        attrs: {
-                          slides: _vm.optionsCategoriesProject,
-                          options: _vm.optionsCategoriesProjectCards
-                        }
-                      },
-                      _vm._l(_vm.optionsCategoriesProject, function(
-                        categoryProject
-                      ) {
-                        return _c(
-                          "splide-slide",
-                          {
-                            key: categoryProject.id,
-                            attrs: { id: categoryProject.id }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                class:
-                                  categoryProject.id ===
-                                  (_vm.selectProjectCategory
-                                    ? _vm.selectProjectCategory.id
-                                    : 0)
-                                    ? "card  active"
-                                    : "card ",
-                                on: {
-                                  click: function($event) {
-                                    return _vm.categoryProjectSelected(
-                                      categoryProject
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "card-img-top pt-1",
-                                  attrs: {
-                                    width: "200",
-                                    src: categoryProject.picture,
-                                    alt: "Card image cap"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "card-body",
-                                    staticStyle: {
-                                      "padding-top": "1rem !important"
-                                    }
-                                  },
-                                  [
-                                    _c(
-                                      "h6",
-                                      {
-                                        staticClass:
-                                          "card-title text-center text-title-card-mobile",
-                                        staticStyle: {
-                                          "font-size": "1.2rem",
-                                          "margin-bottom": "0.30rem !important"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            " +
-                                            _vm._s(
-                                              categoryProject.name[_vm.language]
-                                            )
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "p",
-                                      { staticClass: "card-text text-center" },
-                                      [
-                                        _vm._v(
-                                          "\n                                            Más info\n                                        "
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      }),
-                      1
-                    )
-                  ],
-                  1
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "section-categories-project-desktop" }, [
-            _c("div", { staticClass: "row pt-2 pb-1 justify-content-center" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c(
-                  "h3",
-                  { staticClass: "font-weight-bolder display-4 text-center" },
-                  [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.selectProjectType.name[_vm.language])
-                    )
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "pt-1" }, [
-              _vm._v(
-                _vm._s(
-                  _vm.$t(
-                    "frontend.register-client.selecciona_categoria_proyecto"
-                  )
-                )
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "row" },
-              _vm._l(_vm.optionsCategoriesProject, function(categoryProject) {
-                return _c(
-                  "div",
-                  {
-                    key: categoryProject.id,
-                    staticClass: "col-6 col-lg-3 col-md-3"
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        class:
-                          categoryProject.id ===
-                          (_vm.selectProjectCategory
-                            ? _vm.selectProjectCategory.id
-                            : 0)
+              _c(
+                "div",
+                { staticClass: "row" },
+                _vm._l(_vm.optionsCategoriesProject, function(
+                  categoriesProject
+                ) {
+                  return _c(
+                    "div",
+                    {
+                      key: categoriesProject.id,
+                      staticClass: "col-6 col-lg-3 col-md-3"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          class: _vm.selectedCategoriesProjectActive(
+                            categoriesProject
+                          )
                             ? "active"
                             : "",
-                        on: {
-                          click: function($event) {
-                            return _vm.categoryProjectSelected(categoryProject)
+                          on: {
+                            click: function($event) {
+                              return _vm.categoriesProjectSelected(
+                                categoriesProject
+                              )
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "card-container",
-                            staticStyle: { cursor: "pointer" },
-                            attrs: { id: "card-info-animation-category" }
-                          },
-                          [
-                            _c("div", { staticClass: "card-flip" }, [
-                              _c("div", { staticClass: "front" }, [
-                                _c("div", { staticClass: "card no-b" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "card-body text-center" },
-                                    [
-                                      _c(
-                                        "h3",
-                                        {
-                                          staticClass:
-                                            "p-t-10  font-weight-bold"
-                                        },
-                                        [
-                                          _vm._v(
-                                            _vm._s(
-                                              categoryProject.name[_vm.language]
-                                            )
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("img", {
-                                        staticStyle: { "margin-top": "0.5rem" },
-                                        attrs: {
-                                          width: "170",
-                                          src: categoryProject.picture,
-                                          alt: ""
-                                        }
-                                      })
-                                    ]
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "back" }, [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass: "card",
-                                    staticStyle: { border: "2px solid #79ebdf" }
-                                  },
-                                  [
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "card-container",
+                              staticStyle: { cursor: "pointer" },
+                              attrs: { id: "card-info-animation-category" }
+                            },
+                            [
+                              _c("div", { staticClass: "card-flip" }, [
+                                _c("div", { staticClass: "front" }, [
+                                  _c("div", { staticClass: "card no-b" }, [
                                     _c(
                                       "div",
-                                      {
-                                        staticClass: "card-body cardPatterType"
-                                      },
+                                      { staticClass: "card-body text-center" },
                                       [
-                                        _c("i", {
-                                          staticClass:
-                                            "fa fa-check-circle text-success checkPatterType"
-                                        }),
-                                        _vm._v(" "),
                                         _c(
                                           "h3",
                                           {
@@ -32478,7 +32615,7 @@ var render = function() {
                                           [
                                             _vm._v(
                                               _vm._s(
-                                                categoryProject.name[
+                                                categoriesProject.name[
                                                   _vm.language
                                                 ]
                                               )
@@ -32486,39 +32623,170 @@ var render = function() {
                                           ]
                                         ),
                                         _vm._v(" "),
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass: "mt-1 text-justify",
-                                            staticStyle: {
-                                              "line-height": "1.3rem !important"
-                                            }
+                                        _c("img", {
+                                          staticStyle: {
+                                            "margin-top": "0.5rem"
                                           },
-                                          [
-                                            _vm._v(
-                                              "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
-                                            )
-                                          ]
-                                        )
+                                          attrs: {
+                                            width: "170",
+                                            src: categoriesProject.picture,
+                                            alt: ""
+                                          }
+                                        })
                                       ]
                                     )
-                                  ]
-                                )
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "back" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass: "card",
+                                      staticStyle: {
+                                        border: "2px solid #79ebdf"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "card-body cardPatterType"
+                                        },
+                                        [
+                                          _c("i", {
+                                            staticClass:
+                                              "fa fa-check-circle text-success checkPatterType"
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "h3",
+                                            {
+                                              staticClass:
+                                                "p-t-10  font-weight-bold"
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  categoriesProject.name[
+                                                    _vm.language
+                                                  ]
+                                                )
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "p",
+                                            {
+                                              staticClass: "mt-1 text-justify",
+                                              staticStyle: {
+                                                "line-height":
+                                                  "1.3rem !important"
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                                                    Lorem\n                                                    ipsum\n                                                    dolor sit amet,\n                                                    consectetur adipisicing elit. Accusantium ad aliquam asperiores aut\n                                                    dolorum\n                                                    esse,\n                                                    fuga ipsum itaque natus nesciunt pariatur perferendis perspiciatis\n                                                    provident\n                                                    recusandae repudiandae saepe tempore veniam voluptatum."
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
                               ])
-                            ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _vm.listCategoriesProject.length > 0
+              ? _c("div", { staticClass: "row pl-2 pr-2" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-12" },
+                    [
+                      _c("p", {}, [_vm._v("Categorías Seleccionadas:")]),
+                      _vm._v(" "),
+                      _vm._l(_vm.listCategoriesProject, function(
+                        tagsCategoriesProject
+                      ) {
+                        return _c(
+                          "vs-chip",
+                          {
+                            key: tagsCategoriesProject.id,
+                            attrs: { closable: "", "close-icon": "delete" },
+                            on: {
+                              click: function($event) {
+                                return _vm.removeTagsCategoriesProject(
+                                  tagsCategoriesProject
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "span",
+                              {
+                                staticStyle: { "font-size": "1rem !important" }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    tagsCategoriesProject.name[_vm.language]
+                                  )
+                                )
+                              ]
+                            )
                           ]
                         )
-                      ]
-                    )
-                  ]
-                )
-              }),
-              0
+                      }),
+                      _vm._v(" "),
+                      _c("div", {
+                        attrs: { id: "section-tags-categories-project" }
+                      })
+                    ],
+                    2
+                  )
+                ])
+              : _vm._e()
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "vs-popup",
+        {
+          staticClass: "holamundo",
+          attrs: {
+            title: _vm.infoTypeProjectShowModal.name[_vm.language],
+            active: _vm.popupMoreInfoProjectActivo
+          },
+          on: {
+            "update:active": function($event) {
+              _vm.popupMoreInfoProjectActivo = $event
+            }
+          }
+        },
+        [
+          _c("p", [
+            _vm._v(
+              "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n            "
             )
           ])
-        ])
-      : _vm._e()
-  ])
+        ]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -71699,6 +71967,10 @@ __webpack_require__.r(__webpack_exports__);
     "Aceptar": "Accept",
     "Cancelar": "Cancel",
     "Términos y Condiciones": "Terms and Conditions",
+    "mode_light": "Light Mode",
+    "mode_dark": "Dark Mode",
+    "mode_system": "System",
+    "mas_info": "More Info",
     "email": {
       "bievenido_email": "Welcome",
       "bievenido_email_a": "Welcome to",
@@ -71873,6 +72145,10 @@ __webpack_require__.r(__webpack_exports__);
     "Aceptar": "Aceptar",
     "Cancelar": "Cancelar",
     "Términos y Condiciones": "Términos y Condiciones",
+    "mode_light": "Modo Light",
+    "mode_dark": "Modo Dark",
+    "mode_system": "Según el Sistema",
+    "mas_info": "Más Info",
     "email": {
       "bievenido_email": "Bievenido",
       "bievenido_email_a": "Bievenido a",

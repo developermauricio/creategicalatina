@@ -18,5 +18,7 @@
 
     "mode_light": "Light Mode",
     "mode_dark": "Dark Mode",
-    "mode_system": "System"
+    "mode_system": "System",
+
+    "mas_info": "More Info"
 }

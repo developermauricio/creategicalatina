@@ -34228,6 +34228,10 @@ __webpack_require__.r(__webpack_exports__);
     "Aceptar": "Accept",
     "Cancelar": "Cancel",
     "Términos y Condiciones": "Terms and Conditions",
+    "mode_light": "Light Mode",
+    "mode_dark": "Dark Mode",
+    "mode_system": "System",
+    "mas_info": "More Info",
     "email": {
       "bievenido_email": "Welcome",
       "bievenido_email_a": "Welcome to",
@@ -34402,6 +34406,10 @@ __webpack_require__.r(__webpack_exports__);
     "Aceptar": "Aceptar",
     "Cancelar": "Cancelar",
     "Términos y Condiciones": "Términos y Condiciones",
+    "mode_light": "Modo Light",
+    "mode_dark": "Modo Dark",
+    "mode_system": "Según el Sistema",
+    "mas_info": "Más Info",
     "email": {
       "bievenido_email": "Bievenido",
       "bievenido_email_a": "Bievenido a",

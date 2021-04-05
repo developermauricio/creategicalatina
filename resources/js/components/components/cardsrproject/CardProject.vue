@@ -7,14 +7,14 @@
                     <splide-slide v-for="typeProject in optionsTypeProject" :key="typeProject.id" :id="typeProject.id">
                         <div
                             :class="typeProject.id === ( selectProjectType ? selectProjectType.id : 0 ) ? 'card  active': 'card '"
-                            @click="typeProjectSelected( typeProject )">
-                            <img class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
+                            >
+                            <img @click="typeProjectSelected( typeProject )" class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
                             <div class="card-body" style="padding-top: 1rem !important;">
                                 <h6 class="card-title text-center text-title-card-mobile"
                                     style="font-size: 1.2rem; margin-bottom: 0.30rem !important;">
                                     {{ typeProject.name[language] }}</h6>
-                                <p class="card-text text-center">
-                                    Más info
+                                <p class="card-text text-center" @click="moreInformationProject(typeProject)">
+                                    {{ $t('mas_info') }}
                                 </p>
                             </div>
                         </div>
@@ -43,11 +43,10 @@
                     <div class="col-6 col-lg-3 col-md-3" v-for="typeProject in optionsTypeProject"
                          :key="typeProject.id">
                         <div :class="typeProject.id === ( selectProjectType ? selectProjectType.id : 0 ) ? 'active': ''"
-                             @click="typeProjectSelected( typeProject )"
                         >
                             <div class="card-container card-info-animation" style="cursor:pointer">
                                 <div class="card-flip">
-                                    <div class="front">
+                                    <div class="front" @click="typeProjectSelected( typeProject )">
                                         <div class="card no-b">
                                             <div class="card-body text-center">
                                                 <h3 class="p-t-10  font-weight-bold">{{
@@ -61,7 +60,7 @@
 
                                     <div class="back">
                                         <div class="card" style="border: 2px solid #79ebdf; !important">
-                                            <div class="card-body cardPatterType">
+                                            <div class="card-body cardPatterType pt-1 pr- pl-1 pb-0" @click="typeProjectSelected( typeProject )">
                                                 <i class="fa fa-check-circle text-success checkPatterType"></i>
                                                 <h3 class="p-t-10  font-weight-bold">{{
                                                         typeProject.name[language]
@@ -77,6 +76,7 @@
                                                     provident
                                                     recusandae repudiandae saepe tempore veniam voluptatum.</p>
                                             </div>
+                                            <button @click="moreInformationProject(typeProject)" type="button" class="float-right btn btn-flat-primary waves-effect link">{{ $t('mas_info') }}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
 		       TARJETAS CATEGORIAS PROYECTOS PARA MOBILE
             ======================================-->
             <div style="display: none" class="section-categories-project-mobile">
-                <div class="row pt-2 pb-1 justify-content-center">
+                <div class="row pt-2 pb-2 justify-content-center">
                     <div class="col-12">
                         <h3 class="font-weight-bolder display-4 text-center">
                             {{ selectProjectType.name[language] }}</h3>
@@ -104,18 +104,18 @@
                 <div class="row">
                     <div class="col-12">
                         <splide :slides="optionsCategoriesProject" :options="optionsCategoriesProjectCards">
-                            <splide-slide v-for="categoryProject in optionsCategoriesProject" :key="categoryProject.id"
-                                          :id="categoryProject.id">
-                                <div :class="categoryProject.id === ( selectProjectCategory ? selectProjectCategory.id : 0 ) ? 'card  active': 'card '"
-                                    @click="categoryProjectSelected( categoryProject )">
-                                    <img width="200" class="card-img-top pt-1" :src="categoryProject.picture"
+                            <splide-slide v-for="categoriesProject in optionsCategoriesProject" :key="categoriesProject.id"
+                                          :id="categoriesProject.id">
+                                <div :class="selectedCategoriesProjectActive( categoriesProject ) ? 'card  active' : 'card'"
+                                    @click="categoriesProjectSelected( categoriesProject )">
+                                    <img width="200" class="card-img-top pt-1" :src="categoriesProject.picture"
                                          alt="Card image cap">
                                     <div class="card-body" style="padding-top: 1rem !important;">
                                         <h6 class="card-title text-center text-title-card-mobile"
                                             style="font-size: 1.2rem; margin-bottom: 0.30rem !important;">
-                                            {{ categoryProject.name[language] }}</h6>
+                                            {{ categoriesProject.name[language] }}</h6>
                                         <p class="card-text text-center">
-                                            Más info
+                                            {{ $t('mas_info') }}
                                         </p>
                                     </div>
                                 </div>
@@ -136,22 +136,21 @@
                 </div>
                 <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}</p>
                 <div class="row">
-                    <div class="col-6 col-lg-3 col-md-3" v-for="categoryProject in optionsCategoriesProject"
-                         :key="categoryProject.id">
+                    <div class="col-6 col-lg-3 col-md-3" v-for="categoriesProject in optionsCategoriesProject"
+                         :key="categoriesProject.id">
                         <div
-                            :class="categoryProject.id === ( selectProjectCategory ? selectProjectCategory.id : 0 ) ? 'active': ''"
-                            @click="categoryProjectSelected( categoryProject )"
-                        >
+                            :class="selectedCategoriesProjectActive( categoriesProject ) ? 'active' : ''"
+                            @click="categoriesProjectSelected( categoriesProject )">
                             <div class="card-container" id="card-info-animation-category" style="cursor:pointer">
                                 <div class="card-flip">
                                     <div class="front">
                                         <div class="card no-b">
                                             <div class="card-body text-center">
                                                 <h3 class="p-t-10  font-weight-bold">{{
-                                                        categoryProject.name[language]
+                                                        categoriesProject.name[language]
                                                     }}</h3>
                                                 <img style="margin-top: 0.5rem" width="170"
-                                                     :src="categoryProject.picture" alt="">
+                                                     :src="categoriesProject.picture" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -161,7 +160,7 @@
                                             <div class="card-body cardPatterType">
                                                 <i class="fa fa-check-circle text-success checkPatterType"></i>
                                                 <h3 class="p-t-10  font-weight-bold">{{
-                                                        categoryProject.name[language]
+                                                        categoriesProject.name[language]
                                                     }}</h3>
                                                 <p class="mt-1 text-justify" style="line-height: 1.3rem !important">
                                                     Lorem
@@ -182,7 +181,29 @@
                     </div>
                 </div>
             </div>
+            <!--=====================================
+		       TAGS CATEGORIAS PROYECTO
+            ======================================-->
+            <div class="row pl-2 pr-2" v-if="listCategoriesProject.length > 0">
+                <div class="col-12">
+                    <p class="">Categorías Seleccionadas:</p>
+                    <vs-chip
+                        v-for="tagsCategoriesProject in listCategoriesProject":key="tagsCategoriesProject.id"  @click="removeTagsCategoriesProject(tagsCategoriesProject)" closable close-icon="delete">
+                       <span style="font-size: 1rem !important;">{{ tagsCategoriesProject.name[language] }}</span>
+                    </vs-chip>
+                    <div id="section-tags-categories-project"></div>
+                </div>
+            </div>
         </div>
+        <!--=====================================
+		    MODAL MÁS INFORMACIÓN DE PROYECTO
+        ======================================-->
+        <vs-popup class="holamundo"  :title="infoTypeProjectShowModal.name[language]" :active.sync="popupMoreInfoProjectActivo">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            </p>
+        </vs-popup>
     </div>
 </template>
 
@@ -200,6 +221,17 @@ export default {
     },
     data() {
         return {
+            popupMoreInfoProjectActivo:false,
+            infoTypeProjectShowModal: {
+                name: {
+                    es: null,
+                    en: null
+                },
+                description: null
+
+            },
+            colorLoading: '#161d31',
+
             options: {
                 gap: '1rem',
                 focus: 'center',
@@ -229,7 +261,7 @@ export default {
             skeletonValue: 1,
 
             selectProjectType: null,
-            selectProjectCategory: null,
+            listCategoriesProject: [],
             optionsTypeProject: [], //Arreglo con los tipos de proyectos
             optionsCategoriesProject: [], //Arreglo con las categorias de proyectos
 
@@ -239,17 +271,58 @@ export default {
     methods: {
 
         typeProjectSelected(typeProject) {
+            this.$vs.loading({
+                color: this.colorLoading,
+                text: 'Cargando...'
+            })
             this.selectProjectType = typeProject;
-            this.$emit('selectTypeProject', this.selectProjectType)
-            this.eventSelectScroll('#section-projects-categories') //Enviamos el tipo del projecto al componente padre
-            console.log(typeProject.id)
+            this.$emit('selectTypeProject', this.selectProjectType)//Enviamos el tipo del projecto al componente padre
             this.getCategoriesProjects(typeProject.id)
             this.$tours['myTour'].finish()
 
         },
-        categoryProjectSelected(categoriesProjects) {
-            alert('Seleccionó', categoriesProjects.id)
+
+        categoriesProjectSelected( categoriesProject ) {
+            console.log(categoriesProject)
+            if (this.listCategoriesProject.length == 0) {
+                this.listCategoriesProject.push(categoriesProject);
+                this.eventSelectScroll("#section-tags-categories-project");
+                // this.fourthSeccion = true;
+                // this.openNotification('Datos complementarios de la campaña', true);
+                return;
+            }
+            let add = 0;
+            for ( let item of this.listCategoriesProject ) {
+                if ( parseInt(item.id) == parseInt(categoriesProject.id) ) add++;
+            }
+            if ( add == 0 ) {
+                this.listCategoriesProject.push( categoriesProject );
+                this.eventSelectScroll("#section-tags-categories-project");
+            } else {
+                let index = this.listCategoriesProject.indexOf( categoriesProject );
+                if ( index != -1 ) this.listCategoriesProject.splice( index, 1 );
+            }
         },
+
+        selectedCategoriesProjectActive( categoriesProject ) {
+            if ( this.listCategoriesProject.length == 0 ) return false;
+            for ( let item of this.listCategoriesProject ) {
+                if ( parseInt(item.id) == parseInt(categoriesProject.id) ) {
+                    return true;
+                }
+            }
+            return false;
+        },
+        removeTagsCategoriesProject(categoriesProject){
+            this.listCategoriesProject.splice(this.listCategoriesProject.indexOf(categoriesProject), 1)
+        },
+
+        moreInformationProject(typeProject){
+            this.popupMoreInfoProjectActivo = true;
+            this.infoTypeProjectShowModal = Object.assign({}, typeProject)
+            console.log(this.infoTypeProjectShowModal);
+        },
+
         getTypeProjects() {
             axios.get('/api/get-type-projects').then(resp => {
                 setTimeout(() => {
@@ -263,6 +336,8 @@ export default {
         getCategoriesProjects(id) {
             axios.get('/api/get-categories-projects/' + id).then(resp => {
                 this.optionsCategoriesProject = resp.data.data
+                this.$vs.loading.close()
+                this.eventSelectScroll('#section-projects-categories')
             }).catch(err => {
 
             })

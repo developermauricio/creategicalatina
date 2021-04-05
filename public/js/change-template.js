@@ -21,6 +21,12 @@ $(function () {
             $('.card-light').removeClass('active');
             $('.card-system').removeClass('active');
 
+            $('.vs-popup').addClass('dark-layout');
+
+            $('.link').removeClass('link-light');
+            $('.link').addClass('link-dark');
+
+
             $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
 
             navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
@@ -45,6 +51,11 @@ $(function () {
             $('.card-light').addClass('active');
             $('.card-system').removeClass('active');
 
+            $('.vs-popup').removeClass('dark-layout');
+
+            $('.link').removeClass('link-dark');
+            $('.link').addClass('link-light');
+
             navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
             localStorage.setItem('theme', '2')
             $.post('/api/session-theme-change/'+2+'',function (data) {})
@@ -63,11 +74,19 @@ $(function () {
                 $('.info-card').removeClass('light-mode-cards-vue');
                 $('.info-card').addClass('dark-mode-cards-vue');
 
+                $('.vs-popup').addClass('dark-layout');
+
+                $('.link').removeClass('link-light');
+                $('.link').addClass('link-dark');
+
                 $('.card-theme-change').addClass('border-dark-card-change-theme');
 
                 $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
+
+                localStorage.setItem('theme', '3')
+                $.post('/api/session-theme-change/'+3+'',function (data) {})
             }else{
                 $html.removeClass('dark-layout');
                 $html.addClass('semi-dark');
@@ -84,10 +103,17 @@ $(function () {
                 $('.info-card').removeClass('dark-mode-cards-vue');
                 $('.info-card').addClass('light-mode-cards-vue');
 
+                $('.vs-popup').removeClass('dark-layout');
+
+                $('.link').removeClass('link-dark');
+                $('.link').addClass('link-light');
+
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
+
+                localStorage.setItem('theme', '4')
+                $.post('/api/session-theme-change/'+4+'',function (data) {})
             }
-            localStorage.setItem('theme', '3')
-            $.post('/api/session-theme-change/'+3+'',function (data) {})
+
         }
     }
 
@@ -115,11 +141,16 @@ $(function () {
                 $('.info-card').addClass('dark-mode-cards-vue');
 
                 $('.card-theme-change').addClass('border-dark-card-change-theme');
+                $('.vs-popup').addClass('dark-layout');
+
+                $('.link').removeClass('link-light');
+                $('.link').addClass('link-dark');
 
                 $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
-
+                localStorage.setItem('theme', '3')
+                $.post('/api/session-theme-change/'+3+'',function (data) {})
             } else {
                 $html.removeClass('dark-layout');
                 $html.addClass('semi-dark');
@@ -130,6 +161,10 @@ $(function () {
                 $('.footer-main').removeClass('color-text-links-footer-green');
 
                 $('.card-theme-change').removeClass('border-dark-card-change-theme');
+                $('.vs-popup').removeClass('dark-layout');
+
+                $('.link').removeClass('link-dark');
+                $('.link').addClass('link-light');
 
                 $('.body-cards-info-vue').removeClass('dark-mode-cards-text-vue')
 
@@ -137,6 +172,8 @@ $(function () {
                 $('.info-card').addClass('light-mode-cards-vue');
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
+                localStorage.setItem('theme', '4')
+                $.post('/api/session-theme-change/'+4+'',function (data) {})
             }
         })
     }
