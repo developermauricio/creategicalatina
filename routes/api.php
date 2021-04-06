@@ -24,3 +24,4 @@ Route::post('/save-session-tour', 'Controller@sessionSaveTour')->name('session.s
 
 Route::get('/get-type-projects', 'Controller@getTypeProject')->name('api.get.type.projects');
 Route::get('/get-categories-projects/{id}', 'Controller@getCategoriesProject')->name('api.get.categories.projects');
+Route::get('/get-brief/{id}', 'Controller@getBrief')->name('api.get.brief.projects');

@@ -126,7 +126,7 @@ $(function () {
         changeTheme(value)
     });
      let themeCurrent = localStorage.getItem('theme')
-    if (window.themeSession == '3' || themeCurrent == '3'){
+    if (window.themeSession == '3' || themeCurrent == '3' || window.themeSession == '4' || themeCurrent == '4' || window.themeSession == '1' || themeCurrent == '1'){
     window.matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', event => {
             if (event.matches) {

@@ -123,5 +123,99 @@ class DatabaseSeeder extends Seeder
             $typeCategoryMarketing->setTranslation('description', 'en', 'description');
             $typeCategoryMarketing->save();
         }
+
+        /*=============================================
+            CREAR BRIEF CON PREGUNTAS
+        =============================================*/
+        $briefEs = ['Brief Desarrollo Web', 'Brief Software', 'Brief Diseño', 'Brief Marketing Digital', 'Brief Eventos'];
+        $briefEn = ['Brief Web Development', 'Brief Software', 'Brief Design', 'Brief Digital Marketing', 'Brief Events'];
+        for ($i = 0; $i < count($briefEs); $i++) {
+            factory(\App\Model\Brief::class)->create(
+                [
+                    'title' => $briefEs[$i],
+                    'note' => 'Tenga en cuenta en llenar todo el brief y asi ofrecer un de esta menera podremos dar respuesta a tu solicitud de manera mas exacta.',
+                    'type_project_id' => $i + 1
+                ]
+             );
+            $brief = \App\Model\Brief::find($i + 1);
+            $brief->setTranslation('title', 'en', $briefEn[$i]);
+            $brief->setTranslation('note', 'en', 'Keep in mind to fill out the entire brief and thus offer one in this way we can respond to your request more accurately.');
+            $brief->save();
+        }
+
+        $questionsEs = [
+            'Describa en detalle el problema',
+            'Propósito',
+            'Descripción de procesos de negocio actuales',
+            'Entorno tecnológico actual',
+            'Necesidades del negocio',
+            'Alcance del Producto/Software',
+            'Funcionalidades del Producto',
+            'Especificación de actores del sistema',
+            'Requisitos de seguridad',
+            'Requrimientos de interfaces externas',
+            'Entorno Operativo',
+            'Referencias',
+            'Anexos (Opcional)'
+        ];
+        $questionsEn = [
+            'Describe the problem in detail',
+            'Purpose',
+            'Description of current business processes',
+            'Current technological environment',
+            'Business needs',
+            'Product/Software Scope',
+            'Product Features',
+            'Specification of system actors',
+            'Safety requirements',
+            'External interface requirements',
+            'Operating Environment',
+            'References',
+            'Annexes (Optional)'
+        ];
+        $noteQuestionEs = [
+           'De a conocer en detalle el problema que usted desea mitigar para el mejoramiento de su empresa.',
+            'Describa el nombre o título del software que se está especificando en el documento.',
+            'Describa el manejo o funcionalidad que tiene su negocio en este momento.',
+            'Describa el entorno que está manejando actualmente su negocio, página web, aplicación móvil, aplicación de escritorio.',
+            'Cuáles son los objetivos que desea lograr para el mejoramiento de su empresa con la nueva plataforma tecnológica que va adquirir.',
+            'Describa cuales son los beneficios que busca para su empresa, a través del software.',
+            'Liste las funcionalidades que el software debe realizar.',
+            'Describa los posibles actores que manejará el sistema.',
+            'Describa los aspectos de seguridad para el software tales como acceso al sistema, identificación y autenticación, protección de datos y privacidad.',
+            'Describa las características que usted considera necesarias para interactuar con el usuario como colores, estilos y demás atributos.',
+            'Cual es el entorno en para el manejo del software, página web, aplicación móvil y demás.',
+            'Mencione posibles similitudes con otras aplicaciones existentes en el mercado.',
+            'Relacione información adicional que considere oportuna para el desarrollo del software.'
+        ];
+        $noteQuestionEn = [
+            'Make known in detail the problem that you want to mitigate for the improvement of your company.',
+            'Describe the name or title of the software being specified in the document.',
+            'Describe the management or functionality that your business has at this time.',
+            'Describe the environment your business is currently managing, website, mobile app, desktop app.',
+            'What are the objectives you want to achieve for the improvement of your company with the new technological platform that you are going to acquire.',
+            'Describe what are the benefits you are looking for for your company, through the software.',
+            'List the functionalities that the software must perform.',
+            'Describe the possible actors that the system will manage.',
+            'Describe the security aspects for the software such as system access, identification and authentication, data protection and privacy.',
+            'Describe the characteristics that you consider necessary to interact with the user such as colors, styles and other attributes.',
+            'What is the environment for managing the software, website, mobile application and others.',
+            'Mention possible similarities with other existing applications on the market.',
+            'List additional information that you consider appropriate for the development of the software.'
+        ];
+
+        for ($i = 0; $i < count($questionsEs); $i++) {
+            factory(\App\Model\Question::class)->create(
+                [
+                    'question' => $questionsEs[$i],
+                    'note' => $noteQuestionEs[$i],
+                    'brief_id' => 2
+                ]);
+            $question= \App\Model\Question::find($i + 1);
+            $question->setTranslation('question', 'en', $questionsEn[$i]);
+            $question->setTranslation('note', 'en', $noteQuestionEn[$i]);
+            $question->save();
+        }
+
     }
 }

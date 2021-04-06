@@ -4,8 +4,10 @@ return [
     'Usted_no_las_pinta'=> 'Usted no las pinta, nosotros se la coloreamos y hasta se la ejecutamos',
     'selecciona_tipo_proyecto' => '1. Selecciona el tipo de proyecto que deseas iniciar.',
     'selecciona_categoria_proyecto' => '2. Ahora selecciona las plataformas que necesitas.',
+    'selecciona_agregar_brief' => '3. Cuentanos de que se trata tu proyecto, por favor clic en agregar brief.',
     'mostrar_info' => 'Mostrar Info',
     'siguiente_paso' => 'Siguiente Paso',
+    'agregar_brief' => 'Agregar Brief',
 
     /*Traducciones del tour*/
     'text_paso_1' => 'Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...',
@@ -18,4 +20,18 @@ return [
     'boton_anterior_tour' => 'Anterior',
     'boton_siguiente_tour' => 'Siguiente',
     'boton_finalizar_tour' => 'Finalizar',
+    'equipo_encardo' => 'Equipo Encargado',
+    'categorias_seleccionadas' => 'Categorías Seleccionadas:',
+
+    /*Traducciones del tooltip*/
+    'msj_tooltip_info_select_category' => 'Ten en cuenta que puedes seleccionar una varias categorías, en el brief nos cuentas cual es el proposito',
+    'msj_tooltip_titulo_agregar_brief' => 'Es importante para nosotros que tomes tiempo llenando las preguntas del brief, de esta menera podremos dar respuesta a tu solicitud de manera mas exacta. Clic en agregar brief.',
+
+    /*Traducciones del proyecto*/
+    'nombre_proyecto_registro' => 'Nombre del Proyecto',
+
+    /*Errores y validaciones*/
+    'error_name_project' => 'Ingrese un nombre de proyecto válido',
+    'requerido_name_project' => 'El nombre del proyecto es requerido',
+
 ];

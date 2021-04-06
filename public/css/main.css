@@ -159,7 +159,13 @@
     transition: 0.4s;
     color: #283046 !important;
 }
-
+h5.card-header.links-title{
+    cursor: pointer;
+}
+h5.card-header.links-title:hover{
+    color: #F05E7D;
+    transition: 0.4s;
+}
 
 .vs-popup.dark-layout{
     background-color: #283046 !important;

@@ -16,6 +16,9 @@ export default {
         "mode_dark": "Dark Mode",
         "mode_system": "System",
         "mas_info": "More Info",
+        "err_msg_definition": "Please enter a valid answer",
+        "req_msg_definition": "Answer is required",
+        "loading_modal": "Loading...",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -39,8 +42,10 @@ export default {
                 "Usted_no_las_pinta": "You paint it for us, we color it and we even execute it",
                 "selecciona_tipo_proyecto": "1. Select the type of project you want to start.",
                 "selecciona_categoria_proyecto": "2. Now select the platforms you need.",
+                "selecciona_agregar_brief": "3. Tell us what your project is about, please click on add brief.",
                 "mostrar_info": "Show Info",
                 "siguiente_paso": "Next Step",
+                "agregar_brief": "Add Brief",
                 "text_paso_1": "If you need a name or a creative image that represents you corporately to your clients...",
                 "text_paso_2": "If you need creative support with a brief for a virtual or physical event, or some activation in points of sale ...",
                 "text_paso_3": "If you need help positioning your brand, managing your social networks or your marketing budget investment in a guide ...",
@@ -50,7 +55,14 @@ export default {
                 "boton_omitir_tour": "Skip tour",
                 "boton_anterior_tour": "Previous",
                 "boton_siguiente_tour": "Next",
-                "boton_finalizar_tour": "Finish"
+                "boton_finalizar_tour": "Finish",
+                "equipo_encardo": "Team",
+                "categorias_seleccionadas": "Selected Categories:",
+                "msj_tooltip_info_select_category": "Keep in mind that you can select one of several categories, in the brief you tell us what the purpose is",
+                "msj_tooltip_titulo_agregar_brief": "It is important for us that you take time filling out the questions in the brief, in this way we can respond to your request more accurately. click add brief.",
+                "nombre_proyecto_registro": "Project Name",
+                "error_name_project": "Please enter a valid project name",
+                "requerido_name_project": "The name of the project is required"
             },
             "landing": {
                 "inicio": "Home",
@@ -194,6 +206,9 @@ export default {
         "mode_dark": "Modo Dark",
         "mode_system": "Según el Sistema",
         "mas_info": "Más Info",
+        "err_msg_definition": "Ingrese respuesta válida",
+        "req_msg_definition": "Esta respuesta es requerida",
+        "loading_modal": "Cargando...",
         "email": {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
@@ -217,8 +232,10 @@ export default {
                 "Usted_no_las_pinta": "Usted no las pinta, nosotros se la coloreamos y hasta se la ejecutamos",
                 "selecciona_tipo_proyecto": "1. Selecciona el tipo de proyecto que deseas iniciar.",
                 "selecciona_categoria_proyecto": "2. Ahora selecciona las plataformas que necesitas.",
+                "selecciona_agregar_brief": "3. Cuentanos de que se trata tu proyecto, por favor clic en agregar brief.",
                 "mostrar_info": "Mostrar Info",
                 "siguiente_paso": "Siguiente Paso",
+                "agregar_brief": "Agregar Brief",
                 "text_paso_1": "Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...",
                 "text_paso_2": "Si necesita apoyo creativo con un brief para un evento virtual, fisico, o alguna activación en puntos de venta...",
                 "text_paso_3": "Si necesita ayuda de posicionamiento de su marca, gestionando sus redes sociales o su inversión presupuestal de marketing en pauta...",
@@ -228,7 +245,14 @@ export default {
                 "boton_omitir_tour": "Omitir guía",
                 "boton_anterior_tour": "Anterior",
                 "boton_siguiente_tour": "Siguiente",
-                "boton_finalizar_tour": "Finalizar"
+                "boton_finalizar_tour": "Finalizar",
+                "equipo_encardo": "Equipo Encargado",
+                "categorias_seleccionadas": "Categorías Seleccionadas:",
+                "msj_tooltip_info_select_category": "Ten en cuenta que puedes seleccionar una varias categorías, en el brief nos cuentas cual es el proposito",
+                "msj_tooltip_titulo_agregar_brief": "Es importante para nosotros que tomes tiempo llenando las preguntas del brief, de esta menera podremos dar respuesta a tu solicitud de manera mas exacta. Clic en agregar brief.",
+                "nombre_proyecto_registro": "Nombre del Proyecto",
+                "error_name_project": "Ingrese un nombre de proyecto válido",
+                "requerido_name_project": "El nombre del proyecto es requerido"
             },
             "landing": {
                 "inicio": "Inicio",

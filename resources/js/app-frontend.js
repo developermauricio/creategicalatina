@@ -12,10 +12,18 @@ Vue.use(SkeletonCards)
 var VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo)
 
+
 import Vuesax from 'vuesax';
 import 'vuesax/dist/vuesax.css';
 import 'material-icons/iconfont/material-icons.css';
 Vue.use(Vuesax);
+
+import moment from 'moment';
+import 'moment/locale/es';
+window.moment = moment;
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+Vue.use( CKEditor );
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,6 +37,8 @@ Vue.use(Vuesax);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 /*COMPONENTES*/
+Vue.component('input-form', require('./components/InputFormComponent.vue').default);
+Vue.component('brief-software', require('./components/components/briefs/BriefSoftware.vue').default);
 Vue.component('cards-projects', require('./components/components/cardsrproject/CardProject.vue').default); //Tarjetas dinamicas con animación para escritorio
 Vue.component('cards-projects-mobile', require('./components/components/cardsrproject/CardProjectMobile.vue').default); //Tarjetas dinamicas para la versión mobile
 Vue.component('cards-change-theme', require('./components/components/change-theme-frontend').default); //Tarjetas dinamicas para la versión mobile
@@ -50,7 +60,7 @@ const i18n = new VueInternationalization({
     locale: window.lang,
     messages: Locale
 });
-
+window.eventBus = new Vue()
 const appVue = new Vue({
     el: '#app-frontend',
     i18n

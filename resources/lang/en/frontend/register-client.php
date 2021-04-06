@@ -4,8 +4,10 @@ return [
     'Usted_no_las_pinta'=> 'You paint it for us, we color it and we even execute it',
     'selecciona_tipo_proyecto' => '1. Select the type of project you want to start.',
     'selecciona_categoria_proyecto' => '2. Now select the platforms you need.',
+    'selecciona_agregar_brief' => '3. Tell us what your project is about, please click on add brief.',
     'mostrar_info' => 'Show Info',
     'siguiente_paso' => 'Next Step',
+    'agregar_brief' => 'Add Brief',
 
     /*Traducciones del tour*/
     'text_paso_1' => 'If you need a name or a creative image that represents you corporately to your clients...',
@@ -18,6 +20,19 @@ return [
     'boton_anterior_tour' => 'Previous',
     'boton_siguiente_tour' => 'Next',
     'boton_finalizar_tour' => 'Finish',
+    'equipo_encardo' => 'Team',
+    'categorias_seleccionadas' => 'Selected Categories:',
+
+    /*Traducciones del tooltip*/
+    'msj_tooltip_info_select_category' => 'Keep in mind that you can select one of several categories, in the brief you tell us what the purpose is',
+    'msj_tooltip_titulo_agregar_brief' => 'It is important for us that you take time filling out the questions in the brief, in this way we can respond to your request more accurately. click add brief.',
+
+    /*Traducciones del proyecto*/
+    'nombre_proyecto_registro' => 'Project Name',
+
+    /*Errores y validaciones*/
+    'error_name_project' => 'Please enter a valid project name',
+    'requerido_name_project' => 'The name of the project is required',
 
 
 

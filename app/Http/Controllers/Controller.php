@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\ProjectCategory;
+use App\Model\Question;
 use App\Model\TypeProject;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -43,12 +44,16 @@ class Controller extends BaseController
 
     public function getTypeProject()
     {
-        $getTypeProject = TypeProject::all();
+        $getTypeProject = TypeProject::with('brief.question')->get();
         return response()->json(['data' => $getTypeProject]);
     }
 
     public function getCategoriesProject($id){
         $getCategoriesProjects = ProjectCategory::where('type_project_id', $id)->get();
         return response()->json(['data' => $getCategoriesProjects]);
+    }
+    public function getBrief($id){
+        $getQuestions = Question::where('brief_id', $id)->get();
+        return response()->json(['data' => $getQuestions]);
     }
 }

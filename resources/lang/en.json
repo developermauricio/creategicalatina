@@ -20,5 +20,8 @@
     "mode_dark": "Dark Mode",
     "mode_system": "System",
 
-    "mas_info": "More Info"
+    "mas_info": "More Info",
+    "err_msg_definition" : "Please enter a valid answer",
+    "req_msg_definition": "Answer is required",
+    "loading_modal": "Loading..."
 }

@@ -13,4 +13,8 @@ class TypeProject extends Model
         "name",
         "description"
     ];
+
+    public function brief(){
+       return $this->hasOne(Brief::class,'type_project_id');
+    }
 }

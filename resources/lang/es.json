@@ -18,5 +18,8 @@
     "mode_dark": "Modo Dark",
     "mode_system": "Según el Sistema",
 
-    "mas_info": "Más Info"
+    "mas_info": "Más Info",
+    "err_msg_definition": "Ingrese respuesta válida",
+    "req_msg_definition": "Esta respuesta es requerida",
+    "loading_modal": "Cargando..."
 }

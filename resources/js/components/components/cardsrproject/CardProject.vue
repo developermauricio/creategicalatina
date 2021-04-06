@@ -14,8 +14,9 @@
                     <splide-slide v-for="typeProject in optionsTypeProject" :key="typeProject.id" :id="typeProject.id">
                         <div
                             :class="typeProject.id === ( selectProjectType ? selectProjectType.id : 0 ) ? 'card  active': 'card '"
-                            >
-                            <img @click="typeProjectSelected( typeProject )" class="card-img-top pt-1 pr-1 pl-1" :src="typeProject.picture" alt="Card image cap">
+                        >
+                            <img @click="typeProjectSelected( typeProject )" class="card-img-top pt-1 pr-1 pl-1"
+                                 :src="typeProject.picture" alt="Card image cap">
                             <div class="card-body" style="padding-top: 1rem !important;">
                                 <h6 class="card-title text-center text-title-card-mobile"
                                     style="font-size: 1.2rem; margin-bottom: 0.30rem !important;">
@@ -75,7 +76,8 @@
                                     ======================================-->
                                     <div class="back">
                                         <div class="card" style="border: 2px solid #79ebdf; !important">
-                                            <div class="card-body cardPatterType pt-1 pr- pl-1 pb-0" @click="typeProjectSelected( typeProject )">
+                                            <div class="card-body cardPatterType pt-1 pr- pl-1 pb-0"
+                                                 @click="typeProjectSelected( typeProject )">
                                                 <i class="fa fa-check-circle text-success checkPatterType"></i>
                                                 <h3 class="p-t-10  font-weight-bold">{{
                                                         typeProject.name[language]
@@ -91,7 +93,10 @@
                                                     provident
                                                     recusandae repudiandae saepe tempore veniam voluptatum.</p>
                                             </div>
-                                            <button @click="moreInformationProject(typeProject)" type="button" class="float-right btn btn-flat-primary waves-effect link">{{ $t('mas_info') }}</button>
+                                            <button @click="moreInformationProject(typeProject)" type="button"
+                                                    class="float-right btn btn-flat-primary waves-effect link">
+                                                {{ $t('mas_info') }}
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -119,13 +124,17 @@
                             {{ selectProjectType.name[language] }}</h3>
                     </div>
                 </div>
-                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}</p>
+                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                    <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                </vs-tooltip></p>
                 <div class="row">
                     <div class="col-12">
                         <splide :slides="optionsCategoriesProject" :options="optionsCategoriesProjectCards">
-                            <splide-slide v-for="categoriesProject in optionsCategoriesProject" :key="categoriesProject.id"
+                            <splide-slide v-for="categoriesProject in optionsCategoriesProject"
+                                          :key="categoriesProject.id"
                                           :id="categoriesProject.id">
-                                <div :class="selectedCategoriesProjectActive( categoriesProject ) ? 'card  active' : 'card'"
+                                <div
+                                    :class="selectedCategoriesProjectActive( categoriesProject ) ? 'card  active' : 'card'"
                                     @click="categoriesProjectSelected( categoriesProject )">
                                     <img width="200" class="card-img-top pt-1" :src="categoriesProject.picture"
                                          alt="Card image cap">
@@ -153,7 +162,13 @@
                             {{ selectProjectType.name[language] }}</h3>
                     </div>
                 </div>
-                <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}</p>
+                <div class="d-inline-block">
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                        <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                    </vs-tooltip></p>
+
+                </div>
+
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-3" v-for="categoriesProject in optionsCategoriesProject"
                          :key="categoriesProject.id">
@@ -205,41 +220,111 @@
             ======================================-->
             <div class="row pl-2 pr-2" v-if="listCategoriesProject.length > 0">
                 <div class="col-12">
-                    <p class="">Categorías Seleccionadas:</p>
+                    <p class="">{{ $t('frontend.register-client.categorias_seleccionadas') }}</p>
                     <vs-chip style="margin-right: 1rem"
-                        v-for="tagsCategoriesProject in listCategoriesProject":key="tagsCategoriesProject.id"  @click="removeTagsCategoriesProject(tagsCategoriesProject)" closable close-icon="delete">
-                       <span style="font-size: 1rem !important;">{{ tagsCategoriesProject.name[language] }}</span>
+                             v-for="tagsCategoriesProject in listCategoriesProject" :key="tagsCategoriesProject.id"
+                             @click="removeTagsCategoriesProject(tagsCategoriesProject)" closable close-icon="delete">
+                        <span style="font-size: 1rem !important;">{{ tagsCategoriesProject.name[language] }}</span>
                     </vs-chip>
                     <div id="section-tags-categories-project"></div>
                 </div>
             </div>
+            <!--=====================================
+		       SECCIÓN BRIEF
+            ======================================-->
+            <div class="section-brief pt-1" v-if="listCategoriesProject.length > 0">
+                <div class="divider" id="section-brief">
+                    <div class="divider-text">{{ $t('frontend.register-client.siguiente_paso') }}</div>
+                </div>
+                <div class="row pt-2 pb-1 justify-content-center">
+                    <div class="col-12">
+                        <h3 class="font-weight-bolder display-4 text-center">
+                            Brief</h3>
+                    </div>
+                </div>
+                <div class="d-inline-block">
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_agregar_brief') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_titulo_agregar_brief')">
+                        <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                    </vs-tooltip></p>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-4 col-md-4">
+                        <input-form
+                            id="txtNameProject"
+                            :label="$t('frontend.register-client.nombre_proyecto_registro')"
+                            pattern="alf"
+                            :errorMsg="$t('frontend.register-client.error_name_project')"
+                            :requiredMsg="$t('frontend.register-client.requerido_name_project')"
+                            :modelo.sync="nameProject"
+                            :required="true"
+                            :msgServer.sync="errors.name"
+                        ></input-form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                                <h5 @click="modalBrief" class="card-header links-title">{{ $t('frontend.register-client.agregar_brief') }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!--=====================================
+		    MODAL BRIEF
+        ======================================-->
+        <vs-popup fullscreen class="holamundo" title="Brief Sofware"
+                  :active.sync="popupBriefActivo">
+            <div class="row pt-1 pr-4 pl-4">
+                <div class="col-12">
+                    <brief-software :brief="brief"></brief-software>
+                </div>
+            </div>
+        </vs-popup>
+
+
         <!--=====================================
 		    MODAL MÁS INFORMACIÓN DE PROYECTO
         ======================================-->
-        <vs-popup class="holamundo"  :title="infoTypeProjectShowModal.name[language]" :active.sync="popupMoreInfoProjectActivo">
+        <vs-popup class="holamundo" :title="infoTypeProjectShowModal.name[language]"
+                  :active.sync="popupMoreInfoProjectActivo">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
 
             </p>
             <hr>
-            <p>Equipo Encargado</p>
+            <p>{{ $t('frontend.register-client.equipo_encardo') }}</p>
             <div>
                 <div class="avatar-group">
-                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Billy Hopkins" class="avatar pull-up">
-                        <img src="/app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                         data-original-title="Billy Hopkins" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33"
+                             height="33"/>
                     </div>
-                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Amy Carson" class="avatar pull-up">
-                        <img src="/app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33" height="33" />
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                         data-original-title="Amy Carson" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33"
+                             height="33"/>
                     </div>
-                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Brandon Miles" class="avatar pull-up">
-                        <img src="/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33" height="33" />
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                         data-original-title="Brandon Miles" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33"
+                             height="33"/>
                     </div>
-                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Daisy Weber" class="avatar pull-up">
-                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                         data-original-title="Daisy Weber" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33"
+                             height="33"/>
                     </div>
-                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Jenny Looper" class="avatar pull-up">
-                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                         data-original-title="Jenny Looper" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33"
+                             height="33"/>
                     </div>
                 </div>
             </div>
@@ -262,7 +347,11 @@ export default {
     },
     data() {
         return {
-            popupMoreInfoProjectActivo:false,
+            popupMoreInfoProjectActivo: false,
+            popupBriefActivo: false,
+            nameProject: '',
+            brief: null,
+            errors: {},
             infoTypeProjectShowModal: {
                 name: {
                     es: null,
@@ -303,7 +392,23 @@ export default {
             colorCardLoading: window.cardsLoadingColor, //color de las tarjetas cargando segun el tema
             skeletonValue: 1,
 
-            selectProjectType: null,
+            selectProjectType: {
+                brief: {
+                    question:null
+                },
+                created_at:null,
+                description:{
+                    es: null,
+                    en: null
+                },
+                id:null,
+                name: {
+                    es: null,
+                    en: null
+                },
+                picture:null,
+                updated_at:null
+            },
             listCategoriesProject: [],
             optionsTypeProject: [], //Arreglo con los tipos de proyectos
             optionsCategoriesProject: [], //Arreglo con las categorias de proyectos
@@ -312,21 +417,25 @@ export default {
     },
 
     methods: {
-
+        /*=============================================
+             SELECCIONA EL TIPO DE PROYECTO
+        =============================================*/
         typeProjectSelected(typeProject) {
-            this.listCategoriesProject = [];
             this.$vs.loading({
                 color: this.colorLoading,
-                text: 'Cargando...'
+                text: 'Cargando'
             })
+            this.listCategoriesProject = [];
             this.selectProjectType = typeProject;
-            this.$emit('selectTypeProject', this.selectProjectType)//Enviamos el tipo del projecto al componente padre
+             //Enviamos el tipo del projecto al componente padre
             this.getCategoriesProjects(typeProject.id)
             this.$tours['myTour'].finish()
 
         },
-
-        categoriesProjectSelected( categoriesProject ) {
+        /*=============================================
+             SELECCIONA EL TIPO DE CATEGORIA Y LO AGREGA UN ARRAY
+        =============================================*/
+        categoriesProjectSelected(categoriesProject) {
             console.log(categoriesProject)
             if (this.listCategoriesProject.length == 0) {
                 this.listCategoriesProject.push(categoriesProject);
@@ -336,37 +445,64 @@ export default {
                 return;
             }
             let add = 0;
-            for ( let item of this.listCategoriesProject ) {
-                if ( parseInt(item.id) == parseInt(categoriesProject.id) ) add++;
+            for (let item of this.listCategoriesProject) {
+                if (parseInt(item.id) == parseInt(categoriesProject.id)) add++;
             }
-            if ( add == 0 ) {
-                this.listCategoriesProject.push( categoriesProject );
+            if (add == 0) {
+                this.listCategoriesProject.push(categoriesProject);
                 this.eventSelectScroll("#section-tags-categories-project");
             } else {
-                let index = this.listCategoriesProject.indexOf( categoriesProject );
-                if ( index != -1 ) this.listCategoriesProject.splice( index, 1 );
+                let index = this.listCategoriesProject.indexOf(categoriesProject);
+                if (index != -1) this.listCategoriesProject.splice(index, 1);
             }
         },
-
-        selectedCategoriesProjectActive( categoriesProject ) {
-            if ( this.listCategoriesProject.length == 0 ) return false;
-            for ( let item of this.listCategoriesProject ) {
-                if ( parseInt(item.id) == parseInt(categoriesProject.id) ) {
+        /*=============================================
+             SELECCIONA LAS CATEGORIAS Y LAS MUESTRA COMO ACTIVAS
+        =============================================*/
+        selectedCategoriesProjectActive(categoriesProject) {
+            if (this.listCategoriesProject.length == 0) return false;
+            for (let item of this.listCategoriesProject) {
+                if (parseInt(item.id) == parseInt(categoriesProject.id)) {
                     return true;
                 }
             }
             return false;
         },
-        removeTagsCategoriesProject(categoriesProject){
+        /*=============================================
+             REMOVER CATEGORÍAS EN LOS TAGS
+        =============================================*/
+        removeTagsCategoriesProject(categoriesProject) {
             this.listCategoriesProject.splice(this.listCategoriesProject.indexOf(categoriesProject), 1)
         },
 
-        moreInformationProject(typeProject){
+        /*=============================================
+             ABRIR MODAL PARA MOSTRAR MÁS INFORMACIÓN EN LOS TIPOS DE PROYECTOS
+        =============================================*/
+        moreInformationProject(typeProject) {
             this.popupMoreInfoProjectActivo = true;
             this.infoTypeProjectShowModal = Object.assign({}, typeProject)
             console.log(this.infoTypeProjectShowModal);
         },
 
+        /*=============================================
+             ABRIR MODAL PARA EL BRIEF
+        =============================================*/
+        modalBrief() {
+            // this.$vs.loading({
+            //     color: this.colorLoading,
+            //     text: 'Cargando'
+            // })
+            setTimeout(() => {
+                this.brief = this.selectProjectType.brief.question
+                this.popupBriefActivo = true;
+            }, 2000)
+            // this.$vs.loading.close()
+
+        },
+
+        /*=============================================
+             TRAE TODOS LOS TIPOS DE PROYECTOS
+        =============================================*/
         getTypeProjects() {
             axios.get('/api/get-type-projects').then(resp => {
                 setTimeout(() => {
@@ -377,15 +513,21 @@ export default {
 
             })
         },
+        /*=============================================
+             TRAE TODAS LAS CATEGORIAS POR TIPO DE PROYECTO
+        =============================================*/
         getCategoriesProjects(id) {
             axios.get('/api/get-categories-projects/' + id).then(resp => {
                 this.optionsCategoriesProject = resp.data.data
-                this.$vs.loading.close()
                 this.eventSelectScroll('#section-projects-categories')
+                this.$vs.loading.close()
             }).catch(err => {
 
             })
         },
+        /*=============================================
+             EVENTO QUE PERMITE HACER SCROLL
+        =============================================*/
         eventSelectScroll(option) {
             const options = {
                 container: "body",
@@ -407,12 +549,14 @@ export default {
 <style>
 @media (max-width: 1024px)  and (min-width: 320px) {
 
-    .section-categories-project-mobile{
+    .section-categories-project-mobile {
         display: block !important;
     }
-    .section-categories-project-desktop{
+
+    .section-categories-project-desktop {
         display: none !important;
     }
+
     .row-cards-mobile-register-project {
         display: block !important;
     }
