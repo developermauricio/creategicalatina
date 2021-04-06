@@ -8288,6 +8288,47 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8306,7 +8347,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           es: null,
           en: null
         },
-        description: null
+        description: {
+          es: null,
+          en: null
+        }
       },
       colorLoading: '#161d31',
       options: {
@@ -8346,6 +8390,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   methods: {
     typeProjectSelected: function typeProjectSelected(typeProject) {
+      this.listCategoriesProject = [];
       this.$vs.loading({
         color: this.colorLoading,
         text: 'Cargando...'
@@ -32724,6 +32769,7 @@ var render = function() {
                           "vs-chip",
                           {
                             key: tagsCategoriesProject.id,
+                            staticStyle: { "margin-right": "1rem" },
                             attrs: { closable: "", "close-icon": "delete" },
                             on: {
                               click: function($event) {
@@ -32781,6 +32827,129 @@ var render = function() {
             _vm._v(
               "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\n            "
             )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", [_vm._v("Equipo Encargado")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("div", { staticClass: "avatar-group" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "avatar pull-up",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-popup": "tooltip-custom",
+                    "data-placement": "bottom",
+                    "data-original-title": "Billy Hopkins"
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/app-assets/images/portrait/small/avatar-s-9.jpg",
+                      alt: "Avatar",
+                      width: "33",
+                      height: "33"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "avatar pull-up",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-popup": "tooltip-custom",
+                    "data-placement": "bottom",
+                    "data-original-title": "Amy Carson"
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/app-assets/images/portrait/small/avatar-s-6.jpg",
+                      alt: "Avatar",
+                      width: "33",
+                      height: "33"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "avatar pull-up",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-popup": "tooltip-custom",
+                    "data-placement": "bottom",
+                    "data-original-title": "Brandon Miles"
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/app-assets/images/portrait/small/avatar-s-8.jpg",
+                      alt: "Avatar",
+                      width: "33",
+                      height: "33"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "avatar pull-up",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-popup": "tooltip-custom",
+                    "data-placement": "bottom",
+                    "data-original-title": "Daisy Weber"
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/app-assets/images/portrait/small/avatar-s-20.jpg",
+                      alt: "Avatar",
+                      width: "33",
+                      height: "33"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "avatar pull-up",
+                  attrs: {
+                    "data-toggle": "tooltip",
+                    "data-popup": "tooltip-custom",
+                    "data-placement": "bottom",
+                    "data-original-title": "Jenny Looper"
+                  }
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "/app-assets/images/portrait/small/avatar-s-20.jpg",
+                      alt: "Avatar",
+                      width: "33",
+                      height: "33"
+                    }
+                  })
+                ]
+              )
+            ])
           ])
         ]
       )

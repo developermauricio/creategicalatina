@@ -1,5 +1,12 @@
 <template>
     <div>
+        <!--=====================================
+		 1. PASO SELECCIONAR EL TIPO DE PROYECTO
+        ======================================-->
+
+        <!--=====================================
+		TARJETAS TIPO PROYECTO PARA MOBILE
+        ======================================-->
         <div class="row row-cards-mobile-register-project" style="display: none">
             <p class="pb-1 text-center">{{ $t('frontend.register-client.selecciona_tipo_proyecto') }}</p>
             <div class="col-12">
@@ -22,6 +29,9 @@
                 </splide>
             </div>
         </div>
+        <!--=====================================
+		    TARJETAS TIPO PROYECTO PARA ESCRITORIO
+        ======================================-->
         <div class="row-cards-desktop-register-project">
             <div v-if="skeletonValue == 1">
                 <div class="row">
@@ -46,6 +56,9 @@
                         >
                             <div class="card-container card-info-animation" style="cursor:pointer">
                                 <div class="card-flip">
+                                    <!--=====================================
+		                                LADO FRONTAL DE LA TARJETA
+                                    ======================================-->
                                     <div class="front" @click="typeProjectSelected( typeProject )">
                                         <div class="card no-b">
                                             <div class="card-body text-center">
@@ -57,7 +70,9 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!--=====================================
+		                                LADO POSTERIOR DE LA TARJETA
+                                    ======================================-->
                                     <div class="back">
                                         <div class="card" style="border: 2px solid #79ebdf; !important">
                                             <div class="card-body cardPatterType pt-1 pr- pl-1 pb-0" @click="typeProjectSelected( typeProject )">
@@ -86,6 +101,10 @@
                 </div>
             </div>
         </div>
+
+        <!--=====================================
+		   2. PASO SELECCIONAR LAS CATEGORIAS DEL PROYECTO
+        ======================================-->
         <div v-if="selectProjectType">
             <div class="divider" id="section-projects-categories">
                 <div class="divider-text">{{ $t('frontend.register-client.siguiente_paso') }}</div>
@@ -187,7 +206,7 @@
             <div class="row pl-2 pr-2" v-if="listCategoriesProject.length > 0">
                 <div class="col-12">
                     <p class="">Categorías Seleccionadas:</p>
-                    <vs-chip
+                    <vs-chip style="margin-right: 1rem"
                         v-for="tagsCategoriesProject in listCategoriesProject":key="tagsCategoriesProject.id"  @click="removeTagsCategoriesProject(tagsCategoriesProject)" closable close-icon="delete">
                        <span style="font-size: 1rem !important;">{{ tagsCategoriesProject.name[language] }}</span>
                     </vs-chip>
@@ -203,6 +222,28 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
             </p>
+            <hr>
+            <p>Equipo Encargado</p>
+            <div>
+                <div class="avatar-group">
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Billy Hopkins" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" width="33" height="33" />
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Amy Carson" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" width="33" height="33" />
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Brandon Miles" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" width="33" height="33" />
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Daisy Weber" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Jenny Looper" class="avatar pull-up">
+                        <img src="/app-assets/images/portrait/small/avatar-s-20.jpg" alt="Avatar" width="33" height="33" />
+                    </div>
+                </div>
+            </div>
+
         </vs-popup>
     </div>
 </template>
@@ -227,8 +268,10 @@ export default {
                     es: null,
                     en: null
                 },
-                description: null
-
+                description: {
+                    es: null,
+                    en: null
+                },
             },
             colorLoading: '#161d31',
 
@@ -271,6 +314,7 @@ export default {
     methods: {
 
         typeProjectSelected(typeProject) {
+            this.listCategoriesProject = [];
             this.$vs.loading({
                 color: this.colorLoading,
                 text: 'Cargando...'

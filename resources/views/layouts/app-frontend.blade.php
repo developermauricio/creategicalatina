@@ -216,6 +216,7 @@
 <!-- END: Theme JS-->
 <script src="/js/change-template.js"></script>
 
+
 <script src="{{ asset('js/app-frontend.js') }}"></script>
 {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
 {{--<script src="/js/swiper-sliders.js"></script>--}}
