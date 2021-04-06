@@ -61,7 +61,7 @@
         <hr class="invoice-spacing"/>
 
         <!-- Invoice Note starts -->
-        <div class="card-body invoice-padding pt-0">
+        <div class="pt-0">
             <div class="row">
                 <div class="col-12">
                     <span class="font-weight-bold">Note:</span>

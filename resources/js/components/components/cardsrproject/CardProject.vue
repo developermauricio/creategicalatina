@@ -276,7 +276,7 @@
         ======================================-->
         <vs-popup fullscreen class="holamundo" title="Brief Sofware"
                   :active.sync="popupBriefActivo">
-            <div class="row pt-1 pr-4 pl-4">
+            <div class="row pt-1 pr-md-4 pl-md-4 pr-lg-4 pl-lg-4">
                 <div class="col-12">
                     <brief-software :brief="brief"></brief-software>
                 </div>
