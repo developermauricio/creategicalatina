@@ -110,7 +110,7 @@
         <!--=====================================
 		   2. PASO SELECCIONAR LAS CATEGORIAS DEL PROYECTO
         ======================================-->
-        <div v-if="selectProjectType">
+        <div v-if="selectProjectType.id">
             <div class="divider" id="section-projects-categories">
                 <div class="divider-text">{{ $t('frontend.register-client.siguiente_paso') }}</div>
             </div>
@@ -124,7 +124,7 @@
                             {{ selectProjectType.name[language] }}</h3>
                     </div>
                 </div>
-                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" position="right" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
                     <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
                 </vs-tooltip></p>
                 <div class="row">
@@ -163,7 +163,7 @@
                     </div>
                 </div>
                 <div class="d-inline-block">
-                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip position="right" class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
                         <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
                     </vs-tooltip></p>
 
@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <div class="d-inline-block">
-                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_agregar_brief') }}<vs-tooltip class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_titulo_agregar_brief')">
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_agregar_brief') }}<vs-tooltip position="right" class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_titulo_agregar_brief')">
                         <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
                     </vs-tooltip></p>
                 </div>
@@ -274,7 +274,7 @@
         <!--=====================================
 		    MODAL BRIEF
         ======================================-->
-        <vs-popup fullscreen class="holamundo" title="Brief Sofware"
+        <vs-popup fullscreen class="holamundo" :title="brief.title[language]"
                   :active.sync="popupBriefActivo">
             <div class="row pt-1 pr-md-4 pl-md-4 pr-lg-4 pl-lg-4">
                 <div class="col-12">
@@ -350,7 +350,16 @@ export default {
             popupMoreInfoProjectActivo: false,
             popupBriefActivo: false,
             nameProject: '',
-            brief: null,
+            brief: {
+                title:{
+                    en:'',
+                    es:''
+                },
+                note:{
+                    en:null,
+                    es:null
+                },
+            },
             errors: {},
             infoTypeProjectShowModal: {
                 name: {
@@ -394,7 +403,14 @@ export default {
 
             selectProjectType: {
                 brief: {
-                    question:null
+                    id:null,
+                    title: {
+                        en:null,
+                        es:null
+                    },
+                    question:{
+                        id:null
+                    }
                 },
                 created_at:null,
                 description:{
@@ -436,7 +452,6 @@ export default {
              SELECCIONA EL TIPO DE CATEGORIA Y LO AGREGA UN ARRAY
         =============================================*/
         categoriesProjectSelected(categoriesProject) {
-            console.log(categoriesProject)
             if (this.listCategoriesProject.length == 0) {
                 this.listCategoriesProject.push(categoriesProject);
                 this.eventSelectScroll("#section-tags-categories-project");
@@ -481,7 +496,6 @@ export default {
         moreInformationProject(typeProject) {
             this.popupMoreInfoProjectActivo = true;
             this.infoTypeProjectShowModal = Object.assign({}, typeProject)
-            console.log(this.infoTypeProjectShowModal);
         },
 
         /*=============================================
@@ -492,12 +506,9 @@ export default {
             //     color: this.colorLoading,
             //     text: 'Cargando'
             // })
-            setTimeout(() => {
-                this.brief = this.selectProjectType.brief.question
-                this.popupBriefActivo = true;
-            }, 2000)
+            this.brief = this.selectProjectType.brief
             // this.$vs.loading.close()
-
+            this.popupBriefActivo = true;
         },
 
         /*=============================================

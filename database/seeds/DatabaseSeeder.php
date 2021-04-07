@@ -133,13 +133,13 @@ class DatabaseSeeder extends Seeder
             factory(\App\Model\Brief::class)->create(
                 [
                     'title' => $briefEs[$i],
-                    'note' => 'Tenga en cuenta en llenar todo el brief y asi ofrecer un de esta menera podremos dar respuesta a tu solicitud de manera mas exacta.',
+                    'note' => 'Tenga en cuenta en llenar todo el brief, asi podremos dar respuesta a tu solicitud de manera más exacta.',
                     'type_project_id' => $i + 1
                 ]
              );
             $brief = \App\Model\Brief::find($i + 1);
             $brief->setTranslation('title', 'en', $briefEn[$i]);
-            $brief->setTranslation('note', 'en', 'Keep in mind to fill out the entire brief and thus offer one in this way we can respond to your request more accurately.');
+            $brief->setTranslation('note', 'en', 'Keep in mind to fill out the entire brief, so we can respond to your request more accurately.');
             $brief->save();
         }
 

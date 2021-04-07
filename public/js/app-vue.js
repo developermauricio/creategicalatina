@@ -34280,6 +34280,10 @@ __webpack_require__.r(__webpack_exports__);
         "error_name_project": "Please enter a valid project name",
         "requerido_name_project": "The name of the project is required"
       },
+      "brief": {
+        "fecha_actual": "Date now",
+        "title_nota": "Note"
+      },
       "landing": {
         "inicio": "Home",
         "Quienes Somos": "About us",
@@ -34469,6 +34473,10 @@ __webpack_require__.r(__webpack_exports__);
         "nombre_proyecto_registro": "Nombre del Proyecto",
         "error_name_project": "Ingrese un nombre de proyecto válido",
         "requerido_name_project": "El nombre del proyecto es requerido"
+      },
+      "brief": {
+        "fecha_actual": "Fecha",
+        "title_nota": "Nota"
       },
       "landing": {
         "inicio": "Inicio",

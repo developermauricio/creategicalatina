@@ -21,6 +21,7 @@ Vue.use(Vuesax);
 import moment from 'moment';
 import 'moment/locale/es';
 window.moment = moment;
+
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 

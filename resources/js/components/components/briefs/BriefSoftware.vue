@@ -1,5 +1,5 @@
 <template>
-    <div class="invoice-preview-card">
+    <div class="invoice-preview-card" v-if="titleBrief[language]">
         <div class="invoice-padding pb-0">
             <!-- Header starts -->
             <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
@@ -19,7 +19,7 @@
                         <span class="invoice-number">#3492</span>
                     </h4>
                     <div class="invoice-date-wrapper">
-                        <p class="invoice-date-title" style="margin-bottom: 0px !important;">Fecha:</p>
+                        <p class="invoice-date-title" style="margin-bottom: 0px !important;">{{ $t('frontend.brief.fecha_actual') }}:</p>
                         <p class="invoice-date">{{ moment(dateNow).locale(language).format("dddd, MMMM Do YYYY") }}</p>
                     </div>
 <!--                    <div class="invoice-date-wrapper">-->
@@ -35,9 +35,10 @@
 
         <!-- Address and Contact starts -->
         <div class="card-body pt-0">
+            <h3 class="font-weight-bolder display-4 text-center" v-text="titleBrief[language]"></h3>
             <div class="row">
-                <div v-for="question in brief" :key="question.id" class="col-12 col-lg-6 col-md-6">
-                    <h6 class="pt-1">{{ question.question[language] }}:</h6>
+                <div v-for="question in questions" :key="question.id" class="col-12 col-lg-6 col-md-6">
+                    <h6 class="pt-1">{{ question.question[language] }}:<vs-tooltip position="right" class="d-inline-block pr-1" :text="question.note[language]"><vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon></vs-tooltip></h6>
                     <input-form
                         :showLabel="false"
                         label="Pregunta"
@@ -64,9 +65,8 @@
         <div class="pt-0">
             <div class="row">
                 <div class="col-12">
-                    <span class="font-weight-bold">Note:</span>
-                    <span>It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance
-                                                projects. Thank You!</span>
+                    <span class="font-weight-bold">{{ $t('frontend.brief.title_nota') }}:</span>
+                    <span v-if="noteBrief[language]">{{ noteBrief[language] }}</span>
                 </div>
             </div>
         </div>
@@ -93,9 +93,16 @@ export default {
     data() {
         return {
             colorLoading: '#161d31',
-
             answer: null,
             editor: ClassicEditor,
+            titleBrief: {
+                en:null,
+                es:null
+            },
+            noteBrief: {
+                en:null,
+                es:null
+            },
             questions: [],
             editorConfig: {
                 language: window.lang,
@@ -108,6 +115,21 @@ export default {
         }
     },
     props:['brief'],
+    watch: {
+        brief: function(newVal, oldVal) { // watch it
+            this.$vs.loading({
+                color: this.colorLoading,
+                text: `${this.$t('loading_modal')}`
+            })
+            console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+            axios.get('/api/get-brief/'+newVal.id).then(resp =>{
+                this.questions = resp.data.data
+                this.$vs.loading.close()
+                this.titleBrief = newVal.title
+                this.noteBrief = newVal.note
+            })
+        }
+    },
     methods: {
         // getBrief() {
         //     axios.get('/api/get-brief/'+this.id_type_project).then(resp =>{
