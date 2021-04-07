@@ -30,6 +30,7 @@
         "@ckienle/k-pop": "^0.7.0",
         "@splidejs/splide": "^2.4.21",
         "@splidejs/vue-splide": "^0.3.5",
+        "cxlt-vue2-toastr": "^1.1.1",
         "material-icons": "^0.5.4",
         "moment": "^2.29.1",
         "v-tooltip": "^2.1.3",

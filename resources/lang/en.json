@@ -23,5 +23,6 @@
     "mas_info": "More Info",
     "err_msg_definition" : "Please enter a valid answer",
     "req_msg_definition": "Answer is required",
-    "loading_modal": "Loading..."
+    "loading_modal": "Loading...",
+    "btn_guardar": "Guardar"
 }

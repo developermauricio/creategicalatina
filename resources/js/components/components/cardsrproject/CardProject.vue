@@ -439,7 +439,7 @@ export default {
         typeProjectSelected(typeProject) {
             this.$vs.loading({
                 color: this.colorLoading,
-                text: 'Cargando'
+                text: `${this.$t('loading_modal')}`
             })
             this.listCategoriesProject = [];
             this.selectProjectType = typeProject;
@@ -508,7 +508,28 @@ export default {
             // })
             this.brief = this.selectProjectType.brief
             // this.$vs.loading.close()
-            this.popupBriefActivo = true;
+            if (this.brief.question.length > 0){
+                this.popupBriefActivo = true;
+            }else{
+                this.$toast.error({
+                    title: `${this.$t('frontend.brief.lo_sentimos')}`,
+                    message: `${this.$t('frontend.brief.err_no_brief')}`,
+                    showDuration: 1000,
+                    hideDuration: 8000,
+                    position: 'top right',
+                })
+                this.brief = {
+                    title:{
+                        en:'',
+                            es:''
+                    },
+                    note:{
+                        en:null,
+                            es:null
+                    },
+                }
+            }
+
         },
 
         /*=============================================

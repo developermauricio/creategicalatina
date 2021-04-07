@@ -506,10 +506,10 @@ body.dark-layout {
   color: #b4b7bd;
   border-color: #3b4253 !important; }
 
-.dark-layout .toast {
-  background-color: rgba(40, 48, 70, 0.85);
-  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.24);
-  color: #b4b7bd; }
+/*.toast {*/
+/*  background-color: rgba(40, 48, 70, 0.85);*/
+/*  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.24);*/
+/*  color: #b4b7bd; }*/
 
 .dark-layout .toast .toast-header {
   background-color: #283046;

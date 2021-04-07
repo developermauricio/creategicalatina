@@ -35,7 +35,7 @@
 
         <!-- Address and Contact starts -->
         <div class="card-body pt-0">
-            <h3 class="font-weight-bolder display-4 text-center" v-text="titleBrief[language]"></h3>
+            <h2 class="font-weight-bolder display-5 text-center" v-text="titleBrief[language]"></h2>
             <div class="row">
                 <div v-for="question in questions" :key="question.id" class="col-12 col-lg-6 col-md-6">
                     <h6 class="pt-1">{{ question.question[language] }}:<vs-tooltip position="right" class="d-inline-block pr-1" :text="question.note[language]"><vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon></vs-tooltip></h6>
@@ -71,11 +71,11 @@
             </div>
         </div>
         <!-- Invoice Note ends -->
-        <div class="text-right" style="padding-right: 15px">
+        <div class="text-right pt-2" style="padding-right: 15px">
             <button
                 type="button"
                 class="btn btn-primary pull-right"
-            >Guardar</button>
+            >{{ $t('btn_guardar') }}</button>
         </div>
     </div>
 </template>

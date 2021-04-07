@@ -19,6 +19,7 @@ export default {
         "err_msg_definition": "Please enter a valid answer",
         "req_msg_definition": "Answer is required",
         "loading_modal": "Loading...",
+        "btn_guardar": "Guardar",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -66,7 +67,9 @@ export default {
             },
             "brief": {
                 "fecha_actual": "Date now",
-                "title_nota": "Note"
+                "title_nota": "Note",
+                "lo_sentimos": "We are sorry",
+                "err_no_brief": "At the moment there is no brief"
             },
             "landing": {
                 "inicio": "Home",
@@ -213,6 +216,7 @@ export default {
         "err_msg_definition": "Ingrese respuesta válida",
         "req_msg_definition": "Esta respuesta es requerida",
         "loading_modal": "Cargando...",
+        "btn_guardar": "Guardar",
         "email": {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
@@ -260,7 +264,9 @@ export default {
             },
             "brief": {
                 "fecha_actual": "Fecha",
-                "title_nota": "Nota"
+                "title_nota": "Nota",
+                "lo_sentimos": "Lo sentimos",
+                "err_no_brief": "Por el momento no hay brief"
             },
             "landing": {
                 "inicio": "Inicio",
