@@ -85,13 +85,14 @@
             </div>
         </div>
         <!-- Invoice Note ends -->
-        <div class="text-right pt-2" style="padding-right: 15px">
-            <button
-                type="button"
-                class="btn btn-primary pull-right"
-            >{{ $t('btn_guardar') }}
-            </button>
-        </div>
+<!--        <div class="text-right pt-2" style="padding-right: 15px">-->
+<!--            <button-->
+<!--                @click="saveBriefProject"-->
+<!--                type="button"-->
+<!--                class="btn btn-primary pull-right"-->
+<!--            >{{ $t('btn_guardar') }}-->
+<!--            </button>-->
+<!--        </div>-->
     </div>
     <!--=====================================
        MODAL BRIEF
@@ -188,19 +189,29 @@ export default {
             },
         }
     },
-    created() {
-        this.changedTheme();
-    },
     props: ['brief'],
     watch: {
-        brief: function (newVal, oldVal) { // watch it
+        brief: function (brief, oldVal) { // watch it
             this.$vs.loading({
                 color: this.colorLoading,
                 text: `${this.$t('loading_modal')}`
             })
-
-            axios.get('/api/get-brief/' + newVal.id).then(resp => {
-                this.questions = resp.data.data
+            setTimeout(() =>{
+                this.questions = brief.question
+                // axios.get('/api/get-brief/' + brief.id).then(resp => {
+                //     console.log('data consulta',resp.data)
+                //     this.questions = resp.data.data
+                //     this.questions.forEach(obj => {
+                //             obj.attempts = 2
+                //             obj.recordQuestion = []
+                //             obj.pathsRecording = []
+                //             obj.colorSuccess = '#ee5f7e'
+                //         }
+                //     )
+                //     this.$vs.loading.close()
+                //     this.titleBrief = brief.title
+                //     this.noteBrief = brief.note
+                // })
                 this.questions.forEach(obj => {
                         obj.attempts = 2
                         obj.recordQuestion = []
@@ -208,10 +219,11 @@ export default {
                         obj.colorSuccess = '#ee5f7e'
                     }
                 )
+                this.titleBrief = brief.title
+                this.noteBrief = brief.note
                 this.$vs.loading.close()
-                this.titleBrief = newVal.title
-                this.noteBrief = newVal.note
-            })
+            }, 500)
+
         },
 
     },
@@ -219,7 +231,6 @@ export default {
         openModalReconding(question) {
             this.popupRecondingActivo = true
             this.infoModalRecording = Object.assign({}, question)
-            this.changedTheme();
             // this.infoModalRecording = question
         },
         questionRecording(data) {
@@ -249,13 +260,26 @@ export default {
                 }
             }
         },
-
-        changedTheme() {
-            if (this.themeSession == 1 || this.themeSession == 3) {
-                this.classDarkIcon = true;
-            } else {
-                this.classDarkIcon = false;
+        saveBriefProject(){
+            let i = 0;
+            this.questions.forEach(obj => {
+                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0 ){
+                    i++
+                }
+            })
+            if (i == 0){
+                this.$toast.error({
+                    title: 'Error',
+                    message: 'El brief no puede estar vacio, responda una pregunta',
+                    showDuration: 1000,
+                    hideDuration: 6000,
+                    position: 'top right',
+                })
+            }else{
+                this.$emit("dataBrief", this.questions)
+                console.log('si hay datos')
             }
+
         }
     },
 }

@@ -238,7 +238,7 @@
             <!--=====================================
 		       SECCIÓN BRIEF
             ======================================-->
-            <div class="section-brief pt-1" v-if="listCategoriesProject.length > 0">
+            <div class="section-brief pt-1 pb-2" v-if="listCategoriesProject.length > 0">
                 <div class="divider" id="section-brief">
                     <div class="divider-text">{{ $t('frontend.register-client.siguiente_paso') }}</div>
                 </div>
@@ -274,11 +274,20 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="list-group">
-                                <h5 @click="modalBrief" class="card-header links-title list-group-item list-group-item-action">
-                                    {{ $t('frontend.register-client.agregar_brief') }}<span class="badge badge-light-success badge-pill float-right"><vs-icon size="medium" icon="done"></vs-icon></span></h5>
+                                <h5 @click="modalBrief" :class="{ 'succes-brief ': classBorderCheckBrief, 'icheck-brief':classBorderICheckBrief  }"  class="card-header links-title list-group-item list-group-item-action">
+                                    {{ $t('frontend.register-client.agregar_brief') }}
+                                    <span v-if="briefCheck" class="badge badge-light-success badge-pill float-right icon-check-success-brief">
+                                        <vs-icon size="medium" icon="done"></vs-icon>
+                                    </span>
+                                    <span v-if="briefICheck" class="badge badge-light-success badge-pill float-right icon-check-icheck-brief">
+                                        <vs-icon size="medium" icon="block"></vs-icon>
+                                    </span>
+                                </h5>
 
                             </div>
                         </div>
+                        <p v-if="textBriefCheck">El brief contiente información.</p>
+                        <p v-if="textBriefIcheck">El brief no tiene información, debes responder al menos una pregunta.</p>
                     </div>
                 </div>
             </div>
@@ -287,7 +296,7 @@
         <!--=====================================
 		    MODAL BRIEF
         ======================================-->
-        <vs-popup @update:active="closeModalBrief" fullscreen class="holamundo" :title="brief.title[language]"
+        <vs-popup @update:active="closeModalBrief" @dataBrief="validateBriefModal" fullscreen class="holamundo" :title="brief.title[language]"
                   :active.sync="popupBriefActivo">
             <div class="row pt-1 pr-md-4 pl-md-4 pr-lg-4 pl-lg-4">
                 <div class="col-12">
@@ -363,6 +372,12 @@ export default {
             popupMoreInfoProjectActivo: false,
             popupBriefActivo: false,
             nameProject: '',
+            briefCheck: false,
+            briefICheck: false,
+            textBriefCheck: false,
+            textBriefIcheck: false,
+            classBorderCheckBrief: false,
+            classBorderICheckBrief: false,
             brief: {
                 title: {
                     en: '',
@@ -577,9 +592,45 @@ export default {
                 this.$scrollTo(option, 1000, options);
             }, 100);
         },
+        validateBriefModal(){
 
+        },
         closeModalBrief(){
-            alert('hola')
+            let i = 0;
+            this.brief.question.forEach(obj => {
+                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0 ){
+                    i++
+                }
+            })
+            if (i == 0){
+                this.$toast.error({
+                    title: 'Error',
+                    message: 'El brief no puede estar vacio, responda una pregunta',
+                    showDuration: 1000,
+                    hideDuration: 6000,
+                    position: 'top right',
+                })
+                this.briefCheck = false;
+                this.classBorderCheckBrief = false
+                this.textBriefIcheck = true
+                this.textBriefCheck = false
+                this.briefICheck = true
+                this.classBorderICheckBrief = true
+            }else{
+                this.textBriefIcheck = false
+                this.textBriefCheck = true
+                this.briefICheck = false
+                this.classBorderICheckBrief = false
+                this.briefCheck = true;
+                this.classBorderCheckBrief = true
+                this.$toast.success({
+                    title: '',
+                    message: 'Información dle brief agregada correctamente',
+                    showDuration: 1000,
+                    hideDuration: 6000,
+                    position: 'top right',
+                })
+            }
         }
     },
 
@@ -651,5 +702,21 @@ export default {
 
 .back .title.grey-background {
     display: none !important;
+}
+.badge.icon-check-icheck-brief{
+    background-color: rgba(240, 94, 125, 0.12) !important;
+    color: #F05E7D !important;
+}
+.badge.icon-check-success-brief{
+    background-color: rgba(121, 235, 223, 0.12) !important;
+    color: #79ebdf !important;
+}
+.card-header.succes-brief{
+    border-color: #79ebdf !important;
+
+}
+.card-header.icheck-brief{
+    border-color: #F05E7D !important;
+
 }
 </style>
