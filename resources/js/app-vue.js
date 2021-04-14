@@ -5,20 +5,26 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+import VueFormWizard from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+Vue.use(VueFormWizard)
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import CxltToastr from 'cxlt-vue2-toastr'
+Vue.use(CxltToastr)
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 
+import Vuesax from 'vuesax';
+import 'vuesax/dist/vuesax.css';
+import 'material-icons/iconfont/material-icons.css';
+Vue.use(Vuesax);
+
+/*COMPONENTES EXTERNOS*/
+Vue.component('input-form', require('./components/InputFormComponent.vue').default);
+
+Vue.component('create-new-customer', require('./components/backend/pages/customer/CreateNewCustomer').default);
+Vue.component('profile-customer', require('./components/backend/pages/customer/ProfileCustomer').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -34,7 +40,7 @@ const i18n = new VueInternationalization({
     locale: window.lang,
     messages: Locale
 });
-
+window.eventBus = new Vue();
 const appVue = new Vue({
     el: '#app',
     i18n

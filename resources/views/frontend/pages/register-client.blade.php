@@ -5,3 +5,4 @@
 @section('content')
     <register-client></register-client>
 @endsection
+

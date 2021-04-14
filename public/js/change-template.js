@@ -8,6 +8,7 @@ $(function () {
         if (value == '1') {
             $html.removeClass('semi-dark');
             $html.addClass('dark-layout');
+            $('.incon-help-brief').addClass('dark-layout');
             $('.span-text-dark-mode').text('Light mode');
             mainMenu.removeClass('menu-light').addClass('menu-dark');
             $('.footer-main').addClass('color-text-links-footer-green');
@@ -22,12 +23,23 @@ $(function () {
             $('.card-system').removeClass('active');
 
             $('.vs-popup').addClass('dark-layout');
+            $('.multiselect__tags').addClass('dark-layout');
+            $('.multiselect__content-wrapper').addClass('dark-layout');
+            $('.multiselect__single').addClass('dark-layout');
+            $('.country-selector__input').addClass('dark-layout');
+
+            $('.wizard-nav-pills').addClass('dark-layout');
+            $('.input-tel__input').addClass('dark-layout');
 
             $('.link').removeClass('link-light');
             $('.link').addClass('link-dark');
 
+            $('.btn-export-datatable').removeClass('theme-light');
 
             $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
+
+            $('.datatablescreategica').addClass('datatable-dark')
+            $('.datatablescreategica').removeClass('datatable-light')
 
             navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
             localStorage.setItem('theme', '1')
@@ -45,16 +57,27 @@ $(function () {
 
             $('.info-card').removeClass('dark-mode-cards-vue');
             $('.info-card').addClass('light-mode-cards-vue');
+            $('.incon-help-brief').removeClass('dark-layout');
+
+            $('.wizard-nav-pills').removeClass('dark-layout');
+            $('.multiselect__tags').removeClass('dark-layout');
+            $('.country-selector__input').removeClass('dark-layout');
+            $('.multiselect__single').removeClass('dark-layout');
 
             $('.card-theme-change').removeClass('border-dark-card-change-theme');
             $('.card-dark').removeClass('active');
             $('.card-light').addClass('active');
             $('.card-system').removeClass('active');
-
+            $('.multiselect__content-wrapper').removeClass('dark-layout');
             $('.vs-popup').removeClass('dark-layout');
+            $('.multiselect__option--highlight').removeClass('dark-layout');
+            $('.input-tel__input').removeClass('dark-layout');
 
             $('.link').removeClass('link-dark');
             $('.link').addClass('link-light');
+
+            $('.datatablescreategica').addClass('datatable-light')
+            $('.datatablescreategica').removeClass('datatable-dark')
 
             navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
             localStorage.setItem('theme', '2')
@@ -70,18 +93,25 @@ $(function () {
                 mainMenu.removeClass('menu-light').addClass('menu-dark');
                 $('.footer-main').addClass('color-text-links-footer-green');
                 $('.footer-main').removeClass('color-text-links-footer-red');
-
+                $('.incon-help-brief').addClass('dark-layout');
+                $('.wizard-nav-pills').addClass('dark-layout');
                 $('.info-card').removeClass('light-mode-cards-vue');
                 $('.info-card').addClass('dark-mode-cards-vue');
-
+                $('.btn-export-datatable').removeClass('theme-light');
                 $('.vs-popup').addClass('dark-layout');
-
+                $('.multiselect__option--highlight').addClass('dark-layout');
+                $('.country-selector__input').addClass('dark-layout');
                 $('.link').removeClass('link-light');
                 $('.link').addClass('link-dark');
+                $('.input-tel__input').addClass('dark-layout');
+                $('.multiselect__single').addClass('dark-layout');
 
                 $('.card-theme-change').addClass('border-dark-card-change-theme');
-
+                $('.multiselect__content-wrapper').addClass('dark-layout');
                 $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
+                $('.multiselect__tags').addClass('dark-layout');
+                $('.datatablescreategica').addClass('datatable-dark')
+                $('.datatablescreategica').removeClass('datatable-light')
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
 
@@ -97,16 +127,25 @@ $(function () {
                 $('.footer-main').removeClass('color-text-links-footer-green');
 
                 $('.card-theme-change').removeClass('border-dark-card-change-theme');
-
+                $('.incon-help-brief').removeClass('dark-layout');
                 $('.body-cards-info-vue').removeClass('dark-mode-cards-text-vue')
-
+                $('.datatablescreategica').addClass('datatable-light')
+                $('.wizard-nav-pills').removeClass('dark-layout');
                 $('.info-card').removeClass('dark-mode-cards-vue');
                 $('.info-card').addClass('light-mode-cards-vue');
-
+                $('.multiselect__tags').removeClass('dark-layout');
                 $('.vs-popup').removeClass('dark-layout');
+                $('.country-selector__input').removeClass('dark-layout');
+                $('.multiselect__option--highlight').removeClass('dark-layout');
+                $('.multiselect__single').removeClass('dark-layout');
 
+                $('.multiselect__content-wrapper').removeClass('dark-layout');
                 $('.link').removeClass('link-dark');
                 $('.link').addClass('link-light');
+                $('.input-tel__input').removeClass('dark-layout');
+
+                $('.datatablescreategica').addClass('datatable-light')
+                $('.datatablescreategica').removeClass('datatable-dark')
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
 
@@ -136,17 +175,24 @@ $(function () {
                 mainMenu.removeClass('menu-light').addClass('menu-dark');
                 $('.footer-main').addClass('color-text-links-footer-green');
                 $('.footer-main').removeClass('color-text-links-footer-red');
-
+                $('.wizard-nav-pills').addClass('dark-layout');
                 $('.info-card').removeClass('light-mode-cards-vue');
                 $('.info-card').addClass('dark-mode-cards-vue');
-
+                $('.incon-help-brief').addClass('dark-layout');
                 $('.card-theme-change').addClass('border-dark-card-change-theme');
                 $('.vs-popup').addClass('dark-layout');
-
+                $('.multiselect__single').addClass('dark-layout');
                 $('.link').removeClass('link-light');
                 $('.link').addClass('link-dark');
+                $('.multiselect__tags').addClass('dark-layout');
+                $('.datatablescreategica').addClass('datatable-dark')
+                $('.datatablescreategica').removeClass('datatable-light')
+                $('.multiselect__option--highlight').addClass('dark-layout');
+                $('.country-selector__input').addClass('dark-layout');
 
+                $('.multiselect__content-wrapper').addClass('dark-layout');
                 $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
+                $('.input-tel__input').addClass('dark-layout');
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
                 localStorage.setItem('theme', '3')
@@ -159,17 +205,25 @@ $(function () {
 
                 $('.footer-main').addClass('color-text-links-footer-red');
                 $('.footer-main').removeClass('color-text-links-footer-green');
-
+                $('.wizard-nav-pills').removeClass('dark-layout');
                 $('.card-theme-change').removeClass('border-dark-card-change-theme');
                 $('.vs-popup').removeClass('dark-layout');
-
+                $('.incon-help-brief').removeClass('dark-layout');
                 $('.link').removeClass('link-dark');
                 $('.link').addClass('link-light');
-
+                $('.multiselect__tags').removeClass('dark-layout');
                 $('.body-cards-info-vue').removeClass('dark-mode-cards-text-vue')
-
+                $('.multiselect__option--highlight').removeClass('dark-layout');
+                $('.country-selector__input').removeClass('dark-layout');
                 $('.info-card').removeClass('dark-mode-cards-vue');
                 $('.info-card').addClass('light-mode-cards-vue');
+                $('.input-tel__input').removeClass('dark-layout');
+                $('.multiselect__single').removeClass('dark-layout');
+
+                $('.multiselect__content-wrapper').removeClass('dark-layout');
+
+                $('.datatablescreategica').addClass('datatable-light')
+                $('.datatablescreategica').removeClass('datatable-dark')
 
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
                 localStorage.setItem('theme', '4')
@@ -180,10 +234,13 @@ $(function () {
 
 
     var $body= $('body')
-    let menu = localStorage.getItem('menu-sidebar') || '2'
+    let menu =  window.sideBarMenu || '2'
 
     let changeMenu = (menuValue) => {
+        console.log(menuValue)
         if (menuValue == '1'){
+            $('.logo-backend-vertical').css("display","block")
+            $('.logo-backend-horizontal').css("display","none")
             $body.removeClass('menu-expanded')
             $body.addClass('menu-collapsed')
             localStorage.setItem('menu-sidebar', '1')
@@ -192,14 +249,17 @@ $(function () {
             $body.removeClass('menu-collapsed')
             $body.addClass('menu-expanded')
             localStorage.setItem('menu-sidebar', '2')
+            $('.logo-backend-vertical').css("display","none")
+            $('.logo-backend-horizontal').css("display","block")
             $.post('/api/session-sidebar-backend/'+2+'',function (data) {})
         }
     }
     changeMenu(menu)
-    $("#event-menu-sidebar").click(function () {
+    $(".event-menu-sidebar").click(function () {
+
         let menuValueCurrent = localStorage.getItem('menu-sidebar')
         let menuValue = (menuValueCurrent == '1') ? '2' : '1'
         changeMenu(menuValue)
     });
-
+    // $("#menu-backend").find(['expanded'])
 })

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="loading {{ session('theme') == '1' || session('theme') == '3' ? 'dark-layout' : 'semi-dark'  }}" value="1" lang="en" data-textdirection="ltr" >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" value="1" class="loading {{ session('theme') == '1' || session('theme') == '3'? 'dark-layout' : 'semi-dark'  }}"
+      data-layout="semi-dark-layout" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
 <head>
@@ -10,18 +11,21 @@
           content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords"
           content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="PIXINVENT">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} | @yield('title')</title>
-    <link rel="apple-touch-icon" href="/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ env('favicon_img_logo') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ env('favicon_img_logo') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
           rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/extensions/swiper.min.css">
-    <!-- END: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/extensions/sweetalert2.min.css">
+@stack('css')
+<!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="/app-assets/css/bootstrap.css">
@@ -31,23 +35,23 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/dark-layout.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-swiper.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="stylesheet" type="text/css" href="/app-assets/css/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/charts/chart-apex.css">
-    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-toastr.css">
-    <!-- END: Page CSS-->
+
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
+        window.token = '{{ csrf_token() }}'
         window.logo = '{{ env('IMG_LOGO') }}'
         window.lang = '{{ session('language') }}'
         window.themeSession = '{{ session('theme') }}'
+        window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
         window.sessionTourRegisterProject = '{{ session('sessionTourRegisterProject') }}'
         themeSession = '{{ session('theme') }}'
         if (themeSession == 1){
@@ -61,117 +65,17 @@
 
 <!-- BEGIN: Body-->
 
-<body class="horizontal-layout horizontal-menu  navbar-floating footer-fixed" data-open="hover"
-      data-menu="horizontal-menu" data-col="">
+<body class="vertical-layout vertical-menu-modern {{ session('sidebarMenuBackend') == '1' ? 'menu-collapsed' : 'menu-expanded'  }}  navbar-sticky footer-fixed" data-open="click"
+      data-menu="vertical-menu-modern" data-col="">
 
 <!-- BEGIN: Header-->
 <div id="app-frontend" class="">
-    <ul class="main-search-list-defaultlist d-none">
-        <li class="d-flex align-items-center"><a href="javascript:void(0);">
-                <h6 class="section-label mt-75 mb-0">Files</h6>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-                                       href="app-file-manager.html">
-                <div class="d-flex">
-                    <div class="mr-75"><img src="/app-assets/images/icons/xls.png" alt="png" height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing
-                            Manager</small>
-                    </div>
-                </div>
-                <small class="search-data-size mr-50 text-muted">&apos;17kb</small>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-                                       href="app-file-manager.html">
-                <div class="d-flex">
-                    <div class="mr-75"><img src="/app-assets/images/icons/jpg.png" alt="png" height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd
-                            Developer</small>
-                    </div>
-                </div>
-                <small class="search-data-size mr-50 text-muted">&apos;11kb</small>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-                                       href="app-file-manager.html">
-                <div class="d-flex">
-                    <div class="mr-75"><img src="/app-assets/images/icons/pdf.png" alt="png" height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital
-                            Marketing Manager</small>
-                    </div>
-                </div>
-                <small class="search-data-size mr-50 text-muted">&apos;150kb</small>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between w-100"
-                                       href="app-file-manager.html">
-                <div class="d-flex">
-                    <div class="mr-75"><img src="/app-assets/images/icons/doc.png" alt="png" height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web
-                            Designer</small>
-                    </div>
-                </div>
-                <small class="search-data-size mr-50 text-muted">&apos;256kb</small>
-            </a></li>
-        <li class="d-flex align-items-center"><a href="javascript:void(0);">
-                <h6 class="section-label mt-75 mb-0">Members</h6>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-                                       href="app-user-view.html">
-                <div class="d-flex align-items-center">
-                    <div class="avatar mr-75"><img src="/app-assets/images/portrait/small/avatar-s-8.jpg" alt="png"
-                                                   height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
-                    </div>
-                </div>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-                                       href="app-user-view.html">
-                <div class="d-flex align-items-center">
-                    <div class="avatar mr-75"><img src="/app-assets/images/portrait/small/avatar-s-1.jpg" alt="png"
-                                                   height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd
-                            Developer</small>
-                    </div>
-                </div>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-                                       href="app-user-view.html">
-                <div class="d-flex align-items-center">
-                    <div class="avatar mr-75"><img src="/app-assets/images/portrait/small/avatar-s-14.jpg" alt="png"
-                                                   height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing
-                            Manager</small>
-                    </div>
-                </div>
-            </a></li>
-        <li class="auto-suggestion"><a class="d-flex align-items-center justify-content-between py-50 w-100"
-                                       href="app-user-view.html">
-                <div class="d-flex align-items-center">
-                    <div class="avatar mr-75"><img src="/app-assets/images/portrait/small/avatar-s-6.jpg" alt="png"
-                                                   height="32"></div>
-                    <div class="search-data">
-                        <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
-                    </div>
-                </div>
-            </a></li>
-    </ul>
-    <ul class="main-search-list-defaultlist-other-list d-none">
-        <li class="auto-suggestion justify-content-between"><a
-                class="d-flex align-items-center justify-content-between w-100 py-50">
-                <div class="d-flex justify-content-start"><span class="mr-75" data-feather="alert-circle"></span><span>No results found.</span>
-                </div>
-            </a></li>
-    </ul>
-    <!-- END: Header-->
 
-@include('partials.navigations.navbar-frontend')
-<!-- BEGIN: Main Menu-->
-@include('partials.menus.frontend.menu-navigation-mobile')
+@include('partials.navigations.navbar-backend')
+<!-- END: Header-->
+    <!-- BEGIN: Main Menu-->
+@include('partials.menus.backend.menu-navigation')
+{{--@include('partials.menus.frontend.menu-navigation-mobile')--}}
     <!-- END: Main Menu-->
 
     <!-- BEGIN: Content-->
@@ -193,25 +97,26 @@
 
     <!-- BEGIN: Footer-->
     @include('partials.footer')
-    @include('partials.theme.modal-changed-theme-frontend')
+    @include('partials.theme.modal-changed-theme-backend')
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
 </div>
 
 <!-- BEGIN: Vendor JS-->
 <script src="/app-assets/vendors/js/vendors.min.js"></script>
-<script src="/app-assets/vendors/js/extensions/swiper.min.js"></script>
 
 <!-- BEGIN Vendor JS-->
-
+<script src="/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+<script src="/app-assets/vendors/js/extensions/polyfill.min.js"></script>
 <!-- BEGIN: Page Vendor JS-->
-<script src="/app-assets/vendors/js/ui/jquery.sticky.js"></script>
-
+<script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+{{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
 <script src="/app-assets/js/core/app-menu.js"></script>
 <script src="/app-assets/js/core/app.js"></script>
+<script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 
 
 <!-- END: Theme JS-->
@@ -221,6 +126,7 @@
 <script src="{{ asset('js/app-frontend.js') }}"></script>
 {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
 {{--<script src="/js/swiper-sliders.js"></script>--}}
+@stack('js')
 <script>
     $(window).on('load', function () {
         if (feather) {

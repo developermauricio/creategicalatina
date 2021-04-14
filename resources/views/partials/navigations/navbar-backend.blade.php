@@ -52,10 +52,11 @@
                     {{--                        <i class="flag-icon flag-icon-us"></i> Inglés</a>--}}
                 </div>
             </li>
-            <li class="nav-item d-none d-lg-block" id="change-template-theme"><a
-                                                                                 class="nav-link nav-link-style icon-theme"><i
-                        class="ficon icon-change-theme" data-feather="moon"></i></a>
-            </li>
+            <li class="nav-item d-lg-block"
+                id="change-template-theme"><a
+                    class="nav-link nav-link-style icon-moon" data-toggle="modal"
+                    data-target="#modal-change-theme-backend"><i
+                        class="ficon" data-feather="moon"></i></a></li>
             <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
                                                                                    data-feather="search"></i></a>
                 <div class="search-input">
@@ -288,23 +289,27 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
                         class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i>
-                        Profile</a><a class="dropdown-item" href="app-email.html"><i class="mr-50"
-                                                                                     data-feather="mail"></i>
-                        Inbox</a><a
+                        {{ __('Perfil') }}</a><a class="dropdown-item" href="app-email.html"><i class="mr-50"
+                                                                                                data-feather="mail"></i>
+                        {{ __('Inbox') }}</a><a
                         class="dropdown-item" href="app-todo.html"><i class="mr-50" data-feather="check-square"></i>
-                        Task</a><a class="dropdown-item" href="app-chat.html"><i class="mr-50"
-                                                                                 data-feather="message-square"></i>
-                        Chats</a>
+                        {{ __('Tareas') }}</a><a class="dropdown-item" href="app-chat.html"><i class="mr-50"
+                                                                                               data-feather="message-square"></i>
+                        {{ __('Chats') }}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="page-account-settings.html"><i class="mr-50"
                                                                                   data-feather="settings"></i>
-                        Settings</a><a class="dropdown-item" href="page-pricing.html"><i class="mr-50"
-                                                                                         data-feather="credit-card"></i>
-                        Pricing</a><a class="dropdown-item" href="page-faq.html"><i class="mr-50"
-                                                                                    data-feather="help-circle"></i>
-                        FAQ</a><a class="dropdown-item" href="page-auth-login-v2.html"><i class="mr-50"
-                                                                                          data-feather="power"></i>
-                        Logout</a>
+                        {{ __('Configuración') }}</a>
+                    <a class="dropdown-item" href="page-faq.html">
+                        <i class="mr-50" data-feather="help-circle"></i>
+                        {{ __('Ayuda') }}</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item" href="page-auth-login-v2.html">
+                            <i class="mr-50" data-feather="power"></i>
+                            {{ __('Cerrar Sessión') }}
+                        </button>
+                    </form>
                 </div>
             </li>
         </ul>

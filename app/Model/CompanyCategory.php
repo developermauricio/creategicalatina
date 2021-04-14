@@ -12,4 +12,6 @@ class CompanyCategory extends Model
         "name",
         "description"
     ];
+
+
 }

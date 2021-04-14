@@ -29,6 +29,9 @@ import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+// import AudioRecorder from '../js/components/components/vue-audio-recorder'
+// Vue.use(AudioRecorder)
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -42,6 +45,8 @@ Vue.use( CKEditor );
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 /*COMPONENTES*/
+Vue.component('audio-recorder', require('./components/components/vue-audio-recorder/src/components/recorder.vue').default);
+Vue.component('audio-player', require('./components/components/vue-audio-recorder/src/components/player.vue').default);
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('brief-software', require('./components/components/briefs/BriefSoftware.vue').default);
 Vue.component('cards-projects', require('./components/components/cardsrproject/CardProject.vue').default); //Tarjetas dinamicas con animación para escritorio
@@ -65,6 +70,7 @@ const i18n = new VueInternationalization({
     locale: window.lang,
     messages: Locale
 });
+Vue.prototype.$eventBus = Vue.prototype.$eventBus || new Vue
 window.eventBus = new Vue()
 const appVue = new Vue({
     el: '#app-frontend',

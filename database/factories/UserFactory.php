@@ -34,7 +34,8 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'city_id' => \App\Model\City::all()->random()->id,
         'slug' => Str::slug($name . '-' . $last_name . '-' . $ramdon, '-'),
-        "picture"=> '/assets/media/images/user-profile.png',
+        "picture"=> '/images/user-profile.png',
+        "web_site"=> $faker->url,
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
     ];

@@ -9,7 +9,7 @@
     "Configuración": "Setting",
     "Ayuda": "Help",
     "Cerrar Sessión": "Logout",
-
+    "nigun_valor_defecto": "No default value",
 
     "Aceptar": "Accept",
     "Cancelar": "Cancel",
@@ -24,5 +24,50 @@
     "err_msg_definition" : "Please enter a valid answer",
     "req_msg_definition": "Answer is required",
     "loading_modal": "Loading...",
-    "btn_guardar": "Guardar"
+    "btn_guardar": "Guardar",
+
+    "navegacion": "Navigation",
+    "clientes": "Customers",
+    "proyectos": "Projects",
+    "proveedores": "Providers",
+    "ordenes_compra": "Work Orders",
+    "empresa_titulo_navegacion": "Company",
+    "trafico_operativo": "Operational Traffic",
+    "administrativo": "Administrative",
+    "brief_campañanas": "Brief Campaigns",
+
+    "apariencia_titulo_modal": "Appearance",
+    "text_elige_como_se_ve": "Choose how it looks ",
+    "seleccione_tema_text": " Select a single theme or sync with your system and automatically switch between day and night themes.",
+
+    "bienvenido_login": "Welcome to ",
+    "inicie_sesion_cuenta": "Login with your account",
+    "login_correo": "Email",
+    "login_password": "Password",
+    "login_olvido_password0": "Forgot Password?",
+    "recordar_login": "Remember Me",
+    "btn_login": "Sign in",
+
+    "todos_clientes": "All Customers",
+
+    "mostrar": "Show",
+    "buscar": "Search",
+    "procesando": "Processing...",
+    "nigun_dato_tabla": "No data available in this table",
+    "mostrando_registros_del_cero": "Showing records from 0 to 0 of a total of 0 records",
+    "cargando": "Loading...",
+    "registros": "per page",
+    "mostrando_registros": "Showing records from",
+    "from": "to",
+    "total_de": "of a total of",
+    "anterior": "Previous",
+    "siguiente": "Next",
+    "btn_imprimir": "Print",
+    "btn_copiar": "Copy",
+    "estado_tabla_activo": "Active" ,
+    "estado_tabla_inactivo": "Inactive",
+
+    "asunto_titulo_credenciales": "YOUR ACCESS CREDENTIALS",
+
+    "menu_backend_nuevo_cliente": "New Customer"
 }

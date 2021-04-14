@@ -178,6 +178,93 @@ h5.card-header.links-title:hover{
     color: #ffffff !important;
 }
 
+.brand-logo.logo-backend-dinamic{
+    display: none;
+}
+.brand-logo.logo-backend-horizontal{
+    display: block;
+}
+.brand-logo.logo-backend-vertical{
+    display: block;
+}
+.link-olvido-password {
+    color: #79ebdf !important;
+}
+.link-olvido-password:hover {
+    transition: 0.5s;
+    color: #F05E7D !important;
+}
+.datatablescreategica.datatable-light{
+    background-color: #ffffff !important;
+    /*margin-top: -1.9% !important;*/
+}
+.DTFC_LeftBodyLiner{
+    margin-top: -2.3% !important;
+}
+.DTFC_LeftBodyWrapper{
+    margin-top: -1.9%;
+}
+
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    width: 100%;
+}
+
+div.container {
+    width: 80%;
+}
+.toolbar {
+    float: left;
+}
+
+table.datatablescreategica.datatable-dark.dataTable tbody tr:hover {
+    background-color: #161d31;
+    transition: 0.4s;
+    color: #FFFFFF;
+}
+
+table.datatablescreategica.datatable-dark.dataTable tbody tr:hover > .sorting_1 {
+    background-color: #161d31;
+    transition: 0.4s;
+    color: #FFFFFF;
+}
+
+table.datatablescreategica.datatable-light.dataTable tbody tr:hover {
+    background-color: #f3f2f7;
+    transition: 0.4s;
+}
+
+table.datatablescreategica.datatable-light.dataTable tbody tr:hover > .sorting_1 {
+    background-color: #f3f2f7;
+    transition: 0.4s;
+}
+
+.btn-export-datatable.theme-dark span{
+    color: #d0d2d6 !important;
+}
+.item-export-datatable.theme-dark{
+    color: #d0d2d6 !important;
+}
+
+.btn-export-datatable.theme-light span{
+    color: #5e5873 !important;
+}
+.item-export-datatable.theme-light{
+    color: #5e5873 !important;
+}
+.wizard-nav-pills.dark-layout .stepTitle{
+    color: #d0d2d6 !important;
+}
+.wizard-nav-pills .stepTitle{
+    color: #636363 !important;
+}
+.swal2-container{
+    z-index: 99999999999999999999999 !important;
+}
+.swal2-styled.swal2-cancel {
+    color: #283046 !important;
+}
+
 /*@media (max-width:768px)  and (min-width:320px){*/
 /*    .logo-mobile{*/
 /*        margin-right: 8rem;*/

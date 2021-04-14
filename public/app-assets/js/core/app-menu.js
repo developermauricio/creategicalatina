@@ -360,6 +360,8 @@
     hide: function () {
       this.transit(
         function () {
+            $('.logo-backend-vertical').css("display","none")
+            $('.logo-backend-horizontal').css("display","block")
           $body.removeClass('menu-open menu-expanded').addClass('menu-hide');
           this.hidden = true;
           this.expanded = false;
@@ -764,6 +766,12 @@
       $('.navbar-header, .main-menu').on('mouseenter', modernMenuExpand).on('mouseleave', modernMenuCollapse);
 
       function modernMenuExpand() {
+          let valueLocalStorage = localStorage.getItem('menu-sidebar')
+          let clase = $('.main-menu').hasClass('expanded')
+          if (valueLocalStorage == '1' && clase != true){
+              $('.logo-backend-vertical').css("display","none")
+              $('.logo-backend-horizontal').css("display","block")
+          }
         if ($body.data('menu') == 'vertical-menu-modern') {
           $('.main-menu, .navbar-header').addClass('expanded');
           if ($body.hasClass('menu-collapsed')) {
@@ -784,6 +792,7 @@
       }
 
       function modernMenuCollapse() {
+          let valueLocalStorage = localStorage.getItem('menu-sidebar')
         if ($body.hasClass('menu-collapsed') && $body.data('menu') == 'vertical-menu-modern') {
           setTimeout(function () {
             if ($('.main-menu:hover').length === 0 && $('.navbar-header:hover').length === 0) {
@@ -803,6 +812,11 @@
             }
           }, 1);
         }
+            let clase = $('.main-menu').hasClass('expanded')
+          if (valueLocalStorage == '1' && clase == true) {
+              $('.logo-backend-horizontal').css("display", "none")
+              $('.logo-backend-vertical').css("display", "block")
+          }
       }
 
       $('.main-menu-content').on('mouseleave', function () {

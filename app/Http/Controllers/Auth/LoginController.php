@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,5 +37,33 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    public function redirectPath()
+    {
+        $userAdministrator = \auth()->user()->hasRole('Administrator');
+        $userCustomer = \auth()->user()->hasRole('Customer');
+        if ($userAdministrator){
+            return sprintf('/%s/dashboard', session('language'));
+        }else if ($userCustomer){
+            return sprintf('/%s/projects', session('language'));
+        }
+
+    }
+
+    public function logout(Request $request)
+    {
+        $sessionLanguage = session('language');
+        $sessionTheme = session('theme');
+        $sessionSidebarBackend = session('sidebarMenuBackend');
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->put('language',  $sessionLanguage);
+        $request->session()->put('theme',  $sessionTheme);
+        $request->session()->put('sidebarMenuBackend',  $sessionSidebarBackend);
+
+        return redirect('/login');
     }
 }

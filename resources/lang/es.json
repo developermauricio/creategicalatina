@@ -9,6 +9,7 @@
     "Configuración": "Configuración",
     "Ayuda": "Ayuda",
     "Cerrar Sessión": "Cerrar Sesión",
+    "nigun_valor_defecto": "Ningún valor por defecto",
 
     "Aceptar": "Aceptar",
     "Cancelar": "Cancelar",
@@ -23,5 +24,49 @@
     "req_msg_definition": "Esta respuesta es requerida",
     "loading_modal": "Cargando...",
 
-    "btn_guardar": "Guardar"
+    "btn_guardar": "Guardar",
+
+    "navegacion": "Navegación",
+    "clientes": "Clientes",
+    "proyectos": "Proyectos",
+    "proveedores": "Proveedores",
+    "ordenes_compra": "Órdenes de Trabajo",
+    "empresa_titulo_navegacion": "Empresa",
+    "trafico_operativo": "Tráfico Operativo",
+    "administrativo": "Administrativo",
+    "brief_campañanas": "Brief Campañas",
+
+    "apariencia_titulo_modal": "Apariencia",
+    "text_elige_como_se_ve": "Elige como se ve ",
+    "seleccione_tema_text": " Seleccione un solo tema o sincronícelo con su sistema y cambie automáticamente entre temas diurnos y nocturnos.",
+
+    "bienvenido_login": "Bievenido a ",
+    "inicie_sesion_cuenta": "Inicia Sesión con tu cuenta",
+    "login_correo": "Correo Electrónico",
+    "login_password": "Contraseña",
+    "login_olvido_password0": "Ólvido Contraseña?",
+    "recordar_login": "Recordar",
+    "btn_login": "Iniciar Sesión",
+
+    "todos_clientes": "Todos los clientes",
+
+    "mostrar": "Mostrando",
+    "buscar": "Buscar",
+    "procesando": "Procesando...",
+    "nigun_dato_tabla": "Ningún dato disponible en esta tabla",
+    "registros": "por página",
+    "mostrando_registros": "Mostrando registros del",
+    "mostrando_registros_del_cero": "Mostrando registros del 0 al 0 de un total de 0 registros",
+    "cargando": "Cargando...",
+    "from": "de",
+    "total_de": "de un total de",
+    "anterior": "Anterior",
+    "siguiente": "Siguiente",
+    "btn_imprimir": "Imprimir",
+    "btn_copiar": "Copiar",
+    "estado_tabla_activo": "Activo" ,
+    "estado_tabla_inactivo": "Inactivo",
+
+    "asunto_titulo_credenciales": "TUS CREDENCIALES DE ACCESO",
+    "menu_backend_nuevo_cliente": "Nuevo Cliente"
 }

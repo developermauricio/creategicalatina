@@ -229,7 +229,7 @@ body.dark-layout {
   background-color: #161d31; }
 
 .dark-layout .main-menu .collapse-toggle-icon {
-  color: #7367f0 !important; }
+  color: #F05E7D !important; }
 
 .dark-layout .ps__thumb-x,
 .dark-layout .ps__thumb-y {
@@ -412,7 +412,7 @@ body.dark-layout {
   background-color: #242b3d; }
 
 .dark-layout .pagination:not([class*='pagination-']) .page-item.active .page-link {
-  background-color: #7367f0; }
+  background-color: #F05E7D; }
 
 .dark-layout .pagination:not([class*='pagination-']) .page-item.active .page-link:hover {
   color: #fff; }
@@ -719,7 +719,7 @@ body.dark-layout {
 
 .dark-layout .input-group:focus-within .form-control,
 .dark-layout .input-group:focus-within .input-group-text {
-  border-color: #7367f0;
+  border-color: #79ebdf;
   box-shadow: none; }
 
 .dark-layout .form-label-group > input:not(:focus):not(:placeholder-shown) ~ label,
@@ -829,7 +829,7 @@ body.dark-layout {
 .dark-layout .dataTables_wrapper .dt-buttons .buttons-print:active,
 .dark-layout .dataTables_wrapper .dt-buttons .btn-secondary:active,
 .dark-layout .dataTables_wrapper .dt-buttons [class*='buttons-']:active {
-  background-color: #7367f0 !important;
+  background-color: #161D32 !important;
   color: #fff; }
 
 .dark-layout .dataTables_wrapper .dt-button-collection > div[role='menu'] {

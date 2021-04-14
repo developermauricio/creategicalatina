@@ -21,12 +21,27 @@ class DatabaseSeeder extends Seeder
 
         Storage::makeDirectory('users');
         Storage::makeDirectory('projects');
-        Storage::deleteDirectory('companies');
-        Storage::deleteDirectory('typeProject');
+        Storage::makeDirectory('companies');
+        Storage::makeDirectory('typeProject');
         $this->call(UserTableSeeder::class);
 
 
         app()->setLocale('es');
+
+        // Tipos de cargos manager
+        $positionEs = ['Presidente', 'Gerente', 'CEO'];
+        $positionEn = ['President', 'Manager', 'CEO'];
+
+        for ($i = 0; $i < count($positionEs); $i++) {
+            factory(\App\Model\PositionManager::class)->create(
+                [
+                    "name" => $positionEs[$i]
+                ]
+            );
+            $position = \App\Model\PositionManager::find($i + 1);
+            $position->setTranslation('name', 'en', $positionEn[$i]);
+            $position->save();
+        }
 
         // Tipos de identificación
 
@@ -54,6 +69,7 @@ class DatabaseSeeder extends Seeder
         ])->each(function (\App\User $u) {
             $u->roles()->attach([1]);
         });
+
 
         // Categorías para empresas
 
@@ -216,6 +232,33 @@ class DatabaseSeeder extends Seeder
             $question->setTranslation('note', 'en', $noteQuestionEn[$i]);
             $question->save();
         }
+
+        /*=============================================
+            CREANDO 10 EMPRESAS Y 10 REPRESENTANTES
+        =============================================*/
+        factory(\App\User::class, 10)->create()
+            ->each(function (\App\User $u) {
+                $u->roles()->attach(['2']);
+                factory(\App\Model\Manager::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Manager $m){
+                        $logos = [
+                            '/images/logos-companies/img-logo-yamaha.png',
+                            '/images/logos-companies/img-logo-mazda.png',
+                            '/images/logos-companies/img-logo-exito.png',
+                            '/images/logos-companies/img-logo-avianca.png',
+                            '/images/logos-companies/img-logo-pepsi.png',
+                            '/images/logos-companies/img-logo-yamaha.png',
+                            '/images/logos-companies/img-logo-mazda.png',
+                            '/images/logos-companies/img-logo-exito.png',
+                            '/images/logos-companies/img-logo-avianca.png',
+                            '/images/logos-companies/img-logo-pepsi.png'];
+                        $ramdon = Str::random(10);
+                        for ($i = 0; $i < count($logos); $i++) {
+                            factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id, 'picture' => $logos[$i]]);
+                        }
+                    });
+            });
+
 
     }
 }

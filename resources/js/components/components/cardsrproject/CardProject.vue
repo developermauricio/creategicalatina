@@ -124,9 +124,12 @@
                             {{ selectProjectType.name[language] }}</h3>
                     </div>
                 </div>
-                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip class="d-inline-block pr-1" position="right" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
-                    <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
-                </vs-tooltip></p>
+                <p class="pt-1 text-center">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}
+                    <vs-tooltip class="d-inline-block pr-1" position="right"
+                                :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                        <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                    </vs-tooltip>
+                </p>
                 <div class="row">
                     <div class="col-12">
                         <splide :slides="optionsCategoriesProject" :options="optionsCategoriesProjectCards">
@@ -163,9 +166,12 @@
                     </div>
                 </div>
                 <div class="d-inline-block">
-                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}<vs-tooltip position="right" class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
-                        <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
-                    </vs-tooltip></p>
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_categoria_proyecto') }}
+                        <vs-tooltip position="right" class="d-inline-block pr-1"
+                                    :text="$t('frontend.register-client.msj_tooltip_info_select_category')">
+                            <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                        </vs-tooltip>
+                    </p>
 
                 </div>
 
@@ -243,9 +249,12 @@
                     </div>
                 </div>
                 <div class="d-inline-block">
-                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_agregar_brief') }}<vs-tooltip position="right" class="d-inline-block pr-1" :text="$t('frontend.register-client.msj_tooltip_titulo_agregar_brief')">
-                        <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
-                    </vs-tooltip></p>
+                    <p class="pt-1">{{ $t('frontend.register-client.selecciona_agregar_brief') }}
+                        <vs-tooltip position="right" class="d-inline-block pr-1"
+                                    :text="$t('frontend.register-client.msj_tooltip_titulo_agregar_brief')">
+                            <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                        </vs-tooltip>
+                    </p>
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-4 col-md-4">
@@ -264,7 +273,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                                <h5 @click="modalBrief" class="card-header links-title">{{ $t('frontend.register-client.agregar_brief') }}</h5>
+                            <div class="list-group">
+                                <h5 @click="modalBrief" class="card-header links-title list-group-item list-group-item-action">
+                                    {{ $t('frontend.register-client.agregar_brief') }}<span class="badge badge-light-success badge-pill float-right"><vs-icon size="medium" icon="done"></vs-icon></span></h5>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -274,7 +287,7 @@
         <!--=====================================
 		    MODAL BRIEF
         ======================================-->
-        <vs-popup fullscreen class="holamundo" :title="brief.title[language]"
+        <vs-popup @update:active="closeModalBrief" fullscreen class="holamundo" :title="brief.title[language]"
                   :active.sync="popupBriefActivo">
             <div class="row pt-1 pr-md-4 pl-md-4 pr-lg-4 pl-lg-4">
                 <div class="col-12">
@@ -351,13 +364,13 @@ export default {
             popupBriefActivo: false,
             nameProject: '',
             brief: {
-                title:{
-                    en:'',
-                    es:''
+                title: {
+                    en: '',
+                    es: ''
                 },
-                note:{
-                    en:null,
-                    es:null
+                note: {
+                    en: null,
+                    es: null
                 },
             },
             errors: {},
@@ -400,30 +413,30 @@ export default {
             language: window.lang, //Idioma actual de la aplicación
             colorCardLoading: window.cardsLoadingColor, //color de las tarjetas cargando segun el tema
             skeletonValue: 1,
-
+            theme: window.themeSession,
             selectProjectType: {
                 brief: {
-                    id:null,
+                    id: null,
                     title: {
-                        en:null,
-                        es:null
+                        en: null,
+                        es: null
                     },
-                    question:{
-                        id:null
+                    question: {
+                        id: null
                     }
                 },
-                created_at:null,
-                description:{
+                created_at: null,
+                description: {
                     es: null,
                     en: null
                 },
-                id:null,
+                id: null,
                 name: {
                     es: null,
                     en: null
                 },
-                picture:null,
-                updated_at:null
+                picture: null,
+                updated_at: null
             },
             listCategoriesProject: [],
             optionsTypeProject: [], //Arreglo con los tipos de proyectos
@@ -443,7 +456,7 @@ export default {
             })
             this.listCategoriesProject = [];
             this.selectProjectType = typeProject;
-             //Enviamos el tipo del projecto al componente padre
+            //Enviamos el tipo del projecto al componente padre
             this.getCategoriesProjects(typeProject.id)
             this.$tours['myTour'].finish()
 
@@ -502,15 +515,10 @@ export default {
              ABRIR MODAL PARA EL BRIEF
         =============================================*/
         modalBrief() {
-            // this.$vs.loading({
-            //     color: this.colorLoading,
-            //     text: 'Cargando'
-            // })
             this.brief = this.selectProjectType.brief
-            // this.$vs.loading.close()
-            if (this.brief.question.length > 0){
+            if (this.brief.question.length > 0) {
                 this.popupBriefActivo = true;
-            }else{
+            } else {
                 this.$toast.error({
                     title: `${this.$t('frontend.brief.lo_sentimos')}`,
                     message: `${this.$t('frontend.brief.err_no_brief')}`,
@@ -519,13 +527,13 @@ export default {
                     position: 'top right',
                 })
                 this.brief = {
-                    title:{
-                        en:'',
-                            es:''
+                    title: {
+                        en: '',
+                        es: ''
                     },
-                    note:{
-                        en:null,
-                            es:null
+                    note: {
+                        en: null,
+                        es: null
                     },
                 }
             }
@@ -569,6 +577,10 @@ export default {
                 this.$scrollTo(option, 1000, options);
             }, 100);
         },
+
+        closeModalBrief(){
+            alert('hola')
+        }
     },
 
     mounted() {

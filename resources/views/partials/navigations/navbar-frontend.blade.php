@@ -107,12 +107,12 @@
                 </li>
                 <li class="dropdown nav-item frontend-menu" data-menu="dropdown">
                     @if(session('language') == 'es')
-                    <a class="dropdown-toggle nav-link d-flex align-items-center {{request()->is('es/request-project') ? 'sidebar-group-active active open' : '' }}"
+                    <a class="nav-link d-flex align-items-center {{request()->is('es/request-project') ? 'sidebar-group-active active open' : '' }}"
                        href="/{{session('language')}}/request-project">
                         <span data-i18n="Apps">@lang('frontend/landing.Solicitar Proyecto')</span>
                     </a>
                     @else
-                        <a class="dropdown-toggle nav-link d-flex align-items-center {{request()->is('en/request-project') ? 'sidebar-group-active active open' : '' }}"
+                        <a class="nav-link d-flex align-items-center {{request()->is('en/request-project') ? 'sidebar-group-active active open' : '' }}"
                            href="/{{session('language')}}/request-project">
                             <span data-i18n="Apps">@lang('frontend/landing.Solicitar Proyecto')</span>
                         </a>

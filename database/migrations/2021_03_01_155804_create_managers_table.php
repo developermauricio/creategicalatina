@@ -15,7 +15,8 @@ class CreateManagersTable extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->text('position');
+            $table->unsignedBigInteger('position_id');
+            $table->foreign('position_id')->references('id')->on('position_managers');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
