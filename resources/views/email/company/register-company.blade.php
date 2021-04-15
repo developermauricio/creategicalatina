@@ -83,7 +83,7 @@
                     <tr>
                         <td class="sm-py-32 sm-px-24" style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; padding: 48px; text-align: center;" align="center">
                             <a target="_blank" href="{{ env('APP_URL') }}">
-                                <img src="{{ env('IMG_LOGO_LIGTH') }}" width="250" alt="Logo" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle;">
+                                <img src="{{ env('APP_URL') }}/{{ env('IMG_LOGO_LIGTH') }}" width="250" alt="Logo" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle;">
                             </a>
                         </td>
                     </tr>
@@ -155,11 +155,11 @@
                     <tr>
                         <td style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; font-size: 12px; padding-left: 48px; padding-right: 48px; --text-opacity: 1; color: #eceff1; color: rgba(236, 239, 241, var(--text-opacity));">
                             <p align="center" style="cursor: default; margin-bottom: 16px; text-align: center !important;">
-                                <a target="_blank" href="{{ env('URL_FACEBOOK') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="/images/icons/facebook.png" width="17" alt="Facebook" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
+                                <a target="_blank" href="{{ env('URL_FACEBOOK') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="{{ env('APP_URL') }}/images/icons/facebook.png" width="17" alt="Facebook" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
                                 &bull;
-                                <a target="_blank" href="{{ env('URL_TWITTER') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="/images/icons/twitter.png" width="17" alt="Twitter" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
+                                <a target="_blank" href="{{ env('URL_TWITTER') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="{{ env('APP_URL') }}/images/icons/twitter.png" width="17" alt="Twitter" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
                                 &bull;
-                                <a target="_blank" href="{{ env('URL_INSTAGRAM') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="/images/icons/instagram.png" width="17" alt="Instagram" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
+                                <a target="_blank" href="{{ env('URL_INSTAGRAM') }}" style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;"><img src="{{ env('APP_URL') }}/images/icons/instagram.png" width="17" alt="Instagram" style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"></a>
                             </p>
                             <p style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-align: center; font-size: 0.83rem">
                                 {{ __('backend/email/register-company.el_uso_de_nuestro_servicio') }}
