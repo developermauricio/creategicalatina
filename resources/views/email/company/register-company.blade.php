@@ -128,7 +128,7 @@
                                                     <table style="font-family: 'Montserrat',Arial,sans-serif; margin-top: 24px; margin-bottom: 24px;" cellpadding="0" cellspacing="0" role="presentation">
                                                         <tr>
                                                             <td align="right" style="mso-padding-alt: 16px 24px; --bg-opacity: 1; background-color: #283046; border-radius: 4px; font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif;" bgcolor="rgba(115, 103, 240, var(--bg-opacity))">
-                                                                <a target="_blank" href="{{ env('app_url') }}/login" style="display: block; font-weight: 600; font-size: 14px; line-height: 100%; padding: 16px 24px; --text-opacity: 1; color: #ffffff; color: rgba(255, 255, 255, var(--text-opacity)); text-decoration: none;">{{ __('backend/email/register-company.btn_iniciar_sesion') }} &rarr;</a>
+                                                                <a target="_blank" href="{{ env('APP_URL') }}/login" style="display: block; font-weight: 600; font-size: 14px; line-height: 100%; padding: 16px 24px; --text-opacity: 1; color: #ffffff; color: rgba(255, 255, 255, var(--text-opacity)); text-decoration: none;">{{ __('backend/email/register-company.btn_iniciar_sesion') }} &rarr;</a>
                                                             </td>
                                                         </tr>
                                                     </table>

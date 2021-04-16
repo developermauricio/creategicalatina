@@ -102,7 +102,22 @@ export default {
                 "msj_tooltip_titulo_agregar_brief": "It is important for us that you take time filling out the questions in the brief, in this way we can respond to your request more accurately. click add brief.",
                 "nombre_proyecto_registro": "Project Name",
                 "error_name_project": "Please enter a valid project name",
-                "requerido_name_project": "The name of the project is required"
+                "requerido_name_project": "The name of the project is required",
+                "titulo_error_no_hay_brief": "The brief cannot be empty, answer a question",
+                "titulo_success_se_agrego_brief": "Brief information added correctly",
+                "titulo_observacioness": "Observation"
+            },
+            "projects": {
+                "all-projects": {
+                    "titulo_pestana_projects_company": "Projects",
+                    "btn_nuevo_proyecto": "New Project",
+                    "titulo_columna_datatable_nombre_proyecto": "Project Name",
+                    "titulo_columna_datatable_imagen": "Image",
+                    "titulo_columna_datatable_estado": "State",
+                    "titulo_columna_datatable_registrado_por": "Registered by",
+                    "titulo_columna_datatable_tipo_proyecto": "Project Type",
+                    "titulo_columna_datatable_categorias": "Categories"
+                }
             },
             "brief": {
                 "fecha_actual": "Date now",
@@ -484,7 +499,22 @@ export default {
                 "msj_tooltip_titulo_agregar_brief": "Es importante para nosotros que tomes tiempo llenando las preguntas del brief, de esta menera podremos dar respuesta a tu solicitud de manera mas exacta. Clic en agregar brief.",
                 "nombre_proyecto_registro": "Nombre del Proyecto",
                 "error_name_project": "Ingrese un nombre de proyecto válido",
-                "requerido_name_project": "El nombre del proyecto es requerido"
+                "requerido_name_project": "El nombre del proyecto es requerido",
+                "titulo_error_no_hay_brief": "El brief no puede estar vacio, responda una pregunta",
+                "titulo_success_se_agrego_brief": "Brief information added correctly",
+                "titulo_observacioness": "Observaciones"
+            },
+            "projects": {
+                "all-projects": {
+                    "titulo_pestana_projects_company": "Proyectos",
+                    "btn_nuevo_proyecto": "Nuevo Proyecto",
+                    "titulo_columna_datatable_nombre_proyecto": "Nombre del Proyecto",
+                    "titulo_columna_datatable_imagen": "Imagen",
+                    "titulo_columna_datatable_estado": "Estado",
+                    "titulo_columna_datatable_registrado_por": "Registrado por",
+                    "titulo_columna_datatable_tipo_proyecto": "Tipo Proyecto",
+                    "titulo_columna_datatable_categorias": "Categorías"
+                }
             },
             "brief": {
                 "fecha_actual": "Fecha",

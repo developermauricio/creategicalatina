@@ -60,7 +60,7 @@
                         pattern="all"
                         :errorMsg="$t('err_msg_definition')"
                         :requiredMsg="$t('req_msg_definition')"
-                        :required="true"
+                        :required="false"
                         :modelo.sync="question.model"
                         type="ckeditor"
                         :options="{ rows: '10' ,
@@ -85,14 +85,6 @@
             </div>
         </div>
         <!-- Invoice Note ends -->
-<!--        <div class="text-right pt-2" style="padding-right: 15px">-->
-<!--            <button-->
-<!--                @click="saveBriefProject"-->
-<!--                type="button"-->
-<!--                class="btn btn-primary pull-right"-->
-<!--            >{{ $t('btn_guardar') }}-->
-<!--            </button>-->
-<!--        </div>-->
     </div>
     <!--=====================================
        MODAL BRIEF

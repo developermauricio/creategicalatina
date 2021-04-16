@@ -240,22 +240,30 @@ class DatabaseSeeder extends Seeder
             ->each(function (\App\User $u) {
                 $u->roles()->attach(['2']);
                 factory(\App\Model\Manager::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Manager $m){
-                        $logos = [
-                            '/images/logos-companies/img-logo-yamaha.png',
-                            '/images/logos-companies/img-logo-mazda.png',
-                            '/images/logos-companies/img-logo-exito.png',
-                            '/images/logos-companies/img-logo-avianca.png',
-                            '/images/logos-companies/img-logo-pepsi.png',
-                            '/images/logos-companies/img-logo-yamaha.png',
-                            '/images/logos-companies/img-logo-mazda.png',
-                            '/images/logos-companies/img-logo-exito.png',
-                            '/images/logos-companies/img-logo-avianca.png',
-                            '/images/logos-companies/img-logo-pepsi.png'];
-                        $ramdon = Str::random(10);
-                        for ($i = 0; $i < count($logos); $i++) {
-                            factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id, 'picture' => $logos[$i]]);
-                        }
+                    ->each(function (\App\Model\Manager $m) use ($u){
+//                        $logos = [
+//                            '/images/logos-companies/img-logo-yamaha.png',
+//                            '/images/logos-companies/img-logo-mazda.png',
+//                            '/images/logos-companies/img-logo-exito.png',
+//                            '/images/logos-companies/img-logo-avianca.png',
+//                            '/images/logos-companies/img-logo-pepsi.png',
+//                            '/images/logos-companies/img-logo-yamaha.png',
+//                            '/images/logos-companies/img-logo-mazda.png',
+//                            '/images/logos-companies/img-logo-exito.png',
+//                            '/images/logos-companies/img-logo-avianca.png',
+//                            '/images/logos-companies/img-logo-pepsi.png'];
+//                        $ramdon = Str::random(10);
+//                        for ($i = 0; $i < count($logos); $i++) {
+                            factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id])
+                                ->each(function (\App\Model\Company $c) use ($u){
+                                    factory(\App\Model\Project::class, 3)->create(['user_id' => $u->id])
+                                        ->each(function (\App\Model\Project $p) use ($c){
+                                           $ramdon = random_int(1, 8);
+                                            $p->company()->attach($c->id);
+                                            $p->project_categories()->attach($ramdon);
+                                        });
+                                });
+//                        }
                     });
             });
 

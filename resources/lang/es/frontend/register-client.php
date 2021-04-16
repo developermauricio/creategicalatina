@@ -34,4 +34,10 @@ return [
     'error_name_project' => 'Ingrese un nombre de proyecto válido',
     'requerido_name_project' => 'El nombre del proyecto es requerido',
 
+    /*Mensajes toast brief*/
+    'titulo_error_no_hay_brief' => 'El brief no puede estar vacio, responda una pregunta',
+    'titulo_success_se_agrego_brief' => 'Brief information added correctly',
+
+    'titulo_observacioness' => 'Observaciones'
+
 ];

@@ -232,10 +232,20 @@ $(function () {
         })
     }
 
+    var win = window.location;
+    var webPath = win.pathname;
+    console.log(webPath);
 
     var $body= $('body')
     let menu =  window.sideBarMenu || '2'
 
+    if (webPath === '/'+window.lang+'/new-project'){
+        $body.addClass('menu-collapsed')
+        $body.removeClass('menu-expanded')
+        $('.logo-backend-vertical').css("display","block")
+        $('.logo-backend-horizontal').css("display","none")
+        return
+    }
     let changeMenu = (menuValue) => {
         console.log(menuValue)
         if (menuValue == '1'){

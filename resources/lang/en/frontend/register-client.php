@@ -34,6 +34,10 @@ return [
     'error_name_project' => 'Please enter a valid project name',
     'requerido_name_project' => 'The name of the project is required',
 
+    /*Mensajes toast brief*/
+    'titulo_error_no_hay_brief' => 'The brief cannot be empty, answer a question',
+    'titulo_success_se_agrego_brief' => 'Brief information added correctly',
 
+    'titulo_observacioness' => 'Observation'
 
 ];

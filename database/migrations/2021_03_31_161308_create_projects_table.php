@@ -16,16 +16,16 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->text('description_short');
-            $table->string('link');
+            $table->text('description')->nullable();
+            $table->text('description_short')->nullable();
+            $table->string('link')->nullable();
             $table->string('picture');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->date('end_time')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('type_project_id')->nullable();
             $table->foreign('type_project_id')->references('id')->on('type_projects');
-            $table->unsignedBigInteger('project_category_id')->nullable();
-            $table->foreign('project_category_id')->references('id')->on('project_categories');
             $table->string('slug')->nullable();
             $table->enum('state', [
                 \App\Model\Project::ACTIVE,

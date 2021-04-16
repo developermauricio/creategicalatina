@@ -559,7 +559,7 @@ input:focus ~ .bg-light {
 .bg-primary.badge-glow,
 .border-primary.badge-glow,
 .badge-primary.badge-glow {
-  box-shadow: 0px 0px 10px #7367f0; }
+  box-shadow: 0px 0px 10px #F05E7D; }
 
 .badge.badge-light-primary {
   background-color: rgba(115, 103, 240, 0.12);

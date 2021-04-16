@@ -10,17 +10,24 @@
                         {{ $t('frontend.register-client.Usted_no_las_pinta') }}
                         <img style="padding-bottom: 0.7rem" width="11" src="/images/others/comi-final.png" alt="">
                     </p>
-                    <p class="text-center more-info-card-desktop" style="font-size: 1rem"> <a @click="showTourDesktop" style="color: #636b6f">{{ $t('frontend.register-client.mostrar_info') }}</a></p>
-                    <p class="text-center more-info-card-mobile" style="font-size: 1rem; display: none"> <a @click="showTourMobile" style="color: #636b6f">{{ $t('frontend.register-client.mostrar_info') }}</a></p>
+                    <p class="text-center more-info-card-desktop" style="font-size: 1rem"><a @click="showTourDesktop"
+                                                                                             style="color: #636b6f">{{
+                            $t('frontend.register-client.mostrar_info')
+                        }}</a></p>
+                    <p class="text-center more-info-card-mobile" style="font-size: 1rem; display: none"><a
+                        @click="showTourMobile" style="color: #636b6f">{{
+                            $t('frontend.register-client.mostrar_info')
+                        }}</a></p>
                 </blockquote>
             </div>
         </div>
-<!-- Tarjetas con animación para el escritorio  -->
+        <!-- Tarjetas con animación para el escritorio  -->
         <cards-projects @selectTypeProject="selectTypeProject"></cards-projects>
-<!-- Componente para mostrar el tour desktop -->
+        <!-- Componente para mostrar el tour desktop -->
         <v-tour name="myTour" :steps="stepsDesktop" :options="myOptions" :callbacks="myCallbacks"></v-tour>
         <!-- Componente para mostrar el tour mobile -->
         <v-tour name="myTourMobile" :steps="stepsMobile" :options="myOptions" :callbacks="myCallbacks"></v-tour>
+
     </div>
 
 </template>
@@ -38,12 +45,12 @@ export default {
     data() {
         return {
             selectedTypeProject: null,
-            valueSessionTour:  window.sessionTourRegisterProject,
+            valueSessionTour: window.sessionTourRegisterProject,
 
             stepsDesktop: [
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_1') +`
+                    content: this.$t('frontend.register-client.text_paso_1') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -51,7 +58,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_2') +`
+                    content: this.$t('frontend.register-client.text_paso_2') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -59,7 +66,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_3') +`
+                    content: this.$t('frontend.register-client.text_paso_3') + `
                              <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -67,7 +74,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_4') +`
+                    content: this.$t('frontend.register-client.text_paso_4') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -75,7 +82,7 @@ export default {
                 },
                 {
                     target: '#text-usted-las-pinta',
-                    content: this.$t('frontend.register-client.text_paso_5') +`
+                    content: this.$t('frontend.register-client.text_paso_5') + `
                     <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
                     params: {
                         placement: 'top',
@@ -84,7 +91,7 @@ export default {
                 },
                 {
                     target: '.card-info-animation',
-                    content: this.$t('frontend.register-client.text_paso_6') +`
+                    content: this.$t('frontend.register-client.text_paso_6') + `
                     <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
                     params: {
                         placement: 'top',
@@ -95,7 +102,7 @@ export default {
             stepsMobile: [
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_1') +`
+                    content: this.$t('frontend.register-client.text_paso_1') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -103,7 +110,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_2') +`
+                    content: this.$t('frontend.register-client.text_paso_2') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -111,7 +118,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_3') +`
+                    content: this.$t('frontend.register-client.text_paso_3') + `
                              <br><img class="pt-1" width="100" src="/images/others/think-box-dark.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -119,7 +126,7 @@ export default {
                 },
                 {
                     target: '#title-register-project',
-                    content: this.$t('frontend.register-client.text_paso_4') +`
+                    content: this.$t('frontend.register-client.text_paso_4') + `
                     <br><img class="pt-1" width="100" src="/images/others/think-box-light.png" alt="">`,
                     params: {
                         enableScrolling: false
@@ -127,7 +134,7 @@ export default {
                 },
                 {
                     target: '#text-usted-las-pinta',
-                    content: this.$t('frontend.register-client.text_paso_5') +`
+                    content: this.$t('frontend.register-client.text_paso_5') + `
                     <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
                     params: {
                         placement: 'top',
@@ -136,7 +143,7 @@ export default {
                 },
                 {
                     target: '.card-info-animation-mobile',
-                    content: this.$t('frontend.register-client.text_paso_6') +`
+                    content: this.$t('frontend.register-client.text_paso_6') + `
                     <br><img class="pt-1" width="100" src="/images/creategica-logo.png" alt="">`,
                     params: {
                         placement: 'top',
@@ -163,23 +170,23 @@ export default {
         selectTypeProject(data) {
             this.selectedTypeProject = data;
         },
-        saveSessionTour(){
-           axios.post('/api/save-session-tour').then(resp =>{
+        saveSessionTour() {
+            axios.post('/api/save-session-tour').then(resp => {
 
-           });
+            });
         },
-        showTourDesktop(){
+        showTourDesktop() {
             this.$tours['myTour'].start()
         },
-        showTourMobile(){
+        showTourMobile() {
             this.$tours['myTourMobile'].start()
         }
     },
     mounted() {
-        if (this.valueSessionTour !== '1'){
-            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if (this.valueSessionTour !== '1') {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 this.$tours['myTourMobile'].start()
-            }else{
+            } else {
                 this.$tours['myTour'].start()
             }
         }
@@ -193,7 +200,8 @@ export default {
     .more-info-card-desktop {
         display: none !important;
     }
-    .more-info-card-mobile{
+
+    .more-info-card-mobile {
         display: block !important;
     }
 }

@@ -57,12 +57,14 @@ class LoginController extends Controller
         $sessionLanguage = session('language');
         $sessionTheme = session('theme');
         $sessionSidebarBackend = session('sidebarMenuBackend');
+        $sessionTourRegisterProject = session('sessionTourRegisterProject');
         $this->guard()->logout();
 
         $request->session()->invalidate();
         $request->session()->put('language',  $sessionLanguage);
         $request->session()->put('theme',  $sessionTheme);
         $request->session()->put('sidebarMenuBackend',  $sessionSidebarBackend);
+        $request->session()->put('sessionTourRegisterProject',  $sessionTourRegisterProject);
 
         return redirect('/login');
     }

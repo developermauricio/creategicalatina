@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @push('css')
     <link rel="stylesheet" type="text/css"
-          href="../../../app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+          href="/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css"
-          href="../../../app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+          href="/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css"
-          href="../../../app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+          href="/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css"
-          href="../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+          href="/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
 @endpush
 @section('title', __('todos_clientes'))
 @section('header-breadcrumbs')
@@ -81,7 +81,7 @@
 
                         "processing": true,
                         "lengthMenu": [7, 10, 25, 50, 75, 100],
-                        "scrollY": 800,
+                        // "scrollY": 800,
                         "scrollX": true,
                         // "scrollCollapse": true,
                         // "paging": false,

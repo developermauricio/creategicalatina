@@ -16,7 +16,7 @@ $factory->define(Company::class, function (Faker $faker) {
         'address' => $faker->address,
         'biography' => $faker->sentence,
         "nit"=> $faker->numberBetween(),
-//        "picture"=> '/images/img-logo-empresa.png',
+        "picture"=> '/images/img-logo-empresa.png',
         'city_id' => \App\Model\City::all()->random()->id,
         'country_id' => \App\Model\Country::all()->random()->id,
         'company_category_id' => \App\Model\CompanyCategory::all()->random()->id,

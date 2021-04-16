@@ -29,6 +29,9 @@ import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import VueSocialChat from 'vue-social-chat'
+Vue.use(VueSocialChat)
+
 // import AudioRecorder from '../js/components/components/vue-audio-recorder'
 // Vue.use(AudioRecorder)
 
@@ -45,6 +48,7 @@ Vue.use( CKEditor );
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 /*COMPONENTES*/
+Vue.component('chat-floating', require('./components/components/chat/ChatFloatingCustomer.vue').default);
 Vue.component('audio-recorder', require('./components/components/vue-audio-recorder/src/components/recorder.vue').default);
 Vue.component('audio-player', require('./components/components/vue-audio-recorder/src/components/player.vue').default);
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);

@@ -274,12 +274,16 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="list-group">
-                                <h5 @click="modalBrief" :class="{ 'succes-brief ': classBorderCheckBrief, 'icheck-brief':classBorderICheckBrief  }"  class="card-header links-title list-group-item list-group-item-action">
+                                <h5 @click="modalBrief"
+                                    :class="{ 'succes-brief ': classBorderCheckBrief, 'icheck-brief':classBorderICheckBrief  }"
+                                    class="card-header links-title list-group-item list-group-item-action">
                                     {{ $t('frontend.register-client.agregar_brief') }}
-                                    <span v-if="briefCheck" class="badge badge-light-success badge-pill float-right icon-check-success-brief">
+                                    <span v-if="briefCheck"
+                                          class="badge badge-light-success badge-pill float-right icon-check-success-brief">
                                         <vs-icon size="medium" icon="done"></vs-icon>
                                     </span>
-                                    <span v-if="briefICheck" class="badge badge-light-success badge-pill float-right icon-check-icheck-brief">
+                                    <span v-if="briefICheck"
+                                          class="badge badge-light-success badge-pill float-right icon-check-icheck-brief">
                                         <vs-icon size="medium" icon="block"></vs-icon>
                                     </span>
                                 </h5>
@@ -287,7 +291,34 @@
                             </div>
                         </div>
                         <p v-if="textBriefCheck">El brief contiente información.</p>
-                        <p v-if="textBriefIcheck">El brief no tiene información, debes responder al menos una pregunta.</p>
+                        <p v-if="textBriefIcheck">El brief no tiene información, debes responder al menos una
+                            pregunta.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input-form
+                            id="txtDescription"
+                            :label="$t('frontend.register-client.titulo_observacioness')"
+                            pattern="alf"
+                            errorMsg=""
+                            type="textarea"
+                            requiredMsg=""
+                            :modelo.sync="observationProject"
+                            :required="false"
+                            :msgServer.sync="errors.observationProject"
+                            :options="{
+                        rows: 5
+                    }"
+                        ></input-form>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-12">
+                        <button @click="saveNewProject" type="button"
+                                class="btn btn-primary waves-effect waves-float waves-light float-right">Crear nuevo
+                            proyecto
+                        </button>
                     </div>
                 </div>
             </div>
@@ -296,7 +327,8 @@
         <!--=====================================
 		    MODAL BRIEF
         ======================================-->
-        <vs-popup @update:active="closeModalBrief" @dataBrief="validateBriefModal" fullscreen class="holamundo" :title="brief.title[language]"
+        <vs-popup @update:active="closeModalBrief" @dataBrief="validateBriefModal" fullscreen class="holamundo"
+                  :title="brief.title[language]"
                   :active.sync="popupBriefActivo">
             <div class="row pt-1 pr-md-4 pl-md-4 pr-lg-4 pl-lg-4">
                 <div class="col-12">
@@ -372,6 +404,7 @@ export default {
             popupMoreInfoProjectActivo: false,
             popupBriefActivo: false,
             nameProject: '',
+            observationProject: '',
             briefCheck: false,
             briefICheck: false,
             textBriefCheck: false,
@@ -387,6 +420,12 @@ export default {
                     en: null,
                     es: null
                 },
+                question: [
+                    {
+                        model: null,
+                        pathsRecording: []
+                    }
+                ]
             },
             errors: {},
             infoTypeProjectShowModal: {
@@ -461,6 +500,54 @@ export default {
     },
 
     methods: {
+        /*=============================================
+             GUARDAR PROYECTO
+        =============================================*/
+        saveNewProject() {
+            let i = 0;
+            this.brief.question.forEach(obj => {
+                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0) {
+                    i++
+                }
+            })
+
+            if (i == 0) {
+                this.$toast.error({
+                    title: 'Error',
+                    message: `${this.$t('frontend.register-client.titulo_error_no_hay_brief')}`,
+                    showDuration: 1000,
+                    hideDuration: 6000,
+                    position: 'top right',
+                })
+                this.briefCheck = false;
+                this.classBorderCheckBrief = false
+                this.textBriefIcheck = true
+                this.textBriefCheck = false
+                this.briefICheck = true
+                this.classBorderICheckBrief = true
+            }
+            eventBus.$emit("validarFormulario");
+            setTimeout(() => {
+                let resp = this;
+                /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
+                if (document.querySelectorAll(".is-invalid").length > 0) {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('backend.customer.create-customers.error_llenar_todos_campos'),
+                        showDuration: 1000,
+                        hideDuration: 6000,
+                        position: 'top right',
+                    })
+                    return;
+                }
+            }, 200)
+
+            if (i == 0) {
+                return
+            }else{
+
+            }
+        },
         /*=============================================
              SELECCIONA EL TIPO DE PROYECTO
         =============================================*/
@@ -592,20 +679,20 @@ export default {
                 this.$scrollTo(option, 1000, options);
             }, 100);
         },
-        validateBriefModal(){
+        validateBriefModal() {
 
         },
-        closeModalBrief(){
+        closeModalBrief() {
             let i = 0;
             this.brief.question.forEach(obj => {
-                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0 ){
+                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0) {
                     i++
                 }
             })
-            if (i == 0){
+            if (i == 0) {
                 this.$toast.error({
                     title: 'Error',
-                    message: 'El brief no puede estar vacio, responda una pregunta',
+                    message: `${this.$t('frontend.register-client.titulo_error_no_hay_brief')}`,
                     showDuration: 1000,
                     hideDuration: 6000,
                     position: 'top right',
@@ -616,7 +703,7 @@ export default {
                 this.textBriefCheck = false
                 this.briefICheck = true
                 this.classBorderICheckBrief = true
-            }else{
+            } else {
                 this.textBriefIcheck = false
                 this.textBriefCheck = true
                 this.briefICheck = false
@@ -624,8 +711,8 @@ export default {
                 this.briefCheck = true;
                 this.classBorderCheckBrief = true
                 this.$toast.success({
-                    title: '',
-                    message: 'Información dle brief agregada correctamente',
+                    title: 'Ok',
+                    message: `${this.$t('frontend.register-client.titulo_success_se_agrego_brief')}`,
                     showDuration: 1000,
                     hideDuration: 6000,
                     position: 'top right',
@@ -703,19 +790,23 @@ export default {
 .back .title.grey-background {
     display: none !important;
 }
-.badge.icon-check-icheck-brief{
+
+.badge.icon-check-icheck-brief {
     background-color: rgba(240, 94, 125, 0.12) !important;
     color: #F05E7D !important;
 }
-.badge.icon-check-success-brief{
+
+.badge.icon-check-success-brief {
     background-color: rgba(121, 235, 223, 0.12) !important;
     color: #79ebdf !important;
 }
-.card-header.succes-brief{
+
+.card-header.succes-brief {
     border-color: #79ebdf !important;
 
 }
-.card-header.icheck-brief{
+
+.card-header.icheck-brief {
     border-color: #F05E7D !important;
 
 }

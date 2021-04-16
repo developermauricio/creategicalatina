@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" value="1" class="loading {{ session('theme') == '1' || session('theme') == '3'? 'dark-layout' : 'semi-dark'  }}"
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" value="1"
+      class="loading {{ session('theme') == '1' || session('theme') == '3'? 'dark-layout' : 'semi-dark'  }}"
       data-layout="semi-dark-layout" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
@@ -47,16 +48,19 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
+
         window.token = '{{ csrf_token() }}'
         window.logo = '{{ env('IMG_LOGO') }}'
         window.lang = '{{ session('language') }}'
         window.themeSession = '{{ session('theme') }}'
+        window.logo_base_64 = '{{ env('IMG_BASE64_LOGO_LIGTH') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
+        window.url = '{{ env('APP_URL') }}'
         window.sessionTourRegisterProject = '{{ session('sessionTourRegisterProject') }}'
         themeSession = '{{ session('theme') }}'
-        if (themeSession == 1){
+        if (themeSession == 1) {
             window.cardsLoadingColor = '#283046'
-        }else{
+        } else {
             window.cardsLoadingColor = '#ffffff'
         }
     </script>
@@ -64,80 +68,88 @@
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
+@if(request()->is(session('language').'/new-project'))
+    <body class="vertical-layout vertical-menu-modern menu-collapsed navbar-sticky footer-fixed" data-open="click"
+          data-menu="vertical-menu-modern" data-col="">
+    @else
+        <body
+            class="vertical-layout vertical-menu-modern {{ session('sidebarMenuBackend') == '1' ? 'menu-collapsed' : 'menu-expanded'  }}  navbar-sticky footer-fixed"
+            data-open="click"
+            data-menu="vertical-menu-modern" data-col="">
+        @endif
 
-<body class="vertical-layout vertical-menu-modern {{ session('sidebarMenuBackend') == '1' ? 'menu-collapsed' : 'menu-expanded'  }}  navbar-sticky footer-fixed" data-open="click"
-      data-menu="vertical-menu-modern" data-col="">
+        <!-- BEGIN: Header-->
+        <div id="app-frontend" class="">
 
-<!-- BEGIN: Header-->
-<div id="app-frontend" class="">
+        @include('partials.navigations.navbar-backend')
+        <!-- END: Header-->
+            <!-- BEGIN: Main Menu-->
+        @include('partials.menus.backend.menu-navigation')
+        {{--@include('partials.menus.frontend.menu-navigation-mobile')--}}
+        <!-- END: Main Menu-->
 
-@include('partials.navigations.navbar-backend')
-<!-- END: Header-->
-    <!-- BEGIN: Main Menu-->
-@include('partials.menus.backend.menu-navigation')
-{{--@include('partials.menus.frontend.menu-navigation-mobile')--}}
-    <!-- END: Main Menu-->
-
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
+            <!-- BEGIN: Content-->
+            <div class="app-content content ">
+                <div class="content-overlay"></div>
+                <div class="header-navbar-shadow"></div>
+                <div class="content-wrapper">
+                    <div class="content-header row">
+                        @yield('header-breadcrumbs')
+                    </div>
+                    <div class="content-body">
+                        <chat-floating></chat-floating>
+                        @yield('content')
+                    </div>
+                </div>
             </div>
-            <div class="content-body">
-                @yield('content')
-            </div>
+            <!-- END: Content-->
+
+            <div class="sidenav-overlay"></div>
+            <div class="drag-target"></div>
+
+            <!-- BEGIN: Footer-->
+            @include('partials.footer')
+            @include('partials.theme.modal-changed-theme-backend')
+            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+            <!-- END: Footer-->
         </div>
-    </div>
-    <!-- END: Content-->
 
-    <div class="sidenav-overlay"></div>
-    <div class="drag-target"></div>
+        <!-- BEGIN: Vendor JS-->
+        <script src="/app-assets/vendors/js/vendors.min.js"></script>
 
-    <!-- BEGIN: Footer-->
-    @include('partials.footer')
-    @include('partials.theme.modal-changed-theme-backend')
-    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
-    <!-- END: Footer-->
-</div>
+        <!-- BEGIN Vendor JS-->
+        <script src="/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+        <script src="/app-assets/vendors/js/extensions/polyfill.min.js"></script>
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+        {{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}
+        <!-- END: Page Vendor JS-->
 
-<!-- BEGIN: Vendor JS-->
-<script src="/app-assets/vendors/js/vendors.min.js"></script>
-
-<!-- BEGIN Vendor JS-->
-<script src="/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-<script src="/app-assets/vendors/js/extensions/polyfill.min.js"></script>
-<!-- BEGIN: Page Vendor JS-->
-<script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>
-{{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="/app-assets/js/core/app-menu.js"></script>
-<script src="/app-assets/js/core/app.js"></script>
-<script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+        <!-- BEGIN: Theme JS-->
+        <script src="/app-assets/js/core/app-menu.js"></script>
+        <script src="/app-assets/js/core/app.js"></script>
+        <script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 
 
-<!-- END: Theme JS-->
-<script src="/js/change-template.js"></script>
+        <!-- END: Theme JS-->
+        <script src="/js/change-template.js"></script>
 
 
-<script src="{{ asset('js/app-frontend.js') }}"></script>
-{{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
-{{--<script src="/js/swiper-sliders.js"></script>--}}
-@stack('js')
-<script>
-    $(window).on('load', function () {
-        if (feather) {
-            feather.replace({
-                width: 14,
-                height: 14
-            });
-        }
-    })
-</script>
-</body>
-<!-- END: Body-->
+        <script src="{{ asset('js/app-frontend.js') }}"></script>
+        {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
+        {{--<script src="/js/swiper-sliders.js"></script>--}}
+        @stack('js')
+        <script>
+            $(window).on('load', function () {
+                if (feather) {
+                    feather.replace({
+                        width: 14,
+                        height: 14
+                    });
+                }
+            })
+        </script>
+        </body>
+        <!-- END: Body-->
 
 </html>

@@ -36,13 +36,22 @@ Route::group(['middleware' => 'auth'], function () {
         =============================================*/
         Route::get('datable-all-customer', 'Customer\CustomerController@getDatableCustomers')->name('api.backend.all.customer');
         /*=============================================
-        API PARA EL CLIENTE
+        API PARA MODULO CLIENTE CLIENTE
         =============================================*/
         Route::post('/upload-picture-company','Customer\CreateCustomerController@ulploadPictureCompany')->name('api.upload.picture.company');
         Route::get('/get-type-position','Customer\CreateCustomerController@getTypePosition')->name('api.get.type.position');
         Route::post('/removed-picture-company','Customer\CreateCustomerController@removedPictureCompany')->name('api.removed.picture.company');
         Route::post('/register/store-company','Customer\CreateCustomerController@storeCreateCompany')->name('api.store.create.company');
 
+    });
+    /*=============================================
+    API PARA EL FRONTEND
+    =============================================*/
+    Route::group(['namespace' => 'Frontend'], function () {
+        /*=============================================
+        API DATATABLE BACKEND
+        =============================================*/
+        Route::get('datable-all-project-company', 'Projects\ProjectsController@getDatatableProjectsCompany')->name('api.frontend.all.projects.company');
     });
 });
 Route::get('/verify-email-user/{email}', 'Controller@validateEmail')->name('api.validate.email');
