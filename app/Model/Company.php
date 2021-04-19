@@ -32,6 +32,12 @@ class Company extends Model
         return $this->belongsTo(Country::class);
     }
 
+    public static function getCompany(){
+        $manager = Auth::user()->manager;
+        $company = Company::where('manager_id', $manager->id)->first();
+        return $company;
+    }
+
     public static function companyGetProjects(){
         $manager = Auth::user()->manager;
         $company = Company::where('manager_id', $manager->id)->first();

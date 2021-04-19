@@ -26,6 +26,9 @@
     "loading_modal": "Loading...",
     "btn_guardar": "Guardar",
 
+    "menu_todos_los_proyectos": "All Projects",
+    "menu_nuevo_proyecto": "New Project",
+
     "navegacion": "Navigation",
     "clientes": "Customers",
     "proyectos": "Projects",

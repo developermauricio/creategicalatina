@@ -261,7 +261,7 @@
                         <input-form
                             id="txtNameProject"
                             :label="$t('frontend.register-client.nombre_proyecto_registro')"
-                            pattern="alf"
+                            pattern="all"
                             :errorMsg="$t('frontend.register-client.error_name_project')"
                             :requiredMsg="$t('frontend.register-client.requerido_name_project')"
                             :modelo.sync="nameProject"
@@ -315,9 +315,8 @@
                 </div>
                 <div class="row pb-3">
                     <div class="col-12">
-                        <button @click="saveNewProject" type="button"
-                                class="btn btn-primary waves-effect waves-float waves-light float-right">Crear nuevo
-                            proyecto
+                        <button @click="saveNewProject" type="button" class="btn btn-primary waves-effect waves-float waves-light float-right">
+                            {{ $t('frontend.projects.new-project.btn_crear_nuevo_proyecto')}}
                         </button>
                     </div>
                 </div>
@@ -404,6 +403,7 @@ export default {
             popupMoreInfoProjectActivo: false,
             popupBriefActivo: false,
             nameProject: '',
+            iCount: null,
             observationProject: '',
             briefCheck: false,
             briefICheck: false,
@@ -476,7 +476,8 @@ export default {
                         es: null
                     },
                     question: {
-                        id: null
+                        id: null,
+                        model: null,
                     }
                 },
                 created_at: null,
@@ -504,14 +505,16 @@ export default {
              GUARDAR PROYECTO
         =============================================*/
         saveNewProject() {
-            let i = 0;
-            this.brief.question.forEach(obj => {
-                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0) {
-                    i++
-                }
-            })
+            this.iCount = 0;
+            if (this.brief.question) {
+                this.brief.question.forEach(obj => {
+                    if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0) {
+                        this.iCount++
+                    }
+                })
+            }
 
-            if (i == 0) {
+            if (this.iCount == 0) {
                 this.$toast.error({
                     title: 'Error',
                     message: `${this.$t('frontend.register-client.titulo_error_no_hay_brief')}`,
@@ -525,6 +528,7 @@ export default {
                 this.textBriefCheck = false
                 this.briefICheck = true
                 this.classBorderICheckBrief = true
+
             }
             eventBus.$emit("validarFormulario");
             setTimeout(() => {
@@ -542,16 +546,73 @@ export default {
                 }
             }, 200)
 
-            if (i == 0) {
+            if (this.iCount == 0 || !this.nameProject) {
                 return
-            }else{
+            } else {
+                /*=============================================
+                    ENVIAR DATOS AL SERVIDOR
+                =============================================*/
+                let resp = this;
+                const data = new FormData();
+                data.append('nameProject', this.nameProject);
+                data.append('typeProject', JSON.stringify(this.selectProjectType));
+                data.append('categoriesProject', JSON.stringify(this.listCategoriesProject));
+                data.append('briefProject', JSON.stringify(this.selectProjectType.brief.question));
+                data.append('observationsProject', this.observationProject);
+                Swal.fire({
+                    title: this.$t('frontend.projects.new-project.confimar_registro_alerta_title'),
+                    text: this.$t('frontend.projects.new-project.confimar_registro_alerta_mensaje'),
+                    confirmButtonColor: "#F05E7D",
+                    cancelButtonColor: "#79ebdf",
+                    confirmButtonText: this.$t('frontend.projects.new-project.confimar_registro_alerta_aceptar'),
+                    cancelButtonText: this.$t('frontend.projects.new-project.confimar_registro_alerta_cancelar'),
+                    customClass: "swal-confirmation",
+                    showCancelButton: true,
+                    reverseButtons: true,
+                    allowOutsideClick: false,
+                }).then(result => {
+                    if (result.value) {
+                        resp.$vs.loading({
+                            color: resp.colorLoading,
+                            text: this.$t('frontend.projects.new-project.titulo_loading_creando_empresa')
+                        })
+                        axios.post('/api/create-new-project', data).then(resp => {
+                            this.$vs.loading.close()
+                            this.$toast.success({
+                                title: this.$t('frontend.projects.new-project.title_muy_bien_toast'),
+                                message: this.$t('frontend.projects.new-project.title_mensaje_success_toast_register'),
+                                showDuration: 1000,
+                                hideDuration: 5000,
+                                position: 'top right',
+                            })
+                            window.location = '/'+this.language+"/projects";
+                        }).catch(err => {
+                            this.$toast.error({
+                                title: this.$t('frontend.projects.new-project.title_atención_toast'),
+                                message: err,
+                                showDuration: 1000,
+                                hideDuration: 8000,
 
+                            })
+                            resp.$vs.loading.close()
+                        });
+                    }
+                })
             }
         },
         /*=============================================
              SELECCIONA EL TIPO DE PROYECTO
         =============================================*/
         typeProjectSelected(typeProject) {
+            this.iCount = null;
+            this.brief.question = null
+            this.briefCheck = false;
+            this.classBorderCheckBrief = false
+            this.textBriefIcheck = false
+            this.textBriefCheck = false
+            this.briefICheck = false
+            this.classBorderICheckBrief = false
+            this.textBriefIcheck = false
             this.$vs.loading({
                 color: this.colorLoading,
                 text: `${this.$t('loading_modal')}`
@@ -621,6 +682,7 @@ export default {
             if (this.brief.question.length > 0) {
                 this.popupBriefActivo = true;
             } else {
+                this.$vs.loading.close()
                 this.$toast.error({
                     title: `${this.$t('frontend.brief.lo_sentimos')}`,
                     message: `${this.$t('frontend.brief.err_no_brief')}`,
@@ -638,6 +700,7 @@ export default {
                         es: null
                     },
                 }
+
             }
 
         },

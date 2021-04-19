@@ -53,71 +53,71 @@
                                          style="font-size: 1.7rem; cursor: pointer"></vs-icon>
                             </vs-tooltip>
                         </h6>
-                    <input-form
-                        :showLabel="false"
-                        label=""
-                        id="txtObservacionesPauta"
-                        pattern="all"
-                        :errorMsg="$t('err_msg_definition')"
-                        :requiredMsg="$t('req_msg_definition')"
-                        :required="false"
-                        :modelo.sync="question.model"
-                        type="ckeditor"
-                        :options="{ rows: '10' ,
+                        <input-form
+                            :showLabel="false"
+                            label=""
+                            id="txtObservacionesPauta"
+                            pattern="all"
+                            :errorMsg="$t('err_msg_definition')"
+                            :requiredMsg="$t('req_msg_definition')"
+                            :required="false"
+                            :modelo.sync="question.model"
+                            type="ckeditor"
+                            :options="{ rows: '10' ,
                                   editor: editor,
                                   config: editorConfig
                                 }"
-                    ></input-form>
+                        ></input-form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Invoice Description ends -->
+            <!-- Invoice Description ends -->
 
-        <hr class="invoice-spacing"/>
+            <hr class="invoice-spacing"/>
 
-        <!-- Invoice Note starts -->
-        <div class="pt-0">
-            <div class="row">
-                <div class="col-12">
-                    <span class="font-weight-bold">{{ $t('frontend.brief.title_nota') }}:</span>
-                    <span v-if="noteBrief[language]">{{ noteBrief[language] }}</span>
+            <!-- Invoice Note starts -->
+            <div class="pt-0">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="font-weight-bold">{{ $t('frontend.brief.title_nota') }}:</span>
+                        <span v-if="noteBrief[language]">{{ noteBrief[language] }}</span>
+                    </div>
                 </div>
             </div>
+            <!-- Invoice Note ends -->
         </div>
-        <!-- Invoice Note ends -->
-    </div>
-    <!--=====================================
-       MODAL BRIEF
-   ======================================-->
-    <vs-popup class="holamundo" :title="infoModalRecording.question[language]"
-              :active.sync="popupRecondingActivo">
-        <div class="row pr-md-4 pl-md-4 pr-lg-4 pl-lg-3 justify-content-center">
-            <div class="col-12 pb-2">
-                <h2 class="font-weight-bolder display-5 text-center"
-                    v-text="infoModalRecording.question[language]"></h2>
-                <p class="text-justify pb-1" v-text="infoModalRecording.note[language]"></p>
-                <audio-recorder @removedRecording="removedPathRecording" @pathRecording="savePathRecording"
-                                @addRecording="questionRecording" :modalRecordingValue="popupRecondingActivo"
-                                :questionRecording="infoModalRecording"
-                                class="offset-1"
-                                upload-url="/api/save-recording-brief"
-                                :show-download-button=false
-                                :attempts="infoModalRecording.attempts"
-                                :textIntentos="$t('frontend.brief.titulo_grabadora_intentos')"
-                                :filename="infoModalRecording.question[language]"
-                                :time="2"
-                                :headers="headers"
-                />
-                <!--                        :before-recording="callback"-->
-                <!--                        :pause-recording="callback"-->
-                <!--                        :after-recording="callback"-->
-                <!--                        :select-record="callback"-->
-                <!--                        :before-upload="callback"-->
-                <!--                        :successful-upload="callback"-->
-                <!--                        :failed-upload="callback"/>-->
+        <!--=====================================
+           MODAL BRIEF
+       ======================================-->
+        <vs-popup class="holamundo" :title="infoModalRecording.question[language]"
+                  :active.sync="popupRecondingActivo">
+            <div class="row pr-md-4 pl-md-4 pr-lg-4 pl-lg-3 justify-content-center">
+                <div class="col-12 pb-2">
+                    <h2 class="font-weight-bolder display-5 text-center"
+                        v-text="infoModalRecording.question[language]"></h2>
+                    <p class="text-justify pb-1" v-text="infoModalRecording.note[language]"></p>
+                    <audio-recorder @removedRecording="removedPathRecording" @pathRecording="savePathRecording"
+                                    @addRecording="questionRecording" :modalRecordingValue="popupRecondingActivo"
+                                    :questionRecording="infoModalRecording"
+                                    class="offset-1"
+                                    upload-url="/api/save-recording-brief"
+                                    :show-download-button=false
+                                    :attempts="infoModalRecording.attempts"
+                                    :textIntentos="$t('frontend.brief.titulo_grabadora_intentos')"
+                                    :filename="infoModalRecording.question[language]"
+                                    :time="2"
+                                    :headers="headers"
+                    />
+                    <!--                        :before-recording="callback"-->
+                    <!--                        :pause-recording="callback"-->
+                    <!--                        :after-recording="callback"-->
+                    <!--                        :select-record="callback"-->
+                    <!--                        :before-upload="callback"-->
+                    <!--                        :successful-upload="callback"-->
+                    <!--                        :failed-upload="callback"/>-->
+                </div>
             </div>
-        </div>
-    </vs-popup>
+        </vs-popup>
     </div>
 </template>
 
@@ -184,40 +184,30 @@ export default {
     props: ['brief'],
     watch: {
         brief: function (brief, oldVal) { // watch it
-            this.$vs.loading({
-                color: this.colorLoading,
-                text: `${this.$t('loading_modal')}`
-            })
-            setTimeout(() =>{
-                this.questions = brief.question
-                // axios.get('/api/get-brief/' + brief.id).then(resp => {
-                //     console.log('data consulta',resp.data)
-                //     this.questions = resp.data.data
-                //     this.questions.forEach(obj => {
-                //             obj.attempts = 2
-                //             obj.recordQuestion = []
-                //             obj.pathsRecording = []
-                //             obj.colorSuccess = '#ee5f7e'
-                //         }
-                //     )
-                //     this.$vs.loading.close()
-                //     this.titleBrief = brief.title
-                //     this.noteBrief = brief.note
-                // })
-                this.questions.forEach(obj => {
-                        obj.attempts = 2
-                        obj.recordQuestion = []
-                        obj.pathsRecording = []
-                        obj.colorSuccess = '#ee5f7e'
-                    }
-                )
-                this.titleBrief = brief.title
-                this.noteBrief = brief.note
+
+            if (brief.question) {
+                this.$vs.loading({
+                    color: this.colorLoading,
+                    text: `${this.$t('loading_modal')}`
+                })
+                setTimeout(() => {
+                    this.questions = brief.question
+                    this.questions.forEach(obj => {
+                            obj.attempts = 2
+                            obj.recordQuestion = []
+                            obj.pathsRecording = []
+                            obj.colorSuccess = '#ee5f7e'
+                        }
+                    )
+                    this.titleBrief = brief.title
+                    this.noteBrief = brief.note
+                    this.$vs.loading.close()
+                }, 500)
                 this.$vs.loading.close()
-            }, 500)
-
-        },
-
+            } else {
+                return
+            }
+        }
     },
     methods: {
         openModalReconding(question) {
@@ -252,14 +242,14 @@ export default {
                 }
             }
         },
-        saveBriefProject(){
+        saveBriefProject() {
             let i = 0;
             this.questions.forEach(obj => {
-                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0 ){
+                if (obj.model && obj.model !== '' || obj.pathsRecording.length > 0) {
                     i++
                 }
             })
-            if (i == 0){
+            if (i == 0) {
                 this.$toast.error({
                     title: 'Error',
                     message: 'El brief no puede estar vacio, responda una pregunta',
@@ -267,7 +257,7 @@ export default {
                     hideDuration: 6000,
                     position: 'top right',
                 })
-            }else{
+            } else {
                 this.$emit("dataBrief", this.questions)
                 console.log('si hay datos')
             }

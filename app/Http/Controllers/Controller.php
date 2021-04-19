@@ -10,11 +10,13 @@ use App\Model\IdentificationType;
 use App\Model\ProjectCategory;
 use App\Model\Question;
 use App\Model\TypeProject;
+use App\Notifications\Customer\TelegramNewProjectNotification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use \Illuminate\Support\Facades\Notification;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -22,6 +24,31 @@ use Illuminate\Support\Str;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    public function sendMessage(){
+        $user = -1001328650723;
+        $gif = 'https://media.giphy.com/media/yyZRSvISN1vvW/giphy.gif';
+        $text =
+              "Este mensaje es para notificar \n"
+            . "que la empresa <b>Creategicalatina</b>\n"
+            . "representada por <b>Silvio Mauricio Gutierrez</b>\n"
+            . "ha registrado un nuevo proyecto llamado <b>APEX.</b>\n"
+            . "\n"
+            . "<b>           Datos del Proyecto</b>\n"
+              . "\n"
+            . "<b>Nombre del proyecto: </b>\n"
+            . "APEX\n"
+            . "<b>Empresa: </b>\n"
+            . "Creategicalatina\n"
+            . "<b>Tipo de Proyecto: </b>\n"
+            . "Software\n"
+            . "<b>Características: </b>\n"
+            . "Aplicación Movil, Plataforma Web, Aplicación de Escritorio, Ecommerce";
+
+        Notification::send($user, new TelegramNewProjectNotification(env('TELEGRAM_CHANNEL_ID'), $text, $gif));
+        return 'hola bebe';
+    }
 
     public function setLanguage(string $language)
     {

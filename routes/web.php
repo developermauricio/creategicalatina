@@ -15,13 +15,20 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
+
 Route::get('companies', function (){
     $getCompanies = Company::with('manager.user', 'city')->get();
     return datatables()->of($getCompanies)->toJson();
 });
 
 Route::get('/email', function (){
-    return new \App\Mail\Register\RegisterCompany('Mauricio', 'sqwoqmwa5s', 'mao@gmail.com', 'Creategica');
+    return new \App\Mail\Project\NewProjectCustomer(
+        'Mauricio', 'APEX',
+        'project', '',
+        'Software', 'escritori, movile'
+    );
 });
 
 /*=============================================

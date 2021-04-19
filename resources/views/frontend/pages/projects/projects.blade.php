@@ -245,7 +245,7 @@
                         ],
 
                     })
-                    let text = '{{ __('backend/customer/customers.titulo_tabla') }}'
+                    let text = '{{ __('frontend/projects/all-projects.titulo_header_tabla_proyecto') }}'
                     $('div.head-label').html(`<h6 class="mb-0">${text}</h6>`);
                     table.on('order.dt search.dt', function () {
                         table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {

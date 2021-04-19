@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
         API DATATABLE BACKEND
         =============================================*/
         Route::get('datable-all-project-company', 'Projects\ProjectsController@getDatatableProjectsCompany')->name('api.frontend.all.projects.company');
+        Route::post('create-new-project', 'Projects\ProjectsController@storeNewProyect')->name('api.frontend.create.new.project');
     });
 });
 Route::get('/verify-email-user/{email}', 'Controller@validateEmail')->name('api.validate.email');

@@ -5,6 +5,7 @@ return [
     /*=============================================
        DATATABLES PROJECTS
     =============================================*/
+    'titulo_header_tabla_proyecto' => 'Todos los proyectos registrados a esta empresa',
     'btn_nuevo_proyecto' => 'Nuevo Proyecto',
     'titulo_columna_datatable_nombre_proyecto' => 'Nombre del Proyecto',
     'titulo_columna_datatable_imagen' => 'Imagen',

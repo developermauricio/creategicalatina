@@ -21,6 +21,8 @@ export default {
         "req_msg_definition": "Answer is required",
         "loading_modal": "Loading...",
         "btn_guardar": "Guardar",
+        "menu_todos_los_proyectos": "All Projects",
+        "menu_nuevo_proyecto": "New Project",
         "navegacion": "Navigation",
         "clientes": "Customers",
         "proyectos": "Projects",
@@ -107,9 +109,17 @@ export default {
                 "titulo_success_se_agrego_brief": "Brief information added correctly",
                 "titulo_observacioness": "Observation"
             },
+            "chat": {
+                "chat-floating-customer": {
+                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "If you have any questions or need help, do not hesitate to contact us.",
+                    "titulo_horario_disponible": "Hours available: ",
+                    "titulo_horario_disponible_a": " to "
+                }
+            },
             "projects": {
                 "all-projects": {
                     "titulo_pestana_projects_company": "Projects",
+                    "titulo_header_tabla_proyecto": "All projects registered to this company",
                     "btn_nuevo_proyecto": "New Project",
                     "titulo_columna_datatable_nombre_proyecto": "Project Name",
                     "titulo_columna_datatable_imagen": "Image",
@@ -117,6 +127,16 @@ export default {
                     "titulo_columna_datatable_registrado_por": "Registered by",
                     "titulo_columna_datatable_tipo_proyecto": "Project Type",
                     "titulo_columna_datatable_categorias": "Categories"
+                },
+                "new-project": {
+                    "confimar_registro_alerta_title": "Confirm",
+                    "confimar_registro_alerta_mensaje": "Are you sure to create a new project?",
+                    "confimar_registro_alerta_aceptar": "Accept",
+                    "confimar_registro_alerta_cancelar": "Cancel",
+                    "titulo_loading_creando_empresa": "Creating Project...",
+                    "title_muy_bien_toast": "Success",
+                    "title_mensaje_success_toast_register": "Successfully created project",
+                    "btn_crear_nuevo_proyecto": "Create new project"
                 }
             },
             "brief": {
@@ -143,6 +163,24 @@ export default {
                 "Quienes Somos": "About us",
                 "Proyectos": "Projects",
                 "Solicitar Proyecto": "Request Project"
+            },
+            "email": {
+                "new-project-customer": {
+                    "hola_cliente": "Hello",
+                    "has_registrado_nuevo_proyecto": "You have registered a new project!",
+                    "contenido_texto_creategica": "we have the knowledge, understanding and experience in areas of advertising creativity, development and technology to carry out your project. Thanks for trusting us.",
+                    "en_conector": "At",
+                    "este_es_resumen_proyecto": "This is the summary of your project:",
+                    "nombre_del_proyecto": "Project Name:",
+                    "tipo_de_proyecto": "Project Type:",
+                    "caracteristicas": "Characteristics:",
+                    "observación": "Observation:",
+                    "ninguna_observacion": "No Observation",
+                    "ver_proyecto": "Open Project",
+                    "pronto_nos_pondremos_contacto": "We will contact you soon to define the development process of your project.",
+                    "gracias": "Thanks",
+                    "equipo": "Team"
+                }
             }
         },
         "pagination": {
@@ -418,6 +456,8 @@ export default {
         "req_msg_definition": "Esta respuesta es requerida",
         "loading_modal": "Cargando...",
         "btn_guardar": "Guardar",
+        "menu_todos_los_proyectos": "Todos los Proyectos",
+        "menu_nuevo_proyecto": "Nuevo Proyecto",
         "navegacion": "Navegación",
         "clientes": "Clientes",
         "proyectos": "Proyectos",
@@ -504,9 +544,17 @@ export default {
                 "titulo_success_se_agrego_brief": "Brief information added correctly",
                 "titulo_observacioness": "Observaciones"
             },
+            "chat": {
+                "chat-floating-customer": {
+                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "Si tienes alguna duda o necesitas ayuda, no dudes en contáctarnos.",
+                    "titulo_horario_disponible": "Horario disponible: ",
+                    "titulo_horario_disponible_a": " a "
+                }
+            },
             "projects": {
                 "all-projects": {
                     "titulo_pestana_projects_company": "Proyectos",
+                    "titulo_header_tabla_proyecto": "Todos los proyectos registrados a esta empresa",
                     "btn_nuevo_proyecto": "Nuevo Proyecto",
                     "titulo_columna_datatable_nombre_proyecto": "Nombre del Proyecto",
                     "titulo_columna_datatable_imagen": "Imagen",
@@ -514,6 +562,16 @@ export default {
                     "titulo_columna_datatable_registrado_por": "Registrado por",
                     "titulo_columna_datatable_tipo_proyecto": "Tipo Proyecto",
                     "titulo_columna_datatable_categorias": "Categorías"
+                },
+                "new-project": {
+                    "confimar_registro_alerta_title": "Confirmar",
+                    "confimar_registro_alerta_mensaje": "¿Esta seguro de crear un nuevo proyecto?",
+                    "confimar_registro_alerta_aceptar": "Aceptar",
+                    "confimar_registro_alerta_cancelar": "Cancelar",
+                    "titulo_loading_creando_empresa": "Creando Proyecto...",
+                    "title_muy_bien_toast": "¡Muy bien!",
+                    "title_mensaje_success_toast_register": "Proyecto creado exitosamente",
+                    "btn_crear_nuevo_proyecto": "Crear nuevo proyecto"
                 }
             },
             "brief": {
@@ -540,6 +598,24 @@ export default {
                 "Quienes Somos": "Quiénes Somos",
                 "Proyectos": "Proyectos",
                 "Solicitar Proyecto": "Solicitar Proyecto"
+            },
+            "email": {
+                "new-project-customer": {
+                    "hola_cliente": "Hola",
+                    "has_registrado_nuevo_proyecto": "Has registrado un nuevo proyecto!",
+                    "contenido_texto_creategica": "contamos con el conocimiento, entendimiento y experiencia en áreas de creatividad publicitaria, desarrollo y tecnología para sacar adelante tu proyecto. Gracias por confiar en nosotros.",
+                    "en_conector": "En",
+                    "este_es_resumen_proyecto": "Este es el resumen de tu proyecto:",
+                    "nombre_del_proyecto": "Nombre del Proyecto:",
+                    "tipo_de_proyecto": "Tipo de Proyecto:",
+                    "caracteristicas": "Características:",
+                    "observación": "Observación:",
+                    "ninguna_observacion": "Ningúna Observación",
+                    "ver_proyecto": "Ver Proyecto",
+                    "pronto_nos_pondremos_contacto": "Pronto nos pondremos en contacto contigo para definir el proceso de desarrollo de tu proyecto.",
+                    "gracias": "Gracias",
+                    "equipo": "Equipo"
+                }
             }
         },
         "pagination": {

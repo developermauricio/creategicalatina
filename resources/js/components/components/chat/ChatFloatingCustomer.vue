@@ -7,7 +7,7 @@
                 class="messenger-chat"
                 :attendants="attendants"
             >
-                <p slot="header">Si tienes alguna duda o necesitas ayuda, no dudes en contáctarnos.</p>
+                <p slot="header">{{ $t('frontend.chat.chat-floating-customer.titulo_si_tiene_duda_ayuda_chat_floating_customer') }}</p>
                 <template v-slot:button>
                     <img
                         src="https://raw.githubusercontent.com/ktquez/vue-social-chat/master/src/icons/whatsapp.svg"
@@ -15,7 +15,7 @@
                         aria-hidden="true"
                     >
                 </template>
-                <small slot="footer">Horario disponible: 8am to 6pm</small>
+                <small slot="footer">{{ $t('frontend.chat.chat-floating-customer.titulo_horario_disponible') }} 8am {{ $t('frontend.chat.chat-floating-customer.titulo_horario_disponible_a') }} 6pm</small>
             </SocialChat>
         </div>
     </div>
@@ -24,7 +24,6 @@
 <script>
 export default {
     name: "ChatFloatingCustomer",
-
     data() {
         return {
             attendants: [

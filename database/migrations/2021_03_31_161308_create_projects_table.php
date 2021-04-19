@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('description_short')->nullable();
+            $table->text('observations')->nullable();
             $table->string('link')->nullable();
             $table->string('picture');
             $table->string('video')->nullable();

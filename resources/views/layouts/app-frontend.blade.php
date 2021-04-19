@@ -110,7 +110,7 @@
             <!-- BEGIN: Footer-->
             @include('partials.footer')
             @include('partials.theme.modal-changed-theme-backend')
-            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+{{--            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>--}}
             <!-- END: Footer-->
         </div>
 
