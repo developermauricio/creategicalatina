@@ -36,7 +36,7 @@ return [
 
     /*Mensajes toast brief*/
     'titulo_error_no_hay_brief' => 'El brief no puede estar vacio, responda una pregunta',
-    'titulo_success_se_agrego_brief' => 'Brief information added correctly',
+    'titulo_success_se_agrego_brief' => 'Brief registrado correctamente',
 
     'titulo_observacioness' => 'Observaciones'
 
