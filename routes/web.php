@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/cambiar-background/{value}', function ($value){
-   return response()->json(['data' => $value]);
+Route::get('/cambiar-background', function (){
+   return response()->json(['data' => 'no']);
 });
 
 
