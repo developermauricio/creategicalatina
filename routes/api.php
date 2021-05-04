@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/cambiar-background', function (){
-    return response()->json(['data' => 'no']);
+    return response()->json(['data' => 'si']);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

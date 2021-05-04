@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/cambiar-background', function (){
-   return response()->json(['data' => 'no']);
-});
+//Route::get('/cambiar-background', function (){
+//   return response()->json(['data' => 'no']);
+//});
 
 
 Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
