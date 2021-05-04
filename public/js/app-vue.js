@@ -3098,7 +3098,9 @@ __webpack_require__.r(__webpack_exports__);
 
         var data = new FormData();
 
-        _this2.validateUrlSocialNetworks(_this2.objectSocialNetworks);
+        if (_this2.objectSocialNetworks !== null) {
+          _this2.validateUrlSocialNetworks(_this2.objectSocialNetworks);
+        }
 
         data.append('languageEmail', JSON.stringify(_this2.languageEmail));
         /***  DATOS DE LA EMPRESA  ***/
@@ -3619,6 +3621,1312 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-multiselect */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.js");
+/* harmony import */ var vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_multiselect__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_phone_number_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-phone-number-input */ "./node_modules/vue-phone-number-input/dist/vue-phone-number-input.common.js");
+/* harmony import */ var vue_phone_number_input__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_phone_number_input__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_phone_number_input_dist_vue_phone_number_input_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-phone-number-input/dist/vue-phone-number-input.css */ "./node_modules/vue-phone-number-input/dist/vue-phone-number-input.css");
+/* harmony import */ var vue_phone_number_input_dist_vue_phone_number_input_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_phone_number_input_dist_vue_phone_number_input_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-dropzone */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.js");
+/* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+ // import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreateNewCustomer",
+  components: {
+    Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a,
+    VuePhoneNumberInput: vue_phone_number_input__WEBPACK_IMPORTED_MODULE_1___default.a,
+    vue2Dropzone: vue2_dropzone__WEBPACK_IMPORTED_MODULE_3___default.a
+  },
+  data: function data() {
+    return {
+      csrf_token: window.token,
+      language: window.lang,
+      languageEmail: null,
+      addLogo: false,
+      addSocialNetworks: false,
+      addBiography: false,
+      colorLoading: '#3f4f6e',
+      company: {
+        name: '',
+        address: '',
+        phone: '',
+        email: '',
+        biography: '',
+        nit: null,
+        valueCountry: null,
+        typeCompany: null,
+        valueCity: null,
+        picture: null,
+        picturePreview: null,
+        urlPicture: null
+      },
+      user: {
+        name: '',
+        last_name: '',
+        email: '',
+        phone: '',
+        valueIdentificationType: null,
+        valueTypePosition: null,
+        identification: ''
+      },
+      email: '',
+      emailverify: '',
+      emailCompany: '',
+      emailverifyCompany: '',
+      valueCreator: '',
+      currentTab: 0,
+      optionsCities: [],
+      optionsCountries: [],
+      optionsTypeCompanies: [],
+      optionsIdentificationType: [],
+      optionsTypePosition: [],
+      optionsLanguage: [{
+        id: 1,
+        name: this.$t('Español'),
+        code: 'es'
+      }, {
+        id: 2,
+        name: this.$t('Inglés'),
+        code: 'en'
+      }],
+      objectSocialNetworks: [],
+      listSocialNetworks: [{
+        social: "YouTube",
+        model: "",
+        id: 1
+      }, {
+        social: "Facebook",
+        model: "",
+        id: 2
+      }, {
+        social: "Instagram",
+        model: "",
+        id: 3
+      }, {
+        social: "Spotify",
+        model: "",
+        id: 4
+      }, {
+        social: "Apple Music",
+        model: "",
+        id: 5
+      }, {
+        social: "TikTok",
+        model: "",
+        id: 6
+      }, {
+        social: "Twitch",
+        model: "",
+        id: 9
+      }, {
+        social: "Twitter",
+        model: "",
+        id: 8
+      }, {
+        social: "Website",
+        model: "",
+        id: 7
+      }],
+      urlYoutube: '',
+      urlFacebook: '',
+      urlInstagram: '',
+      urlSpotify: '',
+      urlAppleMusic: '',
+      urlTiktok: '',
+      urlTwitch: '',
+      urlTwitter: '',
+      urlWebSite: '',
+      errors: {},
+      dropzoneOptions: {
+        url: '/api/upload-picture-company',
+        // thumbnailWidth: 200,
+        maxFilesize: 1,
+        maxFiles: 1,
+        paramName: 'picture',
+        acceptedFiles: 'image/*',
+        addRemoveLinks: true,
+        dictDefaultMessage: this.$t('backend.customer.create-customers.titulo_mensaje_dropzone'),
+        dictMaxFilesExceeded: this.$t('backend.customer.create-customers.msg_dropzone_no_puede_subir_mas_archivos'),
+        dictFileTooBig: this.$t('backend.customer.create-customers.msg_uno_el_archivo_demasiado') + " ({{filesize}}MiB). " + this.$t('backend.customer.create-customers.msg_dos_tamaño_maximo') + " {{maxFilesize}}MiB.",
+        dictRemoveFile: this.$t('backend.customer.create-customers.msg_tres_remover_archivo'),
+        headers: {
+          'X-CSRF-TOKEN': this.csrf_token //Este token lo pasamos por los props
+
+        } // params: {id: this.entity_get_data.id}  //Para enviar parametros
+
+      }
+    };
+  },
+  methods: {
+    /******************************************************
+     METODOS DE VALIDACIONES AGREGAR REDES SOCIALES
+     *******************************************************/
+    validateUrlSocialNetworks: function validateUrlSocialNetworks(socialNetworks) {
+      var _this = this;
+
+      socialNetworks.map(function (social) {
+        switch (social.social) {
+          case "YouTube":
+            _this.urlYoutube = social.model;
+            break;
+
+          case "Facebook":
+            _this.urlFacebook = social.model;
+            break;
+
+          case "Instagram":
+            _this.urlInstagram = social.model;
+            break;
+
+          case "Spotify":
+            _this.urlSpotify = social.model;
+            break;
+
+          case "Apple Music":
+            _this.urlAppleMusic = social.model;
+            break;
+
+          case "TikTok":
+            _this.urlTiktok = social.model;
+            break;
+
+          case "Twitter":
+            _this.urlTwitter = social.model;
+            break;
+
+          case "Twitch":
+            _this.urlTwitch = social.model;
+            break;
+
+          case "Website":
+            _this.urlWebSite = social.model;
+            break;
+        }
+
+        return social;
+      });
+    },
+    createNewEntity: function createNewEntity() {
+      var _this2 = this;
+
+      eventBus.$emit("validarFormulario");
+      setTimeout(function () {
+        var resp = _this2;
+        /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
+
+        if (document.querySelectorAll(".is-invalid").length > 0) {
+          _this2.$toast.error({
+            title: 'Error',
+            message: _this2.$t('backend.customer.create-customers.error_llenar_todos_campos'),
+            showDuration: 1000,
+            hideDuration: 6000,
+            position: 'top right'
+          });
+
+          return;
+        }
+
+        var data = new FormData();
+
+        if (_this2.objectSocialNetworks !== null) {
+          _this2.validateUrlSocialNetworks(_this2.objectSocialNetworks);
+        }
+
+        data.append('languageEmail', JSON.stringify(_this2.languageEmail));
+        /***  DATOS DE LA EMPRESA  ***/
+
+        _this2.dataSendCompany(data);
+        /***  DATOS DEL REPRESENTANTE  ***/
+
+
+        _this2.dataSendRepresentavie(data);
+
+        Swal.fire({
+          title: _this2.$t('backend.customer.create-customers.confimar_registro_alerta_title'),
+          text: _this2.$t('backend.customer.create-customers.confimar_registro_alerta_mensaje'),
+          confirmButtonColor: "#F05E7D",
+          cancelButtonColor: "#79ebdf",
+          confirmButtonText: _this2.$t('backend.customer.create-customers.confimar_registro_alerta_aceptar'),
+          cancelButtonText: _this2.$t('backend.customer.create-customers.confimar_registro_alerta_cancelar'),
+          customClass: "swal-confirmation",
+          showCancelButton: true,
+          reverseButtons: true,
+          allowOutsideClick: false
+        }).then(function (result) {
+          if (result.value) {
+            resp.$vs.loading({
+              color: resp.colorLoading,
+              text: _this2.$t('backend.customer.create-customers.titulo_loading_creando_empresa')
+            });
+            axios.post('/api/register/store-provider', data).then(function (res) {
+              resp.$vs.loading.close();
+
+              _this2.$toast.success({
+                title: _this2.$t('backend.customer.create-customers.title_muy_bien_toast'),
+                message: _this2.$t('backend.customer.create-customers.title_mensaje_success_toast_register'),
+                showDuration: 1000,
+                hideDuration: 5000,
+                position: 'top right'
+              }); // console.log('/'+this.language+"/profile")
+
+
+              window.location = '/' + _this2.language + "/new-providers";
+            })["catch"](function (err) {
+              _this2.$toast.error({
+                title: _this2.$t('backend.customer.create-customers.title_atención_toast'),
+                message: err,
+                showDuration: 1000,
+                hideDuration: 8000
+              });
+
+              resp.$vs.loading.close();
+            });
+          }
+        });
+      }, 200);
+    },
+    dataSendRepresentavie: function dataSendRepresentavie(data) {
+      data.append('nameRepresent', this.user.name);
+      data.append('lastNameRepresent', this.user.last_name);
+      data.append('emailRepresent', this.email);
+      data.append('phoneRepresent', this.user.phoneI);
+      data.append('typeIdentRepresent', JSON.stringify(this.user.valueIdentificationType));
+      data.append('typePositionRepresent', JSON.stringify(this.user.valueTypePosition));
+      data.append('identificationRepresent', this.user.identification);
+    },
+    dataSendCompany: function dataSendCompany(data) {
+      data.append('nameCompany', this.company.name);
+      data.append('addressCompany', this.company.address);
+      data.append('emailCompany', this.emailCompany);
+      data.append('nitCompany', this.company.nit);
+      data.append('typeCompany', JSON.stringify(this.company.typeCompany));
+      data.append('phoneCompany', this.company.phoneI);
+      data.append('pictureCompany', JSON.stringify(this.company.picture));
+      data.append('biographyCompany', this.company.biography);
+      data.append('countryCompany', JSON.stringify(this.company.valueCountry));
+      data.append('cityCompany', JSON.stringify(this.company.valueCity));
+      data.append('url_youtube', this.urlYoutube);
+      data.append('url_instagram', this.urlInstagram);
+      data.append('url_applemusic', this.urlAppleMusic);
+      data.append('url_facebook', this.urlFacebook);
+      data.append('url_spotify', this.urlSpotify);
+      data.append('url_tiktok', this.urlTiktok);
+      data.append('url_twitch', this.urlTwitch);
+      data.append('url_twitter', this.urlTwitter);
+      data.append('url_website', this.urlWebSite);
+    },
+    validarTab: function validarTab() {
+      var _this3 = this;
+
+      eventBus.$emit("validarFormulario");
+      setTimeout(function () {
+        var validated = document.querySelectorAll(".is-invalid").length < 1;
+        console.log(validated);
+
+        if (validated) {
+          _this3.$refs.wizard.tabs[_this3.currentTab].validationError = null;
+
+          _this3.$refs.wizard.changeTab(_this3.currentTab, _this3.currentTab + 1);
+        }
+      }, 200);
+      return false;
+    },
+    cambioPagina: function cambioPagina(prevIndex, nextIndex) {
+      this.currentTab = nextIndex;
+    },
+    getCities: function getCities(iddepartamento) {
+      var _this4 = this;
+
+      console.log(iddepartamento);
+
+      if (iddepartamento === null) {// this.optionsCities = [];
+        // this.user.valueCity = null;
+      } else {
+        this.$vs.loading({
+          color: this.colorLoading
+        });
+        axios.get('/api/get-cities/' + iddepartamento.alpha2Code).then(function (res) {
+          _this4.optionsCities = res.data.data;
+
+          _this4.$vs.loading.close();
+        })["catch"](function (err) {
+          _this4.$toast.error({
+            title: _this4.$t('backend.customer.create-customers.title_error_toast'),
+            message: _this4.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+            showDuration: 1000,
+            hideDuration: 5000,
+            position: 'top right'
+          });
+        });
+      }
+    },
+    getCountries: function getCountries() {
+      var _this5 = this;
+
+      axios.get('/api/get-countries').then(function (resp) {
+        _this5.optionsCountries = resp.data.data;
+
+        _this5.$vs.loading.close();
+      })["catch"](function (err) {
+        _this5.$toast.error({
+          title: _this5.$t('backend.customer.create-customers.title_error_toast'),
+          message: _this5.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      });
+    },
+    getTypeCompany: function getTypeCompany() {
+      var _this6 = this;
+
+      axios.get('/api/get-type-company').then(function (resp) {
+        _this6.optionsTypeCompanies = resp.data.data;
+      })["catch"](function (err) {
+        _this6.$toast.error({
+          title: _this6.$t('backend.customer.create-customers.title_error_toast'),
+          message: _this6.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      });
+    },
+    getTypePosition: function getTypePosition() {
+      var _this7 = this;
+
+      axios.get('/api/get-type-position').then(function (resp) {
+        _this7.optionsTypePosition = resp.data.data;
+      })["catch"](function (err) {
+        _this7.$toast.error({
+          title: _this7.$t('backend.customer.create-customers.title_error_toast'),
+          message: _this7.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      });
+    },
+    getIdentificationType: function getIdentificationType() {
+      var _this8 = this;
+
+      axios.get('/api/get-identificationtype').then(function (resp) {
+        _this8.optionsIdentificationType = resp.data.data;
+
+        _this8.$vs.loading.close();
+      })["catch"](function (err) {
+        _this8.$toast.error({
+          title: _this8.$t('backend.customer.create-customers.title_error_toast'),
+          message: _this8.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      });
+    },
+    maxFiles: function maxFiles(file) {
+      this.$refs.myVueDropzone.removeFile(file);
+      this.$toast.error({
+        title: this.$t('backend.customer.create-customers.title_atención_toast'),
+        message: this.$t('backend.customer.create-customers.msg_dropzone_no_puede_subir_mas_archivos'),
+        showDuration: 1000,
+        hideDuration: 8000,
+        position: 'top right'
+      });
+    },
+    addFileUpload: function addFileUpload(file, response) {
+      var _this9 = this;
+
+      this.company.picture = response;
+      console.log(file);
+      this.company.picturePreview = file.dataURL;
+      setTimeout(function () {
+        _this9.$toast.success({
+          title: _this9.$t('backend.customer.create-customers.title_muy_bien_toast'),
+          message: _this9.$t('backend.customer.create-customers.title_mensaje_success_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      }, 1000);
+    },
+    removedImage: function removedImage() {
+      var _this10 = this;
+
+      var imageCompany = this.company.picture.data;
+      this.company.picturePreview = null;
+      this.company.picture = null;
+      var data = new FormData();
+      data.append("pictureCompany", imageCompany);
+      axios.post('/api/removed-picture-company', data).then(function (resp) {
+        _this10.$toast.success({
+          title: _this10.$t('backend.customer.create-customers.title_muy_bien_toast'),
+          message: _this10.$t('backend.customer.create-customers.title_mensaje_success_toast_remove_image'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      })["catch"](function (err) {
+        _this10.$toast.error({
+          title: _this10.$t('backend.customer.create-customers.title_error_toast'),
+          message: _this10.$t('backend.customer.create-customers.title_mensaje_error_toast'),
+          showDuration: 1000,
+          hideDuration: 5000,
+          position: 'top right'
+        });
+      });
+    },
+    errorMessage: function errorMessage(file, message, xhr) {
+      this.$toast.error({
+        title: this.$t('backend.customer.create-customers.title_atención_toast'),
+        message: message,
+        showDuration: 1000,
+        hideDuration: 8000
+      });
+    },
+    addTagSocialInputs: function addTagSocialInputs(newTag) {
+      var tag = {
+        name: newTag,
+        code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
+      };
+      this.options.push(tag);
+      this.value.push(tag);
+    },
+    btnCancelSocialNetworks: function btnCancelSocialNetworks() {
+      this.addSocialNetworks = false;
+      this.objectSocialNetworks = null;
+    },
+    btnCancelBiography: function btnCancelBiography() {
+      this.addBiography = false;
+      this.biography = '';
+    },
+    btnCancelAddLogo: function btnCancelAddLogo() {
+      this.addLogo = false;
+      this.removedImage();
+    }
+  },
+  watch: {
+    email: function email(val) {
+      var data = this;
+
+      if (val) {
+        axios.get('/api/verify-email-user/' + val).then(function (resp) {
+          if (resp.data) {
+            $("#txtUserEmail").addClass("is-invalid");
+            $("#text-verify-email").css("display", "block");
+          } else {
+            data.emailverify = '';
+            $("#txtUserEmail").removeClass("is-invalid");
+            $("#text-verify-email").css("display", "none");
+          }
+        })["catch"](function (err) {});
+      }
+    },
+    emailCompany: function emailCompany(val) {
+      var data = this;
+
+      if (val) {
+        axios.get('/api/verify-email-company/' + val).then(function (resp) {
+          if (resp.data) {
+            $("#txtCompanyEmail").addClass("is-invalid");
+            $("#text-verify-email-company").css("display", "block");
+          } else {
+            data.emailverifyCompany = '';
+            $("#txtCompanyEmail").removeClass("is-invalid");
+            $("#text-verify-email-company").css("display", "none");
+          }
+        })["catch"](function (err) {});
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.getCountries();
+    this.getIdentificationType();
+    this.getTypeCompany();
+    this.getTypePosition();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ChangedPassword",
+  data: function data() {
+    return {
+      password: '',
+      password_confirmation: '',
+      passwordState: window.stateShowPassword,
+      errors: {}
+    };
+  },
+  methods: {
+    changedPassword: function changedPassword() {
+      var _this = this;
+
+      eventBus.$emit("validarFormulario");
+      setTimeout(function () {
+        var resp = _this;
+        /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
+
+        if (document.querySelectorAll(".is-invalid").length > 0) {
+          _this.$toast.error({
+            title: 'Error',
+            message: _this.$t('backend.profile.changed-password.toast_error_mensaje'),
+            showDuration: 1000,
+            hideDuration: 6000,
+            position: 'top right'
+          });
+
+          return;
+        }
+
+        var data = new FormData();
+        data.append('password', _this.password);
+        data.append('password_confirmation', _this.password_confirmation);
+        Swal.fire({
+          title: _this.$t('backend.profile.changed-password.texto_alerta_confirmar'),
+          text: _this.$t('backend.profile.changed-password.texto_alerta_esta_seguro_contrasena'),
+          confirmButtonColor: "#F05E7D",
+          cancelButtonColor: "#79ebdf",
+          confirmButtonText: _this.$t('backend.profile.changed-password.btn_alerta_aceptar'),
+          cancelButtonText: _this.$t('backend.profile.changed-password.btn_alerta_cancelar'),
+          customClass: "swal-confirmation",
+          showCancelButton: true,
+          reverseButtons: true,
+          allowOutsideClick: false
+        }).then(function (result) {
+          if (result.value) {
+            axios.post('/api/update-password-user', data).then(function (resp) {
+              _this.$toast.success({
+                title: _this.$t('backend.profile.changed-password.toast_susscess_titulo'),
+                message: _this.$t('backend.profile.changed-password.toast_susscess_mensaje'),
+                showDuration: 1000,
+                hideDuration: 5000,
+                position: 'top right'
+              });
+
+              location.reload();
+            })["catch"](function (err) {
+              _this.$toast.error({
+                title: _this.$t('backend.customer.create-customers.title_atención_toast'),
+                message: err,
+                showDuration: 1000,
+                hideDuration: 8000
+              });
+            });
+          }
+        });
+      }, 200);
+    }
+  },
+  watch: {
+    password_confirmation: function password_confirmation(val) {
+      var data = this;
+
+      if (val) {
+        console.log(val);
+
+        if (data.password !== val) {
+          $("#txtConfirmationPassword").addClass("is-invalid");
+          $("#text-verify-password").css("display", "block");
+        } else {
+          $("#txtConfirmationPassword").removeClass("is-invalid");
+          $("#text-verify-password").css("display", "none");
+        }
+      }
+    }
+  },
+  props: ['dataStateChangedPassword']
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css":
 /*!*****************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css ***!
@@ -3719,6 +5027,25 @@ exports.push([module.i, ".vs-row{clear:both;-ms-flex-flow:wrap;flex-flow:wrap}.v
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/customer/CreateNewCustomer.vue?vue&type=style&index=1&lang=css&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/pages/customer/CreateNewCustomer.vue?vue&type=style&index=1&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.multiselect__tag {\n    background: #F05E7D !important;\n}\n.multiselect__tag-icon:focus, .multiselect__tag-icon:hover {\n    background: #283046 !important;\n}\n.multiselect__option--highlight {\n    background: #F05E7D !important;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21796,6 +23123,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--7-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateNewProvider.vue?vue&type=style&index=1&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& ***!
@@ -27433,6 +28790,2202 @@ var staticRenderFns = [
     )
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row pt-2" }, [
+    _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "body" }, [
+          _c(
+            "form",
+            { staticClass: "pt-2 pr-4 pl-4 pb-4", attrs: { method: "post" } },
+            [
+              _c(
+                "form-wizard",
+                {
+                  ref: "wizard",
+                  attrs: {
+                    color: "#F05E7D",
+                    subtitle: "",
+                    title: "",
+                    finishButtonText: "Crear Entidad",
+                    nextButtonText: "Siguiente",
+                    backButtonText: "Atrás",
+                    shape: "tab",
+                    "error-color": "#ff4949"
+                  },
+                  on: {
+                    "on-change": _vm.cambioPagina,
+                    "on-complete": function($event) {
+                      return _vm.createNewEntity()
+                    }
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "footer",
+                      fn: function(props) {
+                        return [
+                          _c(
+                            "div",
+                            { staticClass: "wizard-footer-left" },
+                            [
+                              props.activeTabIndex > 0
+                                ? _c(
+                                    "wizard-button",
+                                    {
+                                      style: props.fillButtonStyle,
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return props.prevTab()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_titulo_wizard_volver"
+                                            )
+                                          ) +
+                                          "\n                                "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "wizard-footer-right" },
+                            [
+                              !props.isLastStep
+                                ? _c(
+                                    "wizard-button",
+                                    {
+                                      staticClass: "wizard-footer-right",
+                                      style: props.fillButtonStyle,
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return props.nextTab()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_titulo_wizard_siguiente"
+                                            )
+                                          ) +
+                                          "\n                                "
+                                      )
+                                    ]
+                                  )
+                                : _c(
+                                    "wizard-button",
+                                    {
+                                      staticClass:
+                                        "wizard-footer-right finish-button",
+                                      style: props.fillButtonStyle,
+                                      nativeOn: {
+                                        click: function($event) {
+                                          return _vm.createNewEntity()
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(
+                                            props.isLastStep
+                                              ? _vm.$t(
+                                                  "backend.customer.create-customers.btn_titulo_wizard_create_empresa"
+                                                )
+                                              : _vm.$t(
+                                                  "backend.customer.create-customers.btn_titulo_wizard_siguiente"
+                                                )
+                                          ) +
+                                          "\n                                "
+                                      )
+                                    ]
+                                  )
+                            ],
+                            1
+                          )
+                        ]
+                      }
+                    }
+                  ])
+                },
+                [
+                  _c(
+                    "tab-content",
+                    {
+                      attrs: {
+                        title: _vm.$t(
+                          "backend.customer.create-customers.titulo_wizard_datos_empresa"
+                        ),
+                        beforeChange: _vm.validarTab
+                      }
+                    },
+                    [
+                      _c(
+                        "section",
+                        {
+                          staticClass: "pb-5",
+                          staticStyle: { width: "100%", height: "100%" }
+                        },
+                        [
+                          _vm.addLogo
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "justify-content-center d-flex pb-3"
+                                },
+                                [
+                                  _c("vue2Dropzone", {
+                                    ref: "myVueDropzone",
+                                    staticClass:
+                                      "dropzone upload-logo dropzone-area dz-clickable",
+                                    attrs: {
+                                      id: "dpz-single-file",
+                                      options: _vm.dropzoneOptions
+                                    },
+                                    on: {
+                                      "vdropzone-max-files-exceeded":
+                                        _vm.maxFiles,
+                                      "vdropzone-error": _vm.erroMessage,
+                                      "vdropzone-success": _vm.addFileUpload,
+                                      "vdropzone-removed-file": _vm.removedImage
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    id: "txtNames",
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_nombre_empresa"
+                                    ),
+                                    pattern: "alf",
+                                    errorMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_error_nombre_empresa"
+                                    ),
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_nombre_empresa"
+                                    ),
+                                    modelo: _vm.company.name,
+                                    required: true,
+                                    msgServer: _vm.errors.name
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      return _vm.$set(
+                                        _vm.company,
+                                        "name",
+                                        $event
+                                      )
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "name",
+                                        $event
+                                      )
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "name",
+                                        $event
+                                      )
+                                    }
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    id: "txtAddress",
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_direccion"
+                                    ),
+                                    pattern: "all",
+                                    errorMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_error_direccion"
+                                    ),
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_direccion"
+                                    ),
+                                    modelo: _vm.company.address,
+                                    required: true,
+                                    msgServer: _vm.errors.address
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      return _vm.$set(
+                                        _vm.company,
+                                        "address",
+                                        $event
+                                      )
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "address",
+                                        $event
+                                      )
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "address",
+                                        $event
+                                      )
+                                    }
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    id: "txtCompnayEmail",
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_email"
+                                    ),
+                                    pattern: "email",
+                                    errorMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_error_email"
+                                    ),
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_email"
+                                    ),
+                                    modelo: _vm.emailCompany,
+                                    required: true,
+                                    msgServer: _vm.errors.emailCompany
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      _vm.emailCompany = $event
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "emailCompany",
+                                        $event
+                                      )
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "emailCompany",
+                                        $event
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "text-danger",
+                                    staticStyle: {
+                                      "margin-top": "-1rem",
+                                      "font-size": "0.9rem",
+                                      display: "none"
+                                    },
+                                    attrs: { id: "text-verify-email-company" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.$t(
+                                          "backend.customer.create-customers.titulo_msg_validar_email"
+                                        )
+                                      )
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    id: "txtNit",
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_nit"
+                                    ),
+                                    pattern: "all",
+                                    errorMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_error_nit"
+                                    ),
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_nit"
+                                    ),
+                                    modelo: _vm.company.nit,
+                                    required: true,
+                                    msgServer: _vm.errors.nit
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      return _vm.$set(
+                                        _vm.company,
+                                        "nit",
+                                        $event
+                                      )
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(_vm.errors, "nit", $event)
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(_vm.errors, "nit", $event)
+                                    }
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_seleccionar_tipo_empresa"
+                                    ),
+                                    id: "txtTypeCompany",
+                                    errorMsg: "",
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_selecciona_tipo_empresa"
+                                    ),
+                                    required: true,
+                                    modelo: _vm.company.typeCompany,
+                                    msgServer: _vm.errors.typeCompany,
+                                    type: "multiselect",
+                                    selectLabel: _vm.$t(
+                                      "backend.customer.create-customers.titulo_buscar_selecciona_tipo_empresa"
+                                    ),
+                                    multiselect: {
+                                      options: _vm.optionsTypeCompanies,
+                                      selectLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_seleccionar"
+                                      ),
+                                      selectedLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_seleccionado"
+                                      ),
+                                      deselectLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_desmarcar"
+                                      ),
+                                      placeholder: this.$t(
+                                        "backend.customer.create-customers.titulo_seleccionar_tipo_empresa"
+                                      ),
+                                      taggable: true,
+                                      "track-by": "id",
+                                      label: "name",
+                                      "custom-label": function(typeCompany) {
+                                        return typeCompany.name[_vm.language]
+                                      }
+                                    }
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      return _vm.$set(
+                                        _vm.company,
+                                        "typeCompany",
+                                        $event
+                                      )
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "typeCompany",
+                                        $event
+                                      )
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "typeCompany",
+                                        $event
+                                      )
+                                    }
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass:
+                                      "form-control-label label-selects"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.$t(
+                                          "backend.customer.create-customers.titulo_telefono"
+                                        )
+                                      )
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("VuePhoneNumberInput", {
+                                  attrs: {
+                                    required: true,
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_telefono"
+                                    ),
+                                    "fetch-country": true,
+                                    translations: {
+                                      countrySelectorLabel: _vm.$t(
+                                        "backend.customer.create-customers.titulo_codigo_pais"
+                                      ),
+                                      countrySelectorError: _vm.$t(
+                                        "backend.customer.create-customers.titulo_selecciona_pais"
+                                      ),
+                                      phoneNumberLabel: _vm.$t(
+                                        "backend.customer.create-customers.titulo_numero_telefono"
+                                      ),
+                                      example: _vm.$t(
+                                        "backend.customer.create-customers.titulo_telefono_ejemplo"
+                                      )
+                                    }
+                                  },
+                                  on: {
+                                    update: function($event) {
+                                      _vm.company.phoneI =
+                                        $event.formatInternational
+                                    }
+                                  },
+                                  model: {
+                                    value: _vm.company.phone,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.company, "phone", $$v)
+                                    },
+                                    expression: "company.phone"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-12 col-md-4 col-lg-4" },
+                              [
+                                _c("input-form", {
+                                  attrs: {
+                                    label: _vm.$t(
+                                      "backend.customer.create-customers.titulo_seleccionar_pais"
+                                    ),
+                                    id: "txtCategoryProfiling",
+                                    errorMsg: "",
+                                    requiredMsg: _vm.$t(
+                                      "backend.customer.create-customers.titulo_obligatrio_selecciona_pais"
+                                    ),
+                                    required: true,
+                                    modelo: _vm.company.valueCountry,
+                                    msgServer: _vm.errors.valueCountry,
+                                    type: "multiselect",
+                                    selectLabel: _vm.$t(
+                                      "backend.customer.create-customers.titulo_buscar_selecciona_pais"
+                                    ),
+                                    multiselect: {
+                                      options: _vm.optionsCountries,
+                                      selectLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_seleccionar"
+                                      ),
+                                      selectedLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_seleccionado"
+                                      ),
+                                      deselectLabel: this.$t(
+                                        "backend.customer.create-customers.multiselect_desmarcar"
+                                      ),
+                                      placeholder: this.$t(
+                                        "backend.customer.create-customers.titulo_seleccionar_pais"
+                                      ),
+                                      taggable: true,
+                                      "track-by": "id",
+                                      label: "name",
+                                      "custom-label": function(departaments) {
+                                        return departaments.name
+                                      }
+                                    }
+                                  },
+                                  on: {
+                                    "update:modelo": function($event) {
+                                      return _vm.$set(
+                                        _vm.company,
+                                        "valueCountry",
+                                        $event
+                                      )
+                                    },
+                                    "update:msgServer": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "valueCountry",
+                                        $event
+                                      )
+                                    },
+                                    "update:msg-server": function($event) {
+                                      return _vm.$set(
+                                        _vm.errors,
+                                        "valueCountry",
+                                        $event
+                                      )
+                                    },
+                                    updatedValue: _vm.getCities
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _vm.company.valueCountry
+                              ? _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("input-form", {
+                                      staticClass: "input-label-register",
+                                      attrs: {
+                                        label: _vm.$t(
+                                          "backend.customer.create-customers.titulo_seleccionar_ciudad"
+                                        ),
+                                        id: "txtCity",
+                                        errorMsg: "",
+                                        requiredMsg: _vm.$t(
+                                          "backend.customer.create-customers.titulo_obligatrio_selecciona_ciudad"
+                                        ),
+                                        required: false,
+                                        modelo: _vm.company.valueCity,
+                                        msgServer: _vm.errors.valueCity,
+                                        type: "multiselect",
+                                        selectLabel: _vm.$t(
+                                          "backend.customer.create-customers.titulo_buscar_selecciona_ciudad"
+                                        ),
+                                        multiselect: {
+                                          options: _vm.optionsCities,
+                                          selectLabel: this.$t(
+                                            "backend.customer.create-customers.multiselect_seleccionar"
+                                          ),
+                                          selectedLabel: this.$t(
+                                            "backend.customer.create-customers.multiselect_seleccionado"
+                                          ),
+                                          deselectLabel: this.$t(
+                                            "backend.customer.create-customers.multiselect_desmarcar"
+                                          ),
+                                          placeholder: this.$t(
+                                            "backend.customer.create-customers.titulo_seleccionar_ciudad"
+                                          ),
+                                          taggable: true,
+                                          "track-by": "id",
+                                          label: "name",
+                                          "custom-label": function(cities) {
+                                            return cities.name
+                                          }
+                                        }
+                                      },
+                                      on: {
+                                        "update:modelo": function($event) {
+                                          return _vm.$set(
+                                            _vm.company,
+                                            "valueCity",
+                                            $event
+                                          )
+                                        },
+                                        "update:msgServer": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "valueCity",
+                                            $event
+                                          )
+                                        },
+                                        "update:msg-server": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "valueCity",
+                                            $event
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row pt-1" }, [
+                            _c("div", { staticClass: "demo-inline-spacing" }, [
+                              _vm.addLogo === false
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.addLogo = true
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_agregar_logo"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.addLogo === true
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: { click: _vm.btnCancelAddLogo }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_no_agregar_logo"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.addSocialNetworks === false
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.addSocialNetworks = true
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_agregar_redes"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.addSocialNetworks === true
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: { click: _vm.btnCancelSocialNetworks }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_no_agregar_redes"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.addBiography === false
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.addBiography = true
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_agregar_biografia"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.addBiography === true
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary waves-effect waves-float waves-light",
+                                      staticStyle: { "font-size": "0.92rem" },
+                                      attrs: { type: "button" },
+                                      on: { click: _vm.btnCancelBiography }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                            " +
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.btn_no_agregar_biografia"
+                                            )
+                                          ) +
+                                          "\n                                        "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _vm.addSocialNetworks || _vm.addBiography
+                            ? _c("hr")
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.addSocialNetworks
+                            ? _c("div", { staticClass: "row pt-2" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "col-12 col-lg-6 col-md-6 profiling"
+                                  },
+                                  [
+                                    _c("input-form", {
+                                      attrs: {
+                                        label: _vm.$t(
+                                          "backend.customer.create-customers.titulo_seleccionar_redes_sociales"
+                                        ),
+                                        id: "txtSocialNetworks",
+                                        requiredMsg: _vm.$t(
+                                          "backend.customer.create-customers.titulo_requerido_selecciona_redes_sociales"
+                                        ),
+                                        required: true,
+                                        modelo: _vm.objectSocialNetworks,
+                                        msgServer:
+                                          _vm.errors.objectSocialNetworks,
+                                        type: "multiselect",
+                                        selectLabel: "",
+                                        multiselect: {
+                                          "tag-placeholder": "",
+                                          // selectLabel   : $t('company.multiselect.select'),
+                                          // selectedLabel : $t('company.multiselect.selected'),
+                                          // deselectLabel : $t('company.multiselect.remove'),
+                                          placeholder: _vm.$t(
+                                            "backend.customer.create-customers.titulo_seleccionar_redes_sociales"
+                                          ),
+                                          label: "social",
+                                          "track-by": "id",
+                                          options: _vm.listSocialNetworks,
+                                          multiple: true,
+                                          taggable: true,
+                                          "custom-label": function(obj) {
+                                            return obj.social
+                                          }
+                                        }
+                                      },
+                                      on: {
+                                        "update:modelo": function($event) {
+                                          _vm.objectSocialNetworks = $event
+                                        },
+                                        "update:msgServer": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "objectSocialNetworks",
+                                            $event
+                                          )
+                                        },
+                                        "update:msg-server": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "objectSocialNetworks",
+                                            $event
+                                          )
+                                        },
+                                        tag: _vm.addTagSocialInputs
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.objectSocialNetworks
+                            ? _c(
+                                "div",
+                                { staticClass: "row" },
+                                _vm._l(_vm.objectSocialNetworks, function(
+                                  inputsSocial
+                                ) {
+                                  return _c(
+                                    "div",
+                                    {
+                                      key: inputsSocial.id,
+                                      staticClass: "col-md-4 col-lg-4 col-12"
+                                    },
+                                    [
+                                      _c("input-form", {
+                                        attrs: {
+                                          label: "Link " + inputsSocial.social,
+                                          id:
+                                            "txt" +
+                                            inputsSocial +
+                                            "SocialNewtwork",
+                                          pattern: "url",
+                                          placeholder:
+                                            inputsSocial.social + "url",
+                                          errorMsg: _vm.$t(
+                                            "backend.customer.create-customers.error_msg_url"
+                                          ),
+                                          requiredMsg: _vm.$t(
+                                            "backend.customer.create-customers.requerido_msg_url"
+                                          ),
+                                          required: true,
+                                          modelo: inputsSocial.model
+                                        },
+                                        on: {
+                                          "update:modelo": function($event) {
+                                            return _vm.$set(
+                                              inputsSocial,
+                                              "model",
+                                              $event
+                                            )
+                                          }
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                }),
+                                0
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.addBiography
+                            ? _c("div", { staticClass: "row" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-12 col-lg-12" },
+                                  [
+                                    _c("input-form", {
+                                      attrs: {
+                                        type: "textarea",
+                                        label: _vm.$t(
+                                          "backend.customer.create-customers.titulo_company_biografia"
+                                        ),
+                                        id: "txtBudgetDescription",
+                                        pattern: "all",
+                                        errorMsg: _vm.$t(
+                                          "backend.customer.create-customers.titulo_company_error_biografia"
+                                        ),
+                                        requiredMsg: _vm.$t(
+                                          "backend.customer.create-customers.titulo_company_requerido_biografia"
+                                        ),
+                                        required: true,
+                                        modelo: _vm.company.biography,
+                                        msgServer: _vm.errors.biography,
+                                        options: {
+                                          rows: 5
+                                        }
+                                      },
+                                      on: {
+                                        "update:modelo": function($event) {
+                                          return _vm.$set(
+                                            _vm.company,
+                                            "biography",
+                                            $event
+                                          )
+                                        },
+                                        "update:msgServer": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "biography",
+                                            $event
+                                          )
+                                        },
+                                        "update:msg-server": function($event) {
+                                          return _vm.$set(
+                                            _vm.errors,
+                                            "biography",
+                                            $event
+                                          )
+                                        }
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "tab-content",
+                    {
+                      attrs: {
+                        title: _vm.$t(
+                          "backend.customer.create-customers.titulo_wizard_datos_representante"
+                        ),
+                        beforeChange: _vm.validarTab
+                      }
+                    },
+                    [
+                      _vm.currentTab === 1
+                        ? _c("section", { staticStyle: { width: "100%" } }, [
+                            _c("div", { staticClass: "row" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      id: "txtUserName",
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_nombre_representante"
+                                      ),
+                                      pattern: "alf",
+                                      errorMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_error_nombre_representante"
+                                      ),
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_nombre_representante"
+                                      ),
+                                      modelo: _vm.user.name,
+                                      required: true,
+                                      msgServer: _vm.errors.name
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        return _vm.$set(
+                                          _vm.user,
+                                          "name",
+                                          $event
+                                        )
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "name",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "name",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      id: "txtUserLastName",
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_apellidos_representante"
+                                      ),
+                                      pattern: "alf",
+                                      errorMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_error_apellidos_representante"
+                                      ),
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_apellidos_representante"
+                                      ),
+                                      modelo: _vm.user.last_name,
+                                      required: true,
+                                      msgServer: _vm.errors.last_name
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        return _vm.$set(
+                                          _vm.user,
+                                          "last_name",
+                                          $event
+                                        )
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "last_name",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "last_name",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      id: "txtUserEmail",
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_email"
+                                      ),
+                                      pattern: "email",
+                                      errorMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_error_email"
+                                      ),
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_email"
+                                      ),
+                                      modelo: _vm.email,
+                                      required: true,
+                                      msgServer: _vm.errors.email
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        _vm.email = $event
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "email",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "email",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass: "text-danger",
+                                      staticStyle: {
+                                        "margin-top": "-1rem",
+                                        "font-size": "0.9rem",
+                                        display: "none"
+                                      },
+                                      attrs: { id: "text-verify-email" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_msg_validar_email"
+                                          )
+                                        )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass:
+                                        "form-control-label label-selects"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_telefono"
+                                          )
+                                        )
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("VuePhoneNumberInput", {
+                                    attrs: {
+                                      required: true,
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_telefono"
+                                      ),
+                                      "fetch-country": true,
+                                      translations: {
+                                        countrySelectorLabel: _vm.$t(
+                                          "backend.customer.create-customers.titulo_codigo_pais"
+                                        ),
+                                        countrySelectorError: _vm.$t(
+                                          "backend.customer.create-customers.titulo_selecciona_pais"
+                                        ),
+                                        phoneNumberLabel: _vm.$t(
+                                          "backend.customer.create-customers.titulo_numero_telefono"
+                                        ),
+                                        example: _vm.$t(
+                                          "backend.customer.create-customers.titulo_telefono_ejemplo"
+                                        )
+                                      }
+                                    },
+                                    on: {
+                                      update: function($event) {
+                                        _vm.user.phoneI =
+                                          $event.formatInternational
+                                      }
+                                    },
+                                    model: {
+                                      value: _vm.user.phone,
+                                      callback: function($$v) {
+                                        _vm.$set(_vm.user, "phone", $$v)
+                                      },
+                                      expression: "user.phone"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_tipo_documento"
+                                      ),
+                                      id: "txtIdentificationType",
+                                      errorMsg: "",
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_tipo_documento"
+                                      ),
+                                      required: true,
+                                      modelo: _vm.user.valueIdentificationType,
+                                      msgServer:
+                                        _vm.errors.valueIdentificationType,
+                                      type: "multiselect",
+                                      selectLabel: "Tipo de documento",
+                                      multiselect: {
+                                        options: _vm.optionsIdentificationType,
+                                        selectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionar"
+                                        ),
+                                        selectedLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionado"
+                                        ),
+                                        deselectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_desmarcar"
+                                        ),
+                                        placeholder: this.$t(
+                                          "backend.customer.create-customers.titulo_seleccionar_tipo_documento"
+                                        ),
+                                        taggable: true,
+                                        "track-by": "id",
+                                        label: "name",
+                                        "custom-label": function(identiType) {
+                                          return identiType.name[_vm.language]
+                                        }
+                                      }
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        return _vm.$set(
+                                          _vm.user,
+                                          "valueIdentificationType",
+                                          $event
+                                        )
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "valueIdentificationType",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "valueIdentificationType",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      id: "txtIdentifacation",
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_identificacion_representante"
+                                      ),
+                                      pattern: "alf_num",
+                                      errorMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_error_identificacion_representante"
+                                      ),
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligatrio_identificacion_representante"
+                                      ),
+                                      modelo: _vm.user.identification,
+                                      required: true,
+                                      msgServer: _vm.errors.identification
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        return _vm.$set(
+                                          _vm.user,
+                                          "identification",
+                                          $event
+                                        )
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "identification",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "identification",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_tipo_posicion"
+                                      ),
+                                      id: "txtTypePosition",
+                                      errorMsg: "",
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_requerido_tipo_posicion"
+                                      ),
+                                      required: true,
+                                      modelo: _vm.user.valueTypePosition,
+                                      msgServer: _vm.errors.valueTypePosition,
+                                      type: "multiselect",
+                                      selectLabel: "Tipo de documento",
+                                      multiselect: {
+                                        options: _vm.optionsTypePosition,
+                                        selectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionar"
+                                        ),
+                                        selectedLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionado"
+                                        ),
+                                        deselectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_desmarcar"
+                                        ),
+                                        placeholder: this.$t(
+                                          "backend.customer.create-customers.titulo_seleccionar_tipo_position"
+                                        ),
+                                        taggable: true,
+                                        "track-by": "id",
+                                        label: "name",
+                                        "custom-label": function(positionType) {
+                                          return positionType.name[_vm.language]
+                                        }
+                                      }
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        return _vm.$set(
+                                          _vm.user,
+                                          "valueTypePosition",
+                                          $event
+                                        )
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "valueTypePosition",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "valueTypePosition",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "tab-content",
+                    {
+                      attrs: {
+                        title: _vm.$t(
+                          "backend.customer.create-customers.titulo_wizard_confirmar_datos"
+                        ),
+                        beforeChange: _vm.validarTab
+                      }
+                    },
+                    [
+                      _vm.currentTab === 2
+                        ? _c("section", { staticStyle: { width: "100%" } }, [
+                            _vm.company.picturePreview
+                              ? _c("div", { staticClass: "row pb-3" }, [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-12 col-md-12 col-lg-12 d-flex justify-content-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "form-group mb-0" },
+                                        [
+                                          _c("img", {
+                                            staticClass:
+                                              "img-fluid img-thumbnail",
+                                            attrs: {
+                                              width: "200",
+                                              src: _vm.company.picturePreview,
+                                              alt: ""
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "d-flex justify-content-center pb-2 pt-2"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(
+                                      _vm.$t(
+                                        "backend.customer.create-customers.titulo_wizard_datos_empresa"
+                                      )
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_nombre_empresa"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(_vm.company.name)
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_direccion"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.company.address
+                                          )
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_email"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(_vm.emailCompany)
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_telefono"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.company.phoneI
+                                          )
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_nit"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(_vm.company.nit)
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_tipo_empresa"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.company.typeCompany.name[
+                                              _vm.language
+                                            ]
+                                          )
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 col-md-4 col-lg-4" },
+                                  [
+                                    _c("div", { staticClass: "form-group" }, [
+                                      _c("label", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.$t(
+                                              "backend.customer.create-customers.titulo_pais"
+                                            )
+                                          ) + ":"
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("p", {
+                                        domProps: {
+                                          textContent: _vm._s(
+                                            _vm.company.valueCountry.name
+                                          )
+                                        }
+                                      })
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm.company.valueCity
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass: "col-12 col-md-4 col-lg-4"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "form-group" },
+                                          [
+                                            _c("label", [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.$t(
+                                                    "backend.customer.create-customers.titulo_ciudad"
+                                                  )
+                                                ) + ":"
+                                              )
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("p", {
+                                              domProps: {
+                                                textContent: _vm._s(
+                                                  _vm.company.valueCity.name
+                                                )
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm._l(_vm.objectSocialNetworks, function(
+                                  socialNetworks,
+                                  index
+                                ) {
+                                  return _vm.objectSocialNetworks
+                                    ? _c(
+                                        "div",
+                                        {
+                                          key: socialNetworks.id,
+                                          staticClass:
+                                            "col-12 col-md-4 col-lg-4"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "form-group" },
+                                            [
+                                              _c("label", [
+                                                _vm._v(
+                                                  "Social " +
+                                                    _vm._s(index + 1) +
+                                                    ":"
+                                                )
+                                              ]),
+                                              _c("br"),
+                                              _vm._v(" "),
+                                              _c(
+                                                "a",
+                                                {
+                                                  attrs: {
+                                                    target: "_blank",
+                                                    href: socialNetworks.model
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      socialNetworks.social
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c(
+                              "h3",
+                              {
+                                staticClass:
+                                  "d-flex justify-content-center pb-2"
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(
+                                      _vm.$t(
+                                        "backend.customer.create-customers.titulo_wizard_datos_representante"
+                                      )
+                                    )
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_nombre"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(_vm.user.name)
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_apellidos"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(_vm.user.last_name)
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_email"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(_vm.email)
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_telefono"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(_vm.user.phoneI)
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_tipo_documento"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(
+                                          _vm.user.valueIdentificationType.name[
+                                            _vm.language
+                                          ]
+                                        )
+                                      }
+                                    })
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("div", { staticClass: "form-group" }, [
+                                    _c("label", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm.$t(
+                                            "backend.customer.create-customers.titulo_identificacion_representante"
+                                          )
+                                        ) + ":"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("p", {
+                                      domProps: {
+                                        textContent: _vm._s(
+                                          _vm.user.identification
+                                        )
+                                      }
+                                    })
+                                  ])
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row pt-1" }, [
+                              _c(
+                                "div",
+                                { staticClass: "col-12 col-md-4 col-lg-4" },
+                                [
+                                  _c("input-form", {
+                                    attrs: {
+                                      label: _vm.$t(
+                                        "backend.customer.create-customers.titulo_seleccionar_idioma_email"
+                                      ),
+                                      id: "txtLaguangeEmail",
+                                      errorMsg: "",
+                                      requiredMsg: _vm.$t(
+                                        "backend.customer.create-customers.titulo_obligario_idioma_email"
+                                      ),
+                                      required: true,
+                                      modelo: _vm.languageEmail,
+                                      msgServer: _vm.errors.languageEmail,
+                                      type: "multiselect",
+                                      selectLabel: "Tipo de documento",
+                                      multiselect: {
+                                        options: _vm.optionsLanguage,
+                                        selectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionar"
+                                        ),
+                                        selectedLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_seleccionado"
+                                        ),
+                                        deselectLabel: this.$t(
+                                          "backend.customer.create-customers.multiselect_desmarcar"
+                                        ),
+                                        placeholder: this.$t(
+                                          "backend.customer.create-customers.titulo_seleccionar_idioma_email"
+                                        ),
+                                        taggable: true,
+                                        "track-by": "id",
+                                        label: "name",
+                                        "custom-label": function(language) {
+                                          return language.name
+                                        }
+                                      }
+                                    },
+                                    on: {
+                                      "update:modelo": function($event) {
+                                        _vm.languageEmail = $event
+                                      },
+                                      "update:msgServer": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "languageEmail",
+                                          $event
+                                        )
+                                      },
+                                      "update:msg-server": function($event) {
+                                        return _vm.$set(
+                                          _vm.errors,
+                                          "languageEmail",
+                                          $event
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ])
+                          ])
+                        : _vm._e()
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "form-changed-password", staticStyle: { display: "none" } },
+    [
+      _c("h4", { staticClass: "card-title mb-1" }, [
+        _vm._v(
+          _vm._s(
+            _vm.$t("backend.profile.changed-password.titulo_cambiar_contrasena")
+          ) + " 🔒"
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text mb-2" }, [
+        _vm._v(
+          _vm._s(
+            _vm.$t("backend.profile.changed-password.texto_ingrese_contrasena")
+          )
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("input-form", {
+            attrs: {
+              id: "txtPassword",
+              label: _vm.$t(
+                "backend.profile.changed-password.titulo_nueva_contrasena"
+              ),
+              pattern: "all",
+              type: "password",
+              requiredMsg: _vm.$t(
+                "backend.profile.changed-password.texto_contrasena_requerida"
+              ),
+              modelo: _vm.password,
+              required: true,
+              msgServer: _vm.errors.password
+            },
+            on: {
+              "update:modelo": function($event) {
+                _vm.password = $event
+              },
+              "update:msgServer": function($event) {
+                return _vm.$set(_vm.errors, "password", $event)
+              },
+              "update:msg-server": function($event) {
+                return _vm.$set(_vm.errors, "password", $event)
+              }
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("input-form", {
+            attrs: {
+              id: "txtConfirmationPassword",
+              label: _vm.$t(
+                "backend.profile.changed-password.titulo_confirmar_contrasena"
+              ),
+              pattern: "all",
+              type: "password",
+              requiredMsg: _vm.$t(
+                "backend.profile.changed-password.texto_contrasena_confirmar_requerida"
+              ),
+              modelo: _vm.password_confirmation,
+              required: true,
+              msgServer: _vm.errors.password_confirmation
+            },
+            on: {
+              "update:modelo": function($event) {
+                _vm.password_confirmation = $event
+              },
+              "update:msgServer": function($event) {
+                return _vm.$set(_vm.errors, "password_confirmation", $event)
+              },
+              "update:msg-server": function($event) {
+                return _vm.$set(_vm.errors, "password_confirmation", $event)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass: "text-danger",
+              staticStyle: {
+                "margin-top": "-1rem",
+                "font-size": "0.9rem",
+                display: "none"
+              },
+              attrs: { id: "text-verify-password" }
+            },
+            [
+              _vm._v(
+                _vm._s(
+                  _vm.$t(
+                    "backend.profile.changed-password.mensaje_confirmar_contrasena"
+                  )
+                )
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-block",
+          attrs: { tabindex: "3" },
+          on: { click: _vm.changedPassword }
+        },
+        [
+          _vm._v(
+            _vm._s(
+              _vm.$t("backend.profile.changed-password.btn_cambiar_contrasena")
+            ) + "\n    "
+          )
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -73670,8 +77223,18 @@ Vue.use(vuesax__WEBPACK_IMPORTED_MODULE_4___default.a);
 /*COMPONENTES EXTERNOS*/
 
 Vue.component('input-form', __webpack_require__(/*! ./components/InputFormComponent.vue */ "./resources/js/components/InputFormComponent.vue")["default"]);
+Vue.component('changued-password', __webpack_require__(/*! ./components/components/user/ChangedPassword.vue */ "./resources/js/components/components/user/ChangedPassword.vue")["default"]);
+/*=============================================
+COMPONENTES PARA LOS CLIENTES
+=============================================*/
+
 Vue.component('create-new-customer', __webpack_require__(/*! ./components/backend/pages/customer/CreateNewCustomer */ "./resources/js/components/backend/pages/customer/CreateNewCustomer.vue")["default"]);
 Vue.component('profile-customer', __webpack_require__(/*! ./components/backend/pages/customer/ProfileCustomer */ "./resources/js/components/backend/pages/customer/ProfileCustomer.vue")["default"]);
+/*=============================================
+COMPONENTES PARA LOS PROVEEDORES
+=============================================*/
+
+Vue.component('create-new-provider', __webpack_require__(/*! ./components/backend/pages/provider/CreateNewProvider.vue */ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue")["default"]);
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -74034,6 +77597,164 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/backend/pages/provider/CreateNewProvider.vue ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateNewProvider.vue?vue&type=template&id=58defc68& */ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68&");
+/* harmony import */ var _CreateNewProvider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateNewProvider.vue?vue&type=script&lang=js& */ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var vue_multiselect_dist_vue_multiselect_min_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css& */ "./node_modules/vue-multiselect/dist/vue-multiselect.min.css?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CreateNewProvider.vue?vue&type=style&index=1&lang=css& */ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
+  _CreateNewProvider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/backend/pages/provider/CreateNewProvider.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateNewProvider.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css& ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--7-1!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateNewProvider.vue?vue&type=style&index=1&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=style&index=1&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateNewProvider.vue?vue&type=template&id=58defc68& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/backend/pages/provider/CreateNewProvider.vue?vue&type=template&id=58defc68&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateNewProvider_vue_vue_type_template_id_58defc68___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/components/user/ChangedPassword.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/components/user/ChangedPassword.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true& */ "./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true&");
+/* harmony import */ var _ChangedPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChangedPassword.vue?vue&type=script&lang=js& */ "./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ChangedPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "afeb2e2e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/components/user/ChangedPassword.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangedPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ChangedPassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/components/user/ChangedPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangedPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true& ***!
+  \****************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/components/user/ChangedPassword.vue?vue&type=template&id=afeb2e2e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChangedPassword_vue_vue_type_template_id_afeb2e2e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/vue-i18n-locales.generated.js":
 /*!****************************************************!*\
   !*** ./resources/js/vue-i18n-locales.generated.js ***!
@@ -74233,6 +77954,25 @@ __webpack_require__.r(__webpack_exports__);
       "next": "Next &raquo;"
     },
     "backend": {
+      "profile": {
+        "changed-password": {
+          "titulo_cambiar_contrasena": "Change Password",
+          "texto_ingrese_contrasena": "Please enter your new password.",
+          "titulo_nueva_contrasena": "New Password",
+          "titulo_confirmar_contrasena": "Confirm Password",
+          "btn_cambiar_contrasena": "Change Password",
+          "mensaje_confirmar_contrasena": "Password does not match",
+          "texto_contrasena_requerida": "Password is required",
+          "texto_contrasena_confirmar_requerida": "You must confirm the password",
+          "texto_alerta_confirmar": "Confirmar",
+          "texto_alerta_esta_seguro_contrasena": "Are you sure to change the password?",
+          "btn_alerta_cancelar": "Cancel",
+          "btn_alerta_aceptar": "Accept",
+          "toast_error_mensaje": "Can't change password",
+          "toast_susscess_mensaje": "Password Updated Correctly",
+          "toast_susscess_titulo": "¡Success!"
+        }
+      },
       "email": {
         "register-company": {
           "hola": "Hey",
@@ -74779,6 +78519,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     "backend": {
+      "profile": {
+        "changed-password": {
+          "titulo_cambiar_contrasena": "Cambiar Contraseña",
+          "texto_ingrese_contrasena": "Por favor, ingrese su nueva contraseña.",
+          "titulo_nueva_contrasena": "Nueva Contraseña",
+          "titulo_confirmar_contrasena": "Confirmar Contraseña",
+          "btn_cambiar_contrasena": "Cambiar Contraseña",
+          "mensaje_confirmar_contrasena": "La contraseña no coincide",
+          "texto_contrasena_requerida": "La contraseña es requerida",
+          "texto_contrasena_confirmar_requerida": "Debes confirmar la contraseña",
+          "texto_alerta_confirmar": "Confirmar",
+          "texto_alerta_esta_seguro_contrasena": "¿Esta seguro de cambiar la contraseña?",
+          "btn_alerta_cancelar": "Cancelar",
+          "btn_alerta_aceptar": "Aceptar",
+          "toast_error_mensaje": "No se puede cambiar la contraseña",
+          "toast_susscess_mensaje": "Contraseña Actualizada Correctamente",
+          "toast_susscess_titulo": "¡Muy Bien!"
+        }
+      },
       "email": {
         "register-company": {
           "hola": "Hola",

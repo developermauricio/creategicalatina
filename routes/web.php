@@ -16,10 +16,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get('/cambiar-background/{value}', function ($value){
+   return response()->json(['data' => $value]);
+});
+
+
 Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
 
-Route::get('companies', function (){
-    $getCompanies = Company::with('manager.user', 'city')->get();
+Route::get('companies-pro', function (){
+    $getCompanies = Company::getCompanyType(1);
     return datatables()->of($getCompanies)->toJson();
 });
 
@@ -60,6 +65,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         Route::get('/customers', 'Customer\CustomerController@index')->name('backend.customer.customer');
         Route::get('/new-customers', 'Customer\CreateCustomerController@index')->name('backend.customer.create.customer');
         Route::get('/customers/profile/{company}', 'Customer\ProfileCustomerController@index')->name('backend.customer.profile.customer');
+
+        /* RUTAS PROVEEDORES*/
+        Route::get('/providers', 'Provider\ProviderController@index')->name('backend.provider.provider');
+        Route::get('/new-providers', 'Provider\CreateProviderController@index')->name('backend.provider.create.provider');
+        /* RUTAS PERFIL*/
+        Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');
     });
     /*=============================================
       RUTAS PARA EL FRONTEND

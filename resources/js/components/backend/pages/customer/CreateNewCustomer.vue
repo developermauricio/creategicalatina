@@ -772,6 +772,7 @@ export default {
                 }
                 return social;
             });
+
         },
 
         createNewEntity() {
@@ -790,7 +791,10 @@ export default {
                     return;
                 }
                 const data = new FormData()
-                this.validateUrlSocialNetworks(this.objectSocialNetworks);
+                if (this.objectSocialNetworks !== null){
+                    this.validateUrlSocialNetworks(this.objectSocialNetworks);
+                }
+
                 data.append('languageEmail', JSON.stringify(this.languageEmail));
                 /***  DATOS DE LA EMPRESA  ***/
                 this.dataSendCompany(data);
@@ -824,7 +828,7 @@ export default {
                                 position: 'top right',
                             })
                             // console.log('/'+this.language+"/profile")
-                            window.location = '/'+this.language+"/new-customers";
+                            window.location = '/' + this.language + "/new-customers";
                         }).catch(err => {
                             this.$toast.error({
                                 title: this.$t('backend.customer.create-customers.title_atención_toast'),
@@ -856,7 +860,7 @@ export default {
             data.append('nitCompany', this.company.nit)
             data.append('typeCompany', JSON.stringify(this.company.typeCompany))
             data.append('phoneCompany', this.company.phoneI)
-            data.append('pictureCompany',  JSON.stringify(this.company.picture))
+            data.append('pictureCompany', JSON.stringify(this.company.picture))
             data.append('biographyCompany', this.company.biography)
             data.append('countryCompany', JSON.stringify(this.company.valueCountry))
             data.append('cityCompany', JSON.stringify(this.company.valueCity))

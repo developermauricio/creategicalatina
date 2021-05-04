@@ -38,6 +38,16 @@ class Company extends Model
         return $company;
     }
 
+    public static function getCompanyType($type){
+        $getCompanyType = Company::with('manager.user', 'city', 'country', 'companyType')->
+            whereHas('companyType', function ($q) use($type){
+                $q->where('company_type_id', $type);
+            }
+            )->get();
+        return $getCompanyType;
+    }
+
+
     public static function companyGetProjects(){
         $manager = Auth::user()->manager;
         $company = Company::where('manager_id', $manager->id)->first();
@@ -45,5 +55,9 @@ class Company extends Model
             $q->where('company_id', $company->id);
         })->get();
         return $projects;
+    }
+
+    public function companyType(){
+        return $this->belongsToMany(CompanyType::class, 'company_company_types', 'company_id', 'company_type_id');
     }
 }

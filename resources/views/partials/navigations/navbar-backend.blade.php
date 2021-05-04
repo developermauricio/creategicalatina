@@ -281,14 +281,15 @@
                                                            data-toggle="dropdown" aria-haspopup="true"
                                                            aria-expanded="false">
                     <div class="user-nav d-sm-flex d-none"><span
-                            class="user-name font-weight-bolder">John Doe</span><span
-                            class="user-status">Admin</span></div>
-                    <span class="avatar"><img class="round" src="/app-assets/images/portrait/small/avatar-s-11.jpg"
+                            class="user-name font-weight-bolder">{{ auth()->user()->name }}</span>
+                        @php($rol = json_decode(auth()->user()->roles->pluck('language')->implode(', ')))
+                        <span class="user-status">{{ $rol->{session('language')} }}</span></div>
+                    <span class="avatar"><img class="round" src="{{ auth()->user()->picture }}"
                                               alt="avatar" height="40" width="40"><span
                             class="avatar-status-online"></span></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
-                        class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i>
+                        class="dropdown-item" href="/{{ session('language') }}/admin/profile/{{ auth()->user()->slug }}"><i class="mr-50" data-feather="user"></i>
                         {{ __('Perfil') }}</a><a class="dropdown-item" href="app-email.html"><i class="mr-50"
                                                                                                 data-feather="mail"></i>
                         {{ __('Inbox') }}</a><a

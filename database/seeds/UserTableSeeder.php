@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
         Role::create(['name' => 'Administrator','language' => '{"en": "Administrator", "es": "Administrador"}']);
         Role::create(['name' => 'Customer','language' => '{"en": "Customer", "es": "Cliente"}']);
         Role::create(['name' => 'Member','language' => '{"en": "Member", "es": "Miembro"}']);
+        Role::create(['name' => 'Provider','language' => '{"en": "Provider", "es": "Proveedor"}']);
 
     }
 }

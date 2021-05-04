@@ -32,9 +32,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['namespace' => 'Backend'], function () {
         /*=============================================
-        API DATATABLE BACKEND
+        API DATATABLE BACKEND CLIENTE
         =============================================*/
         Route::get('datable-all-customer', 'Customer\CustomerController@getDatableCustomers')->name('api.backend.all.customer');
+        /*=============================================
+        API DATATABLE BACKEND PROVEEDOR
+        =============================================*/
+        Route::get('datable-all-provider', 'Provider\ProviderController@getDatableProvider')->name('api.backend.all.provider');
         /*=============================================
         API PARA MODULO CLIENTE CLIENTE
         =============================================*/
@@ -43,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/removed-picture-company','Customer\CreateCustomerController@removedPictureCompany')->name('api.removed.picture.company');
         Route::post('/register/store-company','Customer\CreateCustomerController@storeCreateCompany')->name('api.store.create.company');
 
+        /*=============================================
+        API PARA MODULO PROVEEDOR
+        =============================================*/
+        Route::post('/register/store-provider','Provider\CreateProviderController@storeCreateProvider')->name('api.store.create.provider');
     });
     /*=============================================
     API PARA EL FRONTEND
@@ -54,6 +62,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('datable-all-project-company', 'Projects\ProjectsController@getDatatableProjectsCompany')->name('api.frontend.all.projects.company');
         Route::post('create-new-project', 'Projects\ProjectsController@storeNewProyect')->name('api.frontend.create.new.project');
     });
+
+    /*=============================================
+    API PARA LOS USUARIOS
+    =============================================*/
+    Route::post('/update-password-user', 'Controller@updatePasswordUser')->name('upadate.password.user');
 });
 Route::get('/verify-email-user/{email}', 'Controller@validateEmail')->name('api.validate.email');
 Route::get('/verify-email-company/{email}', 'Controller@validateEmailCompany')->name('api.validate.email.company');

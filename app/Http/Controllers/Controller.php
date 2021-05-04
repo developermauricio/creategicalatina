@@ -156,4 +156,16 @@ class Controller extends BaseController
         Storage::delete($path);
 
     }
+
+    public function updatePasswordUser(Request $request){
+
+        $password = $request->password;
+        $newpassword = bcrypt($password);
+
+        $user = User::where('id', auth()->user()->id)->update([
+            'password' => $newpassword
+        ]);
+
+        return response()->json('Contraseña actualizada correctamente', 200);
+    }
 }

@@ -1,0 +1,37 @@
+<?php
+return [
+    'titulo_cambiar_contrasena' => 'Change Password',
+    'texto_ingrese_contrasena' => 'Please enter your new password.',
+    'titulo_nueva_contrasena' => 'New Password',
+    'titulo_confirmar_contrasena' => 'Confirm Password',
+    'btn_cambiar_contrasena' => 'Change Password',
+    'mensaje_confirmar_contrasena' => 'Password does not match',
+    'texto_contrasena_requerida' => 'Password is required',
+    'texto_contrasena_confirmar_requerida' => 'You must confirm the password',
+    'texto_alerta_confirmar' => 'Confirmar',
+    'texto_alerta_esta_seguro_contrasena' => 'Are you sure to change the password?',
+    'btn_alerta_cancelar' => 'Cancel',
+    'btn_alerta_aceptar' => 'Accept',
+    'toast_error_mensaje' => "Can't change password",
+    'toast_susscess_mensaje' => 'Password Updated Correctly',
+    'toast_susscess_titulo' => '¡Success!',
+
+    'titulo_perfil' => 'Profile',
+    'btn_titulo_editar' => 'Edit',
+    'btn_titulo_contrasena' => 'Password',
+    'btn_titulo_cancelar' => 'Cancel',
+
+    'titulo_acerca_de' => 'About: ',
+    'titulo_numero_identificacion' => 'Nº Ident:',
+    'titulo_tipo_identificacion' => 'Type:',
+    'titulo_rol' => 'Rol:',
+    'titulo_pais' => 'Country:',
+    'titulo_telefono' => 'Phone:',
+    'titulo_direccion' => 'Address:',
+    'titulo_cumpleanos' => 'Birthday:',
+    'titulo_desde' => 'Since:',
+    'titulo_tooltip_fecha_registro' => 'Date of registration in the system',
+    'titulo_estado_activo' => 'Active',
+    'titulo_estado_inactivo' => 'Inactive',
+
+];

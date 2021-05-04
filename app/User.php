@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\City;
 use App\Model\IdentificationType;
 use App\Model\Manager;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -32,6 +33,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
     /**
      * The attributes that should be cast to native types.
      *
@@ -43,6 +48,10 @@ class User extends Authenticatable
 
     public function manager(){
         return $this->hasOne(Manager::class, 'user_id');
+    }
+
+    public function city(){
+        return $this->belongsTo(City::class, 'city_id');
     }
 
     public function identificationType(){

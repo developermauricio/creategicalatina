@@ -113,6 +113,8 @@ class CreateCustomerController extends Controller
             $company->url_twitter = $request->url_twitter;
             $company->web_site = $request->url_website;
             $company->save();
+
+            $company->companyType()->attach('1');
             Mail::to($user->email)->locale($language->code)->send(new RegisterCompany($user->name, $password, $user->email, $company->name));
 
         }catch (\Exception $exception) {

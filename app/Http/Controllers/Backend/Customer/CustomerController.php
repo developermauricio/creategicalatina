@@ -12,7 +12,7 @@ class CustomerController extends Controller
         return view('backend.pages.customer.all-customers');
     }
     public function getDatableCustomers(){
-        $getCompanies = Company::with('manager.user', 'city', 'country')->get();
+        $getCompanies = Company::getCompanyType(1);
         return datatables()->of($getCompanies)->toJson();
     }
 }

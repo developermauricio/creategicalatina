@@ -27,6 +27,14 @@
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='shopping-bag'></i><span class="menu-title text-truncate"
                                                                                                                          data-i18n="Todo">{{ __('proveedores') }}</span></a>
+                <ul class="menu-content">
+                    <li class="{{request()->is(session('language').'/providers') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="/{{ session('language') }}/providers"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('backend/provider/provider.todos_los_proveedores') }}</span></a>
+                    </li>
+                    <li class="{{request()->is(session('language').'/new-providers') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="/{{ session('language') }}/new-providers"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('backend/provider/provider.registrar_proveedor') }}</span></a>
+                    </li>
+                </ul>
             </li>
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='edit'></i><span class="menu-title text-truncate"
                                                                                                                  data-i18n="Calendar">{{ __('ordenes_compra') }}</span></a>

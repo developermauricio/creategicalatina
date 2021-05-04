@@ -22,9 +22,19 @@ Vue.use(Vuesax);
 
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
+Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
 
+/*=============================================
+COMPONENTES PARA LOS CLIENTES
+=============================================*/
 Vue.component('create-new-customer', require('./components/backend/pages/customer/CreateNewCustomer').default);
 Vue.component('profile-customer', require('./components/backend/pages/customer/ProfileCustomer').default);
+/*=============================================
+COMPONENTES PARA LOS PROVEEDORES
+=============================================*/
+Vue.component('create-new-provider', require('./components/backend/pages/provider/CreateNewProvider.vue').default);
+
+
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**

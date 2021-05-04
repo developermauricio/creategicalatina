@@ -54,19 +54,10 @@
         window.logo_ligth = '{{ env('IMG_LOGO_LIGTH') }}'
         window.url = '{{ env('APP_URL') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
+        window.stateShowPassword = 2
         console.log(lang);
     </script>
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/60834e9c62662a09efc197d1/1f40em8e1';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
+
     <!--End of Tawk.to Script-->
 </head>
 <!-- END: Head-->
@@ -135,6 +126,17 @@
 <script src="{{ asset('js/app-vue.js') }}"></script>
 @stack('js')
 <script src="/js/change-template.js"></script>
+{{--<script type="text/javascript">--}}
+{{--    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();--}}
+{{--    (function(){--}}
+{{--        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];--}}
+{{--        s1.async=true;--}}
+{{--        s1.src='https://embed.tawk.to/60834e9c62662a09efc197d1/1f40em8e1';--}}
+{{--        s1.charset='UTF-8';--}}
+{{--        s1.setAttribute('crossorigin','*');--}}
+{{--        s0.parentNode.insertBefore(s1,s0);--}}
+{{--    })();--}}
+{{--</script>--}}
 <!--Start of Tawk.to Script-->
 <script>
     $(window).on('load', function () {

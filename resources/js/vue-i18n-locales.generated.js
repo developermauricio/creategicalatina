@@ -188,6 +188,25 @@ export default {
             "next": "Next &raquo;"
         },
         "backend": {
+            "profile": {
+                "changed-password": {
+                    "titulo_cambiar_contrasena": "Change Password",
+                    "texto_ingrese_contrasena": "Please enter your new password.",
+                    "titulo_nueva_contrasena": "New Password",
+                    "titulo_confirmar_contrasena": "Confirm Password",
+                    "btn_cambiar_contrasena": "Change Password",
+                    "mensaje_confirmar_contrasena": "Password does not match",
+                    "texto_contrasena_requerida": "Password is required",
+                    "texto_contrasena_confirmar_requerida": "You must confirm the password",
+                    "texto_alerta_confirmar": "Confirmar",
+                    "texto_alerta_esta_seguro_contrasena": "Are you sure to change the password?",
+                    "btn_alerta_cancelar": "Cancel",
+                    "btn_alerta_aceptar": "Accept",
+                    "toast_error_mensaje": "Can't change password",
+                    "toast_susscess_mensaje": "Password Updated Correctly",
+                    "toast_susscess_titulo": "¡Success!"
+                }
+            },
             "email": {
                 "register-company": {
                     "hola": "Hey",
@@ -734,6 +753,25 @@ export default {
             }
         },
         "backend": {
+            "profile": {
+                "changed-password": {
+                    "titulo_cambiar_contrasena": "Cambiar Contraseña",
+                    "texto_ingrese_contrasena": "Por favor, ingrese su nueva contraseña.",
+                    "titulo_nueva_contrasena": "Nueva Contraseña",
+                    "titulo_confirmar_contrasena": "Confirmar Contraseña",
+                    "btn_cambiar_contrasena": "Cambiar Contraseña",
+                    "mensaje_confirmar_contrasena": "La contraseña no coincide",
+                    "texto_contrasena_requerida": "La contraseña es requerida",
+                    "texto_contrasena_confirmar_requerida": "Debes confirmar la contraseña",
+                    "texto_alerta_confirmar": "Confirmar",
+                    "texto_alerta_esta_seguro_contrasena": "¿Esta seguro de cambiar la contraseña?",
+                    "btn_alerta_cancelar": "Cancelar",
+                    "btn_alerta_aceptar": "Aceptar",
+                    "toast_error_mensaje": "No se puede cambiar la contraseña",
+                    "toast_susscess_mensaje": "Contraseña Actualizada Correctamente",
+                    "toast_susscess_titulo": "¡Muy Bien!"
+                }
+            },
             "email": {
                 "register-company": {
                     "hola": "Hola",

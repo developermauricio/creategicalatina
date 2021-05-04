@@ -27,6 +27,21 @@ class DatabaseSeeder extends Seeder
 
 
         app()->setLocale('es');
+        // Tipos de empresa
+        $companyTypeEs = ['Cliente', 'Proveedor'];
+        $companyTypeEn = ['Customer', 'Provider'];
+
+        for ($i = 0; $i < count($companyTypeEs); $i++) {
+            factory(\App\Model\CompanyType::class)->create(
+                [
+                    "name" => $companyTypeEs[$i]
+                ]
+            );
+            $companyType = \App\Model\CompanyType::find($i + 1);
+            $companyType->setTranslation('name', 'en', $companyTypeEn[$i]);
+            $companyType->save();
+        }
+
 
         // Tipos de cargos manager
         $positionEs = ['Presidente', 'Gerente', 'CEO'];
@@ -256,6 +271,7 @@ class DatabaseSeeder extends Seeder
 //                        for ($i = 0; $i < count($logos); $i++) {
                             factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id])
                                 ->each(function (\App\Model\Company $c) use ($u){
+                                    $c->companyType()->attach(['1']);
                                     factory(\App\Model\Project::class, 3)->create(['user_id' => $u->id])
                                         ->each(function (\App\Model\Project $p) use ($c){
                                            $ramdon = random_int(1, 8);
@@ -267,6 +283,22 @@ class DatabaseSeeder extends Seeder
                     });
             });
 
+        /*=============================================
+            CREANDO 10 PROVEEDORES Y 10 REPRESENTANTES
+        =============================================*/
+        factory(\App\User::class, 10)->create()
+            ->each(function (\App\User $u) {
+                $u->roles()->attach(['4']);
+                factory(\App\Model\Manager::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Manager $m) use ($u){
+
+                        factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id])
+                            ->each(function (\App\Model\Company $c) use ($u){
+                                $c->companyType()->attach(['2']);
+                            });
+//                        }
+                    });
+            });
 
     }
 }
