@@ -87,6 +87,7 @@
             </div>
             <div class="content-body">
                 @yield('content')
+                <div id="chat-notification"></div>
             </div>
         </div>
     </div>
@@ -123,7 +124,7 @@
 {{--<script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>--}}
 
 <!-- END: Page JS-->
-<script src="{{ asset('js/app-vue.js') }}"></script>
+
 @stack('js')
 <script src="/js/change-template.js"></script>
 {{--<script type="text/javascript">--}}
@@ -138,6 +139,25 @@
 {{--    })();--}}
 {{--</script>--}}
 <!--Start of Tawk.to Script-->
+<script>
+    window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
+    console.log(window.location.hostname);
+</script>
+<script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
+<script src="{{ asset('js/app-vue.js') }}"></script>
+<script>
+
+    const userId = '{{ auth()->id() }}'
+    window.Echo.channel('public-message-channel')
+        .listen('.MessageEvent', (data) => {
+            console.log('hola beebe')
+            $("#chat-notification").append(`<div class="alert alert-warning">`+data.message+`</div>`);
+        });
+    window.Echo.private('message-channel.'+ userId)
+        .listen('.MessageEvent', (data) => {
+            $("#chat-notification").append(`<div class="alert alert-danger">`+data.message+`</div>`);
+        });
+</script>
 <script>
     $(window).on('load', function () {
         if (feather) {

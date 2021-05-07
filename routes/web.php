@@ -19,7 +19,19 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/cambiar-background', function (){
 //   return response()->json(['data' => 'no']);
 //});
+Route::get('/', function (){
+    return view('welcome');
+});
 
+Route::get('/chat', function (){
+  event(new \App\Events\PublicMessage());
+  dd('Public evento ejecutado');
+});
+
+Route::get('/private-chat', function (){
+    event(new \App\Events\PrivateMessage(\auth()->user()));
+    dd('Privado evento ejecutado');
+});
 
 Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
 

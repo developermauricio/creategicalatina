@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -64,37 +64,35 @@
         </style>
     </head>
     <body>
+    <div id="app">
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel Echo
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div id="chat-notification"></div>
             </div>
         </div>
+    </div>
+    <script src="/app-assets/vendors/js/vendors.min.js"></script>
+        <script>
+            window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
+            console.log(window.location.hostname);
+        </script>
+        <script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
+        <script src="{{ asset('js/app-vue.js') }}"></script>
+        <script>
+
+            const userId = '{{ auth()->id() }}'
+            window.Echo.channel('public-message-channel')
+            .listen('.MessageEvent', (data) => {
+                $("#chat-notification").append(`<div class="alert alert-warning">`+data.message+`</div>`);
+            });
+            window.Echo.private('message-channel.'+ userId)
+                .listen('.MessageEvent', (data) => {
+                    $("#chat-notification").append(`<div class="alert alert-danger">`+data.message+`</div>`);
+                });
+        </script>
     </body>
 </html>
