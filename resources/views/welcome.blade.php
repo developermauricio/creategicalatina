@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Echo
+                    Laravel Echo Test
                 </div>
                 <div id="chat-notification"></div>
             </div>
@@ -83,7 +83,6 @@
         <script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
         <script src="{{ asset('js/app-vue.js') }}"></script>
         <script>
-
             const userId = '{{ auth()->id() }}'
             window.Echo.channel('public-message-channel')
             .listen('.MessageEvent', (data) => {
