@@ -69,7 +69,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Echo Test
+                    Laravel Echo Test Mao
                 </div>
                 <div id="chat-notification"></div>
             </div>
