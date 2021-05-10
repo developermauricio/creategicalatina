@@ -7,6 +7,7 @@ use App\Model\Company;
 use App\Model\CompanyCategory;
 use App\Model\Country;
 use App\Model\IdentificationType;
+use App\Model\Project;
 use App\Model\ProjectCategory;
 use App\Model\Question;
 use App\Model\TypeProject;
@@ -26,17 +27,18 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public function sendMessage(){
+    public function sendMessage()
+    {
         $user = -1001328650723;
         $gif = 'https://media.giphy.com/media/yyZRSvISN1vvW/giphy.gif';
         $text =
-              "Este mensaje es para notificar \n"
+            "Este mensaje es para notificar \n"
             . "que la empresa <b>Creategicalatina</b>\n"
             . "representada por <b>Silvio Mauricio Gutierrez</b>\n"
             . "ha registrado un nuevo proyecto llamado <b>APEX.</b>\n"
             . "\n"
             . "<b>           Datos del Proyecto</b>\n"
-              . "\n"
+            . "\n"
             . "<b>Nombre del proyecto: </b>\n"
             . "APEX\n"
             . "<b>Empresa: </b>\n"
@@ -149,7 +151,9 @@ class Controller extends BaseController
         );
         return response()->json(['data' => $pictureUrl, 'id' => $id]);
     }
-    public function removedRecordingBrief(Request $request){
+
+    public function removedRecordingBrief(Request $request)
+    {
         $path = $request->path;
 //        $pathImage = $request->get('pictureCompany');
 //        $partes_ruta = pathinfo($pathImage);
@@ -157,7 +161,8 @@ class Controller extends BaseController
 
     }
 
-    public function updatePasswordUser(Request $request){
+    public function updatePasswordUser(Request $request)
+    {
 
         $password = $request->password;
         $newpassword = bcrypt($password);
@@ -167,5 +172,88 @@ class Controller extends BaseController
         ]);
 
         return response()->json('Contraseña actualizada correctamente', 200);
+    }
+
+    public function setNotificationProyect(Request $request)
+    {
+//        $notificationProject = $request->notificationProject;
+//
+//        $users = User::role('Administrator')->get();
+//        $notifications = null;
+//
+//        foreach ($users as $user => $valor){
+//                $notification = new \App\Model\Notification;
+//                $notification->notification = $notificationProject;
+//                $notification->user_id = $valor->id;
+//                $notification->save();
+//        }
+        return response()->json(['data' => 'muy bien']);
+    }
+
+    public function getNotificationProyect($id)
+    {
+        $notification = \App\Model\Notification::where('user_id', $id)->where('state', 0)->get();
+        return response()->json(['data' => $notification]);
+    }
+
+    public function viewedNotificationProyect(Request $request)
+    {
+        $notification = json_decode($request->notification);
+        $notificationDbUser = \App\Model\Notification::where('user_id', auth()->user()->id)->where('state', 0)->get();
+        $currentNotification = null;
+        foreach ($notificationDbUser as $value) {
+            $dbNotification = json_decode($value->notification);
+            if ($dbNotification->id === $notification->id) {
+                $currentNotification = $value;
+                break;
+            }
+        }
+        if ($currentNotification !== null) {
+            $currentNotification->state = 1;
+            $currentNotification->save();
+            return response()->json('Ok muy bien');
+        } else {
+            return response()->json('Algo salio mal');
+        }
+
+    }
+
+    public function getNotificationAllUser()
+    {
+        $getNotificationUser = \App\Model\Notification::where('user_id', auth()->user()->id)->orderBy('state', 'ASC')->orderBy('created_at', 'DESC')->get();
+        return response()->json(['data' => $getNotificationUser]);
+    }
+
+    public function stateNotificationChange(Request $request)
+    {
+        $stateNotification = $request->stateNotification;
+        $idNotificationSet = $request->idNotification;
+
+        $notificationDbUser = \App\Model\Notification::where('user_id', auth()->user()->id)->get();
+        $currentNotification = null;
+        foreach ($notificationDbUser as $value) {
+            $dbNotification = json_decode($value);
+            if ($dbNotification->id === (int)$idNotificationSet) {
+                $currentNotification = $value;
+                break;
+            }
+        }
+
+        if ($stateNotification === "0") {
+            $currentNotification->state = 1;
+            $currentNotification->save();
+
+            return response()->json('Ok muy bien');
+        } else if ($stateNotification === "1") {
+            $currentNotification->state = 0;
+            $currentNotification->save();
+
+            return response()->json('Ok muy bien');
+        }
+    }
+    public function deleteNotification(Request $request){
+        $idNotification = $request->idNotification;
+        \App\Model\Notification::where('id', $idNotification)->delete();
+        return response()->json('todo bien');
     }
 }

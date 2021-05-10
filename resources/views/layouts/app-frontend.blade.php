@@ -81,7 +81,7 @@
         <!-- BEGIN: Header-->
         <div id="app-frontend" class="">
 
-        @include('partials.navigations.navbar-backend')
+        @include('partials.navigations.navbar-frontend')
         <!-- END: Header-->
             <!-- BEGIN: Main Menu-->
         @include('partials.menus.backend.menu-navigation')
@@ -108,10 +108,10 @@
             <div class="drag-target"></div>
 
             <!-- BEGIN: Footer-->
-            @include('partials.footer')
-            @include('partials.theme.modal-changed-theme-backend')
-{{--            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>--}}
-            <!-- END: Footer-->
+        @include('partials.footer')
+        @include('partials.theme.modal-changed-theme-backend')
+        {{--            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>--}}
+        <!-- END: Footer-->
         </div>
 
         <!-- BEGIN: Vendor JS-->
@@ -133,12 +133,15 @@
 
         <!-- END: Theme JS-->
         <script src="/js/change-template.js"></script>
-
-
-        <script src="{{ asset('js/app-frontend.js') }}"></script>
-        {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
+                {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
         {{--<script src="/js/swiper-sliders.js"></script>--}}
         @stack('js')
+        <script>
+            window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
+            console.log(window.location.hostname);
+        </script>
+        <script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
+        <script src="{{ asset('js/app-frontend.js') }}"></script>
         <script>
             $(window).on('load', function () {
                 if (feather) {

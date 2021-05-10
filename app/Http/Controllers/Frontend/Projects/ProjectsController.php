@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Frontend\Projects;
 
+use App\Events\Backend\NewProject;
+use App\Events\Backend\NewProjectNotification;
+use App\Events\PrivateMessage;
+use App\Events\PublicMessage;
 use App\Http\Controllers\Controller;
 use App\Mail\Project\NewProjectCustomer;
 use App\Model\Answer;
 use App\Model\Company;
 use App\Model\Project;
 use App\Notifications\Customer\TelegramNewProjectNotification;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -54,16 +59,18 @@ class ProjectsController extends Controller
         }
         $categoriesProjectName = implode(', ', $items);
         $success = true;
+        $project = null;
         DB::beginTransaction();
         try {
-            $project = new Project;
-            $project->name = $project_name;
-            $project->picture = $path;
-            $project->user_id = \auth()->user()->id;
-            $project->type_project_id = $typeProject->id;
-            $project->slug = $slugProject;
-            $project->observations = $observationsProject;
-            $project->save();
+
+            $project = Project::create([
+                'name' => $project_name,
+                'picture' => $path,
+                'user_id' => \auth()->user()->id,
+                'type_project_id' => $typeProject->id,
+                'slug' => $slugProject,
+                'observations' => $observationsProject,
+            ]);
             foreach ($categoriesProject as $category) {
                 $project->project_categories()->attach($category->id);
             }
@@ -86,20 +93,40 @@ class ProjectsController extends Controller
                 array_push($itemsLanguage, $names->name->$languageApplication);
             }
             $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
-            Mail::to(\auth()->user()->email)->locale(session('language'))->send(
-                new NewProjectCustomer(
-                    $user_name, $project_name, $urlProject,
-                    $observationsProject, $typeProject->name->$languageApplication,
-                    $categoriesProjectNameLanguages
-                ));
+//            Mail::to(\auth()->user()->email)->locale(session('language'))->send(
+//                new NewProjectCustomer(
+//                    $user_name, $project_name, $urlProject,
+//                    $observationsProject, $typeProject->name->$languageApplication,
+//                    $categoriesProjectNameLanguages
+//                ));
             /*Función para enviar notificación a un canal de TELEGRAM*/
-            $this->sendMessageTelegramNewProject($company->name, $project_name, $categoriesProjectName, $typeProject, $urlProject);
+//            $this->sendMessageTelegramNewProject($company->name, $project_name, $categoriesProjectName, $typeProject, $urlProject);
         } catch (\Exception $exception) {
             $success = $exception->getMessage();
             DB::rollBack();
         }
         if ($success === true) {
             DB::commit();
+            $projectGet = Project::where('id', $project->id)->with('user')->first();
+
+            $notificationProject = (object) [
+                'id' => $projectGet->id,
+                'nameUser' => $projectGet->user->name,
+                'lastNameUser' => $projectGet->user->last_name,
+                'pictureUser' => $projectGet->user->picture,
+                'slugProject' => $projectGet->slug,
+            ];
+
+            $users = User::role('Administrator')->get();
+            $notifications = null;
+            foreach ($users as $user => $valor){
+                $notification = new \App\Model\Notification;
+                $notification->notification = json_encode($notificationProject);
+                $notification->user_id = $valor->id;
+                $notification->save();
+            }
+
+            broadcast(new NewProjectNotification($projectGet))->toOthers();
             return response()->json('Transacción realizada exitosamente', 200);
         } else {
             return response()->json('Error al realizar la transaccion', 500);

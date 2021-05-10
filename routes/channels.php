@@ -20,3 +20,9 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 Broadcast::channel('message-channel.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('new-project-notification', function ($user) {
+    $permissionsAdmin =  $user->hasRole('Administrator');
+    if ($permissionsAdmin) return true;
+
+});

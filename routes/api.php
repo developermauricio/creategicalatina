@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
         API PARA MODULO PROVEEDOR
         =============================================*/
         Route::post('/register/store-provider','Provider\CreateProviderController@storeCreateProvider')->name('api.store.create.provider');
+
     });
     /*=============================================
     API PARA EL FRONTEND
@@ -78,5 +79,15 @@ Route::get('get-countries', 'Controller@getCountries')->name('api.get.countries'
 Route::get('get-cities/{country}', 'Controller@getCities')->name('api.get.cities');
 Route::get('/get-identificationtype', 'Controller@getIdentificationType')->name('api.get.identificationtype');
 Route::get('/get-type-company', 'Controller@getTypeCompanies')->name('api.get.type.companies');
+
+/*=============================================
+        API PARA LAS NOTIFICACIONES
+=============================================*/
+Route::post('/new-notification-project', 'Controller@setNotificationProyect')->name('set.notification.project');
+Route::get('/get-notification-user/{id}', 'Controller@getNotificationProyect')->name('get.notification.project');
+Route::post('/viewed-notification', 'Controller@viewedNotificationProyect')->name('viewed.notification.project');
+Route::get('/get-all-notifications-user', 'Controller@getNotificationAllUser')->name('get.all.notification.user');
+Route::post('/state-notification-change', 'Controller@stateNotificationChange')->name('state.notification.change');
+Route::post('/delete-notification', 'Controller@deleteNotification')->name('delete.notification');
 
 

@@ -145,19 +145,7 @@
 </script>
 <script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
 <script src="{{ asset('js/app-vue.js') }}"></script>
-<script>
 
-    const userId = '{{ auth()->id() }}'
-    window.Echo.channel('public-message-channel')
-        .listen('.MessageEvent', (data) => {
-            console.log('hola beebe')
-            $("#chat-notification").append(`<div class="alert alert-warning">`+data.message+`</div>`);
-        });
-    window.Echo.private('message-channel.'+ userId)
-        .listen('.MessageEvent', (data) => {
-            $("#chat-notification").append(`<div class="alert alert-danger">`+data.message+`</div>`);
-        });
-</script>
 <script>
     $(window).on('load', function () {
         if (feather) {

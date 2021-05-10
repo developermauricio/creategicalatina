@@ -300,7 +300,7 @@
                         <input-form
                             id="txtDescription"
                             :label="$t('frontend.register-client.titulo_observacioness')"
-                            pattern="alf"
+                            pattern="all"
                             errorMsg=""
                             type="textarea"
                             requiredMsg=""
@@ -585,7 +585,7 @@ export default {
                                 hideDuration: 5000,
                                 position: 'top right',
                             })
-                            window.location = '/'+this.language+"/projects";
+                            // window.location = '/'+this.language+"/projects";
                         }).catch(err => {
                             this.$toast.error({
                                 title: this.$t('frontend.projects.new-project.title_atención_toast'),

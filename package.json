@@ -28,6 +28,7 @@
         "@ckeditor/ckeditor5-vue": "^2.0.1",
         "@ckeditor/ckeditor5-vue2": "^1.0.5",
         "@ckienle/k-pop": "^0.7.0",
+        "@parthfaladu/vue-js-datatable": "^1.1.6",
         "@splidejs/splide": "^2.4.21",
         "@splidejs/vue-splide": "^0.3.5",
         "cxlt-vue2-toastr": "^1.1.1",
@@ -35,6 +36,7 @@
         "laravel-echo-server": "^1.6.2",
         "material-icons": "^0.5.4",
         "moment": "^2.29.1",
+        "moment-duration-format": "^2.3.2",
         "socket.io-client": "^4.0.2",
         "sweetalert2": "^10.16.2",
         "v-tooltip": "^2.1.3",
@@ -52,6 +54,7 @@
         "vue-ultimate-skeleton-cards": "^1.0.3",
         "vue2-dropzone": "^3.6.0",
         "vuejs-datepicker": "^1.6.2",
+        "vuejs-smart-table": "0.0.8",
         "vuesax": "^3.12.2"
     }
 }

@@ -9,7 +9,7 @@ class Project extends Model
 {
     const ACTIVE = 1;
     const INACTIVE = 2;
-
+    protected $fillable = ['name', 'picture', 'user_id', 'type_project_id', 'slug', 'observations'];
     public function project_categories(){
         return $this->belongsToMany(ProjectCategory::class, 'categories_projects', 'project_id', 'categories_project_id');
     }

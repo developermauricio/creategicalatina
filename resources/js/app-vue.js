@@ -20,10 +20,17 @@ import 'vuesax/dist/vuesax.css';
 import 'material-icons/iconfont/material-icons.css';
 Vue.use(Vuesax);
 
+import SmartTable from 'vuejs-smart-table'
+Vue.use(SmartTable)
+
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
 
+/*=============================================
+COMPONENTES PARA LAS NOTIFICACIONES
+=============================================*/
+Vue.component('notifications-backend', require('./components/backend/notifications/Notifications.vue').default)
 /*=============================================
 COMPONENTES PARA LOS CLIENTES
 =============================================*/

@@ -57,6 +57,11 @@ Vue.component('cards-projects', require('./components/components/cardsrproject/C
 Vue.component('cards-projects-mobile', require('./components/components/cardsrproject/CardProjectMobile.vue').default); //Tarjetas dinamicas para la versión mobile
 Vue.component('cards-change-theme', require('./components/components/change-theme-frontend').default); //Tarjetas dinamicas para la versión mobile
 
+/*=============================================
+COMPONENTES PARA LAS NOTIFICACIONES
+=============================================*/
+Vue.component('notifications-backend', require('./components/backend/notifications/Notifications.vue').default)
+
 
 Vue.component('register-client', require('./components/frontend/pages/RegisterClient').default);
 
