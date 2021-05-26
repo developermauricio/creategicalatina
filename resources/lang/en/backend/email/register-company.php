@@ -4,6 +4,7 @@ return [
     'gracias_por_ser' => 'Thanks for being part of',
     'la_empresa' => 'The company',
     'ha_sido_registrada_credenciales' => 'has been registered. These are your access credentials:',
+    'ha_sido_registrada_credenciales_personal_natural' => 'These are your access credentials:',
     'usuario' => 'User',
     'contraseña' => 'Password',
     'btn_iniciar_sesion' => 'Login',

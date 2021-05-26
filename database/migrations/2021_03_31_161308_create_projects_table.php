@@ -23,8 +23,6 @@ class CreateProjectsTable extends Migration
             $table->string('picture');
             $table->string('video')->nullable();
             $table->date('end_time')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('type_project_id')->nullable();
             $table->foreign('type_project_id')->references('id')->on('type_projects');
             $table->string('slug')->nullable();

@@ -10,9 +10,9 @@
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                 <li class="dropdown-menu-header">
                     <div class="dropdown-header d-flex">
-                        <h4 class="notification-title mb-0 mr-auto">Notificaciones</h4>
+                        <h4 class="notification-title mb-0 mr-auto">{{ $t('backend.notification.notification.notificaciones') }}</h4>
                         <div class="badge badge-pill badge-light-success" v-if="notifications.length">
-                            {{ notifications.length }} nuevas
+                            {{ notifications.length }} {{ $t('backend.notification.notification.nuevas') }}
                         </div>
                     </div>
                 </li>
@@ -20,7 +20,7 @@
                     <div class="media d-flex align-items-start" v-if="!notifications.length">
                         <div class="media-body">
                             <p class="media-heading text-center">
-                                <span class="font-weight-bolder">No hay notificaciones pendientes</span>
+                                <span class="font-weight-bolder">{{ $t('backend.notification.notification.no_hay_notificaciones') }}</span>
                             </p>
                         </div>
                     </div>
@@ -40,47 +40,51 @@
                             <div class="media-body">
                                 <p class="media-heading">
                                 <span class="font-weight-bolder">{{ notification.nameUser }} 🎉
-                                </span> ¡Ha registrado un
-                                <div class="badge badge-pill badge-light-success">nuevo proyecto!</div>
-                                <small class="notification-text">Es necesario revisarlo pronto.</small>
+                                </span> {{ $t('backend.notification.notification.no_hay_notificaciones') }}
+                                <div class="badge badge-pill badge-light-success">{{ $t('backend.notification.notification.nuevo_proyecto') }}</div>
+                                <small class="notification-text">{{ $t('backend.notification.notification.es_necesario_revisarlo') }}</small>
                             </div>
                         </div>
                     </a>
                 <li class="dropdown-menu-footer">
                     <a class="btn btn-primary btn-block" href="javascript:void(0)"
-                       @click="openModalHistorialNotification()">Ver todas
-                        las notificaciones</a>
+                       @click="openModalHistorialNotification()">{{ $t('backend.notification.notification.ver_todas_las_notificaciones') }}</a>
                 </li>
             </ul>
         </li>
-        <vs-popup class="holamundo" title="Historial de notificaciones" :active.sync="popupActivo">
+        <vs-popup class="holamundo" :title="$t('backend.notification.notification.historial_notificaciones')" :active.sync="popupActivo">
+            <div class="row">
+                <div class="col-12 ">
+                    <p class="text-justify pr-2 pr-2">{{ $t('backend.notification.notification.text_info_modal_notificaciones') }}</p>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-12 ">
                     <div class="pt-2 pr-2 pl-2">
-                        <input class="form-control" placeholder="Buscar por nombre o fecha..."
+                        <input class="form-control" :placeholder="$t('backend.notification.notification.buscar_por_nombre_fecha')"
                                v-model="filters.seach.value"/>
                         <div class="row">
                             <div class="col-12 col-md-8 col-lg-8 pt-1">
-                                <input-form
-                                    label="Filtrar por estado"
-                                    id="txtLaguangeEmail"
-                                    errorMsg
-                                    :required="false"
-                                    :modelo.sync="filters.state.value"
-                                    :msgServer.sync="errors.filters"
-                                    type="multiselect"
-                                    selectLabel="Tipo de documento"
-                                    :multiselect="{ options: optionsStateNoti,
-                                           selectLabel:'Filtar por estado',
-                                           selectedLabel:'Seleccionado',
-                                           deselectLabel: 'Desmarcar',
-                                          placeholder: 'Filtrar por estado',
-                                          taggable : true,
-                                          'track-by':'id',
-                                          label: 'name',
-                                          'custom-label': state=>state.name
-                                        }"
-                                ></input-form>
+<!--                                <input-form-->
+<!--                                    label="Filtrar por estado"-->
+<!--                                    id="txtLaguangeEmail"-->
+<!--                                    errorMsg-->
+<!--                                    :required="false"-->
+<!--                                    :modelo.sync="filters.state.value"-->
+<!--                                    :msgServer.sync="errors.filters"-->
+<!--                                    type="multiselect"-->
+<!--                                    selectLabel="Tipo de documento"-->
+<!--                                    :multiselect="{ options: optionsStateNoti,-->
+<!--                                           selectLabel:'Filtar por estado',-->
+<!--                                           selectedLabel:'Seleccionado',-->
+<!--                                           deselectLabel: 'Desmarcar',-->
+<!--                                          placeholder: 'Filtrar por estado',-->
+<!--                                          taggable : true,-->
+<!--                                          'track-by':'id',-->
+<!--                                          label: 'name',-->
+<!--                                          'custom-label': state=>state.name-->
+<!--                                        }"-->
+<!--                                ></input-form>-->
                             </div>
                         </div>
                     </div>
@@ -93,14 +97,14 @@
                         @totalPagesChanged="totalPages = $event"
                     >
                         <thead slot="head">
-                        <th class="text-center">Notificación</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">Acciones</th>
+                        <th class="text-center">{{ $t('backend.notification.notification.titulo_tabla_notificacion') }}</th>
+                        <th class="text-center">{{ $t('backend.notification.notification.titulo_tabla_estado') }}</th>
+                        <th class="text-center">{{ $t('backend.notification.notification.titulo_tabla_acciones') }}</th>
                         </thead>
                         <tbody slot="body" slot-scope="{displayData}">
                         <tr v-for="(row, index) in displayData" :key="row.id">
                             <td class="p-1" @click="viewMarkRead(row.notification)">
-                                <vs-tooltip :text="row.state === 0 ? 'Ver y marcar como leida': 'Ver notificación'"
+                                <vs-tooltip :text="row.state === 0 ? $t('backend.notification.notification.ver_como_leida'): $t('backend.notification.notification.ver_notificacion')"
                                             class="d-inline-block pr-1" position="top">
                                     <div class="media d-flex align-items-start">
                                         <div class="media-left ml-1 mt-1">
@@ -112,25 +116,25 @@
                                         <div class="media-body">
                                             <p class="media-heading ml-1" style="margin-bottom: 0;">
                                 <span class="font-weight-bolder">{{ row.name }} 🎉
-                                </span> ¡Ha registrado un
-                                            <div class="badge badge-pill badge-light-success ml-1">nuevo proyecto!</div>
-                                            <small class="notification-text">Es necesario revisarlo pronto.</small>
+                                </span> {{ $t('backend.notification.notification.ha_registrado_un') }}
+                                            <div class="badge badge-pill badge-light-success ml-1">{{ $t('backend.notification.notification.nuevo_proyecto') }}</div>
+                                            <small class="notification-text">{{ $t('backend.notification.notification.es_necesario_revisarlo') }}</small>
                                             <p class="ml-1">{{ row.date }}</p>
                                         </div>
                                     </div>
                                 </vs-tooltip>
                             </td>
                             <td class="text-center" @click="markRead(row.state, row.id)">
-                                <vs-tooltip :text="row.state === 0 ? 'Marcar como leida': 'Marcar como no leida'"
+                                <vs-tooltip :text="row.state === 0 ? $t('backend.notification.notification.marcar_como_leida'): $t('backend.notification.notification.marcar_como_no_leida')"
                                             class="d-inline-block " position="top">
                                     <span
                                         :class="`badge badge-pill badge-light-${ row.state == 1 ? 'success' : 'warning' }`">{{
-                                            row.state == 1 ? 'Visto' : 'No Visto'
+                                            row.state == 1 ? $t('backend.notification.notification.visto') : $t('backend.notification.notification.no_visto')
                                         }}</span>
                                 </vs-tooltip>
                             </td>
                             <td class="text-center">
-                                <vs-tooltip text="Eliminará la notificacion del historial"
+                                <vs-tooltip :text="$t('backend.notification.notification.eliminar_notificacio_historial')"
                                             class="d-inline-block " position="top">
                                     <vs-icon @click="deleteNotification(row.id, row.notification.id)" icon="delete" size="small"  color="#ea5455"></vs-icon>
                                 </vs-tooltip>
@@ -143,7 +147,7 @@
                     <div  class="media d-flex align-items-start pt-1" v-if="!dataAllNotification.length">
                         <div class="media-body">
                             <p class="media-heading text-center">
-                                <span class="font-weight-bolder">No hay notificaciones</span>
+                                <span class="font-weight-bolder">{{  $t('backend.notification.notification.no_hay_notificaciones_modal') }}</span>
                             </p>
                         </div>
                     </div>
@@ -189,6 +193,11 @@ export default {
             },
             optionsStateNoti: [
                 {
+                    id: 2,
+                    name: 'Todos'
+                },
+
+                {
                     id: 0,
                     name: 'No visto'
                 },
@@ -201,9 +210,18 @@ export default {
         }
     },
     methods: {
+        // updateStates(value){
+        //     if (value === null){
+        //         this.getAllNotifications();
+        //         return
+        //     }
+        // },
         filterForState(filterValue, row) {
+
             if (filterValue.id === 0 || filterValue.id === 1) {
                 return row.state === filterValue.id
+            }else if(filterValue.id === 2){
+                return row.state >= filterValue.id
             }
             return row.state >= filterValue.id
         },
@@ -258,7 +276,7 @@ export default {
                     console.log('funcion get', err)
                 })
                 this.$vs.loading.close('#div-with-loading > .con-vs-loading')
-            }, 500)
+            }, 150)
 
         },
         linkNotification(index, notification) {
@@ -278,11 +296,11 @@ export default {
 
             Swal.fire({
                 title: 'Atención',
-                text: 'Esta seguro de eliminar esta notificación',
+                html: this.$t('backend.notification.notification.esta_seguro_eliminar_notificacion')+'<br><span style="font-size: 0.9rem">'+this.$t('backend.notification.notification.sera_eliminada_del_historial')+'</span>',
                 confirmButtonColor: "#F05E7D",
                 cancelButtonColor: "#79ebdf",
-                confirmButtonText: 'Aceptar',
-                cancelButtonText: 'Cancelar',
+                confirmButtonText: this.$t('backend.notification.notification.alert_button_aceptar'),
+                cancelButtonText: this.$t('backend.notification.notification.alert_button_cancelar'),
                 customClass: "swal-confirmation",
                 showCancelButton: true,
                 reverseButtons: true,

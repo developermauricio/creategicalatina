@@ -71,5 +71,8 @@
     "estado_tabla_inactivo": "Inactivo",
 
     "asunto_titulo_credenciales": "TUS CREDENCIALES DE ACCESO",
-    "menu_backend_nuevo_cliente": "Nuevo Cliente"
+    "menu_backend_nuevo_cliente": "Nuevo Cliente",
+
+    "team_equipo_trabajo": "Equipo de Trabajo",
+    "todos_los_miembros": "Todos los Miembros"
 }

@@ -61,6 +61,8 @@ export default {
         "estado_tabla_inactivo": "Inactive",
         "asunto_titulo_credenciales": "YOUR ACCESS CREDENTIALS",
         "menu_backend_nuevo_cliente": "New Customer",
+        "team_equipo_trabajo": "Work Team",
+        "todos_los_miembros": "All the members",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -188,6 +190,59 @@ export default {
             "next": "Next &raquo;"
         },
         "backend": {
+            "notification": {
+                "notification": {
+                    "notificaciones": "Notications",
+                    "nuevas": "News",
+                    "no_hay_notificaciones": "No pending notifications",
+                    "ha_registrado_un": "¡You have registered a",
+                    "nuevo_proyecto": "new project!",
+                    "es_necesario_revisarlo": "It is necessary to review soon.",
+                    "ver_todas_las_notificaciones": "See all notifications",
+                    "text_info_modal_notificaciones": "Here you can see the history of notifications, you can mark them as seen or not seen, in addition to completely eliminating them from the history.",
+                    "titulo_tabla_notificacion": "Notification",
+                    "titulo_tabla_estado": "State",
+                    "titulo_tabla_acciones": "Actions",
+                    "ver_como_leida": "View and mark as read",
+                    "ver_notificacion": "See notification",
+                    "marcar_como_leida": "Mark as read",
+                    "marcar_como_no_leida": "Mark as unread",
+                    "visto": "Viewed",
+                    "no_visto": "Not seen",
+                    "buscar_por_nombre_fecha": "Search by name or dates",
+                    "eliminar_notificacio_historial": "Delete the notification",
+                    "no_hay_notificaciones_modal": "No notifications",
+                    "esta_seguro_eliminar_notificacion": "Are you sure to delete this notification?",
+                    "sera_eliminada_del_historial": "It will be removed from the notification history.",
+                    "alert_button_aceptar": "Accept",
+                    "alert_button_cancelar": "Cancel",
+                    "historial_notificaciones": "Notification history"
+                }
+            },
+            "provider": {
+                "create-provider": {
+                    "titulo_selecciona_tipo_proveedor": "Select the type of provider",
+                    "titilo_nuevo_proveedor": "New Provider",
+                    "titulo_mensaje_dropzone": "Click here or drag files PDF WORD EXCEL TXT ZIP",
+                    "btn_titulo_wizard_create_empresa": "Create Provider",
+                    "titulo_wizard_datos_cliente": "Provider Data"
+                },
+                "provider": {
+                    "todos_los_proveedores": "All Providers",
+                    "proveedores": "Providers",
+                    "titulo_tabla": "Providers registered in the system",
+                    "exportar_boton": "Export",
+                    "registrar_proveedor": "New Provider",
+                    "column_proveedor": "Provider",
+                    "column_categoria": "Category",
+                    "column_email": "Email",
+                    "column_telefono": "Phone",
+                    "column_tipo_cliente": "Type Customer",
+                    "column_pais": "Country",
+                    "column_ciudad": "City",
+                    "column_estado": "State"
+                }
+            },
             "profile": {
                 "changed-password": {
                     "titulo_cambiar_contrasena": "Change Password",
@@ -204,7 +259,41 @@ export default {
                     "btn_alerta_aceptar": "Accept",
                     "toast_error_mensaje": "Can't change password",
                     "toast_susscess_mensaje": "Password Updated Correctly",
-                    "toast_susscess_titulo": "¡Success!"
+                    "toast_susscess_titulo": "¡Success!",
+                    "titulo_perfil": "Profile",
+                    "btn_titulo_editar": "Edit",
+                    "btn_titulo_contrasena": "Password",
+                    "btn_titulo_cancelar": "Cancel",
+                    "titulo_acerca_de": "About: ",
+                    "titulo_numero_identificacion": "Nº Ident:",
+                    "titulo_tipo_identificacion": "Type:",
+                    "titulo_rol": "Rol:",
+                    "titulo_pais": "Country:",
+                    "titulo_telefono": "Phone:",
+                    "titulo_direccion": "Address:",
+                    "titulo_cumpleanos": "Birthday:",
+                    "titulo_desde": "Since:",
+                    "titulo_tooltip_fecha_registro": "Date of registration in the system",
+                    "titulo_estado_activo": "Active",
+                    "titulo_estado_inactivo": "Inactive"
+                }
+            },
+            "team": {
+                "create-teams": {
+                    "titulo_wizard_datos_miembro": "User Data",
+                    "titulo_wizard_confirmar_datos": "Confirm Data"
+                },
+                "teams": {
+                    "titulo_tabla": "Team members registered in the system",
+                    "exportar_boton": "Exportar",
+                    "registrar_miembro": "New Member",
+                    "column_miembro": "Member",
+                    "column_cargo": "Position",
+                    "column_email": "Email",
+                    "column_telefono": "Phone",
+                    "column_ubicacion": "Location",
+                    "column_fecha_registro": "Registration Date",
+                    "column_estado": "State"
                 }
             },
             "email": {
@@ -213,6 +302,7 @@ export default {
                     "gracias_por_ser": "Thanks for being part of",
                     "la_empresa": "The company",
                     "ha_sido_registrada_credenciales": "has been registered. These are your access credentials:",
+                    "ha_sido_registrada_credenciales_personal_natural": "These are your access credentials:",
                     "usuario": "User",
                     "contraseña": "Password",
                     "btn_iniciar_sesion": "Login",
@@ -229,6 +319,7 @@ export default {
             },
             "customer": {
                 "create-customers": {
+                    "titulo_selecciona_tipo_cliente": "Select the type of client",
                     "titilo_nuevo_cliente": "New Customer",
                     "titulo_wizard_datos_empresa": "Company Information",
                     "titulo_wizard_datos_representante": "Representative Information",
@@ -294,6 +385,8 @@ export default {
                     "btn_no_agregar_redes": "Cancel",
                     "btn_agregar_biografia": "Add Biography",
                     "btn_no_agregar_biografia": "Cancelar",
+                    "btn_agregar_archivos": "Add Files",
+                    "btn_no_agregar_archivos": "Cancelar",
                     "error_msg_url": "Enter a valid link",
                     "requerido_msg_url": "The link is required",
                     "title_atención_toast": "Attention",
@@ -301,13 +394,19 @@ export default {
                     "title_mensaje_error_toast": "Something went wrong!",
                     "title_muy_bien_toast": "¡Success!",
                     "title_mensaje_success_toast": "Logo uploaded successfully",
+                    "title_mensaje_success_toast_archivo": "File uploaded successfully",
                     "title_mensaje_success_toast_register": "Company created successfully",
                     "titulo_mensaje_dropzone": "Click here or drag an image",
                     "title_mensaje_success_toast_remove_image": "Was removed successfully",
+                    "title_mensaje_para_agregar_archivos": "To add files, you must enter the company name",
                     "msg_dropzone_no_puede_subir_mas_archivos": "Can't add another image.",
                     "msg_uno_el_archivo_demasiado": "The file is too large, its weight is",
                     "msg_dos_tamaño_maximo": "Maximum file size:",
                     "msg_tres_remover_archivo": "Remove File",
+                    "msg_error_tipo_archivo": "You cannot upload files of this type. JPEG, PNG, GIF only",
+                    "titulo_mensaje_dropzone_archivos": "Click here or drag your documents",
+                    "msg_dropzone_no_puede_subir_mas_archivos_archivo": "No more files can be added. Maximum limit 20",
+                    "msg_error_tipo_archivo_archivo": "You cannot upload files of this type.",
                     "titulo_msg_validar_email": "The email has already been registered, please enter another",
                     "titulo_seleccionar_tipo_empresa": "Select type of company",
                     "titulo_obligatrio_selecciona_tipo_empresa": "The type of company is required",
@@ -321,7 +420,25 @@ export default {
                     "confimar_registro_alerta_title": "Confirm",
                     "titulo_seleccionar_idioma_email": "Email language",
                     "titulo_obligario_idioma_email": "You must select a language for the email",
-                    "titulo_loading_creando_empresa": "Registering Company..."
+                    "titulo_loading_creando_empresa": "Registering Company...",
+                    "btn_titulo_wizard_create_cliente": "Create Customer",
+                    "titulo_wizard_datos_cliente": "Customer Information",
+                    "titulo_nombre_cliente": "Names",
+                    "titulo_error_nombre_cliente": "Please enter a valid name",
+                    "titulo_obligatrio_nombre_cliente": "The name is required",
+                    "titulo_apellidos_cliente": "Last Name",
+                    "titulo_error_apellidos_cliente": "Enter valid last names",
+                    "titulo_obligatrio_apellidos_cliente": "Surnames are required",
+                    "titulo_seleccionar_categoria_cliente": "Select category",
+                    "titulo_obligatrio_selecciona_categoria_cliente": "Category is required",
+                    "titulo_buscar_selecciona_categoria_cliente": "Search Category",
+                    "title_mensaje_para_agregar_archivos_person_natural": "To add files, you must enter the name of the client",
+                    "title_estas_agregando_archivos_person_natural_customer": "You are adding files, to change the name, you must cancel the file upload.",
+                    "title_confirmar_tipo_cliente": "Customer Type",
+                    "title_confirmar_categoria": "Category",
+                    "title_label_agregar_archivos": "Add Files",
+                    "titulo_loading_creando_persona_natural": "Registering Client...",
+                    "title_mensaje_success_toast_register_persona_natural": "Successfully created customer"
                 },
                 "profile-customer": {
                     "titilo_perfil_cliente": "Profile"
@@ -330,10 +447,11 @@ export default {
                     "titulo_tabla": "Customers registered in the system",
                     "exportar_boton": "Export",
                     "registrar_empresa": "New Customer",
-                    "column_empresa": "Company",
-                    "column_representante": "Manager",
-                    "column_email_empresa": "Company Email",
-                    "column_telefono_empresa": "Company Phone",
+                    "column_cliente": "Customer",
+                    "column_categoria": "Category",
+                    "column_email": "Email",
+                    "column_telefono": "Phone",
+                    "column_tipo_cliente": "Type Customer",
                     "column_pais": "Country",
                     "column_ciudad": "City",
                     "column_estado": "State"
@@ -515,6 +633,8 @@ export default {
         "estado_tabla_inactivo": "Inactivo",
         "asunto_titulo_credenciales": "TUS CREDENCIALES DE ACCESO",
         "menu_backend_nuevo_cliente": "Nuevo Cliente",
+        "team_equipo_trabajo": "Equipo de Trabajo",
+        "todos_los_miembros": "Todos los Miembros",
         "email": {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
@@ -753,6 +873,59 @@ export default {
             }
         },
         "backend": {
+            "notification": {
+                "notification": {
+                    "notificaciones": "Notificaciones",
+                    "nuevas": "Nuevas",
+                    "no_hay_notificaciones": "No hay notificaciones pendientes",
+                    "ha_registrado_un": "¡Ha registrado un",
+                    "nuevo_proyecto": "nuevo proyecto!",
+                    "es_necesario_revisarlo": "Es necesario revisar pronto.",
+                    "ver_todas_las_notificaciones": "Ver todas las notificaciones",
+                    "text_info_modal_notificaciones": "Aquí podras ver el historial de las notificaciones, puedes marcarlas como vistas o no vistas, además de eliminarlas completamente del historial.",
+                    "titulo_tabla_notificacion": "Notificación",
+                    "titulo_tabla_estado": "Estado",
+                    "titulo_tabla_acciones": "Acciones",
+                    "ver_como_leida": "Ver y marcar como leída",
+                    "ver_notificacion": "Ver notificación",
+                    "marcar_como_leida": "Marcar como leída",
+                    "marcar_como_no_leida": "Marcar como no leída",
+                    "visto": "Visto",
+                    "buscar_por_nombre_fecha": "Buscar por nombre o fecha",
+                    "no_visto": "No visto",
+                    "eliminar_notificacio_historial": "Eliminar la notificación del historial",
+                    "no_hay_notificaciones_modal": "No hay notificaciones",
+                    "esta_seguro_eliminar_notificacion": "¿Esta seguro de eliminar esta notificación?.",
+                    "sera_eliminada_del_historial": "Será eliminada del historial de notificaciones.",
+                    "alert_button_aceptar": "Aceptar",
+                    "alert_button_cancelar": "Cancelar",
+                    "historial_notificaciones": "Historial de notificaciones"
+                }
+            },
+            "provider": {
+                "create-provider": {
+                    "titulo_selecciona_tipo_proveedor": "Selecciona el tipo de proveedor",
+                    "titilo_nuevo_proveedor": "Nuevo Proveedor",
+                    "titulo_mensaje_dropzone": "Clic aquí o arrastra archivos PDF WORD EXCEL TXT ZIP",
+                    "btn_titulo_wizard_create_empresa": "Crear Proveedor",
+                    "titulo_wizard_datos_cliente": "Datos del Proveedor"
+                },
+                "provider": {
+                    "todos_los_proveedores": "Todos los Provedores",
+                    "proveedores": "Proveedores",
+                    "titulo_tabla": "Proveedores registrados en el sistema",
+                    "exportar_boton": "Exportar",
+                    "registrar_proveedor": "Nuevo Proveedor",
+                    "column_proveedor": "Proveedor",
+                    "column_categoria": "Categoría",
+                    "column_email": "Correo electrónico",
+                    "column_telefono": "Teléfono",
+                    "column_tipo_cliente": "Tipo Cliente",
+                    "column_pais": "Pais",
+                    "column_ciudad": "Ciudad",
+                    "column_estado": "Estado"
+                }
+            },
             "profile": {
                 "changed-password": {
                     "titulo_cambiar_contrasena": "Cambiar Contraseña",
@@ -769,7 +942,41 @@ export default {
                     "btn_alerta_aceptar": "Aceptar",
                     "toast_error_mensaje": "No se puede cambiar la contraseña",
                     "toast_susscess_mensaje": "Contraseña Actualizada Correctamente",
-                    "toast_susscess_titulo": "¡Muy Bien!"
+                    "toast_susscess_titulo": "¡Muy Bien!",
+                    "titulo_perfil": "Perfil",
+                    "btn_titulo_editar": "Editar",
+                    "btn_titulo_contrasena": "Contraseña",
+                    "btn_titulo_cancelar": "Cancelar",
+                    "titulo_acerca_de": "Acerca de: ",
+                    "titulo_numero_identificacion": "Nº Ident:",
+                    "titulo_tipo_identificacion": "Tipo de Ident:",
+                    "titulo_rol": "Rol:",
+                    "titulo_pais": "País:",
+                    "titulo_telefono": "Teléfono:",
+                    "titulo_direccion": "Dirección:",
+                    "titulo_cumpleanos": "Cumpleaños:",
+                    "titulo_desde": "Desde:",
+                    "titulo_tooltip_fecha_registro": "Fecha de registro en el sistema",
+                    "titulo_estado_activo": "Activo",
+                    "titulo_estado_inactivo": "Inactivo"
+                }
+            },
+            "team": {
+                "create-teams": {
+                    "titulo_wizard_datos_miembro": "Datos del Usuario",
+                    "titulo_wizard_confirmar_datos": "Confirmar Datos"
+                },
+                "teams": {
+                    "titulo_tabla": "Miembros del equipo registrados en el sistema",
+                    "exportar_boton": "Exportar",
+                    "registrar_miembro": "Nuevo Miembro",
+                    "column_miembro": "Miembro",
+                    "column_cargo": "Cargo",
+                    "column_email": "Correo electrónico",
+                    "column_telefono": "Teléfono",
+                    "column_ubicacion": "Ubicación",
+                    "column_fecha_registro": "Fecha de Registro",
+                    "column_estado": "Estado"
                 }
             },
             "email": {
@@ -778,6 +985,7 @@ export default {
                     "gracias_por_ser": "Gracias por ser parte de",
                     "la_empresa": "La empresa",
                     "ha_sido_registrada_credenciales": "ha sido registrada. Esta son sus credenciales de acceso:",
+                    "ha_sido_registrada_credenciales_personal_natural": "Esta son tus credenciales de acceso:",
                     "usuario": "Usuario",
                     "contraseña": "Contraseña",
                     "btn_iniciar_sesion": "Inicar Sesión",
@@ -794,6 +1002,7 @@ export default {
             },
             "customer": {
                 "create-customers": {
+                    "titulo_selecciona_tipo_cliente": "Selecciona el tipo de cliente",
                     "titilo_nuevo_cliente": "Nuevo Cliente",
                     "titulo_wizard_datos_empresa": "Datos de la empresa",
                     "titulo_wizard_datos_representante": "Datos del Representante",
@@ -861,18 +1070,26 @@ export default {
                     "btn_no_agregar_biografia": "Cancelar",
                     "error_msg_url": "Ingrese un link válido",
                     "requerido_msg_url": "El link es requerido",
+                    "btn_agregar_archivos": "Agregar Archivos",
+                    "btn_no_agregar_archivos": "Cancelar",
                     "title_atención_toast": "Atención",
                     "title_error_toast": "Error",
                     "title_mensaje_error_toast": "¡Algo salió mal!",
                     "title_muy_bien_toast": "¡Muy bien!",
                     "title_mensaje_success_toast_register": "Empresa creada correctamente",
                     "title_mensaje_success_toast": "Logo subido correctamente",
+                    "title_mensaje_success_toast_archivo": "Archivo subido correctamente",
                     "title_mensaje_success_toast_remove_image": "Se quitó correctamente",
+                    "title_mensaje_para_agregar_archivos": "Para agregar archivos, debe ingresar el nombre de la empresa",
                     "titulo_mensaje_dropzone": "Clic aquí o arrastra una imagen",
                     "msg_dropzone_no_puede_subir_mas_archivos": "No puede agregar otra imagen.",
                     "msg_uno_el_archivo_demasiado": "El archivo es demasiado grande, su peso es",
                     "msg_dos_tamaño_maximo": "Tamaño máximo del archivo:",
                     "msg_tres_remover_archivo": "Remover Archivo",
+                    "msg_error_tipo_archivo": "No puede cargar archivos de este tipo. Solo JPEG, PNG, GIF",
+                    "titulo_mensaje_dropzone_archivos": "Clic aquí o arrastra tus documentos",
+                    "msg_dropzone_no_puede_subir_mas_archivos_archivo": "No es posible agregar más archivos. Limite maximo 20",
+                    "msg_error_tipo_archivo_archivo": "No puede cargar archivos de este tipo.",
                     "titulo_msg_validar_email": "El correo electrónico ya ha sido registrado, por favor ingrese otro",
                     "titulo_seleccionar_tipo_empresa": "Seleccionar tipo de empresa",
                     "titulo_obligatrio_selecciona_tipo_empresa": "El tipo de empresa es requerido",
@@ -886,7 +1103,25 @@ export default {
                     "confimar_registro_alerta_title": "Confirmar",
                     "titulo_seleccionar_idioma_email": "Idioma del correo electrónico",
                     "titulo_obligario_idioma_email": "Debe seleccionar un idioma para el correo electrónico",
-                    "titulo_loading_creando_empresa": "Registrando Empresa..."
+                    "titulo_loading_creando_empresa": "Registrando Empresa...",
+                    "btn_titulo_wizard_create_cliente": "Crear Cliente",
+                    "titulo_wizard_datos_cliente": "Datos del Cliente",
+                    "titulo_nombre_cliente": "Nombre",
+                    "titulo_error_nombre_cliente": "Ingrese un nombre válido",
+                    "titulo_obligatrio_nombre_cliente": "El nombre es requerido",
+                    "titulo_apellidos_cliente": "Apellidos",
+                    "titulo_error_apellidos_cliente": "Ingrese apellidos válidos",
+                    "titulo_obligatrio_apellidos_cliente": "Los apellidos son requeridos",
+                    "titulo_seleccionar_categoria_cliente": "Seleccionar categoría",
+                    "titulo_obligatrio_selecciona_categoria_cliente": "La categoría es requerido",
+                    "titulo_buscar_selecciona_categoria_cliente": "Buscar categoría",
+                    "title_mensaje_para_agregar_archivos_person_natural": "Para agregar archivos, debe ingresar el nombre del cliente",
+                    "title_estas_agregando_archivos_person_natural_customer": "Estas agregando archivos, para cambiar el nombre, debes cancelar la subida de archivos.",
+                    "title_confirmar_tipo_cliente": "Tipo de Cliente",
+                    "title_confirmar_categoria": "Categoría",
+                    "title_label_agregar_archivos": "Agregar Archivos",
+                    "titulo_loading_creando_persona_natural": "Registrando Cliente...",
+                    "title_mensaje_success_toast_register_persona_natural": "Cliente creado correctamente"
                 },
                 "profile-customer": {
                     "titilo_perfil_cliente": "Perfil"
@@ -895,10 +1130,11 @@ export default {
                     "titulo_tabla": "Clientes registrados en el sistema",
                     "exportar_boton": "Exportar",
                     "registrar_empresa": "Nuevo Cliente",
-                    "column_empresa": "Empresa",
-                    "column_representante": "Representante",
-                    "column_email_empresa": "Email Empresa",
-                    "column_telefono_empresa": "Teléfono Empresa",
+                    "column_cliente": "Cliente",
+                    "column_categoria": "Categoría",
+                    "column_email": "Correo electrónico",
+                    "column_telefono": "Teléfono",
+                    "column_tipo_cliente": "Tipo Cliente",
                     "column_pais": "Pais",
                     "column_ciudad": "Ciudad",
                     "column_estado": "Estado"

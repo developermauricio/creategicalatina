@@ -72,5 +72,8 @@
 
     "asunto_titulo_credenciales": "YOUR ACCESS CREDENTIALS",
 
-    "menu_backend_nuevo_cliente": "New Customer"
+    "menu_backend_nuevo_cliente": "New Customer",
+
+    "team_equipo_trabajo": "Work Team",
+    "todos_los_miembros": "All the members"
 }

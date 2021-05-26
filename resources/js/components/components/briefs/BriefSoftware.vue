@@ -166,7 +166,7 @@ export default {
             logo: window.logo,
             classDarkIcon: false,
             dateNow: new Date(),
-            moment: moment,
+            moment:moment ,
             language: window.lang, //Idioma actual de la aplicación
             infoModalRecording: {
                 question: {

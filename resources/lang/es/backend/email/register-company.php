@@ -4,6 +4,7 @@ return [
     'gracias_por_ser' => 'Gracias por ser parte de',
     'la_empresa' => 'La empresa',
     'ha_sido_registrada_credenciales' => 'ha sido registrada. Esta son sus credenciales de acceso:',
+    'ha_sido_registrada_credenciales_personal_natural' => 'Esta son tus credenciales de acceso:',
     'usuario' => 'Usuario',
     'contraseña' => 'Contraseña',
     'btn_iniciar_sesion' => 'Inicar Sesión',

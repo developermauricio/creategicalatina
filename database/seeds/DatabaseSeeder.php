@@ -18,11 +18,13 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('projects');
         Storage::deleteDirectory('companies');
         Storage::deleteDirectory('typeProject');
+        Storage::deleteDirectory('archives');
 
         Storage::makeDirectory('users');
         Storage::makeDirectory('projects');
         Storage::makeDirectory('companies');
         Storage::makeDirectory('typeProject');
+        Storage::makeDirectory('archives');
         $this->call(UserTableSeeder::class);
 
 
@@ -155,6 +157,113 @@ class DatabaseSeeder extends Seeder
             $typeCategoryMarketing->save();
         }
 
+
+        /*=============================================
+            TIPOS DE PERSONAS NATURALES O JURIDICAS
+        =============================================*/
+        $typeEntityEs = ['Es empresa', 'Es persona natural'];
+        $typeEntityEn = ['It is company', 'He is a natural person'];
+
+        for ($i = 0; $i < count($typeEntityEs); $i++) {
+            factory(\App\Model\TypeEntity::class)->create(
+                [
+                    "name" => $typeEntityEs[$i],
+                ]
+            );
+            $typeEntity = \App\Model\TypeEntity::find($i + 1);
+            $typeEntity->setTranslation('name', 'en', $typeEntityEn[$i]);
+            $typeEntity->save();
+        }
+
+        /*=============================================
+            CREANDO 5 AREAS DE TRABAJO
+        =============================================*/
+        $work_areaEs = ['Diseño', 'Tecnólogica', 'Finanzas', 'Servicio al Cliente'];
+        $work_areaEn = ['Design', 'Technological', 'Finance', 'Customer Service'];
+
+        for ($i = 0; $i < count($work_areaEs); $i++) {
+            factory(\App\Model\WorkArea::class)->create(
+                [
+                    "name" => $work_areaEs[$i],
+                ]
+            );
+            $typeEntity = \App\Model\WorkArea::find($i + 1);
+            $typeEntity->setTranslation('name', 'en', $work_areaEn[$i]);
+            $typeEntity->save();
+        }
+
+        /*=============================================
+            CREAMOS 2 CARGOS DISEÑO
+        =============================================*/
+        $postionMemberDisignEs = ['Diseñador', 'Gráfico'];
+        $postionMemberDisignEn = ['Designer', 'Graphic'];
+
+        for ($i = 0; $i < count($postionMemberDisignEs); $i++) {
+            factory(\App\Model\PositionMember::class)->create(
+                [
+                    "name" => $postionMemberDisignEs[$i],
+                    "work_area_id" => 1
+                ]
+            );
+            $positionMDisgn = \App\Model\PositionMember::find($i + 1);
+            $positionMDisgn->setTranslation('name', 'en', $postionMemberDisignEn[$i]);
+            $positionMDisgn->save();
+        }
+
+        /*=============================================
+            CREAMOS 2 CARGOS TECNOLOGIA
+        =============================================*/
+        $postionMemberTecnoEs = ['Desarrollador Web', 'Analista de Datos'];
+        $postionMemberTecnoEn = ['Web Developer', 'Data Analyst'];
+
+        for ($i = 0; $i < count($postionMemberTecnoEs); $i++) {
+            factory(\App\Model\PositionMember::class)->create(
+                [
+                    "name" => $postionMemberTecnoEs[$i],
+                    "work_area_id" => 2
+                ]
+            );
+            $positionMTecno = \App\Model\PositionMember::find($i + 3);
+            $positionMTecno->setTranslation('name', 'en', $postionMemberTecnoEn[$i]);
+            $positionMTecno->save();
+        }
+
+        /*=============================================
+            CREAMOS 2 CARGOS FINANZAS
+        =============================================*/
+        $postionMemberFinaEs = ['Contador', 'Asistente Contable'];
+        $postionMemberFinaEn = ['Accountant', 'Accounting Assistant'];
+
+        for ($i = 0; $i < count($postionMemberFinaEs); $i++) {
+            factory(\App\Model\PositionMember::class)->create(
+                [
+                    "name" => $postionMemberFinaEs[$i],
+                    "work_area_id" => 3
+                ]
+            );
+            $positionMFina = \App\Model\PositionMember::find($i + 5);
+            $positionMFina->setTranslation('name', 'en', $postionMemberFinaEn[$i]);
+            $positionMFina->save();
+        }
+
+        /*=============================================
+            CREAMOS 1 CARGOS SERVICIO AL CLIENTE
+        =============================================*/
+        $postionMemberServiEs = ['Servicio al Cliente', 'Soporte'];
+        $postionMemberServiEn = ['Customer Service', 'Support'];
+
+        for ($i = 0; $i < count($postionMemberServiEs); $i++) {
+            factory(\App\Model\PositionMember::class)->create(
+                [
+                    "name" => $postionMemberServiEs[$i],
+                    "work_area_id" => 4
+                ]
+            );
+            $positionMServi = \App\Model\PositionMember::find($i + 7);
+            $positionMServi->setTranslation('name', 'en', $postionMemberServiEn[$i]);
+            $positionMServi->save();
+        }
+
         /*=============================================
             CREAR BRIEF CON PREGUNTAS
         =============================================*/
@@ -167,7 +276,7 @@ class DatabaseSeeder extends Seeder
                     'note' => 'Tenga en cuenta en llenar todo el brief, asi podremos dar respuesta a tu solicitud de manera más exacta.',
                     'type_project_id' => $i + 1
                 ]
-             );
+            );
             $brief = \App\Model\Brief::find($i + 1);
             $brief->setTranslation('title', 'en', $briefEn[$i]);
             $brief->setTranslation('note', 'en', 'Keep in mind to fill out the entire brief, so we can respond to your request more accurately.');
@@ -205,7 +314,7 @@ class DatabaseSeeder extends Seeder
             'Annexes (Optional)'
         ];
         $noteQuestionEs = [
-           'De a conocer en detalle el problema que usted desea mitigar para el mejoramiento de su empresa.',
+            'De a conocer en detalle el problema que usted desea mitigar para el mejoramiento de su empresa.',
             'Describa el nombre o título del software que se está especificando en el documento.',
             'Describa el manejo o funcionalidad que tiene su negocio en este momento.',
             'Describa el entorno que está manejando actualmente su negocio, página web, aplicación móvil, aplicación de escritorio.',
@@ -242,7 +351,7 @@ class DatabaseSeeder extends Seeder
                     'note' => $noteQuestionEs[$i],
                     'brief_id' => 2
                 ]);
-            $question= \App\Model\Question::find($i + 1);
+            $question = \App\Model\Question::find($i + 1);
             $question->setTranslation('question', 'en', $questionsEn[$i]);
             $question->setTranslation('note', 'en', $noteQuestionEn[$i]);
             $question->save();
@@ -251,11 +360,13 @@ class DatabaseSeeder extends Seeder
         /*=============================================
             CREANDO 10 EMPRESAS Y 10 REPRESENTANTES
         =============================================*/
+
+
         factory(\App\User::class, 10)->create()
             ->each(function (\App\User $u) {
                 $u->roles()->attach(['2']);
-                factory(\App\Model\Manager::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Manager $m) use ($u){
+                factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
+                    ->each(function (\App\Model\Customer $c) use ($u) {
 //                        $logos = [
 //                            '/images/logos-companies/img-logo-yamaha.png',
 //                            '/images/logos-companies/img-logo-mazda.png',
@@ -269,17 +380,32 @@ class DatabaseSeeder extends Seeder
 //                            '/images/logos-companies/img-logo-pepsi.png'];
 //                        $ramdon = Str::random(10);
 //                        for ($i = 0; $i < count($logos); $i++) {
-                            factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id])
-                                ->each(function (\App\Model\Company $c) use ($u){
-                                    $c->companyType()->attach(['1']);
-                                    factory(\App\Model\Project::class, 3)->create(['user_id' => $u->id])
-                                        ->each(function (\App\Model\Project $p) use ($c){
-                                           $ramdon = random_int(1, 8);
-                                            $p->company()->attach($c->id);
-                                            $p->project_categories()->attach($ramdon);
-                                        });
-                                });
+                        factory(\App\Model\Company::class, 1)->create(['customer_id' => $c->id])
+                            ->each(function (\App\Model\Company $c) {
+                                factory(\App\Model\Project::class, 3)->create()
+                                    ->each(function (\App\Model\Project $p) use ($c) {
+                                        $ramdon = random_int(1, 8);
+                                        $p->customer()->attach($c->id);
+                                        $p->project_categories()->attach($ramdon);
+                                    });
+                            });
 //                        }
+                    });
+            });
+        /*=============================================
+            CREAMOS 10 CLIENTES COMO PERSONA NATURAL
+        =============================================*/
+        factory(\App\User::class, 10)->create()
+            ->each(function (\App\User $u) {
+                $u->roles()->attach(['2']);
+                factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2])
+                    ->each(function (\App\Model\Customer $cn) use ($u) {
+                        factory(\App\Model\Project::class, 3)->create()
+                            ->each(function (\App\Model\Project $p) use ($cn) {
+                                $ramdon = random_int(1, 8);
+                                $p->customer()->attach($cn->id);
+                                $p->project_categories()->attach($ramdon);
+                            });
                     });
             });
 
@@ -289,16 +415,118 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class, 10)->create()
             ->each(function (\App\User $u) {
                 $u->roles()->attach(['4']);
-                factory(\App\Model\Manager::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Manager $m) use ($u){
-
-                        factory(\App\Model\Company::class, 1)->create(['manager_id' => $m->id])
-                            ->each(function (\App\Model\Company $c) use ($u){
-                                $c->companyType()->attach(['2']);
-                            });
-//                        }
+                factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
+                    ->each(function (\App\Model\Provider $p) use ($u) {
+                        factory(\App\Model\Company::class, 1)->create(['provider_id' => $p->id]);
                     });
             });
+
+        /*=============================================
+            CREAMOS 10 CLIENTES COMO PERSONA NATURAL
+        =============================================*/
+        factory(\App\User::class, 10)->create()
+            ->each(function (\App\User $u) {
+                $u->roles()->attach(['4']);
+                factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2]);
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(1);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(2);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(3);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(4);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(5);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(6);
+                    });
+            });
+
+
+        /*=============================================
+        CREAMOS 10 MIEMBROS
+    =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(7);
+                    });
+            });
+
+        /*=============================================
+            CREAMOS 10 MIEMBROS
+        =============================================*/
+        factory(\App\User::class, 2)->create()
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(8);
+                    });
+            });
+
 
     }
 }

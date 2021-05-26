@@ -1,0 +1,30 @@
+<?php
+return [
+    'notificaciones' => 'Notications',
+    'nuevas' => 'News',
+    'no_hay_notificaciones' => 'No pending notifications',
+    'ha_registrado_un' => '¡You have registered a',
+    'nuevo_proyecto' => 'new project!',
+    'es_necesario_revisarlo' => 'It is necessary to review soon.',
+    'ver_todas_las_notificaciones' => 'See all notifications',
+    'text_info_modal_notificaciones' => 'Here you can see the history of notifications, you can mark them as seen or not seen, in addition to completely eliminating them from the history.',
+    'titulo_tabla_notificacion' => 'Notification',
+    'titulo_tabla_estado' => 'State',
+    'titulo_tabla_acciones' => 'Actions',
+    'ver_como_leida' => 'View and mark as read',
+    'ver_notificacion' => 'See notification',
+    'marcar_como_leida' => 'Mark as read',
+    'marcar_como_no_leida' => 'Mark as unread',
+    'visto' => 'Viewed',
+    'no_visto' => 'Not seen',
+    'buscar_por_nombre_fecha' => 'Search by name or dates',
+    'eliminar_notificacio_historial' => 'Delete the notification',
+    'no_hay_notificaciones_modal' => 'No notifications',
+    'esta_seguro_eliminar_notificacion' => 'Are you sure to delete this notification?',
+    'sera_eliminada_del_historial' => 'It will be removed from the notification history.',
+    'alert_button_aceptar' => 'Accept',
+    'alert_button_cancelar' => 'Cancel',
+    'historial_notificaciones' => 'Notification history',
+
+
+];

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('backend/customer/create-customers.titilo_nuevo_cliente'))
+@section('title', __('backend/provider/create-provider.titilo_nuevo_proveedor'))
 @push('css')
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/file-uploaders/dropzone.min.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/forms/form-file-uploader.css">

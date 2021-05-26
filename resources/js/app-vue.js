@@ -23,6 +23,30 @@ Vue.use(Vuesax);
 import SmartTable from 'vuejs-smart-table'
 Vue.use(SmartTable)
 
+var VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo)
+
+import VueTheMask from 'vue-the-mask'
+Vue.use(VueTheMask)
+
+
+import money from 'v-money'
+Vue.use(money, {precision: 3})
+
+
+const numberFormat =  new Intl.NumberFormat('es-co', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 2
+});
+
+window.currency = function (number) {
+    return numberFormat.format(number);
+};
+
+Vue.filter('currency', currency);
+
+
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
@@ -34,12 +58,20 @@ Vue.component('notifications-backend', require('./components/backend/notificatio
 /*=============================================
 COMPONENTES PARA LOS CLIENTES
 =============================================*/
+Vue.component('customer-type-company', require('./components/backend/pages/customer/components/TypeCompany.vue').default);
+Vue.component('customer-type-person-natural', require('./components/backend/pages/customer/components/TypePersonaNatural.vue').default);
 Vue.component('create-new-customer', require('./components/backend/pages/customer/CreateNewCustomer').default);
 Vue.component('profile-customer', require('./components/backend/pages/customer/ProfileCustomer').default);
 /*=============================================
 COMPONENTES PARA LOS PROVEEDORES
 =============================================*/
+Vue.component('provider-type-company', require('./components/backend/pages/provider/components/TypeCompanyProvider.vue').default);
+Vue.component('provider-type-personal-natural', require('./components/backend/pages/provider/components/TypePersonaNaturalProvider.vue').default);
 Vue.component('create-new-provider', require('./components/backend/pages/provider/CreateNewProvider.vue').default);
+/*=============================================
+COMPONENTES PARA EL TEAM
+=============================================*/
+Vue.component('create-new-member', require('./components/backend/pages/team/CreateNewTeam.vue').default);
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);

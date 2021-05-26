@@ -5,3 +5,12 @@
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover, .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover{
+    border: 1px solid #f05e7d !important;
+}
+
+.vdp-datepicker__calendar .cell.selected{
+    background: #f05e7d !important;
+}

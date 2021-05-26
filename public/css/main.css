@@ -265,6 +265,9 @@ table.datatablescreategica.datatable-light.dataTable tbody tr:hover > .sorting_1
     color: #283046 !important;
 }
 
+.dropzone .dz-preview .dz-details{
+    top: 70px !important;
+}
 /*@media (max-width:768px)  and (min-width:320px){*/
 /*    .logo-mobile{*/
 /*        margin-right: 8rem;*/
