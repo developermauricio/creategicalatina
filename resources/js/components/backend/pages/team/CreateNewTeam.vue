@@ -492,8 +492,8 @@ export default {
         return {
             en: en,
             es: es,
-            archiveOffice: "/storage/archives/silvio-aiGX198TEZ-terminos referencia creación y diseño de portafolios digitales y taller de creación de portafolios digitales - rev as 2.docx",
-            archiveExcel: "/storage/archives/silvio-2IKaX5CiF6-actividades-abril-2021.xlsx",
+            archiveOffice: "https://creategicalatina.aicode-test.art/storage/archives/silvio-aiGX198TEZ-terminos referencia creación y diseño de portafolios digitales y taller de creación de portafolios digitales - rev as 2.docx",
+            archiveExcel: "https://creategicalatina.aicode-test.art/storage/archives/silvio-2IKaX5CiF6-actividades-abril-2021.xlsx",
             csrf_token: window.token,
             teamWorkArea: null,
             positionTeam: [],
