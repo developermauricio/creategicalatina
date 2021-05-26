@@ -449,7 +449,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <VueDocPreview value="https://creategicalatina.test/storage/archives/-acF61SqgU6-actividades-abril-2021.xlsx" type="office" />
+                                            <VueDocPreview :value="archiveOffice" type="office" />
+                                            <VueDocPreview :value="archiveExcel" type="office" />
                                         </div>
                                     </div>
                                 </section>
@@ -491,7 +492,8 @@ export default {
         return {
             en: en,
             es: es,
-            archive: "https://creategicalatina.test/storage/archives/-acF61SqgU6-actividades-abril-2021.xlsx",
+            archiveOffice: "/storage/archives/silvio-aiGX198TEZ-terminos referencia creación y diseño de portafolios digitales y taller de creación de portafolios digitales - rev as 2.docx",
+            archiveExcel: "/storage/archives/silvio-2IKaX5CiF6-actividades-abril-2021.xlsx",
             csrf_token: window.token,
             teamWorkArea: null,
             positionTeam: [],
