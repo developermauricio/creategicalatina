@@ -449,8 +449,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <VueDocPreview :value="archiveOffice" type="office" />
-                                            <VueDocPreview :value="archiveExcel" type="office" />
+                                            <VueDocPreview :url="archiveOffice" type="office" />
+                                            <VueDocPreview :url="archiveExcel" type="office" />
                                         </div>
                                     </div>
                                 </section>
