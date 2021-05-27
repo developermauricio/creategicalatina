@@ -456,18 +456,30 @@
                                             <p v-text="noteTeam"></p>
                                         </div>
                                     </div>
+                                    <div class="row"  v-if="urlsArchiveTeam.length > 0">
+                                        <div class="col-12">
+                                            <label>Archivos:</label>
+                                        </div>
+                                    </div>
                                     <div class="content-body" v-if="urlsArchiveTeam.length > 0 ">
                                         <div class="row">
-                                            <div class="col-6 col-lg-3 col-md-3" v-for="archives in urlsArchiveTeam" :key="archives.uuid">
-                                                <div class="card shadow-none bg-transparent border-secondary">
+                                            <div class="col-12 col-lg-3 col-md-3" v-for="archives in urlsArchiveTeam" :key="archives.uuid">
+                                                <div class="card shadow-none bg-transparent border-secondary" style="cursor: pointer">
                                                     <div class="card-body" @click="openModalArchivePopup(archives, archives.nameArchive)">
                                                         <div class="d-flex align-items-center justify-content-center w-100 pb-2">
-                                                            <img :src="'/images/archives-icons/'+archives.extension+'.png'" alt="file-icon" height="35"/>
+                                                            <img v-if="archives.extension === 'csv'
+                                                            || archives.extension === 'pdf'
+                                                            || archives.extension === 'docx'
+                                                            || archives.extension === 'pptx'
+                                                            || archives.extension === 'xlsx'
+                                                            || archives.extension === 'jpg'
+                                                            || archives.extension === 'png'" :src="'/images/archives-icons/'+archives.extension+'.png'" alt="file-icon" height="35"/>
+                                                            <img v-else src="/images/archives-icons/archive.png" alt="" height="35">
                                                         </div>
                                                         <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
-<!--                                                        <p class="card-text text-center">-->
-<!--                                                            <small class="text-muted">Peso: 34Kb</small>-->
-<!--                                                        </p>-->
+                                                        <p class="card-text text-center">
+                                                            <small class="text-muted">Vista Previa</small>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -603,13 +615,14 @@ export default {
             }, 100);
         },
         btnAddArchivesCompany() {
-            if (this.user) {
+            if (this.userName) {
                 this.addArchive = true
                 this.eventSelectScroll('#add-archive-dropzone-team')
             } else {
                 this.$toast.error({
                     title: this.$t('backend.customer.create-customers.title_atención_toast'),
-                    message: this.$t('backend.customer.create-customers.title_mensaje_para_agregar_archivos'),
+                    message: 'Para agregar archivos, debe ingresar un' +
+                        ' nombre',
                     showDuration: 1000,
                     hideDuration: 8000,
                 })
@@ -678,6 +691,7 @@ export default {
                 this.textValidaNameAddArchive = true
                 setTimeout(() => {
                     document.getElementById('txtNameUserTeam').disabled = true;
+
                 }, 500)
             }
             setTimeout(() => {

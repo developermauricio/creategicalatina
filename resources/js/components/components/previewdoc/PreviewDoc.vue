@@ -7,6 +7,12 @@
                 <iframe :src="'https://docs.google.com/viewer?url='+urlActual+dataArchiveUrl+'&embedded=true'" style="border: none; width: 100%; height: 50rem"></iframe>
 <!--        <iframe :src="'https://docs.google.com/viewer?url=https://creategicalatina.aicode-test.art/storage/archives/francisco-GGmrgk3mP5-beegridtable.csv&embedded=true'"  style="border: none; width: 100%; height: 50rem"></iframe>-->
     </div>
+    <div v-else-if="extension === 'jpg' || extension === 'png'">
+        <img :src="urlActual+dataArchiveUrl" alt="" style="width: 100%; height: 100%">
+    </div>
+    <div v-else class="justify-content-between">
+        <h2 class="text-center">No se puede mostrar el archivo en formato '{{ extension }}'</h2>
+    </div>
 </template>
 
 <script>
