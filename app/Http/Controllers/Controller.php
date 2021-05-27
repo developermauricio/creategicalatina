@@ -7,9 +7,11 @@ use App\Model\Company;
 use App\Model\CompanyCategory;
 use App\Model\Country;
 use App\Model\IdentificationType;
+use App\Model\PositionMember;
 use App\Model\Project;
 use App\Model\ProjectCategory;
 use App\Model\Question;
+use App\Model\TypeEntity;
 use App\Model\TypeProject;
 use App\Notifications\Customer\TelegramNewProjectNotification;
 use App\User;
@@ -125,6 +127,16 @@ class Controller extends BaseController
         return response()->json(['data' => $getTypeCompany]);
     }
 
+    public function getTypeEntities()
+    {
+        $getTypeEntities = TypeEntity::all();
+        return response()->json(['data' => $getTypeEntities]);
+    }
+
+    public function getPositionTeam($idWorkArea){
+        $getPositionTeam = PositionMember::where('work_area_id', $idWorkArea)->get();
+        return response()->json(['data' => $getPositionTeam]);
+    }
     public function validateEmail($email)
     {
         $check = User::whereEmail($email)->first();

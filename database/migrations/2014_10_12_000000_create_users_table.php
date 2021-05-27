@@ -41,6 +41,8 @@ class CreateUsersTable extends Migration
                 \App\User::ACTIVE,
                 \App\User::INACTIVE
             ])->default(\App\User::ACTIVE);
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
             $table->string('url_facebook')->nullable();

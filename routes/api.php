@@ -47,14 +47,36 @@ Route::group(['middleware' => 'auth'], function () {
         API PARA MODULO CLIENTE CLIENTE
         =============================================*/
         Route::post('/upload-picture-company','Customer\CreateCustomerController@ulploadPictureCompany')->name('api.upload.picture.company');
+        Route::post('/upload-archive-company','Customer\CreateCustomerController@uploadArchiveCustomerCompany')->name('api.upload.archive.company');
         Route::get('/get-type-position','Customer\CreateCustomerController@getTypePosition')->name('api.get.type.position');
         Route::post('/removed-picture-company','Customer\CreateCustomerController@removedPictureCompany')->name('api.removed.picture.company');
+        Route::post('/removed-archive-company','Customer\CreateCustomerController@removedArchiveCompany')->name('api.removed.archive.company');
         Route::post('/register/store-company','Customer\CreateCustomerController@storeCreateCompany')->name('api.store.create.company');
+        Route::post('/register/store-customer-person-natural','Customer\CreateCustomerController@storeCreatePersonaNaturalCustomer')->name('api.store.create.company');
 
         /*=============================================
         API PARA MODULO PROVEEDOR
         =============================================*/
-        Route::post('/register/store-provider','Provider\CreateProviderController@storeCreateProvider')->name('api.store.create.provider');
+        Route::get('datable-all-provider', 'Provider\ProviderController@getDatableProvider')->name('api.backend.all.provider');
+
+        Route::post('/upload-archive-company-provider','Provider\CreateProviderController@uploadArchiveProviderCompany')->name('api.upload.archive.provider.company');
+        Route::post('/upload-picture-company-provider','Provider\CreateProviderController@ulploadPictureCompanyProvider')->name('api.upload.picture.company');
+        Route::post('/register/store-company-provider','Provider\CreateProviderController@storeCreateCompanyProvider')->name('api.store.create.provider.company');
+        Route::post('/register/store-provider-person-natural','Provider\CreateProviderController@storeCreatePersonaNaturalProvider')->name('api.store.provider.create.person.natural');
+        Route::post('/removed-picture-company-provider','Provider\CreateProviderController@removedPictureCompanyProvider')->name('api.removed.picture.company.provider');
+        Route::post('/removed-archive-company-provider','Provider\CreateProviderController@removedArchiveCompanyProvider')->name('api.removed.archive.company');
+
+
+        /*=============================================
+         API PARA MODULO MIEMBROS O TEAMS
+       =============================================*/
+        Route::get('datable-all-teams', 'Team\TeamController@getDatableTeam')->name('api.backend.all.teams');
+        Route::get('get-type-work-area', 'Team\TeamController@getTypeWorkArea')->name('api.get.type.work.area');
+        Route::post('/upload-archive-team','Team\TeamCreateController@uploadArchiveTeam')->name('api.upload.archive.team');
+        Route::post('/removed-archive-team','Team\TeamCreateController@removedArchiveTeam')->name('api.removed.archive.company');
+
+
+
 
     });
     /*=============================================
@@ -79,6 +101,8 @@ Route::get('get-countries', 'Controller@getCountries')->name('api.get.countries'
 Route::get('get-cities/{country}', 'Controller@getCities')->name('api.get.cities');
 Route::get('/get-identificationtype', 'Controller@getIdentificationType')->name('api.get.identificationtype');
 Route::get('/get-type-company', 'Controller@getTypeCompanies')->name('api.get.type.companies');
+Route::get('/get-type-entities', 'Controller@getTypeEntities')->name('api.get.type.entities');
+Route::get('/get-position-team/{idWorkArea}', 'Controller@getPositionTeam')->name('api.get.position.team');
 
 /*=============================================
         API PARA LAS NOTIFICACIONES

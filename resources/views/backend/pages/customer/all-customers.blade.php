@@ -1,13 +1,9 @@
 @extends('layouts.app')
 @push('css')
-    <link rel="stylesheet" type="text/css"
-          href="/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css"
-          href="/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
 @endpush
 @section('title', __('todos_clientes'))
@@ -39,11 +35,11 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th style="max-width: 30% !important;">{{ __('backend/customer/customers.column_empresa') }}</th>
-                            <th>Logo</th>
-                            <th>{{ __('backend/customer/customers.column_representante') }}</th>
-                            <th>{{ __('backend/customer/customers.column_email_empresa') }}</th>
-                            <th>{{ __('backend/customer/customers.column_telefono_empresa') }}</th>
+                            <th style="max-width: 30% !important;">{{ __('backend/customer/customers.column_cliente') }}</th>
+                            <th>{{ __('backend/customer/customers.column_tipo_cliente') }}</th>
+                            <th>{{ __('backend/customer/customers.column_categoria') }}</th>
+                            <th>{{ __('backend/customer/customers.column_email') }}</th>
+                            <th>{{ __('backend/customer/customers.column_telefono') }}</th>
                             <th>{{ __('backend/customer/customers.column_pais') }}</th>
                             <th>{{ __('backend/customer/customers.column_ciudad') }}</th>
                             <th>{{ __('backend/customer/customers.column_estado') }}</th>
@@ -60,7 +56,7 @@
     <script src="/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
     <script src="/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
     <script src="/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
-    <script src="/app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+{{--    <script src="/app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>--}}
     <script src="/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
     <script src="/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
     <script src="/app-assets/vendors/js/tables/datatable/jszip.min.js"></script>
@@ -82,7 +78,8 @@
                         "processing": true,
                         "lengthMenu": [7, 10, 25, 50, 75, 100],
                         // "scrollY": 800,
-                        "scrollX": true,
+                        // "scrollX": true,
+                        "responsive": true,
                         // "scrollCollapse": true,
                         // "paging": false,
                         // "fixedColumns": {
@@ -90,9 +87,13 @@
                         // },
                         "pageLength": 10,
                         "autoWidth": false,
-                        "columnDefs": [
-                            {"width": '10%', targets: 0},
-                        ],
+                        "columnDefs": [{
+                            "defaultContent": "-",
+                            "targets": "_all"
+                        }],
+                        // "columnDefs": [
+                        //     {"width": '10%', targets: 0},
+                        // ],
                         // "order": [[1, 'asc']],
 
                         "ajax": {
@@ -105,16 +106,16 @@
                                     if (JsonResultRow.name === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold"><a href="/${window.lang}/customers/profile/${JsonResultRow.slug}">${JsonResultRow.name}</a></span>`;
+                                        return `<span class="label text-center font-weight-bold"><a href="/${window.lang}/customers/profile/${JsonResultRow.slug}">${JsonResultRow.user.name}</a></span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.picture === null) {
-                                        return `<img class="brand-logo rounded"  width="100" src="/images/img-logo-empresa.png" alt="">`;
+                                    if (JsonResultRow.type_entity === null) {
+                                        return `<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>`;
                                     } else {
-                                        return `<img class="brand-logo rounded"  width="100" src="${JsonResultRow.picture}" alt="">`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.type_entity.name[window.lang]}</span>`;
                                     }
 
                                 },
@@ -122,53 +123,53 @@
 
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.manager === null) {
-                                        return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
+                                    if (JsonResultRow.company_category === null) {
+                                        return `<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>`
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.manager.user.name} ${JsonResultRow.manager.user.last_name}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.company_category.name[window.lang]}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.email === null) {
+                                    if (JsonResultRow.user.email === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.email}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.email}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.phone === null) {
+                                    if (JsonResultRow.user.phone === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.phone}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.phone}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.country === null) {
+                                    if (JsonResultRow.user.country === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.country.name} <img class="brand-logo"  width="20" src="${JsonResultRow.country.flag}" alt=""></span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.country.name} <img class="brand-logo"  width="20" src="${JsonResultRow.user.country.flag}" alt=""></span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.city === null) {
+                                    if (JsonResultRow.user.city === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.city.name}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.city.name}</span>`;
                                     }
                                 },
                             },
 
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.state === "1") {
+                                    if (JsonResultRow.user.state === "1") {
                                         return '<div class="badge badge-pill badge-glow badge-success">{{ __('estado_tabla_activo') }}</div>'
                                     } else {
                                         return `<div class="badge badge-pill badge-glow badge-danger">{{ __('estado_tabla_inactivo') }}</div>`;
@@ -291,7 +292,7 @@
                         });
                     }).draw();
                 }
-                , 1000);
+                , 1);
         });
 
     </script>

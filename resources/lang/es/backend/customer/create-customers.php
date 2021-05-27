@@ -1,5 +1,6 @@
 <?php
 return [
+    'titulo_selecciona_tipo_cliente' => 'Selecciona el tipo de cliente',
     /*=============================================
     WIZARD
     =============================================*/
@@ -107,6 +108,11 @@ return [
     'requerido_msg_url' => 'El link es requerido',
 
     /*=============================================
+        BOTON AGREGAR ARCHIVO
+    =============================================*/
+    'btn_agregar_archivos' => 'Agregar Archivos',
+    'btn_no_agregar_archivos' => 'Cancelar',
+    /*=============================================
     MENSAJES TOAST
     =============================================*/
     'title_atención_toast' => 'Atención',
@@ -115,7 +121,9 @@ return [
     'title_muy_bien_toast' => '¡Muy bien!',
     'title_mensaje_success_toast_register' => 'Empresa creada correctamente',
     'title_mensaje_success_toast' => 'Logo subido correctamente',
+    'title_mensaje_success_toast_archivo' => 'Archivo subido correctamente',
     'title_mensaje_success_toast_remove_image' => 'Se quitó correctamente',
+    'title_mensaje_para_agregar_archivos' => 'Para agregar archivos, debe ingresar el nombre de la empresa',
     /*=============================================
      DROPZONE
     =============================================*/
@@ -124,6 +132,14 @@ return [
     'msg_uno_el_archivo_demasiado' => 'El archivo es demasiado grande, su peso es',
     'msg_dos_tamaño_maximo' => 'Tamaño máximo del archivo:',
     'msg_tres_remover_archivo' => 'Remover Archivo',
+    'msg_error_tipo_archivo' => 'No puede cargar archivos de este tipo. Solo JPEG, PNG, GIF',
+
+    /*=============================================
+     DROPZONE ARCHIVOS
+    =============================================*/
+    'titulo_mensaje_dropzone_archivos' => 'Clic aquí o arrastra tus documentos',
+    'msg_dropzone_no_puede_subir_mas_archivos_archivo' => 'No es posible agregar más archivos. Limite maximo 20',
+    'msg_error_tipo_archivo_archivo' => 'No puede cargar archivos de este tipo.',
 
     /*=============================================
      VALIDACIÓN CORREO ELECTRÓNICO
@@ -165,5 +181,41 @@ return [
     /*=============================================
         LOANDING CREAR EMPRESA
     =============================================*/
-    'titulo_loading_creando_empresa' => 'Registrando Empresa...'
+    'titulo_loading_creando_empresa' => 'Registrando Empresa...',
+
+    /*=============================================
+        TRADUCIONES COMPONENTE PERSONA NATURAL
+    =============================================*/
+
+    'btn_titulo_wizard_create_cliente' => 'Crear Cliente',
+    'titulo_wizard_datos_cliente' => 'Datos del Cliente',
+    'titulo_nombre_cliente' => 'Nombre',
+    'titulo_error_nombre_cliente' => 'Ingrese un nombre válido',
+    'titulo_obligatrio_nombre_cliente' => 'El nombre es requerido',
+    'titulo_apellidos_cliente' => 'Apellidos',
+    'titulo_error_apellidos_cliente' => 'Ingrese apellidos válidos',
+    'titulo_obligatrio_apellidos_cliente' => 'Los apellidos son requeridos',
+
+    /*=============================================
+      CATEGORIA PERSONA NATURAL
+    =============================================*/
+    'titulo_seleccionar_categoria_cliente' => 'Seleccionar categoría',
+    'titulo_obligatrio_selecciona_categoria_cliente' => 'La categoría es requerido',
+    'titulo_buscar_selecciona_categoria_cliente' => 'Buscar categoría',
+    'title_mensaje_para_agregar_archivos_person_natural' => 'Para agregar archivos, debe ingresar el nombre del cliente',
+    'title_estas_agregando_archivos_person_natural_customer' => 'Estas agregando archivos, para cambiar el nombre, debes cancelar la subida de archivos.',
+    'title_confirmar_tipo_cliente' => 'Tipo de Cliente',
+    'title_confirmar_categoria' => 'Categoría',
+    'title_label_agregar_archivos' => 'Agregar Archivos',
+
+    /*=============================================
+        LOANDING CREAR PERSONA NATURAL
+    =============================================*/
+    'titulo_loading_creando_persona_natural' => 'Registrando Cliente...',
+    'title_mensaje_success_toast_register_persona_natural' => 'Cliente creado correctamente',
+
+
+
+
+
 ];

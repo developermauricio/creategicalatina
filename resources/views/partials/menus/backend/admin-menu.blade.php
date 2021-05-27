@@ -52,6 +52,16 @@
             <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='edit-3'></i><span class="menu-title text-truncate"
                                                                                                                    data-i18n="Kanban">{{ __('brief_campañanas') }}</span></a>
             </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='users'></i><span class="menu-title text-truncate" data-i18n="Kanban">{{ __('team_equipo_trabajo') }}</span></a>
+                <ul class="menu-content">
+                    <li class="{{request()->is(session('language').'/members-team') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="/{{ session('language') }}/members-team"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('team_equipo_trabajo') }}</span></a>
+                    </li>
+                    <li class="{{request()->is(session('language').'/new-member') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="/{{ session('language') }}/new-member"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('backend/team/teams.registrar_miembro') }}</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 

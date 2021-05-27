@@ -1,5 +1,6 @@
 <?php
 return [
+    'titulo_selecciona_tipo_cliente' => 'Select the type of client',
     'titilo_nuevo_cliente'=>'New Customer',
     'titulo_wizard_datos_empresa' => 'Company Information',
     'titulo_wizard_datos_representante' => 'Representative Information',
@@ -92,6 +93,12 @@ return [
     'btn_agregar_biografia' => 'Add Biography',
     'btn_no_agregar_biografia' => 'Cancelar',
 
+    /*=============================================
+        BOTON AGREGAR ARCHIVO
+    =============================================*/
+    'btn_agregar_archivos' => 'Add Files',
+    'btn_no_agregar_archivos' => 'Cancelar',
+
     'error_msg_url' => 'Enter a valid link',
     'requerido_msg_url' => 'The link is required',
 
@@ -100,13 +107,23 @@ return [
     'title_mensaje_error_toast' => 'Something went wrong!',
     'title_muy_bien_toast' => '¡Success!',
     'title_mensaje_success_toast' => 'Logo uploaded successfully',
+    'title_mensaje_success_toast_archivo' => 'File uploaded successfully',
     'title_mensaje_success_toast_register' => 'Company created successfully',
     'titulo_mensaje_dropzone' => 'Click here or drag an image',
     'title_mensaje_success_toast_remove_image' => 'Was removed successfully',
+    'title_mensaje_para_agregar_archivos' => 'To add files, you must enter the company name',
     'msg_dropzone_no_puede_subir_mas_archivos' => "Can't add another image.",
     'msg_uno_el_archivo_demasiado' => 'The file is too large, its weight is',
     'msg_dos_tamaño_maximo' => 'Maximum file size:',
     'msg_tres_remover_archivo' => 'Remove File',
+    'msg_error_tipo_archivo' => 'You cannot upload files of this type. JPEG, PNG, GIF only',
+
+    /*=============================================
+     DROPZONE ARCHIVOS
+    =============================================*/
+    'titulo_mensaje_dropzone_archivos' => 'Click here or drag your documents',
+    'msg_dropzone_no_puede_subir_mas_archivos_archivo' => 'No more files can be added. Maximum limit 20',
+    'msg_error_tipo_archivo_archivo' => 'You cannot upload files of this type.',
 
     /*=============================================
      VALIDACIÓN CORREO ELECTRÓNICO
@@ -148,5 +165,39 @@ return [
     /*=============================================
         LOANDING CREAR EMPRESA
     =============================================*/
-    'titulo_loading_creando_empresa' => 'Registering Company...'
+    'titulo_loading_creando_empresa' => 'Registering Company...',
+
+    /*=============================================
+        TRADUCIONES COMPONENTE PERSONA NATURAL
+    =============================================*/
+
+    'btn_titulo_wizard_create_cliente' => 'Create Customer',
+    'titulo_wizard_datos_cliente' => 'Customer Information',
+    'titulo_nombre_cliente' => 'Names',
+    'titulo_error_nombre_cliente' => 'Please enter a valid name',
+    'titulo_obligatrio_nombre_cliente' => 'The name is required',
+    'titulo_apellidos_cliente' => 'Last Name',
+    'titulo_error_apellidos_cliente' => 'Enter valid last names',
+    'titulo_obligatrio_apellidos_cliente' => 'Surnames are required',
+
+    /*=============================================
+      CATEGORIA PERSONA NATURAL
+    =============================================*/
+    'titulo_seleccionar_categoria_cliente' => 'Select category',
+    'titulo_obligatrio_selecciona_categoria_cliente' => 'Category is required',
+    'titulo_buscar_selecciona_categoria_cliente' => 'Search Category',
+    'title_mensaje_para_agregar_archivos_person_natural' => 'To add files, you must enter the name of the client',
+    'title_estas_agregando_archivos_person_natural_customer' => 'You are adding files, to change the name, you must cancel the file upload.',
+    'title_confirmar_tipo_cliente' => 'Customer Type',
+    'title_confirmar_categoria' => 'Category',
+    'title_label_agregar_archivos' => 'Add Files',
+
+    /*=============================================
+        LOANDING CREAR PERSONA NATURAL
+    =============================================*/
+    'titulo_loading_creando_persona_natural' => 'Registering Client...',
+    'title_mensaje_success_toast_register_persona_natural' => 'Successfully created customer',
+
+
+
 ];

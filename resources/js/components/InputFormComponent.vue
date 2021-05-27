@@ -9,7 +9,7 @@
         </label>
         <datepicker
             v-if="type === 'date'"
-            :language="es"
+            :language="language === 'es' ? es : en"
             :input-class="'form-control '+((!validated||msgServer) ? 'is-invalid': '')"
             placeholder="formato 1998-06-06"
             :class="((!validated||msgServer) ? 'is-invalid': '')"
@@ -92,6 +92,8 @@ export default {
             valorActual: null,
             tipoInput: "text",
             es: es,
+            en: en,
+            language: window.lang,
             noValue: true
         };
     },

@@ -35,16 +35,16 @@ Route::get('/private-chat', function (){
 
 Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
 
-Route::get('companies-pro', function (){
-    $getCompanies = Company::getCompanyType(1);
+Route::get('/teams', function (){
+    $getCompanies = \App\Model\Team::getCompanyType(1);
     return datatables()->of($getCompanies)->toJson();
 });
 
 Route::get('/email', function (){
-    return new \App\Mail\Project\NewProjectCustomer(
-        'Mauricio', 'APEX',
-        'project', '',
-        'Software', 'escritori, movile'
+    return new \App\Mail\Register\RegisterProviderPersonNatural(
+        'Mao',
+        'sdsdsd',
+        'ma@mgial.com'
     );
 });
 
@@ -92,6 +92,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         /* RUTAS PROVEEDORES*/
         Route::get('/providers', 'Provider\ProviderController@index')->name('backend.provider.provider');
         Route::get('/new-providers', 'Provider\CreateProviderController@index')->name('backend.provider.create.provider');
+
+        /* RUTAS Team*/
+        Route::get('/members-team', 'Team\TeamController@index')->name('backend.team.team');
+        Route::get('/new-member', 'Team\TeamCreateController@index')->name('backend.team.create.team');
+
+
         /* RUTAS PERFIL*/
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');
     });

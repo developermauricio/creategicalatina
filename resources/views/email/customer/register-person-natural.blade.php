@@ -96,7 +96,7 @@
                                         <p style="font-weight: 700; font-size: 20px; margin-top: 0; --text-opacity: 1; color: #F05E7D;">
                                             {{ $user }}</p>
                                         <p style="margin: 0 0 24px;">
-                                            {{ __('backend/email/register-company.gracias_por_ser') }} {{ config('app.name') }}. {{ __('backend/email/register-company.la_empresa') }} <span style="color: #F05E7D; font-weight: bold">{{ $company  }}</span> {{ __('backend/email/register-company.ha_sido_registrada_credenciales') }}
+                                            {{ __('backend/email/register-company.gracias_por_ser') }} {{ config('app.name') }}. {{ __('backend/email/register-company.ha_sido_registrada_credenciales_personal_natural') }}
                                         </p>
                                         <table style="font-family: 'Montserrat',Arial,sans-serif; width: 100%;" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                                             <tr>

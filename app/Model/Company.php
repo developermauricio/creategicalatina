@@ -57,6 +57,10 @@ class Company extends Model
         return $projects;
     }
 
+    public function customer(){
+        return $this->morphMany(Customer::class, 'customeable', 'customer_type', 'customer_id');
+    }
+
     public function companyType(){
         return $this->belongsToMany(CompanyType::class, 'company_company_types', 'company_id', 'company_type_id');
     }

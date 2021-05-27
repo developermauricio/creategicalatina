@@ -21,7 +21,7 @@ class CreateCompaniesTable extends Migration
             $table->string('address');
             $table->string('nit');
             $table->string('picture')->nullable();
-            $table->string('biography')->nullable();
+            $table->text('biography')->nullable();
             $table->unsignedBigInteger('company_category_id')->nullable();
             $table->foreign('company_category_id')->references('id')->on('company_categories');
             $table->unsignedBigInteger('user_id')->nullable();
@@ -30,8 +30,10 @@ class CreateCompaniesTable extends Migration
             $table->foreign('country_id')->references('id')->on('countries');
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
-            $table->unsignedBigInteger('manager_id')->nullable();
-            $table->foreign('manager_id')->references('id')->on('managers');
+            $table->unsignedBigInteger('provider_id')->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->unsignedBigInteger('customer_id')->nullable();
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->string('slug')->nullable();
             $table->string('url_facebook')->nullable();
             $table->string('url_youtube')->nullable();

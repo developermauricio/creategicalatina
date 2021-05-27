@@ -37,7 +37,7 @@ class RegisterCompany extends Mailable
     {
         return $this
             ->subject(config('app.name').'-'.__('asunto_titulo_credenciales') )
-            ->markdown('email.company.register-company')
+            ->markdown('email.customer.register-company')
             ->with('user',$this->user)
             ->with('password',$this->password)
             ->with('company',$this->company)

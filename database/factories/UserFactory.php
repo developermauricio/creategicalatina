@@ -32,6 +32,7 @@ $factory->define(User::class, function (Faker $faker) {
         'birthday' => $faker->date($format = 'Y-m-d', $max = 'now'),
         "phone"=> $faker->numberBetween(),
         'email_verified_at' => now(),
+        'country_id' => \App\Model\Country::all()->random()->id,
         'city_id' => \App\Model\City::all()->random()->id,
         'slug' => Str::slug($name . '-' . $last_name . '-' . $ramdon, '-'),
         "picture"=> '/images/user-profile.png',

@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Model\City;
+use App\Model\Country;
 use App\Model\IdentificationType;
 use App\Model\Manager;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -53,6 +54,11 @@ class User extends Authenticatable
     public function city(){
         return $this->belongsTo(City::class, 'city_id');
     }
+
+    public function country(){
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+
 
     public function identificationType(){
         return $this->belongsTo(IdentificationType::class, 'identification_type_id');
