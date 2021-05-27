@@ -50,6 +50,7 @@ Vue.filter('currency', currency);
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
+Vue.component('preview-doc', require('./components/components/previewdoc/PreviewDoc.vue').default)
 
 /*=============================================
 COMPONENTES PARA LAS NOTIFICACIONES

@@ -321,7 +321,8 @@
                                     </div>
                                     <div class="row" v-if="addArchive">
                                         <div class="col-12">
-                                            <label class="form-control-label" id="add-archive-dropzone-team">Agregar Archivos</label>
+                                            <label class="form-control-label" id="add-archive-dropzone-team">Agregar
+                                                Archivos</label>
                                             <vue2Dropzone class="dropzone upload-logo dropzone-area dz-clickable"
                                                           ref="myVueDropzone"
                                                           @vdropzone-sending="sendingEvent"
@@ -365,7 +366,9 @@
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <div class="form-group">
                                                 <label>Fecha de Nacimiento:</label>
-                                                <p>{{moment(user.dataBirth).locale(language).format("dddd, MMMM Do YYYY") }}</p>
+                                                <p>{{
+                                                        moment(user.dataBirth).locale(language).format("dddd, MMMM Do YYYY")
+                                                    }}</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
@@ -410,10 +413,16 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4" v-if="positionTeam.length > 0">
                                             <div class="form-group">
-                                                <label style="padding-bottom: 0.5rem">Cargo{{positionTeam.length > 1 ? 's' : '' }}:</label><br>
+                                                <label style="padding-bottom: 0.5rem">Cargo{{
+                                                        positionTeam.length > 1 ? 's' : ''
+                                                    }}:</label><br>
                                                 <div v-for="position in positionTeam" :key="position.id">
                                                     <div style="padding-bottom: 0.5rem">
-                                                        <span class="label text-center font-weight-bold badge badge-pill badge-glow badge-primary" style="margin-right: 0.5rem">{{ position.name[language]}}</span>
+                                                        <span
+                                                            class="label text-center font-weight-bold badge badge-pill badge-glow badge-primary"
+                                                            style="margin-right: 0.5rem">{{
+                                                                position.name[language]
+                                                            }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -447,10 +456,21 @@
                                             <p v-text="noteTeam"></p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <VueDocPreview :url="archiveOffice" type="office" />
-                                            <VueDocPreview :url="archiveExcel" type="office" />
+                                    <div class="content-body" v-if="urlsArchiveTeam.length > 0 ">
+                                        <div class="row">
+                                            <div class="col-6 col-lg-3 col-md-3" v-for="archives in urlsArchiveTeam" :key="archives.uuid">
+                                                <div class="card shadow-none bg-transparent border-secondary">
+                                                    <div class="card-body" @click="openModalArchivePopup(archives, archives.nameArchive)">
+                                                        <div class="d-flex align-items-center justify-content-center w-100 pb-2">
+                                                            <img :src="'/images/archives-icons/'+archives.extension+'.png'" alt="file-icon" height="35"/>
+                                                        </div>
+                                                        <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
+<!--                                                        <p class="card-text text-center">-->
+<!--                                                            <small class="text-muted">Peso: 34Kb</small>-->
+<!--                                                        </p>-->
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -460,6 +480,10 @@
                 </div>
             </div>
         </div>
+        <vs-popup fullscreen class="holamundo" :title="titleNameArchive"
+                  :active.sync="popupPreviewActivo">
+            <preview-doc :dataArchiveUrl="dataArchive.urlArchive" :extension="dataArchive.extension"></preview-doc>
+        </vs-popup>
     </div>
 </template>
 
@@ -473,8 +497,7 @@ import vue2Dropzone from 'vue2-dropzone'
 import Datepicker from 'vuejs-datepicker';
 import {en, es} from 'vuejs-datepicker/dist/locale'
 import VMask from 'v-mask'
-import { VueMaskFilter } from 'v-mask'
-import VueDocPreview from 'vue-doc-preview'
+import {VueMaskFilter} from 'v-mask'
 
 
 export default {
@@ -482,7 +505,6 @@ export default {
     components: {
         Multiselect,
         Datepicker,
-        VueDocPreview,
         VuePhoneNumberInput,
         vue2Dropzone,
         VMask,
@@ -492,15 +514,23 @@ export default {
         return {
             en: en,
             es: es,
-            archiveOffice: "https://creategicalatina.aicode-test.art/storage/archives/silvio-aiGX198TEZ-terminos referencia creación y diseño de portafolios digitales y taller de creación de portafolios digitales - rev as 2.docx",
-            archiveExcel: "https://creategicalatina.aicode-test.art/storage/archives/silvio-2IKaX5CiF6-actividades-abril-2021.xlsx",
+            titleNameArchive: null,
+            popupPreviewActivo: false,
             csrf_token: window.token,
             teamWorkArea: null,
             positionTeam: [],
             noteTeam: null,
             colorLoading: '#3f4f6e',
             salary: null,
-            moment:moment,
+            moment: moment,
+            dataArchive:[
+                {
+                    urlArchive:null
+                },
+                {
+                    extension:null
+                }
+            ],
             optionsTypeWorkAreas: [],
             language: window.lang,
             textValidaNameAddArchive: false,
@@ -557,6 +587,12 @@ export default {
         createNewTeam() {
 
         },
+        openModalArchivePopup(data, nameArchive) {
+            this.dataArchive = data
+            this.popupPreviewActivo = true
+            this.titleNameArchive = nameArchive
+            // this.infoModalRecording = question
+        },
         eventSelectScroll(option) {
             const options = {
                 container: "body",
@@ -566,11 +602,11 @@ export default {
                 this.$scrollTo(option, 1000, options);
             }, 100);
         },
-        btnAddArchivesCompany(){
-            if (this.user){
+        btnAddArchivesCompany() {
+            if (this.user) {
                 this.addArchive = true
                 this.eventSelectScroll('#add-archive-dropzone-team')
-            }else{
+            } else {
                 this.$toast.error({
                     title: this.$t('backend.customer.create-customers.title_atención_toast'),
                     message: this.$t('backend.customer.create-customers.title_mensaje_para_agregar_archivos'),
@@ -632,6 +668,7 @@ export default {
         addArchiveTeam(file, response) {
             console.log(file)
             this.urlsArchiveTeam.push({
+                nameArchive: file.name,
                 urlArchive: response.data,
                 uuid: response.uuid,
                 extension: response.extension
@@ -797,7 +834,7 @@ export default {
                         })
                         this.$vs.loading.close()
                     })
-            }else{
+            } else {
                 this.positionTeam = []
             }
         },
@@ -848,8 +885,8 @@ export default {
             }
         },
 
-        userName: function (val){
-            if (!val && this.addArchive === true){
+        userName: function (val) {
+            if (!val && this.addArchive === true) {
                 this.addArchive = false
                 this.$toast.error({
                     title: this.$t('backend.customer.create-customers.title_atención_toast'),
