@@ -65,7 +65,12 @@ export default {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
             "hola": "Hello",
-            "gracias": "Thank you"
+            "gracias": "Thank you",
+            "no_approval_platform_payment": "We cannot retrieve your payment platform. Try again, plase.",
+            "cancel_payment": "You cancelled the payment",
+            "no_confirm_payment": "We cannot capture your payment. try again, please",
+            "confirm_payment": "Thanks, {name}. We received your {originalAmount} {originalCurrency} payment ({amount}, {currency}).",
+            "confirm_payment_two": "Thanks, {name}. We received your {amount} {currency} payment."
         },
         "passwords": {
             "reset": "Your password has been reset!",
@@ -78,135 +83,7 @@ export default {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
-        "frontend": {
-            "register-client": {
-                "Bienvenido": "Welcome",
-                "Usted_no_las_pinta": "You paint it for us, we color it and we even execute it",
-                "selecciona_tipo_proyecto": "1. Select the type of project you want to start.",
-                "selecciona_categoria_proyecto": "2. Now select the platforms you need.",
-                "selecciona_agregar_brief": "3. Tell us what your project is about, please click on add brief.",
-                "mostrar_info": "Show Info",
-                "siguiente_paso": "Next Step",
-                "agregar_brief": "Add Brief",
-                "text_paso_1": "If you need a name or a creative image that represents you corporately to your clients...",
-                "text_paso_2": "If you need creative support with a brief for a virtual or physical event, or some activation in points of sale ...",
-                "text_paso_3": "If you need help positioning your brand, managing your social networks or your marketing budget investment in a guide ...",
-                "text_paso_4": "Or you have a question about transformation and digital competitiveness in your company or startup...",
-                "text_paso_5": "\"...You paint it for us, we color it and we even execute it...\"",
-                "text_paso_6": "Start by selecting the type of project you want to carry out",
-                "boton_omitir_tour": "Skip tour",
-                "boton_anterior_tour": "Previous",
-                "boton_siguiente_tour": "Next",
-                "boton_finalizar_tour": "Finish",
-                "equipo_encardo": "Team",
-                "categorias_seleccionadas": "Selected Categories:",
-                "msj_tooltip_info_select_category": "Keep in mind that you can select one of several categories, in the brief you tell us what the purpose is",
-                "msj_tooltip_titulo_agregar_brief": "It is important for us that you take time filling out the questions in the brief, in this way we can respond to your request more accurately. click add brief.",
-                "nombre_proyecto_registro": "Project Name",
-                "error_name_project": "Please enter a valid project name",
-                "requerido_name_project": "The name of the project is required",
-                "titulo_error_no_hay_brief": "The brief cannot be empty, answer a question",
-                "titulo_success_se_agrego_brief": "Brief information added correctly",
-                "titulo_observacioness": "Observation"
-            },
-            "chat": {
-                "chat-floating-customer": {
-                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "If you have any questions or need help, do not hesitate to contact us.",
-                    "titulo_horario_disponible": "Hours available: ",
-                    "titulo_horario_disponible_a": " to "
-                }
-            },
-            "projects": {
-                "all-projects": {
-                    "titulo_pestana_projects_company": "Projects",
-                    "titulo_header_tabla_proyecto": "All projects registered to this company",
-                    "btn_nuevo_proyecto": "New Project",
-                    "titulo_columna_datatable_nombre_proyecto": "Project Name",
-                    "titulo_columna_datatable_imagen": "Image",
-                    "titulo_columna_datatable_estado": "State",
-                    "titulo_columna_datatable_registrado_por": "Registered by",
-                    "titulo_columna_datatable_tipo_proyecto": "Project Type",
-                    "titulo_columna_datatable_categorias": "Categories"
-                },
-                "new-project": {
-                    "confimar_registro_alerta_title": "Confirm",
-                    "confimar_registro_alerta_mensaje": "Are you sure to create a new project?",
-                    "confimar_registro_alerta_aceptar": "Accept",
-                    "confimar_registro_alerta_cancelar": "Cancel",
-                    "titulo_loading_creando_empresa": "Creating Project...",
-                    "title_muy_bien_toast": "Success",
-                    "title_mensaje_success_toast_register": "Successfully created project",
-                    "btn_crear_nuevo_proyecto": "Create new project"
-                }
-            },
-            "brief": {
-                "fecha_actual": "Date now",
-                "title_nota": "Note",
-                "lo_sentimos": "We are sorry",
-                "err_no_brief": "At the moment there is no brief",
-                "confimar_registro_alerta_mensaje": "Are you sure you delete this recording?",
-                "confimar_registro_alerta_mensaje_guardar_grabacion": "Are you sure to save this recording?",
-                "confimar_registro_alerta_aceptar": "Accept",
-                "confimar_registro_alerta_cancelar": "Cancel",
-                "confimar_registro_alerta_title": "Confirm",
-                "title_muy_bien_toast": "Success",
-                "title_mensaje_success_toast_grabacion_guardada": "Saved Recording",
-                "title_mensaje_success_toast_grabacion_eliminada": "Recording Deleted",
-                "titulo_grabadora_tooltip": "Add voice notes to your reply. Per question you can send 2 voice notes.",
-                "titulo_grabadora_intentos": "Attempts",
-                "titulo_grabadora_la_duracion_de_cada_nota": "The duration of each voice note is:",
-                "titulo_grabadora_grabacion": "Recording ",
-                "titulo_grabadora_clic_escuchar_guardar": "(Click to listen and save)"
-            },
-            "landing": {
-                "inicio": "Home",
-                "Quienes Somos": "About us",
-                "Proyectos": "Projects",
-                "Solicitar Proyecto": "Request Project"
-            },
-            "email": {
-                "new-project-customer": {
-                    "hola_cliente": "Hello",
-                    "has_registrado_nuevo_proyecto": "You have registered a new project!",
-                    "contenido_texto_creategica": "we have the knowledge, understanding and experience in areas of advertising creativity, development and technology to carry out your project. Thanks for trusting us.",
-                    "en_conector": "At",
-                    "este_es_resumen_proyecto": "This is the summary of your project:",
-                    "nombre_del_proyecto": "Project Name:",
-                    "tipo_de_proyecto": "Project Type:",
-                    "caracteristicas": "Characteristics:",
-                    "observación": "Observation:",
-                    "ninguna_observacion": "No Observation",
-                    "ver_proyecto": "Open Project",
-                    "pronto_nos_pondremos_contacto": "We will contact you soon to define the development process of your project.",
-                    "gracias": "Thanks",
-                    "equipo": "Team"
-                }
-            }
-        },
-        "pagination": {
-            "previous": "&laquo; Previous",
-            "next": "Next &raquo;"
-        },
         "backend": {
-            "profile": {
-                "changed-password": {
-                    "titulo_cambiar_contrasena": "Change Password",
-                    "texto_ingrese_contrasena": "Please enter your new password.",
-                    "titulo_nueva_contrasena": "New Password",
-                    "titulo_confirmar_contrasena": "Confirm Password",
-                    "btn_cambiar_contrasena": "Change Password",
-                    "mensaje_confirmar_contrasena": "Password does not match",
-                    "texto_contrasena_requerida": "Password is required",
-                    "texto_contrasena_confirmar_requerida": "You must confirm the password",
-                    "texto_alerta_confirmar": "Confirmar",
-                    "texto_alerta_esta_seguro_contrasena": "Are you sure to change the password?",
-                    "btn_alerta_cancelar": "Cancel",
-                    "btn_alerta_aceptar": "Accept",
-                    "toast_error_mensaje": "Can't change password",
-                    "toast_susscess_mensaje": "Password Updated Correctly",
-                    "toast_susscess_titulo": "¡Success!"
-                }
-            },
             "email": {
                 "register-company": {
                     "hola": "Hey",
@@ -227,7 +104,71 @@ export default {
                     "y": "and"
                 }
             },
+            "provider": {
+                "provider": {
+                    "todos_los_proveedores": "All Providers",
+                    "proveedores": "Providers",
+                    "titulo_tabla": "Providers registered in the system",
+                    "exportar_boton": "Export",
+                    "registrar_proveedor": "New Provider",
+                    "column_empresa": "Company",
+                    "column_representante": "Manager",
+                    "column_email_empresa": "Company Email",
+                    "column_telefono_empresa": "Company Phone",
+                    "column_pais": "Country",
+                    "column_ciudad": "City",
+                    "column_estado": "State"
+                },
+                "create-provider": []
+            },
+            "profile": {
+                "changed-password": {
+                    "titulo_cambiar_contrasena": "Change Password",
+                    "texto_ingrese_contrasena": "Please enter your new password.",
+                    "titulo_nueva_contrasena": "New Password",
+                    "titulo_confirmar_contrasena": "Confirm Password",
+                    "btn_cambiar_contrasena": "Change Password",
+                    "mensaje_confirmar_contrasena": "Password does not match",
+                    "texto_contrasena_requerida": "Password is required",
+                    "texto_contrasena_confirmar_requerida": "You must confirm the password",
+                    "texto_alerta_confirmar": "Confirmar",
+                    "texto_alerta_esta_seguro_contrasena": "Are you sure to change the password?",
+                    "btn_alerta_cancelar": "Cancel",
+                    "btn_alerta_aceptar": "Accept",
+                    "toast_error_mensaje": "Can't change password",
+                    "toast_susscess_mensaje": "Password Updated Correctly",
+                    "toast_susscess_titulo": "¡Success!",
+                    "titulo_perfil": "Profile",
+                    "btn_titulo_editar": "Edit",
+                    "btn_titulo_contrasena": "Password",
+                    "btn_titulo_cancelar": "Cancel",
+                    "titulo_acerca_de": "About: ",
+                    "titulo_numero_identificacion": "Nº Ident:",
+                    "titulo_tipo_identificacion": "Type:",
+                    "titulo_rol": "Rol:",
+                    "titulo_pais": "Country:",
+                    "titulo_telefono": "Phone:",
+                    "titulo_direccion": "Address:",
+                    "titulo_cumpleanos": "Birthday:",
+                    "titulo_desde": "Since:",
+                    "titulo_tooltip_fecha_registro": "Date of registration in the system",
+                    "titulo_estado_activo": "Active",
+                    "titulo_estado_inactivo": "Inactive"
+                }
+            },
             "customer": {
+                "customers": {
+                    "titulo_tabla": "Customers registered in the system",
+                    "exportar_boton": "Export",
+                    "registrar_empresa": "New Customer",
+                    "column_empresa": "Company",
+                    "column_representante": "Manager",
+                    "column_email_empresa": "Company Email",
+                    "column_telefono_empresa": "Company Phone",
+                    "column_pais": "Country",
+                    "column_ciudad": "City",
+                    "column_estado": "State"
+                },
                 "create-customers": {
                     "titilo_nuevo_cliente": "New Customer",
                     "titulo_wizard_datos_empresa": "Company Information",
@@ -325,18 +266,6 @@ export default {
                 },
                 "profile-customer": {
                     "titilo_perfil_cliente": "Profile"
-                },
-                "customers": {
-                    "titulo_tabla": "Customers registered in the system",
-                    "exportar_boton": "Export",
-                    "registrar_empresa": "New Customer",
-                    "column_empresa": "Company",
-                    "column_representante": "Manager",
-                    "column_email_empresa": "Company Email",
-                    "column_telefono_empresa": "Company Phone",
-                    "column_pais": "Country",
-                    "column_ciudad": "City",
-                    "column_estado": "State"
                 }
             }
         },
@@ -451,6 +380,157 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "pagination": {
+            "previous": "&laquo; Previous",
+            "next": "Next &raquo;"
+        },
+        "frontend": {
+            "email": {
+                "new-project-customer": {
+                    "hola_cliente": "Hello",
+                    "has_registrado_nuevo_proyecto": "You have registered a new project!",
+                    "contenido_texto_creategica": "we have the knowledge, understanding and experience in areas of advertising creativity, development and technology to carry out your project. Thanks for trusting us.",
+                    "en_conector": "At",
+                    "este_es_resumen_proyecto": "This is the summary of your project:",
+                    "nombre_del_proyecto": "Project Name:",
+                    "tipo_de_proyecto": "Project Type:",
+                    "caracteristicas": "Characteristics:",
+                    "observación": "Observation:",
+                    "ninguna_observacion": "No Observation",
+                    "ver_proyecto": "Open Project",
+                    "pronto_nos_pondremos_contacto": "We will contact you soon to define the development process of your project.",
+                    "gracias": "Thanks",
+                    "equipo": "Team"
+                }
+            },
+            "chat": {
+                "chat-floating-customer": {
+                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "If you have any questions or need help, do not hesitate to contact us.",
+                    "titulo_horario_disponible": "Hours available: ",
+                    "titulo_horario_disponible_a": " to "
+                }
+            },
+            "projects": {
+                "all-projects": {
+                    "titulo_pestana_projects_company": "Projects",
+                    "titulo_header_tabla_proyecto": "All projects registered to this company",
+                    "btn_nuevo_proyecto": "New Project",
+                    "titulo_columna_datatable_nombre_proyecto": "Project Name",
+                    "titulo_columna_datatable_imagen": "Image",
+                    "titulo_columna_datatable_estado": "State",
+                    "titulo_columna_datatable_registrado_por": "Registered by",
+                    "titulo_columna_datatable_tipo_proyecto": "Project Type",
+                    "titulo_columna_datatable_categorias": "Categories"
+                },
+                "new-project": {
+                    "confimar_registro_alerta_title": "Confirm",
+                    "confimar_registro_alerta_mensaje": "Are you sure to create a new project?",
+                    "confimar_registro_alerta_aceptar": "Accept",
+                    "confimar_registro_alerta_cancelar": "Cancel",
+                    "titulo_loading_creando_empresa": "Creating Project...",
+                    "title_muy_bien_toast": "Success",
+                    "title_mensaje_success_toast_register": "Successfully created project",
+                    "btn_crear_nuevo_proyecto": "Create new project"
+                }
+            },
+            "register-client": {
+                "Bienvenido": "Welcome",
+                "Usted_no_las_pinta": "You paint it for us, we color it and we even execute it",
+                "selecciona_tipo_proyecto": "1. Select the type of project you want to start.",
+                "selecciona_categoria_proyecto": "2. Now select the platforms you need.",
+                "selecciona_agregar_brief": "3. Tell us what your project is about, please click on add brief.",
+                "mostrar_info": "Show Info",
+                "siguiente_paso": "Next Step",
+                "agregar_brief": "Add Brief",
+                "text_paso_1": "If you need a name or a creative image that represents you corporately to your clients...",
+                "text_paso_2": "If you need creative support with a brief for a virtual or physical event, or some activation in points of sale ...",
+                "text_paso_3": "If you need help positioning your brand, managing your social networks or your marketing budget investment in a guide ...",
+                "text_paso_4": "Or you have a question about transformation and digital competitiveness in your company or startup...",
+                "text_paso_5": "\"...You paint it for us, we color it and we even execute it...\"",
+                "text_paso_6": "Start by selecting the type of project you want to carry out",
+                "boton_omitir_tour": "Skip tour",
+                "boton_anterior_tour": "Previous",
+                "boton_siguiente_tour": "Next",
+                "boton_finalizar_tour": "Finish",
+                "equipo_encardo": "Team",
+                "categorias_seleccionadas": "Selected Categories:",
+                "msj_tooltip_info_select_category": "Keep in mind that you can select one of several categories, in the brief you tell us what the purpose is",
+                "msj_tooltip_titulo_agregar_brief": "It is important for us that you take time filling out the questions in the brief, in this way we can respond to your request more accurately. click add brief.",
+                "nombre_proyecto_registro": "Project Name",
+                "error_name_project": "Please enter a valid project name",
+                "requerido_name_project": "The name of the project is required",
+                "titulo_error_no_hay_brief": "The brief cannot be empty, answer a question",
+                "titulo_success_se_agrego_brief": "Brief information added correctly",
+                "titulo_observacioness": "Observation"
+            },
+            "landing": {
+                "inicio": "Home",
+                "Quienes Somos": "About us",
+                "Proyectos": "Projects",
+                "Solicitar Proyecto": "Request Project"
+            },
+            "brief": {
+                "fecha_actual": "Date now",
+                "title_nota": "Note",
+                "lo_sentimos": "We are sorry",
+                "err_no_brief": "At the moment there is no brief",
+                "confimar_registro_alerta_mensaje": "Are you sure you delete this recording?",
+                "confimar_registro_alerta_mensaje_guardar_grabacion": "Are you sure to save this recording?",
+                "confimar_registro_alerta_aceptar": "Accept",
+                "confimar_registro_alerta_cancelar": "Cancel",
+                "confimar_registro_alerta_title": "Confirm",
+                "title_muy_bien_toast": "Success",
+                "title_mensaje_success_toast_grabacion_guardada": "Saved Recording",
+                "title_mensaje_success_toast_grabacion_eliminada": "Recording Deleted",
+                "titulo_grabadora_tooltip": "Add voice notes to your reply. Per question you can send 2 voice notes.",
+                "titulo_grabadora_intentos": "Attempts",
+                "titulo_grabadora_la_duracion_de_cada_nota": "The duration of each voice note is:",
+                "titulo_grabadora_grabacion": "Recording ",
+                "titulo_grabadora_clic_escuchar_guardar": "(Click to listen and save)"
+            }
+        },
+        "payment": {
+            "homePayment": {
+                "title_card_header_payment": "Make a payment, {name}",
+                "title_platform_payment": "Select the desired payment platform",
+                "select_label": "To select",
+                "selected_label": "Selected",
+                "deselect_label": "Uncheck",
+                "input_value_payment": "Amount to be paid",
+                "input_value_error": "Please enter a valid value",
+                "input_value_required": "The value to cancel is required",
+                "select_badge_payment": "Badge",
+                "select_badge_required": "Select currency",
+                "select_badge_placeholder": "Select currency",
+                "buttom_payment": "Pay",
+                "error_serve_payment": "Problems when making the payment, try again later.",
+                "text_paypal": "You will be redirected to the PayPal payment page.",
+                "text_card_details": "Card details",
+                "text_data_user": "Personal information",
+                "text_data_user_select": "Identification type",
+                "input_number_card_payment": "Card number",
+                "input_number_card_payment_error": "Enter a valid card number",
+                "input_number_card_payment_required": "The card number is required",
+                "input_cvc_payment_error": "Enter a valid CVC number",
+                "input_cvc_payment_required": "CVC number is required",
+                "input_mm_payment_error": "Enter a valid month",
+                "input_mm_payment_required": "The month is required",
+                "input_yy_payment_error": "Enter a valid year",
+                "input_yy_payment_required": "The year is required",
+                "input_name_payment": "Your name",
+                "input_name_payment_error": "Please enter a valid name",
+                "input_name_payment_required": "The name is required",
+                "input_email_payment": "Your email",
+                "input_email_payment_error": "Enter a valid email",
+                "input_email_payment_required": "Email is required",
+                "input_identification_mercado_pago": "Your identification",
+                "input_identification_mercado_pago_error": "Please enter a valid identification number",
+                "input_identification_mercado_pago_required": "The identification number is required",
+                "select_card_type_payment": "Card type",
+                "select_card_type_required": "Select the type of card",
+                "select_card_type_placeholder": "select"
+            }
         }
     },
     "es": {
@@ -519,127 +599,12 @@ export default {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
             "hola": "Hola",
-            "gracias": "Gracias"
-        },
-        "passwords": {
-            "reset": "¡Tu contraseña ha sido restablecida!",
-            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
-            "throttled": "Por favor espera antes de intentar de nuevo.",
-            "token": "El token de recuperación de contraseña es inválido.",
-            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
-        },
-        "auth": {
-            "failed": "Estas credenciales no coinciden con nuestros registros.",
-            "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en {seconds} segundos."
-        },
-        "frontend": {
-            "register-client": {
-                "Bienvenido": "Bienvenido",
-                "Usted_no_las_pinta": "Usted no las pinta, nosotros se la coloreamos y hasta se la ejecutamos",
-                "selecciona_tipo_proyecto": "1. Selecciona el tipo de proyecto que deseas iniciar.",
-                "selecciona_categoria_proyecto": "2. Ahora selecciona las plataformas que necesitas.",
-                "selecciona_agregar_brief": "3. Cuentanos de que se trata tu proyecto, por favor clic en agregar brief.",
-                "mostrar_info": "Mostrar Info",
-                "siguiente_paso": "Siguiente Paso",
-                "agregar_brief": "Agregar Brief",
-                "text_paso_1": "Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...",
-                "text_paso_2": "Si necesita apoyo creativo con un brief para un evento virtual, fisico, o alguna activación en puntos de venta...",
-                "text_paso_3": "Si necesita ayuda de posicionamiento de su marca, gestionando sus redes sociales o su inversión presupuestal de marketing en pauta...",
-                "text_paso_4": "O tiene alguna consulta en transformación y competitividad digital en su compañia o startup...",
-                "text_paso_5": "\"...Usted nos la pinta, nosotros se la coloreamos y hasta se la ejecutamos...\"",
-                "text_paso_6": "Comience seleccionando el tipo de proyecto que desea realizar",
-                "boton_omitir_tour": "Omitir guía",
-                "boton_anterior_tour": "Anterior",
-                "boton_siguiente_tour": "Siguiente",
-                "boton_finalizar_tour": "Finalizar",
-                "equipo_encardo": "Equipo Encargado",
-                "categorias_seleccionadas": "Categorías Seleccionadas:",
-                "msj_tooltip_info_select_category": "Ten en cuenta que puedes seleccionar una varias categorías, en el brief nos cuentas cual es el proposito",
-                "msj_tooltip_titulo_agregar_brief": "Es importante para nosotros que tomes tiempo llenando las preguntas del brief, de esta menera podremos dar respuesta a tu solicitud de manera mas exacta. Clic en agregar brief.",
-                "nombre_proyecto_registro": "Nombre del Proyecto",
-                "error_name_project": "Ingrese un nombre de proyecto válido",
-                "requerido_name_project": "El nombre del proyecto es requerido",
-                "titulo_error_no_hay_brief": "El brief no puede estar vacio, responda una pregunta",
-                "titulo_success_se_agrego_brief": "Brief registrado correctamente",
-                "titulo_observacioness": "Observaciones"
-            },
-            "chat": {
-                "chat-floating-customer": {
-                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "Si tienes alguna duda o necesitas ayuda, no dudes en contáctarnos.",
-                    "titulo_horario_disponible": "Horario disponible: ",
-                    "titulo_horario_disponible_a": " a "
-                }
-            },
-            "projects": {
-                "all-projects": {
-                    "titulo_pestana_projects_company": "Proyectos",
-                    "titulo_header_tabla_proyecto": "Todos los proyectos registrados a esta empresa",
-                    "btn_nuevo_proyecto": "Nuevo Proyecto",
-                    "titulo_columna_datatable_nombre_proyecto": "Nombre del Proyecto",
-                    "titulo_columna_datatable_imagen": "Imagen",
-                    "titulo_columna_datatable_estado": "Estado",
-                    "titulo_columna_datatable_registrado_por": "Registrado por",
-                    "titulo_columna_datatable_tipo_proyecto": "Tipo Proyecto",
-                    "titulo_columna_datatable_categorias": "Categorías"
-                },
-                "new-project": {
-                    "confimar_registro_alerta_title": "Confirmar",
-                    "confimar_registro_alerta_mensaje": "¿Esta seguro de crear un nuevo proyecto?",
-                    "confimar_registro_alerta_aceptar": "Aceptar",
-                    "confimar_registro_alerta_cancelar": "Cancelar",
-                    "titulo_loading_creando_empresa": "Creando Proyecto...",
-                    "title_muy_bien_toast": "¡Muy bien!",
-                    "title_mensaje_success_toast_register": "Proyecto creado exitosamente",
-                    "btn_crear_nuevo_proyecto": "Crear nuevo proyecto"
-                }
-            },
-            "brief": {
-                "fecha_actual": "Fecha",
-                "title_nota": "Nota",
-                "lo_sentimos": "Lo sentimos",
-                "err_no_brief": "Por el momento no hay brief",
-                "confimar_registro_alerta_mensaje": "¿Estas seguro esta eliminar esta grabación?",
-                "confimar_registro_alerta_mensaje_guardar_grabacion": "¿Estas seguro de guardar esta grabación?",
-                "confimar_registro_alerta_aceptar": "Aceptar",
-                "confimar_registro_alerta_cancelar": "Cancelar",
-                "confimar_registro_alerta_title": "Confirmar",
-                "title_muy_bien_toast": "¡Todo bien!",
-                "title_mensaje_success_toast_grabacion_guardada": "Grabación Guardada",
-                "title_mensaje_success_toast_grabacion_eliminada": "Grabación Eliminada",
-                "titulo_grabadora_tooltip": "Agrega notas de voz a tu respuesta. Por pregunta puedes enviar 2 notas de voz.",
-                "titulo_grabadora_intentos": "Intentos",
-                "titulo_grabadora_la_duracion_de_cada_nota": "La duración de cada nota de voz es de:",
-                "titulo_grabadora_grabacion": "Grabación ",
-                "titulo_grabadora_clic_escuchar_guardar": "(Clic para escuchar y guardar)"
-            },
-            "landing": {
-                "inicio": "Inicio",
-                "Quienes Somos": "Quiénes Somos",
-                "Proyectos": "Proyectos",
-                "Solicitar Proyecto": "Solicitar Proyecto"
-            },
-            "email": {
-                "new-project-customer": {
-                    "hola_cliente": "Hola",
-                    "has_registrado_nuevo_proyecto": "Has registrado un nuevo proyecto!",
-                    "contenido_texto_creategica": "contamos con el conocimiento, entendimiento y experiencia en áreas de creatividad publicitaria, desarrollo y tecnología para sacar adelante tu proyecto. Gracias por confiar en nosotros.",
-                    "en_conector": "En",
-                    "este_es_resumen_proyecto": "Este es el resumen de tu proyecto:",
-                    "nombre_del_proyecto": "Nombre del Proyecto:",
-                    "tipo_de_proyecto": "Tipo de Proyecto:",
-                    "caracteristicas": "Características:",
-                    "observación": "Observación:",
-                    "ninguna_observacion": "Ningúna Observación",
-                    "ver_proyecto": "Ver Proyecto",
-                    "pronto_nos_pondremos_contacto": "Pronto nos pondremos en contacto contigo para definir el proceso de desarrollo de tu proyecto.",
-                    "gracias": "Gracias",
-                    "equipo": "Equipo"
-                }
-            }
-        },
-        "pagination": {
-            "previous": "&laquo; Anterior",
-            "next": "Siguiente &raquo;"
+            "gracias": "Gracias",
+            "no_approval_platform_payment": "No podemos recuperar su plataforma de pago. Por favor, inténtalo de nuevo.",
+            "cancel_payment": "Cancelaste el pago",
+            "no_confirm_payment": "No podemos capturar su pago. por favor, inténtalo de nuevo",
+            "confirm_payment": "Gracias, {name}. Nosotros recibimos {originalAmount} {originalCurrency} de tu pago ({amount}, {currency}).",
+            "confirm_payment_two": "Gracias, {name}. Nosotros recibimos {amount} {currency} de tu pago."
         },
         "validation-inline": {
             "accepted": "Este campo debe ser aceptado.",
@@ -752,26 +717,18 @@ export default {
                 }
             }
         },
+        "passwords": {
+            "reset": "¡Tu contraseña ha sido restablecida!",
+            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
+            "throttled": "Por favor espera antes de intentar de nuevo.",
+            "token": "El token de recuperación de contraseña es inválido.",
+            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
+        },
+        "auth": {
+            "failed": "Estas credenciales no coinciden con nuestros registros.",
+            "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en {seconds} segundos."
+        },
         "backend": {
-            "profile": {
-                "changed-password": {
-                    "titulo_cambiar_contrasena": "Cambiar Contraseña",
-                    "texto_ingrese_contrasena": "Por favor, ingrese su nueva contraseña.",
-                    "titulo_nueva_contrasena": "Nueva Contraseña",
-                    "titulo_confirmar_contrasena": "Confirmar Contraseña",
-                    "btn_cambiar_contrasena": "Cambiar Contraseña",
-                    "mensaje_confirmar_contrasena": "La contraseña no coincide",
-                    "texto_contrasena_requerida": "La contraseña es requerida",
-                    "texto_contrasena_confirmar_requerida": "Debes confirmar la contraseña",
-                    "texto_alerta_confirmar": "Confirmar",
-                    "texto_alerta_esta_seguro_contrasena": "¿Esta seguro de cambiar la contraseña?",
-                    "btn_alerta_cancelar": "Cancelar",
-                    "btn_alerta_aceptar": "Aceptar",
-                    "toast_error_mensaje": "No se puede cambiar la contraseña",
-                    "toast_susscess_mensaje": "Contraseña Actualizada Correctamente",
-                    "toast_susscess_titulo": "¡Muy Bien!"
-                }
-            },
             "email": {
                 "register-company": {
                     "hola": "Hola",
@@ -792,7 +749,79 @@ export default {
                     "y": "y"
                 }
             },
+            "provider": {
+                "provider": {
+                    "todos_los_proveedores": "Todos los Provedores",
+                    "proveedores": "Proveedores",
+                    "titulo_tabla": "Proveedores registrados en el sistema",
+                    "exportar_boton": "Exportar",
+                    "registrar_proveedor": "Nuevo Proveedor",
+                    "column_empresa": "Empresa",
+                    "column_representante": "Representante",
+                    "column_email_empresa": "Email Empresa",
+                    "column_telefono_empresa": "Teléfono Empresa",
+                    "column_pais": "Pais",
+                    "column_ciudad": "Ciudad",
+                    "column_estado": "Estado"
+                },
+                "create-provider": {
+                    "titilo_nuevo_proveedor": "Nuevo Proveedor",
+                    "titulo_wizard_datos_empresa": "Datos de la empresa",
+                    "titulo_wizard_datos_representante": "Datos del Representante",
+                    "titulo_wizard_confirmar_datos": "Confirmar Datos",
+                    "btn_titulo_wizard_siguiente": "Siguiente",
+                    "btn_titulo_wizard_volver": "Anterior",
+                    "btn_titulo_wizard_create_empresa": "Crear Empresa"
+                }
+            },
+            "profile": {
+                "changed-password": {
+                    "titulo_cambiar_contrasena": "Cambiar Contraseña",
+                    "texto_ingrese_contrasena": "Por favor, ingrese su nueva contraseña.",
+                    "titulo_nueva_contrasena": "Nueva Contraseña",
+                    "titulo_confirmar_contrasena": "Confirmar Contraseña",
+                    "btn_cambiar_contrasena": "Cambiar Contraseña",
+                    "mensaje_confirmar_contrasena": "La contraseña no coincide",
+                    "texto_contrasena_requerida": "La contraseña es requerida",
+                    "texto_contrasena_confirmar_requerida": "Debes confirmar la contraseña",
+                    "texto_alerta_confirmar": "Confirmar",
+                    "texto_alerta_esta_seguro_contrasena": "¿Esta seguro de cambiar la contraseña?",
+                    "btn_alerta_cancelar": "Cancelar",
+                    "btn_alerta_aceptar": "Aceptar",
+                    "toast_error_mensaje": "No se puede cambiar la contraseña",
+                    "toast_susscess_mensaje": "Contraseña Actualizada Correctamente",
+                    "toast_susscess_titulo": "¡Muy Bien!",
+                    "titulo_perfil": "Perfil",
+                    "btn_titulo_editar": "Editar",
+                    "btn_titulo_contrasena": "Contraseña",
+                    "btn_titulo_cancelar": "Cancelar",
+                    "titulo_acerca_de": "Acerca de: ",
+                    "titulo_numero_identificacion": "Nº Ident:",
+                    "titulo_tipo_identificacion": "Tipo de Ident:",
+                    "titulo_rol": "Rol:",
+                    "titulo_pais": "País:",
+                    "titulo_telefono": "Teléfono:",
+                    "titulo_direccion": "Dirección:",
+                    "titulo_cumpleanos": "Cumpleaños:",
+                    "titulo_desde": "Desde:",
+                    "titulo_tooltip_fecha_registro": "Fecha de registro en el sistema",
+                    "titulo_estado_activo": "Activo",
+                    "titulo_estado_inactivo": "Inactivo"
+                }
+            },
             "customer": {
+                "customers": {
+                    "titulo_tabla": "Clientes registrados en el sistema",
+                    "exportar_boton": "Exportar",
+                    "registrar_empresa": "Nuevo Cliente",
+                    "column_empresa": "Empresa",
+                    "column_representante": "Representante",
+                    "column_email_empresa": "Email Empresa",
+                    "column_telefono_empresa": "Teléfono Empresa",
+                    "column_pais": "Pais",
+                    "column_ciudad": "Ciudad",
+                    "column_estado": "Estado"
+                },
                 "create-customers": {
                     "titilo_nuevo_cliente": "Nuevo Cliente",
                     "titulo_wizard_datos_empresa": "Datos de la empresa",
@@ -890,18 +919,6 @@ export default {
                 },
                 "profile-customer": {
                     "titilo_perfil_cliente": "Perfil"
-                },
-                "customers": {
-                    "titulo_tabla": "Clientes registrados en el sistema",
-                    "exportar_boton": "Exportar",
-                    "registrar_empresa": "Nuevo Cliente",
-                    "column_empresa": "Empresa",
-                    "column_representante": "Representante",
-                    "column_email_empresa": "Email Empresa",
-                    "column_telefono_empresa": "Teléfono Empresa",
-                    "column_pais": "Pais",
-                    "column_ciudad": "Ciudad",
-                    "column_estado": "Estado"
                 }
             }
         },
@@ -1051,6 +1068,157 @@ export default {
                 "title": "título",
                 "username": "usuario",
                 "year": "año"
+            }
+        },
+        "pagination": {
+            "previous": "&laquo; Anterior",
+            "next": "Siguiente &raquo;"
+        },
+        "frontend": {
+            "email": {
+                "new-project-customer": {
+                    "hola_cliente": "Hola",
+                    "has_registrado_nuevo_proyecto": "Has registrado un nuevo proyecto!",
+                    "contenido_texto_creategica": "contamos con el conocimiento, entendimiento y experiencia en áreas de creatividad publicitaria, desarrollo y tecnología para sacar adelante tu proyecto. Gracias por confiar en nosotros.",
+                    "en_conector": "En",
+                    "este_es_resumen_proyecto": "Este es el resumen de tu proyecto:",
+                    "nombre_del_proyecto": "Nombre del Proyecto:",
+                    "tipo_de_proyecto": "Tipo de Proyecto:",
+                    "caracteristicas": "Características:",
+                    "observación": "Observación:",
+                    "ninguna_observacion": "Ningúna Observación",
+                    "ver_proyecto": "Ver Proyecto",
+                    "pronto_nos_pondremos_contacto": "Pronto nos pondremos en contacto contigo para definir el proceso de desarrollo de tu proyecto.",
+                    "gracias": "Gracias",
+                    "equipo": "Equipo"
+                }
+            },
+            "chat": {
+                "chat-floating-customer": {
+                    "titulo_si_tiene_duda_ayuda_chat_floating_customer": "Si tienes alguna duda o necesitas ayuda, no dudes en contáctarnos.",
+                    "titulo_horario_disponible": "Horario disponible: ",
+                    "titulo_horario_disponible_a": " a "
+                }
+            },
+            "projects": {
+                "all-projects": {
+                    "titulo_pestana_projects_company": "Proyectos",
+                    "titulo_header_tabla_proyecto": "Todos los proyectos registrados a esta empresa",
+                    "btn_nuevo_proyecto": "Nuevo Proyecto",
+                    "titulo_columna_datatable_nombre_proyecto": "Nombre del Proyecto",
+                    "titulo_columna_datatable_imagen": "Imagen",
+                    "titulo_columna_datatable_estado": "Estado",
+                    "titulo_columna_datatable_registrado_por": "Registrado por",
+                    "titulo_columna_datatable_tipo_proyecto": "Tipo Proyecto",
+                    "titulo_columna_datatable_categorias": "Categorías"
+                },
+                "new-project": {
+                    "confimar_registro_alerta_title": "Confirmar",
+                    "confimar_registro_alerta_mensaje": "¿Esta seguro de crear un nuevo proyecto?",
+                    "confimar_registro_alerta_aceptar": "Aceptar",
+                    "confimar_registro_alerta_cancelar": "Cancelar",
+                    "titulo_loading_creando_empresa": "Creando Proyecto...",
+                    "title_muy_bien_toast": "¡Muy bien!",
+                    "title_mensaje_success_toast_register": "Proyecto creado exitosamente",
+                    "btn_crear_nuevo_proyecto": "Crear nuevo proyecto"
+                }
+            },
+            "register-client": {
+                "Bienvenido": "Bienvenido",
+                "Usted_no_las_pinta": "Usted no las pinta, nosotros se la coloreamos y hasta se la ejecutamos",
+                "selecciona_tipo_proyecto": "1. Selecciona el tipo de proyecto que deseas iniciar.",
+                "selecciona_categoria_proyecto": "2. Ahora selecciona las plataformas que necesitas.",
+                "selecciona_agregar_brief": "3. Cuentanos de que se trata tu proyecto, por favor clic en agregar brief.",
+                "mostrar_info": "Mostrar Info",
+                "siguiente_paso": "Siguiente Paso",
+                "agregar_brief": "Agregar Brief",
+                "text_paso_1": "Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...",
+                "text_paso_2": "Si necesita apoyo creativo con un brief para un evento virtual, fisico, o alguna activación en puntos de venta...",
+                "text_paso_3": "Si necesita ayuda de posicionamiento de su marca, gestionando sus redes sociales o su inversión presupuestal de marketing en pauta...",
+                "text_paso_4": "O tiene alguna consulta en transformación y competitividad digital en su compañia o startup...",
+                "text_paso_5": "\"...Usted nos la pinta, nosotros se la coloreamos y hasta se la ejecutamos...\"",
+                "text_paso_6": "Comience seleccionando el tipo de proyecto que desea realizar",
+                "boton_omitir_tour": "Omitir guía",
+                "boton_anterior_tour": "Anterior",
+                "boton_siguiente_tour": "Siguiente",
+                "boton_finalizar_tour": "Finalizar",
+                "equipo_encardo": "Equipo Encargado",
+                "categorias_seleccionadas": "Categorías Seleccionadas:",
+                "msj_tooltip_info_select_category": "Ten en cuenta que puedes seleccionar una varias categorías, en el brief nos cuentas cual es el proposito",
+                "msj_tooltip_titulo_agregar_brief": "Es importante para nosotros que tomes tiempo llenando las preguntas del brief, de esta menera podremos dar respuesta a tu solicitud de manera mas exacta. Clic en agregar brief.",
+                "nombre_proyecto_registro": "Nombre del Proyecto",
+                "error_name_project": "Ingrese un nombre de proyecto válido",
+                "requerido_name_project": "El nombre del proyecto es requerido",
+                "titulo_error_no_hay_brief": "El brief no puede estar vacio, responda una pregunta",
+                "titulo_success_se_agrego_brief": "Brief registrado correctamente",
+                "titulo_observacioness": "Observaciones"
+            },
+            "landing": {
+                "inicio": "Inicio",
+                "Quienes Somos": "Quiénes Somos",
+                "Proyectos": "Proyectos",
+                "Solicitar Proyecto": "Solicitar Proyecto"
+            },
+            "brief": {
+                "fecha_actual": "Fecha",
+                "title_nota": "Nota",
+                "lo_sentimos": "Lo sentimos",
+                "err_no_brief": "Por el momento no hay brief",
+                "confimar_registro_alerta_mensaje": "¿Estas seguro esta eliminar esta grabación?",
+                "confimar_registro_alerta_mensaje_guardar_grabacion": "¿Estas seguro de guardar esta grabación?",
+                "confimar_registro_alerta_aceptar": "Aceptar",
+                "confimar_registro_alerta_cancelar": "Cancelar",
+                "confimar_registro_alerta_title": "Confirmar",
+                "title_muy_bien_toast": "¡Todo bien!",
+                "title_mensaje_success_toast_grabacion_guardada": "Grabación Guardada",
+                "title_mensaje_success_toast_grabacion_eliminada": "Grabación Eliminada",
+                "titulo_grabadora_tooltip": "Agrega notas de voz a tu respuesta. Por pregunta puedes enviar 2 notas de voz.",
+                "titulo_grabadora_intentos": "Intentos",
+                "titulo_grabadora_la_duracion_de_cada_nota": "La duración de cada nota de voz es de:",
+                "titulo_grabadora_grabacion": "Grabación ",
+                "titulo_grabadora_clic_escuchar_guardar": "(Clic para escuchar y guardar)"
+            }
+        },
+        "payment": {
+            "homePayment": {
+                "title_card_header_payment": "Realizar un pago, {name}",
+                "title_platform_payment": "Seleccione la plataforma de pago deseada",
+                "select_label": "Seleccionar",
+                "selected_label": "Seleccionado",
+                "deselect_label": "Remover",
+                "input_value_payment": "Valor a pagar",
+                "input_value_error": "Ingrese un valor valido",
+                "input_value_required": "El valor a cancelar es requerido",
+                "select_badge_payment": "Divisa",
+                "select_badge_required": "Seleccione la divisa",
+                "select_badge_placeholder": "Seleccione la divisa",
+                "buttom_payment": "Pagar",
+                "error_serve_payment": "Problemas al momento de realizar el pago, intente más tarde.",
+                "text_paypal": "Serás redirigido a la página de pago de PayPal.",
+                "text_card_details": "Detalles de la tarjeta",
+                "text_data_user": "Datos personales",
+                "text_data_user_select": "Tipo de identificación",
+                "input_number_card_payment": "Número de tarjeta",
+                "input_number_card_payment_error": "Ingrese un número de tarjeta valido",
+                "input_number_card_payment_required": "El número de tarjeta es requerido",
+                "input_cvc_payment_error": "Ingrese un número de CVC valido",
+                "input_cvc_payment_required": "El número de CVC es requerido",
+                "input_mm_payment_error": "Ingrese un mes valido",
+                "input_mm_payment_required": "El mes es requerido",
+                "input_yy_payment_error": "Ingrese un año valido",
+                "input_yy_payment_required": "El año es requerido",
+                "input_name_payment": "Tu nombre",
+                "input_name_payment_error": "Ingrese un nombre valido",
+                "input_name_payment_required": "El nombre es requerido",
+                "input_email_payment": "Tu Email",
+                "input_email_payment_error": "Ingrese un email valido",
+                "input_email_payment_required": "El email es requerido",
+                "input_identification_mercado_pago": "Tu identificación",
+                "input_identification_mercado_pago_error": "Ingrese un número de identificación valido",
+                "input_identification_mercado_pago_required": "El número de identificación es requerido",
+                "select_card_type_payment": "Tipo de tarjeta",
+                "select_card_type_required": "Seleccione el tipo de tarjeta",
+                "select_card_type_placeholder": "Seleccione"
             }
         }
     }

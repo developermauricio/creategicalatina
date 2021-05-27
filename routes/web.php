@@ -62,11 +62,22 @@ RUTAS PARA EL FRONTEND
 //});
 
 /*RUTAS PARA EL REGISTRO DE USUARIOS*/
+//Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
 Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
 
     Route::get('/dashboard', function () {
         return view('layouts.app');
     });
+
+    // BEGIN: Rutas de pasalelas de pago
+    /* Route::get('/payment', function (){
+        return view('payment.payment');
+    }); */
+    Route::get('/payment', 'HomeController@indexPayment')->name('home.payment');
+    Route::post('/payment/pay', 'Payment\PaymentController@pay')->name('pay');
+    Route::get('/payment/approval', 'Payment\PaymentController@approval')->name('approval');
+    Route::get('/payment/cancelled', 'Payment\PaymentController@cancelled')->name('cancelled');
+    // END: Rutas de pasalelas de pago
 
     /*=============================================
        RUTAS PARA EL BACKEND

@@ -23,6 +23,10 @@ Vue.use(Vuesax);
 import SmartTable from 'vuejs-smart-table'
 Vue.use(SmartTable)
 
+import Vue from 'vue';
+import money from 'v-money';
+Vue.use(money, {precision: 4});
+
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
@@ -43,6 +47,15 @@ Vue.component('create-new-provider', require('./components/backend/pages/provide
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+// BEGIN: view Payment Platform
+Vue.component('home-payment', require('./components/payment/HomePayment.vue').default);
+Vue.component('paypal-component', require('./components/payment/componentsPayment/PayPalComponent.vue').default);
+Vue.component('stripe-component', require('./components/payment/componentsPayment/StripeComponent.vue').default);
+Vue.component('secure-stripe-component', require('./components/payment/stripe/SecureComponent.vue').default);
+Vue.component('mercadopago-component', require('./components/payment/componentsPayment/MercadoPagoComponent.vue').default);
+Vue.component('payu-component', require('./components/payment/componentsPayment/PayUComponent.vue').default);
+// END: view Payment Platform
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
