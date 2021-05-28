@@ -508,8 +508,8 @@ import "vue-phone-number-input/dist/vue-phone-number-input.css";
 import vue2Dropzone from 'vue2-dropzone'
 import Datepicker from 'vuejs-datepicker';
 import {en, es} from 'vuejs-datepicker/dist/locale'
-import VMask from 'v-mask'
-import {VueMaskFilter} from 'v-mask'
+
+
 
 
 export default {
@@ -519,8 +519,6 @@ export default {
         Datepicker,
         VuePhoneNumberInput,
         vue2Dropzone,
-        VMask,
-        VueMaskFilter
     },
     data() {
         return {
