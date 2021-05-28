@@ -1164,6 +1164,7 @@ export default {
         },
         addArchiveCompanyCustomer(file, response) {
             this.urlsArchiveCompany.push({
+                nameArchive: file.name,
                 urlArchive: response.data,
                 uuid: response.uuid,
                 extension: response.extension
