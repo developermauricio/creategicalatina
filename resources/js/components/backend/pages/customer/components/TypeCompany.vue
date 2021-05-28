@@ -680,6 +680,36 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row"  v-if="urlsArchiveCompany.length > 0">
+                                        <div class="col-12">
+                                            <label>Archivos:</label>
+                                        </div>
+                                    </div>
+                                    <div class="content-body" v-if="urlsArchiveCompany.length > 0 ">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 col-md-3" v-for="archives in urlsArchiveCompany" :key="archives.uuid">
+                                                <div class="card shadow-none bg-transparent border-secondary" style="cursor: pointer">
+                                                    <div class="card-body" @click="openModalArchivePopup(archives, archives.nameArchive)">
+                                                        <div class="d-flex align-items-center justify-content-center w-100">
+                                                            <img v-if="archives.extension === 'csv'
+                                                            || archives.extension === 'pdf'
+                                                            || archives.extension === 'docx'
+                                                            || archives.extension === 'pptx'
+                                                            || archives.extension === 'xlsx'
+                                                            || archives.extension === 'jpg'
+                                                            || archives.extension === 'png'" :src="'/images/archives-icons/'+archives.extension+'.png'" alt="file-icon" height="35"/>
+                                                            <img v-else src="/images/archives-icons/archive.png" alt="" height="35">
+                                                        </div>
+                                                        <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
+                                                        <p class="card-text text-center">
+                                                            <small class="text-muted">Vista Previa</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row pt-1">
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <input-form
@@ -735,6 +765,10 @@
                 </div>
             </div>
         </div>
+        <vs-popup fullscreen class="holamundo" :title="titleNameArchive"
+                  :active.sync="popupPreviewActivo">
+            <preview-doc :dataArchiveUrl="dataArchive.urlArchive" :extension="dataArchive.extension"></preview-doc>
+        </vs-popup>
     </div>
 </template>
 
@@ -755,6 +789,7 @@ export default {
         return {
             csrf_token: window.token,
             language: window.lang,
+            titleNameArchive: null,
             languageEmail: null,
             addLogo: false,
             addSocialNetworks: false,
@@ -762,8 +797,17 @@ export default {
             addBiography: false,
             addArchive: false,
             colorLoading: '#3f4f6e',
+            popupPreviewActivo: false,
             urlsArchiveCompany: [],
             companyName:'',
+            dataArchive:[
+                {
+                    urlArchive:null
+                },
+                {
+                    extension:null
+                }
+            ],
             company: {
                 address: '',
                 phone: '',
@@ -864,6 +908,12 @@ export default {
         }
     },
     methods: {
+        openModalArchivePopup(data, nameArchive) {
+            this.dataArchive = data
+            this.popupPreviewActivo = true
+            this.titleNameArchive = nameArchive
+            // this.infoModalRecording = question
+        },
         sendingEvent(file, xhr, formData) {
             console.log('upload file', file.upload);
             formData.append('nameCompany', this.companyName);

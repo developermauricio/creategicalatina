@@ -466,7 +466,7 @@
                                             <div class="col-12 col-lg-3 col-md-3" v-for="archives in urlsArchiveTeam" :key="archives.uuid">
                                                 <div class="card shadow-none bg-transparent border-secondary" style="cursor: pointer">
                                                     <div class="card-body" @click="openModalArchivePopup(archives, archives.nameArchive)">
-                                                        <div class="d-flex align-items-center justify-content-center w-100 pb-2">
+                                                        <div class="d-flex align-items-center justify-content-center w-100">
                                                             <img v-if="archives.extension === 'csv'
                                                             || archives.extension === 'pdf'
                                                             || archives.extension === 'docx'
