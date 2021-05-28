@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Currency;
+use App\Model\paymentPlatform;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,5 +27,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function indexPayment()
+    {
+        $listCurrencies = Currency::all();
+        $listPaymentPlatforms = paymentPlatform::all();
+        $currentUser = $user = auth()->user();
+
+        return view('payment.payment', compact('listCurrencies', 'listPaymentPlatforms', 'currentUser'));
     }
 }

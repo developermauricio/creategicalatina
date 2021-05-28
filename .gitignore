@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/public/js/app-vue.js
+/public/js/app-frontend.js
 .env
 .env.backup
 .phpunit.result.cache
