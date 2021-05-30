@@ -146,6 +146,7 @@ class CreateCustomerController extends Controller
 
             for ($i = 0; $i < count($archives); $i++) {
                 $customer->archive()->create([
+                    'nameArchive' => $archives[$i]->nameArchive,
                     'uuid' => $archives[$i]->uuid,
                     'type' => $archives[$i]->extension,
                     'archive' => $archives[$i]->urlArchive,
@@ -227,6 +228,7 @@ class CreateCustomerController extends Controller
 
             for ($i = 0; $i < count($archives); $i++) {
                 $customer->archive()->create([
+                    'nameArchive' => $archives[$i]->nameArchive,
                     'uuid' => $archives[$i]->uuid,
                     'type' => $archives[$i]->extension,
                     'archive' => $archives[$i]->urlArchive,

@@ -14,4 +14,8 @@ class Team extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function archive(){
+        return $this->morphOne(Archive::class, 'archivable');
+    }
 }

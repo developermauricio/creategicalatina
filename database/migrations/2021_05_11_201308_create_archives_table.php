@@ -15,6 +15,7 @@ class CreateArchivesTable extends Migration
     {
         Schema::create('archives', function (Blueprint $table) {
             $table->id();
+            $table->string('nameArchive')->nullable();
             $table->string('uuid');
             $table->string('archive');
             $table->string('type')->nullable();

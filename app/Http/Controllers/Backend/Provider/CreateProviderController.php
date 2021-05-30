@@ -149,6 +149,7 @@ class CreateProviderController extends Controller
 
             for ($i = 0; $i < count($archives); $i++) {
                 $provider->archive()->create([
+                    'nameArchive' => $archives[$i]->nameArchive,
                     'uuid' => $archives[$i]->uuid,
                     'type' => $archives[$i]->extension,
                     'archive' => $archives[$i]->urlArchive,
@@ -229,6 +230,7 @@ class CreateProviderController extends Controller
 
             for ($i = 0; $i < count($archives); $i++) {
                 $provider->archive()->create([
+                    'nameArchive' => $archives[$i]->nameArchive,
                     'uuid' => $archives[$i]->uuid,
                     'type' => $archives[$i]->extension,
                     'archive' => $archives[$i]->urlArchive,

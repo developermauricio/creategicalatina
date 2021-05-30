@@ -135,11 +135,11 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <input-form
-                                                label="Fecha de Nacimiento"
+                                                :label="$t('backend.team.create-teams.titulo_fecha_nacimiento')"
                                                 id="txtFechaNacimiento"
                                                 pattern="all"
-                                                errorMsg="Ingresa fecha válida"
-                                                requiredMsg="Fecha de nacimiento requerido"
+                                                :errorMsg="$t('backend.team.create-teams.titulo_fecha_valida')"
+                                                :requiredMsg="$t('backend.team.create-teams.titulo_fecha_nacimiento_requerido')"
                                                 :required="true"
                                                 :modelo.sync="user.dataBirth"
                                                 :msgServer.sync="errors.dataBirth"
@@ -221,28 +221,28 @@
                                     <hr>
                                     <div class="row">
                                         <div class="col-12 pb-1">
-                                            <h2>¿En que area de trabajo será asignado?</h2>
+                                            <h2>{{ $t('backend.team.create-teams.titulo_que_area_de_trabajo_asignado') }}</h2>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <input-form
-                                                label="Selecciona area de trabajo"
+                                                :label="$t('backend.team.create-teams.titulo_seleccionado_area_de_trabajo')"
                                                 id="txtTypeWorkArea"
                                                 errorMsg
-                                                requiredMsg="Debes seleccionar una area de trabajo"
+                                                :requiredMsg="$t('backend.team.create-teams.titulo_debe_seleccionar_area_trabajo')"
                                                 :required="false"
                                                 :modelo.sync="teamWorkArea"
                                                 @updatedValue="getPosition"
                                                 :msgServer.sync="errors.teamWorkArea"
                                                 type="multiselect"
-                                                selectLabel="Buscar y seleccionar una area de trabajo"
+                                                :selectLabel="$t('backend.team.create-teams.titulo_buscar_seleccionar_area_trabajo')"
                                                 :multiselect="{
                                            options: optionsTypeWorkAreas,
-                                           selectLabel:'Selecciona area de trabajo',
+                                           selectLabel:$t('backend.team.create-teams.titulo_selecciona_area_de_trabajo'),
                                            selectedLabel:this.$t('backend.customer.create-customers.multiselect_seleccionado'),
                                            deselectLabel:this.$t('backend.customer.create-customers.multiselect_desmarcar'),
-                                          placeholder:'Selecciona area de trabajo',
+                                          placeholder:$t('backend.team.create-teams.titulo_selecciona_area_de_trabajo'),
                                           taggable : true,
                                           'track-by':'id',
                                           label: 'name',
@@ -252,9 +252,9 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4" v-if="teamWorkArea">
                                             <input-form
-                                                label="Selecciona uno o varios cargos"
+                                                :label="$t('backend.team.create-teams.titulo_selecciona_uno_varios_cargos')"
                                                 id="txtPositionWorkTeam"
-                                                :requiredMsg="$t('register-aspirant.requerido_selecc_music_perfilacion')"
+                                                :requiredMsg="$t('backend.team.create-teams.titulo_debes_seleccionar_uno_varios_cargos')"
                                                 :required="true"
                                                 :modelo.sync="positionTeam"
                                                 :msgServer.sync="errors.positionTeam"
@@ -264,7 +264,7 @@
                                           // selectLabel   : $t('company.multiselect.select'),
                                           // selectedLabel : $t('company.multiselect.selected'),
                                           // deselectLabel : $t('company.multiselect.remove'),
-                                          placeholder : 'Buscar y seleccionar cargo',
+                                          placeholder : $t('backend.team.create-teams.titulo_buscar_seleccionar_cargo'),
                                           label : 'name',
                                           'track-by' : 'id',
                                           options : optionsPositionWorkArea,
@@ -280,18 +280,18 @@
                                     <div v-if="positionTeam.length > 0">
                                         <div class="row">
                                             <div class="col-12 pb-1">
-                                                <h2>Información de sueldo</h2>
+                                                <h2>{{ $t('backend.team.create-teams.titulo_informacion_de_sueldo') }}</h2>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 col-md-4 col-lg-4">
                                                 <input-form
                                                     type="money"
-                                                    label="Sueldo"
+                                                    :label="$t('backend.team.create-teams.titulo_sueldo')"
                                                     id="txtPrice"
                                                     pattern="all"
-                                                    errorMsg="ingresa un valor válido"
-                                                    requiredMsg="este campo es requerido"
+                                                    :errorMsg="$t('backend.team.create-teams.titulo_ingrese_valor_valido')"
+                                                    :requiredMsg="$t('backend.team.create-teams.titulo_salario_requerido')"
                                                     :required="true"
                                                     :modelo.sync="salary"
                                                     :msgServer.sync="errors.salary"
@@ -303,7 +303,7 @@
                                             <div class="col-12 col-md-12 col-lg-12">
                                                 <input-form
                                                     type="textarea"
-                                                    label="Agregar una nota"
+                                                    :label="$t('backend.team.create-teams.titulo_agregar_nota')"
                                                     id="txtBudgetDescription"
                                                     pattern="all"
                                                     errorMsg="Ingrese información válida"
@@ -321,8 +321,9 @@
                                     </div>
                                     <div class="row" v-if="addArchive">
                                         <div class="col-12">
-                                            <label class="form-control-label" id="add-archive-dropzone-team">Agregar
-                                                Archivos</label>
+                                            <label class="form-control-label" id="add-archive-dropzone-team">{{
+                                                    $t('backend.team.create-teams.titulo_agregar_archivos')
+                                                }}</label>
                                             <vue2Dropzone class="dropzone upload-logo dropzone-area dz-clickable"
                                                           ref="myVueDropzone"
                                                           @vdropzone-sending="sendingEvent"
@@ -345,7 +346,7 @@
                                 :beforeChange="validarTab"
                             >
                                 <section style="width: 100%" v-if="currentTab===1">
-                                    <h3 class="d-flex justify-content-center pb-2">Datos del Usuario</h3>
+                                    <h3 class="d-flex justify-content-center pb-2">{{ $t('backend.team.create-teams.titulo_datos_del_usuario') }}</h3>
                                     <div class="row">
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <div class="form-group">
@@ -365,7 +366,7 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <div class="form-group">
-                                                <label>Fecha de Nacimiento:</label>
+                                                <label>{{ $t('backend.team.create-teams.titulo_fecha_nacimiento') }}:</label>
                                                 <p>{{
                                                         moment(user.dataBirth).locale(language).format("dddd, MMMM Do YYYY")
                                                     }}</p>
@@ -413,7 +414,7 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4" v-if="positionTeam.length > 0">
                                             <div class="form-group">
-                                                <label style="padding-bottom: 0.5rem">Cargo{{
+                                                <label style="padding-bottom: 0.5rem">{{ $t('backend.team.create-teams.titulo_cargo_posiciones') }}{{
                                                         positionTeam.length > 1 ? 's' : ''
                                                     }}:</label><br>
                                                 <div v-for="position in positionTeam" :key="position.id">
@@ -445,20 +446,20 @@
                                         </div>
                                         <div class="col-12 col-md-4 col-lg-4" v-if="salary">
                                             <div class="form-group">
-                                                <label>Salario:</label>
+                                                <label>{{ $t('backend.team.create-teams.titulo_sueldo') }}:</label>
                                                 <p>{{ salary | currency }}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row" v-if="noteTeam">
                                         <div class="col-12">
-                                            <label>Nota:</label>
+                                            <label>{{  $t('backend.team.create-teams.titulo_nota') }}:</label>
                                             <p v-text="noteTeam"></p>
                                         </div>
                                     </div>
                                     <div class="row"  v-if="urlsArchiveTeam.length > 0">
                                         <div class="col-12">
-                                            <label>Archivos:</label>
+                                            <label>{{ $t('backend.team.create-teams.titulo_archives') }}:</label>
                                         </div>
                                     </div>
                                     <div class="content-body" v-if="urlsArchiveTeam.length > 0 ">
@@ -478,15 +479,63 @@
                                                         </div>
                                                         <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
                                                         <p class="card-text text-center">
-                                                            <small class="text-muted">Vista Previa</small>
+                                                            <small class="text-muted">{{ $t('backend.team.create-teams.titulo_vista_previa') }}</small>
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row pt-1">
+                                        <div class="col-12 col-md-4 col-lg-4">
+                                            <input-form
+                                                :label="$t('backend.customer.create-customers.titulo_seleccionar_idioma_email')"
+                                                id="txtLaguangeEmail"
+                                                errorMsg
+                                                :requiredMsg="$t('backend.customer.create-customers.titulo_obligario_idioma_email')"
+                                                :required="true"
+                                                :modelo.sync="languageEmail"
+                                                :msgServer.sync="errors.languageEmail"
+                                                type="multiselect"
+                                                selectLabel="Tipo de documento"
+                                                :multiselect="{ options: optionsLanguage,
+                                           selectLabel:this.$t('backend.customer.create-customers.multiselect_seleccionar'),
+                                           selectedLabel:this.$t('backend.customer.create-customers.multiselect_seleccionado'),
+                                           deselectLabel:this.$t('backend.customer.create-customers.multiselect_desmarcar'),
+                                          placeholder:this.$t('backend.customer.create-customers.titulo_seleccionar_idioma_email'),
+                                          taggable : true,
+                                          'track-by':'id',
+                                          label: 'name',
+                                          'custom-label': language=>language.name
+                                        }"
+                                            ></input-form>
+                                        </div>
+                                    </div>
                                 </section>
                             </tab-content>
+                            <template slot="footer" slot-scope="props">
+                                <div class="wizard-footer-left">
+                                    <wizard-button v-if="props.activeTabIndex > 0"
+                                                   @click.native="props.prevTab()"
+                                                   :style="props.fillButtonStyle">
+                                        {{ $t('backend.customer.create-customers.btn_titulo_wizard_volver') }}
+                                    </wizard-button>
+                                </div>
+                                <div class="wizard-footer-right">
+                                    <wizard-button v-if="!props.isLastStep" @click.native="props.nextTab()"
+                                                   class="wizard-footer-right" :style="props.fillButtonStyle">
+                                        {{ $t('backend.customer.create-customers.btn_titulo_wizard_siguiente') }}
+                                    </wizard-button>
+
+                                    <wizard-button v-else @click.native="createNewTeam()"
+                                                   class="wizard-footer-right finish-button"
+                                                   :style="props.fillButtonStyle">
+                                        {{
+                                            props.isLastStep ? $t('backend.team.create-teams.titulo_crear_miembro') : $t('backend.customer.create-customers.btn_titulo_wizard_siguiente')
+                                        }}
+                                    </wizard-button>
+                                </div>
+                            </template>
                         </form-wizard>
                     </form>
                 </div>
@@ -509,9 +558,6 @@ import vue2Dropzone from 'vue2-dropzone'
 import Datepicker from 'vuejs-datepicker';
 import {en, es} from 'vuejs-datepicker/dist/locale'
 
-
-
-
 export default {
     name: "CreateNewTeam",
     components: {
@@ -533,6 +579,7 @@ export default {
             colorLoading: '#3f4f6e',
             salary: null,
             moment: moment,
+            languageEmail: null,
             dataArchive:[
                 {
                     urlArchive:null
@@ -552,6 +599,10 @@ export default {
             urlsArchiveTeam: [],
             addArchive: false,
             userName: '',
+            optionsLanguage: [
+                {id: 1, name: this.$t('Español'), code: 'es'},
+                {id: 2, name: this.$t('Inglés'), code: 'en'},
+            ],
             user: {
                 last_name: '',
                 phone: '',
@@ -560,7 +611,6 @@ export default {
                 valueCountryUser: null,
                 valueCityUser: null,
                 valueIdentificationType: null,
-                valueTypePosition: null,
                 identification: ''
             },
             money: {
@@ -595,7 +645,82 @@ export default {
     },
     methods: {
         createNewTeam() {
+            eventBus.$emit("validarFormulario");
+            setTimeout(() => {
+                let resp = this;
+                /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
+                if (document.querySelectorAll(".is-invalid").length > 0) {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('backend.customer.create-customers.error_llenar_todos_campos'),
+                        showDuration: 1000,
+                        hideDuration: 6000,
+                        position: 'top right',
+                    })
+                    return;
+                }
 
+                const data = new FormData()
+                data.append('name', this.userName);
+                data.append('last_name', this.user.last_name);
+                data.append('email', this.email);
+                data.append('phone', this.user.phoneI);
+                data.append('address', this.user.address);
+                data.append('dataBirth', moment(this.user.dataBirth).format("YYYY-MM-DD HH:mm:ss"));
+                data.append('country', JSON.stringify(this.user.valueCountryUser));
+                data.append('city', JSON.stringify(this.user.valueCityUser));
+                data.append('type_identification', JSON.stringify(this.user.valueIdentificationType));
+                data.append('identification', this.user.identification);
+                data.append('position_team', JSON.stringify(this.positionTeam));
+                data.append('salary', this.salary);
+                data.append('note', this.noteTeam);
+                data.append('archives', JSON.stringify(this.urlsArchiveTeam));
+                data.append('languageEmail', JSON.stringify(this.languageEmail));
+
+                Swal.fire({
+                        title: this.$t('backend.customer.create-customers.confimar_registro_alerta_title'),
+                        text: this.$t('backend.customer.create-customers.confimar_registro_alerta_mensaje'),
+                        confirmButtonColor: "#F05E7D",
+                        cancelButtonColor: "#79ebdf",
+                        confirmButtonText: this.$t('backend.customer.create-customers.confimar_registro_alerta_aceptar'),
+                        cancelButtonText: this.$t('backend.customer.create-customers.confimar_registro_alerta_cancelar'),
+                        customClass: "swal-confirmation",
+                        showCancelButton: true,
+                        reverseButtons: true,
+                        allowOutsideClick: false,
+                    }).then(result => {
+                        if (result.value) {
+                            resp.$vs.loading({
+                                color: resp.colorLoading,
+                                text: this.$t('backend.team.create-teams.titulo_creando_nuevo_miembro')
+                            })
+
+                            axios.post('/api/register/store-team', data).then(res => {
+                                resp.$vs.loading.close()
+                                this.$toast.success({
+                                    title: this.$t('backend.customer.create-customers.title_muy_bien_toast'),
+                                    message: this.$t('backend.team.create-teams.titulo_miembro_creado_correctamente'),
+                                    showDuration: 1000,
+                                    hideDuration: 5000,
+                                    position: 'top right',
+                                })
+                                // console.log('/'+this.language+"/profile")
+                                // window.location = '/' + this.language + "/new-member";
+                            }).catch(err => {
+                                this.$toast.error({
+                                    title: this.$t('backend.customer.create-customers.title_atención_toast'),
+                                    message: err,
+                                    showDuration: 1000,
+                                    hideDuration: 8000,
+                                })
+                                resp.$vs.loading.close()
+                            });
+
+                        }
+                    })
+
+
+            }, 200)
         },
         openModalArchivePopup(data, nameArchive) {
             this.dataArchive = data

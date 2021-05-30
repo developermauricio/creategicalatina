@@ -44,8 +44,8 @@ return [
     'titulo_pais' => 'Country',
     'titulo_tipo_empresa' => 'Company Type',
 
-    'titulo_company_biografia' => 'Biographia',
-    'titulo_company_error_biografia' => 'Enter valid biographia',
+    'titulo_company_biografia' => 'Biography',
+    'titulo_company_error_biografia' => 'Enter valid biography',
     'titulo_company_requerido_biografia' => 'This field is required',
 
     /*=============================================
@@ -98,6 +98,8 @@ return [
     =============================================*/
     'btn_agregar_archivos' => 'Add Files',
     'btn_no_agregar_archivos' => 'Cancelar',
+    'titulo_archives' => 'Archives',
+    'titulo_vista_previa' => 'Preview',
 
     'error_msg_url' => 'Enter a valid link',
     'requerido_msg_url' => 'The link is required',

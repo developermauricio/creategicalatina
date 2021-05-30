@@ -41,7 +41,7 @@ Route::get('/teams', function (){
 });
 
 Route::get('/email', function (){
-    return new \App\Mail\Register\RegisterProviderPersonNatural(
+    return new \App\Mail\Register\RegisterTeam(
         'Mao',
         'sdsdsd',
         'ma@mgial.com'

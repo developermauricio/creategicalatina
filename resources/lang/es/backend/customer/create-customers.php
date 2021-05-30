@@ -97,6 +97,8 @@ return [
     =============================================*/
     'btn_agregar_redes' => 'Agregar Redes',
     'btn_no_agregar_redes' => 'Cancelar',
+    'titulo_archives' => 'Archivos',
+    'titulo_vista_previa' => 'Vista Previa',
 
     /*=============================================
         BOTON AGREGAR LOGO

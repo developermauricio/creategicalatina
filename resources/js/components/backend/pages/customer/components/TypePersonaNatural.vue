@@ -313,7 +313,7 @@
                                     </div>
                                     <div class="row pt-1" v-if="addArchive">
                                         <div class="col-12">
-                                            <label class="form-control-label">{{ $t('backend.customer.create-customers.title_label_agregar_archivos') }}</label>
+                                            <label class="form-control-label" id="add-archive-dropzone-company-person">{{ $t('backend.customer.create-customers.title_label_agregar_archivos') }}</label>
                                             <vue2Dropzone class="dropzone upload-logo dropzone-area dz-clickable"
                                                           ref="myVueDropzone"
                                                           @vdropzone-sending="sendingEvent"
@@ -448,6 +448,35 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row"  v-if="urlsArchivePersonNatural.length > 0">
+                                        <div class="col-12">
+                                            <label>{{ $t('backend.customer.create-customers.titulo_archives') }}:</label>
+                                        </div>
+                                    </div>
+                                    <div class="content-body" v-if="urlsArchivePersonNatural.length > 0 ">
+                                        <div class="row">
+                                            <div class="col-12 col-lg-3 col-md-3" v-for="archives in urlsArchivePersonNatural" :key="archives.uuid">
+                                                <div class="card shadow-none bg-transparent border-secondary" style="cursor: pointer">
+                                                    <div class="card-body" @click="openModalArchivePopup(archives, archives.nameArchive)">
+                                                        <div class="d-flex align-items-center justify-content-center w-100">
+                                                            <img v-if="archives.extension === 'csv'
+                                                            || archives.extension === 'pdf'
+                                                            || archives.extension === 'docx'
+                                                            || archives.extension === 'pptx'
+                                                            || archives.extension === 'xlsx'
+                                                            || archives.extension === 'jpg'
+                                                            || archives.extension === 'png'" :src="'/images/archives-icons/'+archives.extension+'.png'" alt="file-icon" height="35"/>
+                                                            <img v-else src="/images/archives-icons/archive.png" alt="" height="35">
+                                                        </div>
+                                                        <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
+                                                        <p class="card-text text-center">
+                                                            <small class="text-muted">{{ $t('backend.customer.create-customers.titulo_vista_previa') }}</small>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row pt-1">
                                         <div class="col-12 col-md-4 col-lg-4">
                                             <input-form
@@ -503,6 +532,10 @@
                 </div>
             </div>
         </div>
+        <vs-popup fullscreen class="holamundo" :title="titleNameArchive"
+                  :active.sync="popupPreviewActivo">
+            <preview-doc :dataArchiveUrl="dataArchive.urlArchive" :extension="dataArchive.extension"></preview-doc>
+        </vs-popup>
     </div>
 </template>
 
@@ -525,12 +558,22 @@ export default {
             language: window.lang,
             languageEmail: null,
             textValidaNameAddArchive: false,
+            popupPreviewActivo: false,
             addSocialNetworksNatural: false,
+            titleNameArchive: null,
             addBiography: false,
             colorLoading: '#3f4f6e',
             addArchive: false,
             urlsArchivePersonNatural: [],
             userName: '',
+            dataArchive:[
+                {
+                    urlArchive:null
+                },
+                {
+                    extension:null
+                }
+            ],
             user: {
                 last_name: '',
                 email: '',
@@ -601,6 +644,14 @@ export default {
         }
     },
     methods: {
+
+        openModalArchivePopup(data, nameArchive) {
+            this.dataArchive = data
+            this.popupPreviewActivo = true
+            this.titleNameArchive = nameArchive
+            // this.infoModalRecording = question
+        },
+
         sendingEvent(file, xhr, formData) {
             console.log('upload file', file.upload);
             formData.append('nameCompany', this.userName);
@@ -640,6 +691,7 @@ export default {
         },
         addArchivePersonNaturalCustomer(file, response) {
             this.urlsArchivePersonNatural.push({
+                nameArchive: file.name,
                 urlArchive: response.data,
                 uuid: response.uuid,
                 extension: response.extension
@@ -957,9 +1009,20 @@ export default {
             this.biography = ''
         },
 
+        eventSelectScroll(option) {
+            const options = {
+                container: "body",
+                easing: "linear"
+            };
+            setTimeout(() => {
+                this.$scrollTo(option, 1000, options);
+            }, 100);
+        },
+
         btnAddArchivesCompany() {
             if (this.userName) {
                 this.addArchive = true
+                this.eventSelectScroll('#add-archive-dropzone-company-person')
             } else {
                 this.$toast.error({
                     title: this.$t('backend.customer.create-customers.title_atención_toast'),

@@ -309,7 +309,7 @@
                                     </div>
                                     <div class="row" v-if="addArchive">
                                         <div class="col-12">
-                                            <label class="form-control-label">{{ $t('backend.customer.create-customers.title_label_agregar_archivos') }}</label>
+                                            <label class="form-control-label" id="add-archive-dropzone-company">{{ $t('backend.customer.create-customers.title_label_agregar_archivos') }}</label>
                                             <vue2Dropzone class="dropzone upload-logo dropzone-area dz-clickable"
                                                           ref="myVueDropzone"
                                                           @vdropzone-sending="sendingEvent"
@@ -593,6 +593,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row" v-if="company.biography">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>{{
+                                                        $t('backend.customer.create-customers.titulo_company_biografia')
+                                                    }}:</label>
+                                                <p v-text="company.biography"></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <hr>
                                     <h3 class="d-flex justify-content-center pb-2">
                                         {{
@@ -682,7 +692,7 @@
                                     </div>
                                     <div class="row"  v-if="urlsArchiveCompany.length > 0">
                                         <div class="col-12">
-                                            <label>Archivos:</label>
+                                            <label>{{ $t('backend.customer.create-customers.titulo_archives') }}:</label>
                                         </div>
                                     </div>
                                     <div class="content-body" v-if="urlsArchiveCompany.length > 0 ">
@@ -702,7 +712,7 @@
                                                         </div>
                                                         <h6 class="card-title text-center" v-text="archives.nameArchive"></h6>
                                                         <p class="card-text text-center">
-                                                            <small class="text-muted">Vista Previa</small>
+                                                            <small class="text-muted">{{ $t('backend.customer.create-customers.titulo_vista_previa') }}</small>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -1277,11 +1287,21 @@ export default {
         },
         btnCancelBiography() {
             this.addBiography = false
-            this.biography = ''
+            this.company.biography = ''
+        },
+        eventSelectScroll(option) {
+            const options = {
+                container: "body",
+                easing: "linear"
+            };
+            setTimeout(() => {
+                this.$scrollTo(option, 1000, options);
+            }, 100);
         },
         btnAddArchivesCompany(){
             if (this.companyName){
                 this.addArchive = true
+                this.eventSelectScroll('#add-archive-dropzone-company')
             }else{
                 this.$toast.error({
                     title: this.$t('backend.customer.create-customers.title_atención_toast'),

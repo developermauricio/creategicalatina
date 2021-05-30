@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
        =============================================*/
         Route::get('datable-all-teams', 'Team\TeamController@getDatableTeam')->name('api.backend.all.teams');
         Route::get('get-type-work-area', 'Team\TeamController@getTypeWorkArea')->name('api.get.type.work.area');
+        Route::post('/register/store-team','Team\TeamCreateController@storeCreateTeam')->name('api.store.create.team');
         Route::post('/upload-archive-team','Team\TeamCreateController@uploadArchiveTeam')->name('api.upload.archive.team');
         Route::post('/removed-archive-team','Team\TeamCreateController@removedArchiveTeam')->name('api.removed.archive.company');
 
