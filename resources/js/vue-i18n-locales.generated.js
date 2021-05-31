@@ -366,7 +366,8 @@ export default {
                     "column_telefono": "Phone",
                     "column_ubicacion": "Location",
                     "column_fecha_registro": "Registration Date",
-                    "column_estado": "State"
+                    "column_estado": "State",
+                    "texto_buscar_input": "Search..."
                 }
             },
             "email": {
@@ -1124,7 +1125,8 @@ export default {
                     "column_telefono": "Teléfono",
                     "column_ubicacion": "Ubicación",
                     "column_fecha_registro": "Fecha de Registro",
-                    "column_estado": "Estado"
+                    "column_estado": "Estado",
+                    "texto_buscar_input": "Buscar..."
                 }
             },
             "email": {

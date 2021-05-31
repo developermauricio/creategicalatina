@@ -705,7 +705,7 @@ export default {
                                     position: 'top right',
                                 })
                                 // console.log('/'+this.language+"/profile")
-                                // window.location = '/' + this.language + "/new-member";
+                                window.location = '/' + this.language + "/new-member";
                             }).catch(err => {
                                 this.$toast.error({
                                     title: this.$t('backend.customer.create-customers.title_atención_toast'),

@@ -56,10 +56,17 @@
         window.lang = '{{ session('language') }}'
         window.logo_base_64 = '{{ env('IMG_BASE64_LOGO_LIGTH') }}'
         window.logo_ligth = '{{ env('IMG_LOGO_LIGTH') }}'
+        window.banner_team = '{{ env('IMG_BANNER_TEAM') }}'
         window.url = '{{ env('APP_URL') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
         window.stateShowPassword = 2
-        console.log(lang);
+        themeSession = '{{ session('theme') }}'
+        if (themeSession === '1' || themeSession === '3') {
+            window.cardsLoadingColor = '#283046'
+        } else {
+            window.cardsLoadingColor = '#ffffff'
+        }
+        console.log(themeSession);
     </script>
 
     <!--End of Tawk.to Script-->

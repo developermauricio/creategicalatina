@@ -75,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/register/store-team','Team\TeamCreateController@storeCreateTeam')->name('api.store.create.team');
         Route::post('/upload-archive-team','Team\TeamCreateController@uploadArchiveTeam')->name('api.upload.archive.team');
         Route::post('/removed-archive-team','Team\TeamCreateController@removedArchiveTeam')->name('api.removed.archive.company');
+        Route::get('/grid-list-team', 'Team\TeamController@getListGridTeam')->name('api.get.list.grid.team');
 
 
 

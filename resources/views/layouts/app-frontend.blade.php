@@ -58,7 +58,7 @@
         window.url = '{{ env('APP_URL') }}'
         window.sessionTourRegisterProject = '{{ session('sessionTourRegisterProject') }}'
         themeSession = '{{ session('theme') }}'
-        if (themeSession == 1) {
+        if (themeSession === '1' || themeSession === '3') {
             window.cardsLoadingColor = '#283046'
         } else {
             window.cardsLoadingColor = '#ffffff'

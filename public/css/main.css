@@ -147,6 +147,17 @@
 .link.link-dark{
     color: #79ebdf !important;
 }
+
+.profile-badge.team-position{
+    color: #79ebdf !important;
+}
+
+
+
+.btn-outline-primary.border-btn-list-team{
+    border: 1px solid #79ebdf !important;
+}
+
 .link.link-dark:hover{
     transition: 0.4s;
     color: #F05E7D !important;

@@ -11,4 +11,5 @@ return [
     'column_ubicacion' => 'Ubicación',
     'column_fecha_registro' => 'Fecha de Registro',
     'column_estado' => 'Estado',
+    'texto_buscar_input' => 'Buscar...'
 ];

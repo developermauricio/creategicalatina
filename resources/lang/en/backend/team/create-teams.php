@@ -29,6 +29,6 @@ return [
     'titulo_crear_miembro' => 'Create Member',
     'titulo_creando_nuevo_miembro' => 'Creating new member',
     'titulo_miembro_creado_correctamente' => 'Member successfully created',
-    'texto_email_bienvenido_equipo' => 'Welcome to the team of'
+    'texto_email_bienvenido_equipo' => 'Welcome to the team of',
 
 ];

@@ -10,7 +10,7 @@
 @endpush
 @section('title', __('todos_los_miembros'))
 @section('header-breadcrumbs')
-    <div class="content-header-left col-md-9 col-12 mb-2">
+    <div class="content-header-left col-md-9 col-9 mb-2">
         <div class="row breadcrumbs-top">
             <div class="col-12">
                 <h2 class="content-header-title float-left mb-0">{{ __('team_equipo_trabajo') }}</h2>
@@ -24,33 +24,66 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3 col-3">
+        <div class="d-flex align-items-center float-right ml-5">
+            <div class="btn-group btn-group-toggle view-toggle ml-50" data-toggle="buttons">
+                <label class="btn btn-outline-primary border-btn-list-team grid-team p-50 btn-sm active">
+                    <input type="radio" name="view-btn-radio" data-view="grid" checked/>
+                    <i data-feather="grid"></i>
+                </label>
+                <label class="btn btn-outline-primary border-btn-list-team list-team p-50 btn-sm">
+                    <input type="radio" name="view-btn-radio" data-view="list"/>
+                    <i data-feather="list"></i>
+                </label>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('content')
-    <section id="basic-datatable">
-        <div class="row">
-            <div class="col-12">
-                <div class="card p-2">
-                    <table
-                        class="datatables-all-teams hover datatablescreategica datatables-basic table table-striped"
-                        style="width:100%">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th style="max-width: 30% !important;">{{ __('backend/team/teams.column_miembro') }}</th>
-                            <th>{{ __('backend/team/teams.column_telefono') }}</th>
-                            <th>{{ __('backend/team/teams.column_cargo') }}</th>
-                            <th>{{ __('backend/team/teams.column_ubicacion') }}</th>
-                            <th>{{ __('backend/team/teams.column_estado') }}</th>
-                            <th>{{ __('backend/team/teams.column_fecha_registro') }}</th>
-                        </tr>
-                        </thead>
-                    </table>
+    <div id="section-grid-team">
+        <grid-list-team></grid-list-team>
+    </div>
+    <div id="section-list-team" style="display: none">
+        <section id="basic-datatable">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card p-2">
+                        <table
+                            class="datatables-all-teams hover datatablescreategica datatables-basic table table-striped"
+                            style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th style="max-width: 30% !important;">{{ __('backend/team/teams.column_miembro') }}</th>
+                                <th>{{ __('backend/team/teams.column_telefono') }}</th>
+                                <th>{{ __('backend/team/teams.column_cargo') }}</th>
+                                <th>{{ __('backend/team/teams.column_ubicacion') }}</th>
+                                <th>{{ __('backend/team/teams.column_estado') }}</th>
+                                <th>{{ __('backend/team/teams.column_fecha_registro') }}</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 @endsection
+@push('js')
+    <script>
+        // $(function () {
+        //     $('.grid-team').click(function () {
+        //         $('#section-list-team').hide();
+        //         $('#section-grid-team').show();
+        //     })
+        //     $('.list-team').click(function () {
+        //         $('#section-grid-team').hide();
+        //         $('#section-list-team').show();
+        //     })
+        // })
+    </script>
+@endpush
 @push('js')
     <script src="/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
     <script src="/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
@@ -72,8 +105,14 @@
 
 @push('js')
     <script>
-        $(function () {
+        let table = null;
+        const loadTable = function () {
+            // if (table !== null) {
+            //     table.destroy();
+            //
+            // }
             setTimeout(() => {
+                    $.fn.dataTable.ext.errMode = 'throw';
                     var table = $('.datatables-all-teams').DataTable({
 
                         "processing": true,
@@ -136,7 +175,7 @@
                                     if (JsonResultRow.team_position === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return JsonResultRow.team_position.map(function (obj){
+                                        return JsonResultRow.team_position.map(function (obj) {
                                             return `<span class="label text-center font-weight-bold badge badge-pill badge-glow badge-primary" style="margin-right: 0.5rem">${obj.name[window.lang]}</span>`
                                         }).join("")
                                     }
@@ -148,7 +187,7 @@
                                     if (JsonResultRow.user.city === null || JsonResultRow.user.country === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.city ? JsonResultRow.user.city.name+',' : ''} ${JsonResultRow.user.country.name } <img class="brand-logo"  width="20" src="${JsonResultRow.user.country.flag}" alt=""></span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.city ? JsonResultRow.user.city.name + ',' : ''} ${JsonResultRow.user.country.name} <img class="brand-logo"  width="20" src="${JsonResultRow.user.country.flag}" alt=""></span>`;
                                     }
                                 },
                             },
@@ -212,7 +251,7 @@
                                         "extend": 'print',
                                         "text": feather.icons['printer'].toSvg({class: 'font-small-4 mr-50'}) + '{{ __('btn_imprimir') }}',
                                         "className": 'dropdown-item',
-                                        "exportOptions": {columns: [0, 1, 2 ,3, 4, 5, 6]},
+                                        "exportOptions": {columns: [0, 1, 2, 3, 4, 5, 6]},
                                         "customize": function (win) {
                                             console.log(window.url, window.logo_ligth)
                                             $(win.document.body)
@@ -230,19 +269,19 @@
                                         "extend": 'csv',
                                         "text": feather.icons['file-text'].toSvg({class: 'font-small-4 mr-50'}) + 'Csv',
                                         "className": 'dropdown-item',
-                                        "exportOptions": {columns: [0, 1, 2 ,3, 4, 5, 6]}
+                                        "exportOptions": {columns: [0, 1, 2, 3, 4, 5, 6]}
                                     },
                                     {
                                         "extend": 'excel',
                                         "text": feather.icons['file'].toSvg({class: 'font-small-4 mr-50'}) + 'Excel',
                                         "className": 'dropdown-item',
-                                        "exportOptions": {columns: [0, 1, 2 ,3, 4, 5, 6]}
+                                        "exportOptions": {columns: [0, 1, 2, 3, 4, 5, 6]}
                                     },
                                     {
                                         "extend": 'pdf',
                                         "text": feather.icons['clipboard'].toSvg({class: 'font-small-4 mr-50'}) + 'Pdf',
                                         "className": 'dropdown-item',
-                                        "exportOptions": {columns: [0, 1, 2 ,3, 4, 5, 6]},
+                                        "exportOptions": {columns: [0, 1, 2, 3, 4, 5, 6]},
                                         "orientation": 'landscape',
                                         "customize": function (doc) {
                                             doc.content.splice(1, 0, {
@@ -256,7 +295,7 @@
                                         "extend": 'copy',
                                         "text": feather.icons['copy'].toSvg({class: 'font-small-4 mr-50'}) + '{{ __('btn_copiar') }}',
                                         "className": 'dropdown-item',
-                                        "exportOptions": {columns: [0, 1, 2 ,3, 4, 5, 6]}
+                                        "exportOptions": {columns: [0, 1, 2, 3, 4, 5, 6]}
                                     }
                                 ],
                                 // init: function (api, node, config) {
@@ -289,6 +328,18 @@
                     }).draw();
                 }
                 , 1);
+        };
+
+        $(function () {
+            $('.grid-team').click(function () {
+                $('#section-list-team').hide();
+                $('#section-grid-team').show();
+            })
+            $('.list-team').click(function () {
+                $('#section-grid-team').hide();
+                $('#section-list-team').show();
+                loadTable();
+            })
         });
 
     </script>

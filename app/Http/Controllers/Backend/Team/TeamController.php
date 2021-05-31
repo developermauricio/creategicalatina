@@ -23,4 +23,9 @@ class TeamController extends Controller
         return response()->json(['data' => $getTypeWorkArea]);
     }
 
+    public function getListGridTeam(){
+        $getListGridTeam = Team::with('user', 'teamPosition')->get();
+        return response()->json(['data' => $getListGridTeam]);
+    }
+
 }
