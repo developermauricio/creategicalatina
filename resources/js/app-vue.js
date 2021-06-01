@@ -33,6 +33,9 @@ Vue.use(VueTheMask)
 import money from 'v-money'
 Vue.use(money, {precision: 3})
 
+import SkeletonCards from 'vue-ultimate-skeleton-cards'
+Vue.use(SkeletonCards)
+
 
 const numberFormat =  new Intl.NumberFormat('es-co', {
     style: 'currency',
@@ -72,6 +75,7 @@ Vue.component('create-new-provider', require('./components/backend/pages/provide
 COMPONENTES PARA EL TEAM
 =============================================*/
 Vue.component('create-new-member', require('./components/backend/pages/team/CreateNewTeam.vue').default);
+Vue.component('grid-list-team', require('./components/backend/pages/team/GridListTeam.vue').default);
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);

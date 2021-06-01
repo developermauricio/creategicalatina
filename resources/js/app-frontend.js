@@ -6,7 +6,8 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');import SkeletonCards from 'vue-ultimate-skeleton-cards'
+window.Vue = require('vue');
+import SkeletonCards from 'vue-ultimate-skeleton-cards'
 Vue.use(SkeletonCards)
 
 var VueScrollTo = require('vue-scrollto');
@@ -65,7 +66,10 @@ Vue.component('notifications-backend', require('./components/backend/notificatio
 
 Vue.component('register-client', require('./components/frontend/pages/RegisterClient').default);
 
-
+/*=============================================
+COMPONENTES PARA LAS EMPRESAS
+=============================================*/
+Vue.component('grid-lists-companies', require('./components/frontend/pages/company/GridListCompanies.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
