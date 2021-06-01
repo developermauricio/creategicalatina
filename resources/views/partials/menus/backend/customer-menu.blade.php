@@ -4,6 +4,13 @@
             <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">{{ __('navegacion') }}</span><i
                     data-feather="more-horizontal"></i>
             </li>
+            @if(\App\Model\Customer::hasCompany())
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="/{{ session('language') }}/customer-companies">
+                    <i data-feather='list'></i><span class="menu-title text-truncate" data-i18n="Kanban">{{ __('empresas') }}</span>
+                </a>
+            </li>
+            @endif
             <li class=" nav-item"><a class="d-flex align-items-center" href="/{{ session('language') }}/projects"><i data-feather='package'></i><span class="menu-title text-truncate"
                                                                                                                     data-i18n="Chat">{{ __('proyectos') }}</span></a>
                 <ul class="menu-content">

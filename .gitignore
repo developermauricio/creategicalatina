@@ -16,3 +16,7 @@ npm-debug.log
 yarn-error.log
 laravel-echo-server.json
 laravel-echo-server.lock
+resources/js/app-vue.js
+public/js/app-frontend.js
+public/js/app-vue.js
+resources/js/app-frontend.js

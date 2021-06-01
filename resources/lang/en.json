@@ -32,6 +32,7 @@
     "navegacion": "Navigation",
     "clientes": "Customers",
     "proyectos": "Projects",
+    "empresas": "Companies",
     "proveedores": "Providers",
     "ordenes_compra": "Work Orders",
     "empresa_titulo_navegacion": "Company",
@@ -75,5 +76,9 @@
     "menu_backend_nuevo_cliente": "New Customer",
 
     "team_equipo_trabajo": "Work Team",
-    "todos_los_miembros": "All the members"
+    "todos_los_miembros": "All the members",
+
+    "todas_las_empresas": "All the Companies",
+
+    "alert_empresas_clientes_ruta": "You cannot access this route, you do not have registered companies."
 }

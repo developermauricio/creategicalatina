@@ -97,6 +97,7 @@
                         @yield('header-breadcrumbs')
                     </div>
                     <div class="content-body">
+                        @include('partials.alert.alerts')
                         <chat-floating></chat-floating>
                         @yield('content')
                     </div>

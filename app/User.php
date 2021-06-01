@@ -4,6 +4,7 @@ namespace App;
 
 use App\Model\City;
 use App\Model\Country;
+use App\Model\Customer;
 use App\Model\IdentificationType;
 use App\Model\Manager;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -47,8 +48,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function manager(){
-        return $this->hasOne(Manager::class, 'user_id');
+    public function customer(){
+        return $this->hasOne(Customer::class, 'user_id');
     }
 
     public function city(){

@@ -4,6 +4,8 @@ namespace App\Model;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Customer extends Model
 {
@@ -26,7 +28,32 @@ class Customer extends Model
         return $this->belongsTo(CompanyCategory::class);
     }
 
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
+
     public function archive(){
         return $this->morphOne(Archive::class, 'archivable');
+    }
+
+    public static function hasCompany(){
+        $customer = Auth::user()->customer;
+        $company = Company::where('customer_id', $customer->id)->get();
+        $has = null;
+        if (count($company) > 0){
+            $has = true;
+        }else{
+            $has = false;
+        }
+        return $has;
+    }
+
+    public static function SetMessage($message){
+        Session::put('notIsset', $message);
+        Session::save();
+    }
+    public static function ForgetMessage(){
+        Session::forget('notIsset');
+        Session::save();
     }
 }

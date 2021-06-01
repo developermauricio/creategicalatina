@@ -33,6 +33,7 @@
     "clientes": "Clientes",
     "proyectos": "Proyectos",
     "proveedores": "Proveedores",
+    "empresas": "Empresas",
     "ordenes_compra": "Órdenes de Trabajo",
     "empresa_titulo_navegacion": "Empresa",
     "trafico_operativo": "Tráfico Operativo",
@@ -74,5 +75,9 @@
     "menu_backend_nuevo_cliente": "Nuevo Cliente",
 
     "team_equipo_trabajo": "Equipo de Trabajo",
-    "todos_los_miembros": "Todos los Miembros"
+    "todos_los_miembros": "Todos los Miembros",
+
+    "todas_las_empresas": "Todas las Empresas",
+
+    "alert_empresas_clientes_ruta": "No puedes acceder a esta ruta, no tienes empresas registradas."
 }

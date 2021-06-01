@@ -35,8 +35,11 @@ class ProjectsController extends Controller
 
     public function getDatatableProjectsCompany()
     {
-        $projectsCompany = Company::companyGetProjects();
-        return datatables()->of($projectsCompany)->toJson();
+        $customer = Auth::user()->customer;
+        $projects = Project::with('user', 'typeProject', 'project_categories')->whereHas('customer', function ($q) use($customer){
+            $q->where('customer_id', $customer->id);
+        })->get();
+        return datatables()->of($projects)->toJson();
     }
 
     public function storeNewProyect(Request $request)

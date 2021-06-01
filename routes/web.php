@@ -19,28 +19,44 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/cambiar-background', function (){
 //   return response()->json(['data' => 'no']);
 //});
-Route::get('/', function (){
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chat', function (){
-  event(new \App\Events\PublicMessage());
-  dd('Public evento ejecutado');
+Route::get('/project', function () {
+    $customer = Auth::user()->customer;
+    $projects = \App\Model\Project::with('user', 'typeProject', 'project_categories')->whereHas('customer', function ($q) use ($customer) {
+        $q->where('customer_id', $customer->id);
+    })->get();
+//    $projects = \App\Model\Project::with( 'user', 'typeProject', 'project_categories', 'customer')->get();
+    return $projects;
 });
 
-Route::get('/private-chat', function (){
+Route::get('/tiene-empresa', function () {
+    $customer = Auth::user()->customer;
+    $company = Company::where('customer_id', $customer->id)->get();
+
+    return $company;
+})->middleware('hasCompanies');
+
+Route::get('/chat', function () {
+    event(new \App\Events\PublicMessage());
+    dd('Public evento ejecutado');
+});
+
+Route::get('/private-chat', function () {
     event(new \App\Events\PrivateMessage(\auth()->user()));
     dd('Privado evento ejecutado');
 });
 
 Route::get('/send-message', 'Controller@sendMessage')->name('send.message');
 
-Route::get('/teams', function (){
+Route::get('/teams', function () {
     $getCompanies = \App\Model\Team::getCompanyType(1);
     return datatables()->of($getCompanies)->toJson();
 });
 
-Route::get('/email', function (){
+Route::get('/email', function () {
     return new \App\Mail\Register\RegisterTeam(
         'Mao',
         'sdsdsd',
@@ -83,7 +99,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
        RUTAS PARA EL BACKEND
     =============================================*/
 
-    Route::group(['namespace' => 'Backend'], function (){
+    Route::group(['namespace' => 'Backend'], function () {
         /* RUTAS CLIENTE*/
         Route::get('/customers', 'Customer\CustomerController@index')->name('backend.customer.customer');
         Route::get('/new-customers', 'Customer\CreateCustomerController@index')->name('backend.customer.create.customer');
@@ -104,10 +120,13 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
     /*=============================================
       RUTAS PARA EL FRONTEND
    =============================================*/
-    Route::group(['namespace' => 'Frontend'], function (){
+    Route::group(['namespace' => 'Frontend'], function () {
         /* RUTAS PARA LOS PROYECTOS*/
         Route::get('/projects', 'Projects\ProjectsController@index')->name('frontend.projects.projects');
         Route::get('/new-project', 'Projects\ProjectsController@indexNewProject')->name('frontend.projects.index.new.project');
+
+        /* RUTAS PARA MOSTRAR EMPRESAS ASOCIADAS A UN CLIENTE*/
+        Route::get('/customer-companies', 'Companies\CompaniesController@index')->middleware('hasCompanies')->name('frontend.companies.customer.companies');
     });
 });
 
