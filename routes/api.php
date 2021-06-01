@@ -86,10 +86,15 @@ Route::group(['middleware' => 'auth'], function () {
     =============================================*/
     Route::group(['namespace' => 'Frontend'], function () {
         /*=============================================
-        API DATATABLE BACKEND
+        API PARA LOS PROYECTOS
         =============================================*/
         Route::get('datable-all-project-company', 'Projects\ProjectsController@getDatatableProjectsCompany')->name('api.frontend.all.projects.company');
         Route::post('create-new-project', 'Projects\ProjectsController@storeNewProyect')->name('api.frontend.create.new.project');
+
+        /*=============================================
+        API PARA LAS EMPRESAS
+        =============================================*/
+        Route::get('/get-companies-customer', 'Companies\CompaniesController@companiesCustomer')->name('api.get.companies.customer');
     });
 
     /*=============================================

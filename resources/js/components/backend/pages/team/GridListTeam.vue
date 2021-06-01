@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="row" v-if="skeletonValue === 0">
-            <div class="col-12 col-md-3 col-lg-3" v-for="(team, index) in resultQuery" :key="team.id">
+            <div v-if="resultQuery" class="col-12 col-md-3 col-lg-3" v-for="(team, index) in resultQuery" :key="team.id">
                 <div class="card card-profile">
                     <img :src="bannerTeam" class="img-fluid card-img-top"
                          alt="Profile Cover Photo"/>
@@ -50,6 +50,9 @@
 
                     </div>
                 </div>
+            </div>
+            <div v-else>
+                <h3>{{ $t('backend.team.teams.texto_no_hay_miembros') }}</h3>
             </div>
         </div>
     </div>

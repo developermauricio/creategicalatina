@@ -30,5 +30,6 @@ return [
     'titulo_creando_nuevo_miembro' => 'Creating new member',
     'titulo_miembro_creado_correctamente' => 'Member successfully created',
     'texto_email_bienvenido_equipo' => 'Welcome to the team of',
+    'texto_no_hay_miembros' => 'No registered members'
 
 ];

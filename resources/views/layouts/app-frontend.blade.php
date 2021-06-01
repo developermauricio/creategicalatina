@@ -55,6 +55,7 @@
         window.themeSession = '{{ session('theme') }}'
         window.logo_base_64 = '{{ env('IMG_BASE64_LOGO_LIGTH') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
+        window.banner_team = '{{ env('IMG_BANNER_TEAM') }}'
         window.url = '{{ env('APP_URL') }}'
         window.sessionTourRegisterProject = '{{ session('sessionTourRegisterProject') }}'
         themeSession = '{{ session('theme') }}'

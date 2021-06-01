@@ -26,6 +26,7 @@ export default {
         "navegacion": "Navigation",
         "clientes": "Customers",
         "proyectos": "Projects",
+        "empresas": "Companies",
         "proveedores": "Providers",
         "ordenes_compra": "Work Orders",
         "empresa_titulo_navegacion": "Company",
@@ -63,6 +64,8 @@ export default {
         "menu_backend_nuevo_cliente": "New Customer",
         "team_equipo_trabajo": "Work Team",
         "todos_los_miembros": "All the members",
+        "todas_las_empresas": "All the Companies",
+        "alert_empresas_clientes_ruta": "You cannot access this route, you do not have registered companies.",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -354,7 +357,8 @@ export default {
                     "titulo_crear_miembro": "Create Member",
                     "titulo_creando_nuevo_miembro": "Creating new member",
                     "titulo_miembro_creado_correctamente": "Member successfully created",
-                    "texto_email_bienvenido_equipo": "Welcome to the team of"
+                    "texto_email_bienvenido_equipo": "Welcome to the team of",
+                    "texto_no_hay_miembros": "No registered members"
                 },
                 "teams": {
                     "titulo_tabla": "Team members registered in the system",
@@ -675,6 +679,7 @@ export default {
         "clientes": "Clientes",
         "proyectos": "Proyectos",
         "proveedores": "Proveedores",
+        "empresas": "Empresas",
         "ordenes_compra": "Órdenes de Trabajo",
         "empresa_titulo_navegacion": "Empresa",
         "trafico_operativo": "Tráfico Operativo",
@@ -711,6 +716,8 @@ export default {
         "menu_backend_nuevo_cliente": "Nuevo Cliente",
         "team_equipo_trabajo": "Equipo de Trabajo",
         "todos_los_miembros": "Todos los Miembros",
+        "todas_las_empresas": "Todas las Empresas",
+        "alert_empresas_clientes_ruta": "No puedes acceder a esta ruta, no tienes empresas registradas.",
         "email": {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
@@ -1113,7 +1120,8 @@ export default {
                     "titulo_crear_miembro": "Crear Miembro",
                     "titulo_creando_nuevo_miembro": "Creando nuevo miembro",
                     "titulo_miembro_creado_correctamente": "Miembro creado correctamente",
-                    "texto_email_bienvenido_equipo": "Bienvenido al equipo de"
+                    "texto_email_bienvenido_equipo": "Bienvenido al equipo de",
+                    "texto_no_hay_miembros": "No hay miembros registrados"
                 },
                 "teams": {
                     "titulo_tabla": "Miembros del equipo registrados en el sistema",
