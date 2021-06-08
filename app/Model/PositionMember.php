@@ -12,4 +12,5 @@ class PositionMember extends Model
         "name",
         "description"
     ];
+
 }

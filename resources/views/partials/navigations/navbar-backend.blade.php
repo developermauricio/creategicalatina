@@ -186,7 +186,7 @@
                             class="user-name font-weight-bolder">{{ auth()->user()->name }}</span>
                         @php($rol = json_decode(auth()->user()->roles->pluck('language')->implode(', ')))
                         <span class="user-status">{{ $rol->{session('language')} }}</span></div>
-                    <span class="avatar"><img class="round" src="{{ auth()->user()->picture }}"
+                    <span class="avatar"><img id="photoProfile" class="round" src="{{ auth()->user()->picture }}"
                                               alt="avatar" height="40" width="40"><span
                             class="avatar-status-online"></span></span>
                 </a>

@@ -71,7 +71,7 @@
             v-bind="options"
             v-on="inputListeners"
             v-else
-            :disabled="disabled"
+            :disabled="disabled == 1"
         />
         <div
             class="invalid-feedback"
@@ -98,7 +98,7 @@ export default {
         };
     },
     props: {
-        disabled:String,
+        disabled:Number,
         label: String,
         id: String,
         pattern: String,

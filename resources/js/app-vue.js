@@ -97,6 +97,10 @@ Vue.component('items-invoice', require('./components/backend/pages/project/compo
 Vue.component('create-invoice-project', require('./components/backend/pages/project/components/invoice/components/CreateInvoice.vue').default);
 
 
+// BEGIN: Profile
+Vue.component('edit-profile', require('./components/backend/pages/profile/EditProfileUser.vue').default);
+// END: Profile
+
 // BEGIN: view Payment Platform
 Vue.component('home-payment', require('./components/payment/HomePayment.vue').default);
 Vue.component('paypal-component', require('./components/payment/componentsPayment/PayPalComponent.vue').default);

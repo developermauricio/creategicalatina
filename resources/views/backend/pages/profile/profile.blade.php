@@ -45,7 +45,7 @@
                                                 <span class="card-text">{{ $user->email }}</span>
                                             </div>
                                             <div class="d-flex flex-wrap">
-                                                <a href="./app-user-edit.html" class="btn btn-primary"
+                                                <a href="/{{ session('language') }}/admin/edit-profile/{{ $user->slug }}" class="btn btn-primary"
                                                    style="font-size: 0.91rem">{{ __('backend/profile/changed-password.btn_titulo_editar') }}</a>
                                                 <button class="btn btn-outline-danger ml-1 btn-change-password-profile"
                                                         valueBtnChangedPassword="1" style="font-size: 0.91rem">
@@ -113,7 +113,7 @@
                                     <div class="d-flex flex-wrap my-50">
                                         <div class="user-info-title">
                                             <i data-feather="star" class="mr-1"></i>
-                                            <span class="card-text user-info-title font-weight-bold mb-0">{{ __('backend/profile/changed-password.titulo_rol') }}:</span>
+                                            <span class="card-text user-info-title font-weight-bold mb-0">{{ __('backend/profile/changed-password.titulo_rol') }}</span>
                                         </div>
                                         <p class="card-text mb-0">{{ $user->roles->pluck('name')->implode(', ') }}</p>
                                     </div>

@@ -7,6 +7,8 @@ use App\Model\Country;
 use App\Model\Customer;
 use App\Model\IdentificationType;
 use App\Model\Manager;
+use App\Model\Provider;
+use App\Model\Team;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -52,6 +54,14 @@ class User extends Authenticatable
         return $this->hasOne(Customer::class, 'user_id');
     }
 
+    public function team(){
+        return $this->hasOne(Team::class, 'user_id');
+    }
+
+    public function provider(){
+        return $this->hasOne(Provider::class, 'user_id');
+    }
+
     public function city(){
         return $this->belongsTo(City::class, 'city_id');
     }
@@ -64,4 +74,5 @@ class User extends Authenticatable
     public function identificationType(){
         return $this->belongsTo(IdentificationType::class, 'identification_type_id');
     }
+
 }

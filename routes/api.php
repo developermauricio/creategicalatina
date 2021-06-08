@@ -86,6 +86,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/grid-list-team', 'Team\TeamController@getListGridTeam')->name('api.get.list.grid.team');
 
 
+        /*================================
+            API PARA MODULO DE PERFIL
+        ==================================*/
+        Route::post('/update/user-profile','Profile\ProfileController@updateUserProfile')->name('api.update.user.profile');
 
 
     });
