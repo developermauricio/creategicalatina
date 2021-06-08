@@ -94,6 +94,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('invoice-project', require('./components/backend/pages/project/components/invoice/InvoiceProject.vue').default);
 Vue.component('type-invoice', require('./components/backend/pages/project/components/invoice/TypeInvoice.vue').default);
 Vue.component('items-invoice', require('./components/backend/pages/project/components/invoice/components/ItemsInvoice.vue').default);
+Vue.component('create-invoice-project', require('./components/backend/pages/project/components/invoice/components/CreateInvoice.vue').default);
 
 
 // BEGIN: view Payment Platform

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Project;
 use App\Http\Controllers\Controller;
 use App\Model\Answer;
 use App\Model\Brief;
+use App\Model\Invoice;
 use App\Model\Project;
 use Illuminate\Http\Request;
 
@@ -23,5 +24,10 @@ class ProjectDetailController extends Controller
             'brief' => $brief,
             'answer' => $answer
         ]);
+    }
+
+    public function getDataInvoice($id){
+        $getDataInvoice = Invoice::where('project_id', $id)->get();
+        return response()->json(['data' => $getDataInvoice]);
     }
 }

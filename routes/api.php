@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('datable-all-project-backend', 'Project\ProjectController@getDatatableProjects')->name('api.backend.all.projects');
         Route::get('count-state-project', 'Project\ProjectController@countStateProject')->name('api.count.state.project');
         Route::get('/get-brief-answer/{id}/{typeProject}', 'Project\ProjectDetailController@getAnswerBrief')->name('api.get.brief.answer.project');
+        Route::get('/get-data-invoice-projects/{id}', 'Project\ProjectDetailController@getDataInvoice')->name('api.get.data.invoice.project');
 
 
         /*=============================================

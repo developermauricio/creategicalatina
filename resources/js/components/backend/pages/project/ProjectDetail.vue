@@ -68,7 +68,7 @@ name: "ProjectDetail",
             language: window.lang,
         }
     },
-    props:['project', 'answerBrief']
+    props:['project']
 }
 </script>
 
