@@ -116,6 +116,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
 
         /* RUTAS PERFIL*/
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');
+        Route::get('/admin/edit-profile/{user}', 'Profile\ProfileController@editProfile')->name('backend.edit.profile');
     });
     /*=============================================
       RUTAS PARA EL FRONTEND

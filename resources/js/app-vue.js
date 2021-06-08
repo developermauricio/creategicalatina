@@ -80,6 +80,10 @@ Vue.component('grid-list-team', require('./components/backend/pages/team/GridLis
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+// BEGIN: Profile
+Vue.component('edit-profile', require('./components/backend/pages/profile/EditProfileUser.vue').default);
+// END: Profile
+
 // BEGIN: view Payment Platform
 Vue.component('home-payment', require('./components/payment/HomePayment.vue').default);
 Vue.component('paypal-component', require('./components/payment/componentsPayment/PayPalComponent.vue').default);
