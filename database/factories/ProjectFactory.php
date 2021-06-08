@@ -15,7 +15,7 @@ $factory->define(Project::class, function (Faker $faker) {
         'description_short'=>$faker->sentence($nbWords = 6, $variableNbWords = true),
         'link'=>$faker->url,
         "picture"=> '/images/img-logo-empresa.png',
-        'state'=> Project::ACTIVE,
+        'state'=> Project::REVISION,
         'end_time'=>'2021-09-09',
         'type_project_id'=>2,
         'slug' => Str::slug($name .'-'. $ramdon, '-'),

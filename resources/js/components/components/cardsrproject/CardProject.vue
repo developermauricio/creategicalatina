@@ -295,29 +295,79 @@
                             pregunta.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <input-form
-                            id="txtDescription"
-                            :label="$t('frontend.register-client.titulo_observacioness')"
-                            pattern="all"
-                            errorMsg=""
-                            type="textarea"
-                            requiredMsg=""
-                            :modelo.sync="observationProject"
-                            :required="false"
-                            :msgServer.sync="errors.observationProject"
-                            :options="{
+                <!--=====================================
+                SECCIÓN GUARDAR
+                ======================================-->
+                <div class="section-save-project pt-1 pb-2" v-if="listCategoriesProject.length > 0">
+                    <div class="divider" id="section-save-project">
+                        <div class="divider-text">{{ $t('frontend.register-client.siguiente_paso') }}</div>
+                    </div>
+                    <div class="row pt-2 pb-1 justify-content-center">
+                        <div class="col-12">
+                            <h3 class="font-weight-bolder display-4 text-center">{{ $t('frontend.register-client.titulo_guardar_proyecto') }}</h3>
+                        </div>
+                    </div>
+                    <div class="d-inline-block">
+                        <p v-if="optionToAssingProject.length > 0" class="pt-1">{{ $t('frontend.register-client.titulo_seccion_cuarta_empresa') }}
+                            <vs-tooltip v-if="optionToAssingProject.length > 0" position="right" class="d-inline-block pr-1"
+                                        :text="$t('frontend.register-client.titulo_tooltip_seccion_cuarta')">
+                                <vs-icon icon="help_outline" style="font-size: 1.3rem;"></vs-icon>
+                            </vs-tooltip>
+                        </p>
+                        <p class="pt-1" v-else>
+                            {{ $t('frontend.register-client.titulo_seccion_cuarta') }}
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <input-form
+                                id="txtDescription"
+                                :label="$t('frontend.register-client.titulo_observacioness')"
+                                pattern="all"
+                                errorMsg=""
+                                type="textarea"
+                                requiredMsg=""
+                                :modelo.sync="observationProject"
+                                :required="false"
+                                :msgServer.sync="errors.observationProject"
+                                :options="{
                         rows: 5
                     }"
-                        ></input-form>
+                            ></input-form>
+                        </div>
                     </div>
-                </div>
-                <div class="row pb-3">
-                    <div class="col-12">
-                        <button @click="saveNewProject" type="button" class="btn btn-primary waves-effect waves-float waves-light float-right">
-                            {{ $t('frontend.projects.new-project.btn_crear_nuevo_proyecto')}}
-                        </button>
+                    <div class="row" v-if="optionToAssingProject.length > 0">
+                        <div class="col-12 col-lg-4 col-md-4">
+                            <input-form
+                                :label="$t('frontend.register-client.titulo_asignar_empresa')"
+                                id="textAddCompany"
+                                errorMsg
+                                :requiredMsg="$t('frontend.register-client.titulo_asignar_empresa_requerido')"
+                                :required="true"
+                                :modelo.sync="valuetoassignProject"
+                                :msgServer.sync="errors.valuetoassignProject"
+                                type="multiselect"
+                                :selectLabel="$t('frontend.register-client.titulo_selecionar_empresa')"
+                                :multiselect="{ options: optionToAssingProject,
+                                           selectLabel:this.$t('backend.customer.create-customers.multiselect_seleccionar'),
+                                           selectedLabel:this.$t('backend.customer.create-customers.multiselect_seleccionado'),
+                                           deselectLabel:this.$t('backend.customer.create-customers.multiselect_desmarcar'),
+                                          placeholder:$t('frontend.register-client.titulo_selecionar_empresa'),
+                                          taggable : true,
+                                          'track-by':'id',
+                                          label: 'name',
+                                          'custom-label': toAssing=>toAssing.name
+                                        }"
+                            ></input-form>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-12">
+                            <button @click="saveNewProject" type="button"
+                                    class="btn btn-primary waves-effect waves-float waves-light float-right">
+                                {{ $t('frontend.projects.new-project.btn_crear_nuevo_proyecto') }}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -388,6 +438,7 @@
 
 <script>
 import InfoCard from 'vue-info-card';
+import Multiselect from "vue-multiselect";
 import {Splide, SplideSlide} from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
@@ -396,6 +447,7 @@ export default {
     components: {
         InfoCard,
         Splide,
+        Multiselect,
         SplideSlide,
     },
     data() {
@@ -403,6 +455,7 @@ export default {
             popupMoreInfoProjectActivo: false,
             popupBriefActivo: false,
             nameProject: '',
+            valuetoassignProject: null,
             iCount: null,
             observationProject: '',
             briefCheck: false,
@@ -496,6 +549,7 @@ export default {
             listCategoriesProject: [],
             optionsTypeProject: [], //Arreglo con los tipos de proyectos
             optionsCategoriesProject: [], //Arreglo con las categorias de proyectos
+            optionToAssingProject: []
 
         }
     },
@@ -545,7 +599,11 @@ export default {
                     return;
                 }
             }, 200)
-
+            if (this.optionToAssingProject.length < 0){
+                if (this.valuetoassignProject === null){
+                    return
+                }
+            }
             if (this.iCount == 0 || !this.nameProject) {
                 return
             } else {
@@ -559,6 +617,7 @@ export default {
                 data.append('categoriesProject', JSON.stringify(this.listCategoriesProject));
                 data.append('briefProject', JSON.stringify(this.selectProjectType.brief.question));
                 data.append('observationsProject', this.observationProject);
+                data.append('toAssingCompany', JSON.stringify(this.valuetoassignProject))
                 Swal.fire({
                     title: this.$t('frontend.projects.new-project.confimar_registro_alerta_title'),
                     text: this.$t('frontend.projects.new-project.confimar_registro_alerta_mensaje'),
@@ -585,7 +644,7 @@ export default {
                                 hideDuration: 5000,
                                 position: 'top right',
                             })
-                            // window.location = '/'+this.language+"/projects";
+                            window.location = '/'+this.language+"/projects";
                         }).catch(err => {
                             this.$toast.error({
                                 title: this.$t('frontend.projects.new-project.title_atención_toast'),
@@ -781,16 +840,25 @@ export default {
                     position: 'top right',
                 })
             }
+        },
+        getHasCompanies() {
+            axios.get('/api/get-companies-customer')
+                .then(resp => {
+                    this.optionToAssingProject = resp.data.data
+                }).catch(err => {
+
+            })
         }
     },
 
     mounted() {
+        this.getHasCompanies();
         this.getTypeProjects();
     },
 
 }
 </script>
-
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
 @media (max-width: 1024px)  and (min-width: 320px) {
 
@@ -872,5 +940,17 @@ export default {
 .card-header.icheck-brief {
     border-color: #F05E7D !important;
 
+}
+
+.multiselect__tag {
+    background: #F05E7D !important;
+}
+
+.multiselect__tag-icon:focus, .multiselect__tag-icon:hover {
+    background: #283046 !important;
+}
+
+.multiselect__option--highlight {
+    background: #F05E7D !important;
 }
 </style>

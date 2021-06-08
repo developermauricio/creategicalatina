@@ -547,7 +547,7 @@ input:focus ~ .bg-light {
 }
 
 .text-primary.text-lighten-3 {
-    color: #b3adf7 !important;
+    color: #F05E7D !important;
 }
 
 .bg-primary.bg-lighten-3 {
@@ -675,8 +675,8 @@ input:focus ~ .bg-light {
 }
 
 .bg-light-primary {
-    background: rgba(115, 103, 240, 0.12) !important;
-    color: #7367f0 !important;
+    background: rgba(240, 94, 125, 0.12) !important;
+    color: #F05E7D !important;
 }
 
 .bg-light-primary.fc-h-event, .bg-light-primary.fc-v-event {
@@ -696,7 +696,7 @@ input:focus ~ .bg-light {
 }
 
 .avatar.bg-light-primary {
-    color: #7367f0 !important;
+    color: #F05E7D !important;
 }
 
 .border-primary {

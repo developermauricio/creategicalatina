@@ -43,7 +43,7 @@ class LoginController extends Controller
     public function redirectPath()
     {
         $userAdministrator = \auth()->user()->hasRole('Administrator');
-        $userMmeber = \auth()->user()->hasRole('Member');
+        $userMmeber = \auth()->user()->hasRole('Me mber');
         $userCustomer = \auth()->user()->hasRole('Customer');
         if ($userAdministrator || $userMmeber){
             return sprintf('/%s/dashboard', session('language'));

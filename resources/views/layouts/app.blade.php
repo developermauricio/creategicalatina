@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" value="1" class="loading {{ session('theme') == '1' || session('theme') == '3'? 'dark-layout' : 'semi-dark'  }}"
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" value="1"
+      class="loading {{ session('theme') == '1' || session('theme') == '3'? 'dark-layout' : 'semi-dark'  }}"
       data-layout="semi-dark-layout" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
@@ -27,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/animate/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/vendors/css/extensions/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/pages/app-file-manager.css">
-    @stack('css')
+@stack('css')
 <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -46,19 +47,22 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/charts/chart-apex.css">
 
 {{--    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-toastr.css">--}}
-    <!-- END: Page CSS-->
+<!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
+        window.logoGreen = '{{ env('IMG_LOGO') }}'
         window.token = '{{ csrf_token() }}'
         window.lang = '{{ session('language') }}'
         window.logo_base_64 = '{{ env('IMG_BASE64_LOGO_LIGTH') }}'
         window.logo_ligth = '{{ env('IMG_LOGO_LIGTH') }}'
         window.banner_team = '{{ env('IMG_BANNER_TEAM') }}'
+        window.banner_project = '{{ env('IMG_BANNER_PROJECT') }}'
         window.url = '{{ env('APP_URL') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
+        window.userAuth = '{{ auth()->user()->name }} {{ auth()->user()->last_name }}'
         window.stateShowPassword = 2
         themeSession = '{{ session('theme') }}'
         if (themeSession === '1' || themeSession === '3') {
@@ -66,6 +70,8 @@
         } else {
             window.cardsLoadingColor = '#ffffff'
         }
+        window.rutaShowProject = '{{ request()->is(session('language').'/admin-projects*') }}'
+
         console.log(themeSession);
     </script>
 
@@ -74,100 +80,108 @@
 <!-- END: Head-->
 
 <!-- BEGIN: Body-->
+{{--@dd(request()->is(session('language').'/admin-projects*'))--}}
+@if(request()->is(session('language').'/admin-projects*'))
+    <body class="vertical-layout vertical-menu-modern menu-collapsed navbar-sticky footer-fixed" data-open="click"
+          data-menu="vertical-menu-modern" data-col="" id="body-layout">
+    @else
+        <body
+            class="vertical-layout vertical-menu-modern {{ session('sidebarMenuBackend') == '1' ? 'menu-collapsed' : 'menu-expanded'  }} navbar-sticky footer-fixed"
+            data-open="click"
+            data-menu="vertical-menu-modern" data-col="">
+        @endif
 
-<body class="vertical-layout vertical-menu-modern {{ session('sidebarMenuBackend') == '1' ? 'menu-collapsed' : 'menu-expanded'  }}  navbar-sticky footer-fixed" data-open="click"
-      data-menu="vertical-menu-modern" data-col="">
 
-<!-- BEGIN: Header-->
-<div id="app">
-    @include('partials.navigations.navbar-backend')
-    <!-- END: Header-->
+        <!-- BEGIN: Header-->
+        <div id="app">
+        @include('partials.navigations.navbar-backend')
+        <!-- END: Header-->
 
 
-    <!-- BEGIN: Main Menu-->
-    @include('partials.menus.backend.menu-navigation')
-    <!-- END: Main Menu-->
+            <!-- BEGIN: Main Menu-->
+        @include('partials.menus.backend.menu-navigation')
+        <!-- END: Main Menu-->
 
-    <!-- BEGIN: Content-->
-    <div class="app-content content ">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-                @yield('header-breadcrumbs')
+            <!-- BEGIN: Content-->
+            <div class="app-content content ">
+                <div class="content-overlay"></div>
+                <div class="header-navbar-shadow"></div>
+                <div class="content-wrapper">
+                    <div class="content-header row">
+                        @yield('header-breadcrumbs')
+                    </div>
+                    <div class="content-body">
+                        @yield('content')
+                        <div id="chat-notification"></div>
+                    </div>
+                </div>
             </div>
-            <div class="content-body">
-                @yield('content')
-                <div id="chat-notification"></div>
-            </div>
+            <!-- END: Content-->
+
+            <div class="sidenav-overlay"></div>
+            <div class="drag-target"></div>
+
+            <!-- BEGIN: Footer-->
+            @include('partials.footer')
+            @include('partials.theme.modal-changed-theme-backend')
+            <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+            <!-- END: Footer-->
         </div>
-    </div>
-    <!-- END: Content-->
 
-    <div class="sidenav-overlay"></div>
-    <div class="drag-target"></div>
+        <!-- BEGIN: Vendor JS-->
+        <script src="/app-assets/vendors/js/vendors.min.js"></script>
 
-    <!-- BEGIN: Footer-->
-    @include('partials.footer')
-    @include('partials.theme.modal-changed-theme-backend')
-    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
-    <!-- END: Footer-->
-</div>
+        <!-- BEGIN Vendor JS-->
+        <script src="/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+        <script src="/app-assets/vendors/js/extensions/polyfill.min.js"></script>
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+        {{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}
+        <!-- END: Page Vendor JS-->
 
-<!-- BEGIN: Vendor JS-->
-<script src="/app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN: Theme JS-->
+        <script src="/app-assets/js/core/app-menu.js"></script>
+        <script src="/app-assets/js/core/app.js"></script>
+        <script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+        <!-- END: Theme JS-->
 
-<!-- BEGIN Vendor JS-->
-<script src="/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-<script src="/app-assets/vendors/js/extensions/polyfill.min.js"></script>
-<!-- BEGIN: Page Vendor JS-->
-<script src="/app-assets/vendors/js/charts/apexcharts.min.js"></script>
-{{--<script src="/app-assets/vendors/js/extensions/toastr.min.js"></script>--}}
-<!-- END: Page Vendor JS-->
+        <!-- BEGIN: Page JS-->
+        {{--<script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>--}}
 
-<!-- BEGIN: Theme JS-->
-<script src="/app-assets/js/core/app-menu.js"></script>
-<script src="/app-assets/js/core/app.js"></script>
-<script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
-<!-- END: Theme JS-->
+        <!-- END: Page JS-->
 
-<!-- BEGIN: Page JS-->
-{{--<script src="/app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>--}}
+        @stack('js')
+        <script src="/js/change-template.js"></script>
+        {{--<script type="text/javascript">--}}
+        {{--    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();--}}
+        {{--    (function(){--}}
+        {{--        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];--}}
+        {{--        s1.async=true;--}}
+        {{--        s1.src='https://embed.tawk.to/60834e9c62662a09efc197d1/1f40em8e1';--}}
+        {{--        s1.charset='UTF-8';--}}
+        {{--        s1.setAttribute('crossorigin','*');--}}
+        {{--        s0.parentNode.insertBefore(s1,s0);--}}
+        {{--    })();--}}
+        {{--</script>--}}
+        <!--Start of Tawk.to Script-->
+        <script>
+            window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
+            console.log(window.location.hostname);
+        </script>
+        <script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
+        <script src="{{ asset('js/app-vue.js') }}"></script>
 
-<!-- END: Page JS-->
-
-@stack('js')
-<script src="/js/change-template.js"></script>
-{{--<script type="text/javascript">--}}
-{{--    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();--}}
-{{--    (function(){--}}
-{{--        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];--}}
-{{--        s1.async=true;--}}
-{{--        s1.src='https://embed.tawk.to/60834e9c62662a09efc197d1/1f40em8e1';--}}
-{{--        s1.charset='UTF-8';--}}
-{{--        s1.setAttribute('crossorigin','*');--}}
-{{--        s0.parentNode.insertBefore(s1,s0);--}}
-{{--    })();--}}
-{{--</script>--}}
-<!--Start of Tawk.to Script-->
-<script>
-    window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
-    console.log(window.location.hostname);
-</script>
-<script src="//{{ request()->getHost() }}:{{ env('LARAVEL_ECHO_PORT') }}/socket.io/socket.io.js"></script>
-<script src="{{ asset('js/app-vue.js') }}"></script>
-
-<script>
-    $(window).on('load', function () {
-        if (feather) {
-            feather.replace({
-                width: 14,
-                height: 14
+        <script>
+            $(window).on('load', function () {
+                if (feather) {
+                    feather.replace({
+                        width: 14,
+                        height: 14
+                    });
+                }
             });
-        }
-    });
-</script>
+        </script>
 
-</body>
-<!-- END: Body-->
+        </body>
+        <!-- END: Body-->
 </html>

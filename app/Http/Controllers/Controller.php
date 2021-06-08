@@ -7,6 +7,7 @@ use App\Model\Company;
 use App\Model\CompanyCategory;
 use App\Model\Country;
 use App\Model\IdentificationType;
+use App\Model\InvoiceType;
 use App\Model\PositionMember;
 use App\Model\Project;
 use App\Model\ProjectCategory;
@@ -267,5 +268,10 @@ class Controller extends BaseController
         $idNotification = $request->idNotification;
         \App\Model\Notification::where('id', $idNotification)->delete();
         return response()->json('todo bien');
+    }
+
+    public function getInvoiceTypes(){
+        $getInvoiceType = InvoiceType::all();
+        return response()->json(['data' => $getInvoiceType]);
     }
 }

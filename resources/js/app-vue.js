@@ -36,6 +36,9 @@ Vue.use(money, {precision: 3})
 import SkeletonCards from 'vue-ultimate-skeleton-cards'
 Vue.use(SkeletonCards)
 
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+Vue.use( CKEditor );
+
 
 const numberFormat =  new Intl.NumberFormat('es-co', {
     style: 'currency',
@@ -77,8 +80,21 @@ COMPONENTES PARA EL TEAM
 Vue.component('create-new-member', require('./components/backend/pages/team/CreateNewTeam.vue').default);
 Vue.component('grid-list-team', require('./components/backend/pages/team/GridListTeam.vue').default);
 
+/*=============================================
+COMPONENTES PARA LOS PROYECTOS
+=============================================*/
+Vue.component('project-detail-admin', require('./components/backend/pages/project/ProjectDetail.vue').default);
+Vue.component('project-detail-information', require('./components/backend/pages/project/components/ProjectInformation.vue').default);
 
+/*=============================================
+COMPONENTES
+=============================================*/
+Vue.component('cards-statistcs-projects', require('./components/components/cardsStatiscsProjects/CardsStatistcsProjects.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('invoice-project', require('./components/backend/pages/project/components/invoice/InvoiceProject.vue').default);
+Vue.component('type-invoice', require('./components/backend/pages/project/components/invoice/TypeInvoice.vue').default);
+Vue.component('items-invoice', require('./components/backend/pages/project/components/invoice/components/ItemsInvoice.vue').default);
+
 
 // BEGIN: view Payment Platform
 Vue.component('home-payment', require('./components/payment/HomePayment.vue').default);

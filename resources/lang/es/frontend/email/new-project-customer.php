@@ -9,6 +9,7 @@ return [
     'tipo_de_proyecto' => 'Tipo de Proyecto:',
     'caracteristicas' => 'Características:',
     'observación' => 'Observación:',
+    'titulo_empresa_asignada' => 'Asignado a la empresa:',
     'ninguna_observacion' => 'Ningúna Observación',
     'ver_proyecto' => 'Ver Proyecto',
     'pronto_nos_pondremos_contacto' => 'Pronto nos pondremos en contacto contigo para definir el proceso de desarrollo de tu proyecto.',

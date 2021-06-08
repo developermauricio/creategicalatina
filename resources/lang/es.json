@@ -31,6 +31,7 @@
 
     "navegacion": "Navegación",
     "clientes": "Clientes",
+    "cliente": "Cliente",
     "proyectos": "Proyectos",
     "proveedores": "Proveedores",
     "empresas": "Empresas",
@@ -39,6 +40,7 @@
     "trafico_operativo": "Tráfico Operativo",
     "administrativo": "Administrativo",
     "brief_campañanas": "Brief Campañas",
+    "todos_los_proyectos": "Lista de Proyectos",
 
     "apariencia_titulo_modal": "Apariencia",
     "text_elige_como_se_ve": "Elige como se ve ",
@@ -78,6 +80,12 @@
     "todos_los_miembros": "Todos los Miembros",
 
     "todas_las_empresas": "Todas las Empresas",
+    "alert_empresas_clientes_ruta": "No puedes acceder a esta ruta, no tienes empresas registradas.",
 
-    "alert_empresas_clientes_ruta": "No puedes acceder a esta ruta, no tienes empresas registradas."
+    "titulo_estado_proyecto_revision": "Revisión",
+    "titulo_estado_proyecto_borrador": "Borrador",
+    "titulo_estado_proyecto_aprobado": "Aprobado",
+    "titulo_estado_proyecto_desarrollo": "En Desarrollo",
+    "titulo_estado_proyecto_rechazado": "Rechazado",
+    "titulo_estado_proyecto_finalizado": "Finalizado"
 }

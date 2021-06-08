@@ -16,6 +16,11 @@ class CompaniesController extends Controller
     public function companiesCustomer(){
         $customer = Auth::user()->customer;
         $getCompaniesCustomer = Company::where('customer_id', $customer->id)->with('category')->get();
-        return response()->json(['data' => $getCompaniesCustomer]);
+        if($getCompaniesCustomer){
+            return response()->json(['data' => $getCompaniesCustomer]);
+        }else{
+            return response()->json(['data' => 'No tiene empresas']);
+        }
+
     }
 }
