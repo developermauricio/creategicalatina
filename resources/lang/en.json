@@ -31,6 +31,7 @@
 
     "navegacion": "Navigation",
     "clientes": "Customers",
+    "cliente": "Customer",
     "proyectos": "Projects",
     "empresas": "Companies",
     "proveedores": "Providers",
@@ -39,6 +40,7 @@
     "trafico_operativo": "Operational Traffic",
     "administrativo": "Administrative",
     "brief_campañanas": "Brief Campaigns",
+    "todos_los_proyectos": "List of Projects",
 
     "apariencia_titulo_modal": "Appearance",
     "text_elige_como_se_ve": "Choose how it looks ",
@@ -79,6 +81,12 @@
     "todos_los_miembros": "All the members",
 
     "todas_las_empresas": "All the Companies",
+    "alert_empresas_clientes_ruta": "You cannot access this route, you do not have registered companies.",
 
-    "alert_empresas_clientes_ruta": "You cannot access this route, you do not have registered companies."
+    "titulo_estado_proyecto_revision": "Revision",
+    "titulo_estado_proyecto_borrador": "Eraser",
+    "titulo_estado_proyecto_aprobado": "Approved",
+    "titulo_estado_proyecto_desarrollo": "Developing",
+    "titulo_estado_proyecto_rechazado": "Rejected",
+    "titulo_estado_proyecto_finalizado": "Finalized"
 }

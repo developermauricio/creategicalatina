@@ -25,7 +25,7 @@ class NewProjectNotification implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct(Project $project)
+    public function __construct($project)
     {
         //
         $this->project = $project;

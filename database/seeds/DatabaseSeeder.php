@@ -231,8 +231,8 @@ class DatabaseSeeder extends Seeder
         /*=============================================
             CREAMOS 2 CARGOS FINANZAS
         =============================================*/
-        $postionMemberFinaEs = ['Contador', 'Asistente Contable'];
-        $postionMemberFinaEn = ['Accountant', 'Accounting Assistant'];
+        $postionMemberFinaEs = ['Contador', 'Asistente Contable', 'Gerente de Negocios'];
+        $postionMemberFinaEn = ['Accountant', 'Accounting Assistant', 'Business Manager'];
 
         for ($i = 0; $i < count($postionMemberFinaEs); $i++) {
             factory(\App\Model\PositionMember::class)->create(
@@ -244,6 +244,23 @@ class DatabaseSeeder extends Seeder
             $positionMFina = \App\Model\PositionMember::find($i + 5);
             $positionMFina->setTranslation('name', 'en', $postionMemberFinaEn[$i]);
             $positionMFina->save();
+        }
+
+        /*==========================================================================================
+            DATOS PARA LOS TIPOS DE FACTURA
+        ==========================================================================================*/
+
+        $invoiceTypeEs = ['Factura', 'Cotización'];
+        $invoiceTypeEn = ['Invoice', 'Quotation'];
+        for ($i = 0; $i < count($invoiceTypeEs); $i++) {
+            factory(\App\Model\InvoiceType::class)->create(
+                [
+                    "name" => $invoiceTypeEs[$i],
+                                   ]
+            );
+            $invoiceType = \App\Model\InvoiceType::find($i + 1);
+            $invoiceType->setTranslation('name', 'en', $invoiceTypeEn[$i]);
+            $invoiceType->save();
         }
 
         /*=============================================
@@ -259,7 +276,7 @@ class DatabaseSeeder extends Seeder
                     "work_area_id" => 4
                 ]
             );
-            $positionMServi = \App\Model\PositionMember::find($i + 7);
+            $positionMServi = \App\Model\PositionMember::find($i + 8);
             $positionMServi->setTranslation('name', 'en', $postionMemberServiEn[$i]);
             $positionMServi->save();
         }
@@ -357,6 +374,25 @@ class DatabaseSeeder extends Seeder
             $question->save();
         }
 
+        /*==========================================================================================
+            DATOS NO RELEVANTES DE PRUEBA
+        ==========================================================================================*/
+        factory(\App\User::class, 1)
+            ->create([
+                'name' => 'Monica',
+                'last_name' => 'Rodriguez',
+                'email' => 'monic@creategicalatina.com',
+                'picture' => '/images/monica-image.png'
+            ])
+            ->each(function (\App\User $u){
+                $u->roles()->attach(['3']);
+                factory(\App\Model\Team::class, 1)
+                    ->create(['user_id'=> $u->id])
+                    ->each(function (\App\Model\Team $t){
+                        $t->teamPosition()->attach(7);
+                    });
+            });
+
         /*=============================================
             CREANDO 10 EMPRESAS Y 10 REPRESENTANTES
         =============================================*/
@@ -366,7 +402,7 @@ class DatabaseSeeder extends Seeder
             ->each(function (\App\User $u) {
                 $u->roles()->attach(['2']);
                 factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
-                    ->each(function (\App\Model\Customer $c) use ($u) {
+                    ->each(function (\App\Model\Customer $customer) use ($u) {
 //                        $logos = [
 //                            '/images/logos-companies/img-logo-yamaha.png',
 //                            '/images/logos-companies/img-logo-mazda.png',
@@ -380,12 +416,19 @@ class DatabaseSeeder extends Seeder
 //                            '/images/logos-companies/img-logo-pepsi.png'];
 //                        $ramdon = Str::random(10);
 //                        for ($i = 0; $i < count($logos); $i++) {
-                        factory(\App\Model\Company::class, 1)->create(['customer_id' => $c->id])
-                            ->each(function (\App\Model\Company $c) {
+                        factory(\App\Model\Company::class, 1)->create(['customer_id' => $customer->id])
+                            ->each(function (\App\Model\Company $company) use ($customer) {
                                 factory(\App\Model\Project::class, 3)->create()
-                                    ->each(function (\App\Model\Project $p) use ($c) {
+                                    ->each(function (\App\Model\Project $p) use ($company, $customer) {
+                                        factory(\App\Model\Invoice::class, 2)->create([
+                                            'company_id' => $company->id,
+                                            'customer_id' => $customer->id,
+                                            'user_id' => 2,
+                                            'project_id' => $p->id
+                                        ]);
                                         $ramdon = random_int(1, 8);
-                                        $p->customer()->attach($c->id);
+                                        $p->customer()->attach($customer->id);
+                                        $p->company()->attach($company->id);
                                         $p->project_categories()->attach($ramdon);
                                     });
                             });
@@ -402,6 +445,11 @@ class DatabaseSeeder extends Seeder
                     ->each(function (\App\Model\Customer $cn) use ($u) {
                         factory(\App\Model\Project::class, 3)->create()
                             ->each(function (\App\Model\Project $p) use ($cn) {
+                                factory(\App\Model\Invoice::class, 2)->create([
+                                    'customer_id' => $cn->id,
+                                    'user_id' => 2,
+                                    'project_id' => $p->id
+                                ]);
                                 $ramdon = random_int(1, 8);
                                 $p->customer()->attach($cn->id);
                                 $p->project_categories()->attach($ramdon);
@@ -526,6 +574,7 @@ class DatabaseSeeder extends Seeder
                         $t->teamPosition()->attach(8);
                     });
             });
+
 
 
     }

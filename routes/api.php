@@ -66,6 +66,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/removed-picture-company-provider','Provider\CreateProviderController@removedPictureCompanyProvider')->name('api.removed.picture.company.provider');
         Route::post('/removed-archive-company-provider','Provider\CreateProviderController@removedArchiveCompanyProvider')->name('api.removed.archive.company');
 
+        /*=============================================
+        API PARA LOS PROYECTOS
+        =============================================*/
+        Route::get('datable-all-project-backend', 'Project\ProjectController@getDatatableProjects')->name('api.backend.all.projects');
+        Route::get('count-state-project', 'Project\ProjectController@countStateProject')->name('api.count.state.project');
+        Route::get('/get-brief-answer/{id}/{typeProject}', 'Project\ProjectDetailController@getAnswerBrief')->name('api.get.brief.answer.project');
+
 
         /*=============================================
          API PARA MODULO MIEMBROS O TEAMS
@@ -114,7 +121,7 @@ Route::get('/get-identificationtype', 'Controller@getIdentificationType')->name(
 Route::get('/get-type-company', 'Controller@getTypeCompanies')->name('api.get.type.companies');
 Route::get('/get-type-entities', 'Controller@getTypeEntities')->name('api.get.type.entities');
 Route::get('/get-position-team/{idWorkArea}', 'Controller@getPositionTeam')->name('api.get.position.team');
-
+Route::get('/get-invoice-types', 'Controller@getInvoiceTypes')->name('api.get.invoice.type');
 /*=============================================
         API PARA LAS NOTIFICACIONES
 =============================================*/

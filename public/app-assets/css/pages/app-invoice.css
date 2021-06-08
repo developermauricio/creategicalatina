@@ -119,12 +119,12 @@
 .invoice-edit .invoice-preview-card .invoice-product-details,
 .invoice-add .invoice-preview-card .invoice-product-details {
   background-color: #fcfcfc;
-  padding: 3.75rem 3.45rem 2.3rem 3.45rem; }
+    padding: 0.75rem 3.45rem 0.75rem 3.45rem  }
 
 .invoice-edit .invoice-preview-card .invoice-product-details .product-details-border,
 .invoice-add .invoice-preview-card .invoice-product-details .product-details-border {
-  border: 1px solid #ebe9f1;
-  border-radius: 0.357rem; }
+  /*border: 1px solid #ebe9f1;*/
+  /*border-radius: 0.357rem; }*/
 
 .invoice-edit .invoice-preview-card .invoice-to-title,
 .invoice-add .invoice-preview-card .invoice-to-title {

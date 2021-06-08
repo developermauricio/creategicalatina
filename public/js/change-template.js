@@ -246,6 +246,14 @@ $(function () {
         $('.logo-backend-horizontal').css("display","none")
         return
     }
+    if (webPath === '/'+window.lang+'/admin-projects' || window.rutaShowProject == '1'){
+        $body.addClass('menu-collapsed')
+        $body.removeClass('menu-expanded')
+        $('.logo-backend-vertical').css("display","block")
+        $('.logo-backend-horizontal').css("display","none")
+        return
+    }
+
     let changeMenu = (menuValue) => {
         console.log(menuValue)
         if (menuValue == '1'){

@@ -25,6 +25,7 @@ export default {
         "menu_nuevo_proyecto": "New Project",
         "navegacion": "Navigation",
         "clientes": "Customers",
+        "cliente": "Customer",
         "proyectos": "Projects",
         "empresas": "Companies",
         "proveedores": "Providers",
@@ -33,6 +34,7 @@ export default {
         "trafico_operativo": "Operational Traffic",
         "administrativo": "Administrative",
         "brief_campañanas": "Brief Campaigns",
+        "todos_los_proyectos": "List of Projects",
         "apariencia_titulo_modal": "Appearance",
         "text_elige_como_se_ve": "Choose how it looks ",
         "seleccione_tema_text": " Select a single theme or sync with your system and automatically switch between day and night themes.",
@@ -66,6 +68,12 @@ export default {
         "todos_los_miembros": "All the members",
         "todas_las_empresas": "All the Companies",
         "alert_empresas_clientes_ruta": "You cannot access this route, you do not have registered companies.",
+        "titulo_estado_proyecto_revision": "Revision",
+        "titulo_estado_proyecto_borrador": "Eraser",
+        "titulo_estado_proyecto_aprobado": "Approved",
+        "titulo_estado_proyecto_desarrollo": "Developing",
+        "titulo_estado_proyecto_rechazado": "Rejected",
+        "titulo_estado_proyecto_finalizado": "Finalized",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -98,6 +106,13 @@ export default {
                 "mostrar_info": "Show Info",
                 "siguiente_paso": "Next Step",
                 "agregar_brief": "Add Brief",
+                "titulo_guardar_proyecto": "Save Project",
+                "titulo_seccion_cuarta_empresa": "4. If you want, add comments and assign the project to a company.",
+                "titulo_seccion_cuarta": "4. If you want, add observations.",
+                "titulo_tooltip_seccion_cuarta": "As you have registered companies, you must assign this project to one of them.",
+                "titulo_asignar_empresa": "Assign to a company",
+                "titulo_asignar_empresa_requerido": "You must assign this project",
+                "titulo_selecionar_empresa": "Select Company",
                 "text_paso_1": "If you need a name or a creative image that represents you corporately to your clients...",
                 "text_paso_2": "If you need creative support with a brief for a virtual or physical event, or some activation in points of sale ...",
                 "text_paso_3": "If you need help positioning your brand, managing your social networks or your marketing budget investment in a guide ...",
@@ -174,6 +189,12 @@ export default {
                 "Proyectos": "Projects",
                 "Solicitar Proyecto": "Request Project"
             },
+            "companies": {
+                "companies": {
+                    "texto_no_hay_miembros": "No registered companies",
+                    "registrar_empresa": "New Company"
+                }
+            },
             "email": {
                 "new-project-customer": {
                     "hola_cliente": "Hello",
@@ -185,6 +206,7 @@ export default {
                     "tipo_de_proyecto": "Project Type:",
                     "caracteristicas": "Characteristics:",
                     "observación": "Observation:",
+                    "titulo_empresa_asignada": "Assigned to the company:",
                     "ninguna_observacion": "No Observation",
                     "ver_proyecto": "Open Project",
                     "pronto_nos_pondremos_contacto": "We will contact you soon to define the development process of your project.",
@@ -677,6 +699,7 @@ export default {
         "menu_nuevo_proyecto": "Nuevo Proyecto",
         "navegacion": "Navegación",
         "clientes": "Clientes",
+        "cliente": "Cliente",
         "proyectos": "Proyectos",
         "proveedores": "Proveedores",
         "empresas": "Empresas",
@@ -685,6 +708,7 @@ export default {
         "trafico_operativo": "Tráfico Operativo",
         "administrativo": "Administrativo",
         "brief_campañanas": "Brief Campañas",
+        "todos_los_proyectos": "Lista de Proyectos",
         "apariencia_titulo_modal": "Apariencia",
         "text_elige_como_se_ve": "Elige como se ve ",
         "seleccione_tema_text": " Seleccione un solo tema o sincronícelo con su sistema y cambie automáticamente entre temas diurnos y nocturnos.",
@@ -718,6 +742,12 @@ export default {
         "todos_los_miembros": "Todos los Miembros",
         "todas_las_empresas": "Todas las Empresas",
         "alert_empresas_clientes_ruta": "No puedes acceder a esta ruta, no tienes empresas registradas.",
+        "titulo_estado_proyecto_revision": "Revisión",
+        "titulo_estado_proyecto_borrador": "Borrador",
+        "titulo_estado_proyecto_aprobado": "Aprobado",
+        "titulo_estado_proyecto_desarrollo": "En Desarrollo",
+        "titulo_estado_proyecto_rechazado": "Rechazado",
+        "titulo_estado_proyecto_finalizado": "Finalizado",
         "email": {
             "bievenido_email": "Bievenido",
             "bievenido_email_a": "Bievenido a",
@@ -750,6 +780,13 @@ export default {
                 "mostrar_info": "Mostrar Info",
                 "siguiente_paso": "Siguiente Paso",
                 "agregar_brief": "Agregar Brief",
+                "titulo_guardar_proyecto": "Guardar Proyecto",
+                "titulo_seccion_cuarta_empresa": "4. Si deseas, agrega observaciones y asigna el proyecto a una empresa.",
+                "titulo_seccion_cuarta": "4. Si deseas, agrega observaciones.",
+                "titulo_tooltip_seccion_cuarta": "Como tienes empresas registradas, debes asignar este proyecto a una de ellas.",
+                "titulo_asignar_empresa": "Asignar a una empresa",
+                "titulo_asignar_empresa_requerido": "Debes asignar este proyecto",
+                "titulo_selecionar_empresa": "Seleccionar Empresa",
                 "text_paso_1": "Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...",
                 "text_paso_2": "Si necesita apoyo creativo con un brief para un evento virtual, fisico, o alguna activación en puntos de venta...",
                 "text_paso_3": "Si necesita ayuda de posicionamiento de su marca, gestionando sus redes sociales o su inversión presupuestal de marketing en pauta...",
@@ -826,6 +863,12 @@ export default {
                 "Proyectos": "Proyectos",
                 "Solicitar Proyecto": "Solicitar Proyecto"
             },
+            "companies": {
+                "companies": {
+                    "texto_no_hay_miembros": "No hay empresas registrados",
+                    "registrar_empresa": "Nueva Empresa"
+                }
+            },
             "email": {
                 "new-project-customer": {
                     "hola_cliente": "Hola",
@@ -837,6 +880,7 @@ export default {
                     "tipo_de_proyecto": "Tipo de Proyecto:",
                     "caracteristicas": "Características:",
                     "observación": "Observación:",
+                    "titulo_empresa_asignada": "Asignado a la empresa:",
                     "ninguna_observacion": "Ningúna Observación",
                     "ver_proyecto": "Ver Proyecto",
                     "pronto_nos_pondremos_contacto": "Pronto nos pondremos en contacto contigo para definir el proceso de desarrollo de tu proyecto.",

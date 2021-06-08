@@ -4,7 +4,7 @@
         <label v-if="showLabel" class="form-control-label" :for="id">
             <span  v-text="label"></span>
 
-            <span class="text-danger" v-if="required">*</span>
+            <span class="text-danger asterisco" v-if="required">*</span>
             <slot name="toltip"></slot>
         </label>
         <datepicker

@@ -8,6 +8,13 @@ return [
     'mostrar_info' => 'Mostrar Info',
     'siguiente_paso' => 'Siguiente Paso',
     'agregar_brief' => 'Agregar Brief',
+    'titulo_guardar_proyecto' => 'Guardar Proyecto',
+    'titulo_seccion_cuarta_empresa' => '4. Si deseas, agrega observaciones y asigna el proyecto a una empresa.',
+    'titulo_seccion_cuarta' => '4. Si deseas, agrega observaciones.',
+    'titulo_tooltip_seccion_cuarta' => 'Como tienes empresas registradas, debes asignar este proyecto a una de ellas.',
+    'titulo_asignar_empresa' => 'Asignar a una empresa',
+    'titulo_asignar_empresa_requerido' => 'Debes asignar este proyecto',
+    'titulo_selecionar_empresa' => 'Seleccionar Empresa',
 
     /*Traducciones del tour*/
     'text_paso_1' => 'Si necesita un nombre o una imagen creativa que lo represente corporativamente ante sus clientes...',

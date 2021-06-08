@@ -27,7 +27,7 @@
                     <a class="d-flex"
                        v-for="(notification, index) in notifications"
                        :key="index"
-                       :href="`/project/`+notification.slugProject"
+                       :href="`/`+language+`/admin-projects/`+notification.slugProject"
                        @click="linkNotification(index, notification)"
                     >
                         <div class="media d-flex align-items-start">
@@ -40,7 +40,7 @@
                             <div class="media-body">
                                 <p class="media-heading">
                                 <span class="font-weight-bolder">{{ notification.nameUser }} 🎉
-                                </span> {{ $t('backend.notification.notification.no_hay_notificaciones') }}
+                                </span> {{ $t('backend.notification.notification.ha_registrado_un') }}
                                 <div class="badge badge-pill badge-light-success">{{ $t('backend.notification.notification.nuevo_proyecto') }}</div>
                                 <small class="notification-text">{{ $t('backend.notification.notification.es_necesario_revisarlo') }}</small>
                             </div>
@@ -228,7 +228,7 @@ export default {
         viewMarkRead(notification){
             console.log(notification)
             let value = null
-            window.open(`/project/${notification.slugProject}`,"_blank");
+            window.open(`/`+this.language+`/admin-projects/${notification.slugProject}`,"_blank");
             this.linkNotification(value, notification)
             this.getAllNotifications();
         },
@@ -323,9 +323,9 @@ export default {
                     this.notifications.push({
                         id: e.project.id,
                         slugProject: e.project.slug,
-                        pictureUser: e.project.user.picture,
-                        nameUser: e.project.user.name,
-                        lastNameUser: e.project.user.last_name,
+                        pictureUser: e.project.pictureUser,
+                        nameUser: e.project.nameUser,
+                        lastNameUser: e.project.lastNameUser,
                     })
                     this.getAllNotifications();
                 });

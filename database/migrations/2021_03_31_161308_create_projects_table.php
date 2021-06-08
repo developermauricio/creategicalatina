@@ -27,9 +27,13 @@ class CreateProjectsTable extends Migration
             $table->foreign('type_project_id')->references('id')->on('type_projects');
             $table->string('slug')->nullable();
             $table->enum('state', [
-                \App\Model\Project::ACTIVE,
-                \App\Model\Project::INACTIVE
-            ])->default(\App\Model\Project::ACTIVE);
+                \App\Model\Project::REVISION,
+                \App\Model\Project::BORRADOR,
+                \App\Model\Project::APPROVED,
+                \App\Model\Project::DEVELOPMENT,
+                \App\Model\Project::REJECTED,
+                \App\Model\Project::FINALIZED,
+            ])->default(\App\Model\Project::REVISION);
             $table->timestamps();
         });
     }

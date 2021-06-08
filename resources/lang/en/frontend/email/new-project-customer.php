@@ -9,6 +9,7 @@ return [
     'tipo_de_proyecto' => 'Project Type:',
     'caracteristicas' => 'Characteristics:',
     'observación' => 'Observation:',
+    'titulo_empresa_asignada' => 'Assigned to the company:',
     'ninguna_observacion' => 'No Observation',
     'ver_proyecto' => 'Open Project',
     'pronto_nos_pondremos_contacto' => 'We will contact you soon to define the development process of your project.',

@@ -8,6 +8,13 @@ return [
     'mostrar_info' => 'Show Info',
     'siguiente_paso' => 'Next Step',
     'agregar_brief' => 'Add Brief',
+    'titulo_guardar_proyecto' => 'Save Project',
+    'titulo_seccion_cuarta_empresa' => '4. If you want, add comments and assign the project to a company.',
+    'titulo_seccion_cuarta' => '4. If you want, add observations.',
+    'titulo_tooltip_seccion_cuarta' => 'As you have registered companies, you must assign this project to one of them.',
+    'titulo_asignar_empresa' => 'Assign to a company',
+    'titulo_asignar_empresa_requerido' => 'You must assign this project',
+    'titulo_selecionar_empresa' => 'Select Company',
 
     /*Traducciones del tour*/
     'text_paso_1' => 'If you need a name or a creative image that represents you corporately to your clients...',

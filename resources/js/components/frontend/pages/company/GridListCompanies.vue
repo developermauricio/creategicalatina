@@ -28,12 +28,12 @@
                 <a type="button" :href="'/'+language+'/new-member'"
                    class="float-right btn btn-primary waves-effect waves-float waves-light"><i data-feather='plus'
                                                                                                class="mr-1"></i>{{
-                        $t('backend.team.teams.registrar_miembro')
+                        $t('frontend.companies.companies.registrar_empresa')
                     }}</a>
             </div>
         </div>
         <div class="row" v-if="skeletonValue === 0">
-            <div class="col-12 col-md-3 col-lg-3" v-for="(company, index) in resultQuery" :key="company.id">
+            <div v-if="resultQuery" class="col-12 col-md-3 col-lg-3" v-for="(company, index) in resultQuery" :key="company.id">
                 <div class="card card-profile">
                     <img :src="bannerTeam" class="img-fluid card-img-top"
                          alt="Profile Cover Photo"/>
@@ -52,6 +52,9 @@
 
                     </div>
                 </div>
+            </div>
+            <div v-else>
+                <h3>{{ $t('frontend.companies.companies.texto_no_hay_miembros') }}</h3>
             </div>
         </div>
     </div>
@@ -84,7 +87,6 @@ export default {
                         this.skeletonValue = 0
                     }, 200)
                     this.companies = resp.data.data
-                    console.log(this.companies)
                 }).catch(err => {
                 this.skeletonValue = 0
             })

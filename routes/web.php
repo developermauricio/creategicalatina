@@ -1,6 +1,7 @@
 <?php
 
 use App\Model\Company;
+use App\Model\Customer;
 use App\Model\TypeProject;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,10 +34,10 @@ Route::get('/project', function () {
 });
 
 Route::get('/tiene-empresa', function () {
-    $customer = Auth::user()->customer;
-    $company = Company::where('customer_id', $customer->id)->get();
+    $customer = Customer::where('user_id', \auth()->user()->id)->with('user')->first();
+//    $company = Company::where('customer_id', $customer->id)->get();
 
-    return $company;
+    return $customer->user->name;
 })->middleware('hasCompanies');
 
 Route::get('/chat', function () {
@@ -109,10 +110,13 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         Route::get('/providers', 'Provider\ProviderController@index')->name('backend.provider.provider');
         Route::get('/new-providers', 'Provider\CreateProviderController@index')->name('backend.provider.create.provider');
 
-        /* RUTAS Team*/
+        /* RUTAS TEAM*/
         Route::get('/members-team', 'Team\TeamController@index')->name('backend.team.team');
         Route::get('/new-member', 'Team\TeamCreateController@index')->name('backend.team.create.team');
 
+        /* RUTAS PROYECTOS*/
+        Route::get('/admin-projects', 'Project\ProjectController@index')->name('backend.projects.projects');
+        Route::get('/admin-projects/{project}', 'Project\ProjectDetailController@index')->name('backend.projects.projects');
 
         /* RUTAS PERFIL*/
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');

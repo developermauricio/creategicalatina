@@ -130,6 +130,12 @@
                                         </p>
                                         <p style="font-weight: 500; font-size: 16px; margin-bottom: 0;">{{ __('frontend/email/new-project-customer.este_es_resumen_proyecto') }}</p>
                                         <ul style="margin-bottom: 24px;">
+                                            @if($company)
+                                            <li>
+                                                <strong>{{ __('frontend/email/new-project-customer.titulo_empresa_asignada') }} </strong>
+                                                <p>{{ $company }}</p>
+                                            </li>
+                                            @endif
                                             <li>
                                                 <strong>{{ __('frontend/email/new-project-customer.nombre_del_proyecto') }} </strong>
                                                 <p>{{ $project_name }}</p>
