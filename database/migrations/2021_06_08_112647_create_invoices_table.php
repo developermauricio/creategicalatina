@@ -29,6 +29,7 @@ class CreateInvoicesTable extends Migration
             $table->double('subtotal')->nullable();
             $table->double('total')->nullable();
             $table->double('iva')->nullable();
+            $table->string('slug')->nullable();
             $table->enum('state', [
                 \App\Model\Invoice::REVISION,
                 \App\Model\Invoice::BORRADOR,

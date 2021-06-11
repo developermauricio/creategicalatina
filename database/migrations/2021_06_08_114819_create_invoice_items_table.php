@@ -19,7 +19,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->foreign('invoice_id')->references('id')->on('invoices');
             $table->text('item')->nullable();
             $table->double('price')->nullable();
-            $table->double('quantity')->nullable();
+            $table->integer('quantity')->nullable();
             $table->double('value_final')->nullable();
             $table->timestamps();
         });

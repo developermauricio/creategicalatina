@@ -113,6 +113,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         /* RUTAS TEAM*/
         Route::get('/members-team', 'Team\TeamController@index')->name('backend.team.team');
         Route::get('/new-member', 'Team\TeamCreateController@index')->name('backend.team.create.team');
+        Route::get('/configuration-team', 'Team\ConfigurationTeamController@index')->name('backend.team.configuration.team');
 
         /* RUTAS PROYECTOS*/
         Route::get('/admin-projects', 'Project\ProjectController@index')->name('backend.projects.projects');
@@ -121,6 +122,11 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         /* RUTAS PERFIL*/
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');
         Route::get('/admin/edit-profile/{user}', 'Profile\ProfileController@editProfile')->name('backend.edit.profile');
+
+
+        /* RUTAS FACTURAS*/
+        Route::get('/admin/invoice/{invoice}', 'Invoice\InvoiceController@indexPrint')->name('backend.invoice.print');
+
     });
     /*=============================================
       RUTAS PARA EL FRONTEND

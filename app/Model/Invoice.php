@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
@@ -12,4 +13,16 @@ class Invoice extends Model
     const PAID = 4;
     const REJECTED = 5;
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function invoiceItems(){
+        return $this->hasMany(InvoiceItems::class, 'invoice_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

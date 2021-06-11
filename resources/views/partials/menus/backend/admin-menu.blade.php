@@ -25,14 +25,19 @@
         </li>
 
 
-        <li class=" nav-item"><a class="d-flex align-items-center" href="/{{ session('language') }}/admin-projects"><i data-feather='package'></i><span class="menu-title text-truncate"
-                                                                                                                                                  data-i18n="Chat">{{ __('proyectos') }}</span></a>
+        <li class=" nav-item"><a class="d-flex align-items-center" href="/{{ session('language') }}/admin-projects"><i
+                    data-feather='package'></i><span class="menu-title text-truncate"
+                                                     data-i18n="Chat">{{ __('proyectos') }}</span></a>
             <ul class="menu-content">
                 <li class="{{request()->is(session('language').'/admin-projects*') ? 'active' : '' }}">
-                    <a class="d-flex align-items-center" href="/{{ session('language') }}/admin-projects"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('menu_todos_los_proyectos') }}</span></a>
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/admin-projects"><i
+                            data-feather="circle"></i><span class="menu-item text-truncate"
+                                                            data-i18n="Second Level">{{ __('menu_todos_los_proyectos') }}</span></a>
                 </li>
                 <li class="{{request()->is(session('language').'/new-project') ? 'active' : '' }}">
-                    <a class="d-flex align-items-center" href="/{{ session('language') }}/new-project"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">{{ __('menu_nuevo_proyecto') }}</span></a>
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/new-project"><i
+                            data-feather="circle"></i><span class="menu-item text-truncate"
+                                                            data-i18n="Second Level">{{ __('menu_nuevo_proyecto') }}</span></a>
                 </li>
             </ul>
         </li>
@@ -84,6 +89,22 @@
                     <a class="d-flex align-items-center" href="/{{ session('language') }}/new-member"><i
                             data-feather="circle"></i><span class="menu-item text-truncate"
                                                             data-i18n="Second Level">{{ __('backend/team/teams.registrar_miembro') }}</span></a>
+                </li>
+            </ul>
+        </li>
+        <li class=" navigation-header">
+            <span data-i18n="Apps &amp; Pages">
+                {{ __('configuracion_sistema_titulo_navegacion') }}
+            </span>
+            <i data-feather="more-horizontal"></i>
+        </li>
+        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='settings'></i><span
+                    class="menu-title text-truncate" data-i18n="Kanban">Configuración</span></a>
+            <ul class="menu-content">
+                <li class="{{request()->is(session('language').'/configuration-team') ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/configuration-team"><i
+                            data-feather="circle"></i><span class="menu-item text-truncate"
+                                                            data-i18n="Second Level">Equipo de Trabajo</span></a>
                 </li>
             </ul>
         </li>

@@ -256,7 +256,7 @@ class DatabaseSeeder extends Seeder
             factory(\App\Model\InvoiceType::class)->create(
                 [
                     "name" => $invoiceTypeEs[$i],
-                                   ]
+                ]
             );
             $invoiceType = \App\Model\InvoiceType::find($i + 1);
             $invoiceType->setTranslation('name', 'en', $invoiceTypeEn[$i]);
@@ -384,11 +384,11 @@ class DatabaseSeeder extends Seeder
                 'email' => 'monic@creategicalatina.com',
                 'picture' => '/images/monica-image.png'
             ])
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
                 factory(\App\Model\Team::class, 1)
-                    ->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                    ->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(7);
                     });
             });
@@ -425,7 +425,12 @@ class DatabaseSeeder extends Seeder
                                             'customer_id' => $customer->id,
                                             'user_id' => 2,
                                             'project_id' => $p->id
-                                        ]);
+                                        ])->each(function (\App\Model\Invoice $in) {
+                                            factory(\App\Model\InvoiceItems::class, 2)->create([
+                                                'invoice_id' => $in->id
+                                            ]);
+                                        });
+
                                         $ramdon = random_int(1, 8);
                                         $p->customer()->attach($customer->id);
                                         $p->company()->attach($company->id);
@@ -449,7 +454,11 @@ class DatabaseSeeder extends Seeder
                                     'customer_id' => $cn->id,
                                     'user_id' => 2,
                                     'project_id' => $p->id
-                                ]);
+                                ])->each(function (\App\Model\Invoice $in) {
+                                    factory(\App\Model\InvoiceItems::class, 2)->create([
+                                        'invoice_id' => $in->id
+                                    ]);
+                                });
                                 $ramdon = random_int(1, 8);
                                 $p->customer()->attach($cn->id);
                                 $p->project_categories()->attach($ramdon);
@@ -482,10 +491,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(1);
                     });
             });
@@ -494,10 +503,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(2);
                     });
             });
@@ -506,10 +515,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(3);
                     });
             });
@@ -518,10 +527,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(4);
                     });
             });
@@ -530,10 +539,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(5);
                     });
             });
@@ -542,10 +551,10 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(6);
                     });
             });
@@ -555,10 +564,10 @@ class DatabaseSeeder extends Seeder
         CREAMOS 10 MIEMBROS
     =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(7);
                     });
             });
@@ -567,14 +576,13 @@ class DatabaseSeeder extends Seeder
             CREAMOS 10 MIEMBROS
         =============================================*/
         factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u){
+            ->each(function (\App\User $u) {
                 $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id'=> $u->id])
-                    ->each(function (\App\Model\Team $t){
+                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                    ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(8);
                     });
             });
-
 
 
     }
