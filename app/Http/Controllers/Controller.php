@@ -274,4 +274,29 @@ class Controller extends BaseController
         $getInvoiceType = InvoiceType::all();
         return response()->json(['data' => $getInvoiceType]);
     }
+
+    public function filterEmail($email){
+        $emailsUser = User::where('email', 'LIKE', '%'.$email.'%')->get();
+        $emailsCompany = Company::where('email', 'LIKE', '%'.$email.'%')->get();
+
+        $emailsArray = [];
+
+        foreach ($emailsUser as $email){
+            array_push($emailsArray, (object)[
+                'id' =>  $email->id,
+                'email' => $email->email,
+                'name' => $email->name
+            ]);
+        }
+
+        foreach ($emailsCompany as $email){
+            array_push($emailsArray, (object)[
+                'id' =>  $email->id,
+                'email' => $email->email,
+                'name' => $email->name
+            ]);
+        }
+
+        return response()->json(['data' => $emailsArray]);
+    }
 }

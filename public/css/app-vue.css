@@ -10952,3 +10952,12 @@ a.text-dark:focus {
   background: #f05e7d !important;
 }
 
+.vs-popup .dark-layout {
+  background: #283046 !important;
+}
+
+.vdp-datepicker__calendar .cell.selected {
+  background: #f05e7d !important;
+  color: white !important;
+}
+

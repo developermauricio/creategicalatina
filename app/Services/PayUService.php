@@ -60,7 +60,7 @@ class PayUService {
             $request->payu_cvc,
             $request->payu_year,
             $request->payu_month,
-            $request->payu_network,
+            $request->payu_network
         );
 
         Log::debug(json_encode($payment->transactionResponse));
@@ -147,7 +147,7 @@ class PayUService {
             [
                 'Accept' => 'application/json',
             ],
-            $isJsonRequest = true,
+            $isJsonRequest = true
         );
     }
 

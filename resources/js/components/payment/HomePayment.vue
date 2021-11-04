@@ -56,7 +56,7 @@
                                         <label @click="selectPaymentPlatform(platform)"
                                             :class="platform.id === (payment.platform ? payment.platform.id : 0) ? 'active' : ''"
                                             class="btn btn-outline-secondary rounded m-2 p-1">
-                                            <img class="img-thumbnail" :src="'/' + platform.image" :alt="platform.name">
+                                            <img class="img-thumbnail" :src="'' + platform.image" :alt="platform.name">
                                         </label>
                                     </div>
                                 </div>

@@ -54,7 +54,7 @@
                 <div class="d-flex justify-content-between flex-md-row flex-column pb-2">
                     <div>
                         <div class="d-flex mb-1">
-                            <img width="300" src="{{ env('IMG_LOGO') }}" alt="">
+                            <img width="300" src="{{ env('IMG_LOGO_LIGTH') }}" alt="">
                         </div>
                         <p class="mb-25">Office 149, 450 South Brand Brooklyn</p>
                         <p class="mb-25">San Diego County, CA 91905, USA</p>
@@ -63,53 +63,72 @@
                     <div class="mt-md-0 mt-2">
                         <h4 class="font-weight-bold text-right mb-1">FACTURA #{{$invoice->code}}</h4>
                         <div class="invoice-date-wrapper mb-50">
-                            <span class="invoice-date-title">Date Issued:</span>
-                            <span class="font-weight-bold"> 25/08/2020</span>
+                            <span class="invoice-date-title">Fecha de Emisión:</span>
+                            <span class="font-weight-bold">{{ $invoice->date }}</span>
                         </div>
                         <div class="invoice-date-wrapper">
-                            <span class="invoice-date-title">Due Date:</span>
-                            <span class="font-weight-bold">29/08/2020</span>
+                            <span class="invoice-date-title">Fecha de Vencimiento:</span>
+                            <span class="font-weight-bold">{{ $invoice->end_date }}</span>
                         </div>
                     </div>
                 </div>
 
                 <hr class="my-2" />
 
-                <div class="row pb-2">
-                    <div class="col-sm-6">
-                        <h6 class="mb-1">Invoice To:</h6>
-                        <p class="mb-25">Thomas shelby</p>
-                        <p class="mb-25">Shelby Company Limited</p>
-                        <p class="mb-25">Small Heath, B10 0HF, UK</p>
-                        <p class="mb-25">718-986-6062</p>
-                        <p class="mb-0">peakyFBlinders@gmail.com</p>
-                    </div>
-                    <div class="col-sm-6 mt-sm-0 mt-2">
-                        <h6 class="mb-1">Payment Details:</h6>
+                <div class="row pl-1">
+                    <div class="col-xl-8 p-0">
+                        <h6 class="mb-2">Factura a:</h6>
                         <table>
                             <tbody>
                             <tr>
-                                <td class="pr-1">Total Due:</td>
-                                <td><strong>$12,110.55</strong></td>
+                                <td class="pr-1">Cliente:</td>
+                                <td><span class="font-weight-bold">{{ $invoice->customer->user->name }} {{ $invoice->customer->user->last_name }}</span></td>
                             </tr>
                             <tr>
-                                <td class="pr-1">Bank name:</td>
-                                <td>American Bank</td>
+                                <td class="pr-1">Ubicación:</td>
+                                <td>{{ $invoice->customer->user->country->name }}, {{ $invoice->customer->user->city  ? $invoice->customer->user->city->name : ''}}  </td>
                             </tr>
                             <tr>
-                                <td class="pr-1">Country:</td>
-                                <td>United States</td>
+                                <td class="pr-1">Dirección:</td>
+                                <td>{{ $invoice->customer->user->address }}</td>
                             </tr>
                             <tr>
-                                <td class="pr-1">IBAN:</td>
-                                <td>ETD95476213874685</td>
+                                <td class="pr-1">Teléfono:</td>
+                                <td>{{ $invoice->customer->user->phone }}</td>
                             </tr>
                             <tr>
-                                <td class="pr-1">SWIFT code:</td>
-                                <td>BR91905</td>
+                                <td class="pr-1">Correo electrónico:</td>
+                                <td>{{ $invoice->customer->user->email }}</td>
                             </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="col-xl-4 p-0 mt-xl-0 mt-2">
+                        {{--                                    <h6 class="mb-2">Payment Details:</h6>--}}
+                        {{--                                    <table>--}}
+                        {{--                                        <tbody>--}}
+                        {{--                                        <tr>--}}
+                        {{--                                            <td class="pr-1">Total Due:</td>--}}
+                        {{--                                            <td><span class="font-weight-bold">$12,110.55</span></td>--}}
+                        {{--                                        </tr>--}}
+                        {{--                                        <tr>--}}
+                        {{--                                            <td class="pr-1">Bank name:</td>--}}
+                        {{--                                            <td>American Bank</td>--}}
+                        {{--                                        </tr>--}}
+                        {{--                                        <tr>--}}
+                        {{--                                            <td class="pr-1">Country:</td>--}}
+                        {{--                                            <td>United States</td>--}}
+                        {{--                                        </tr>--}}
+                        {{--                                        <tr>--}}
+                        {{--                                            <td class="pr-1">IBAN:</td>--}}
+                        {{--                                            <td>ETD95476213874685</td>--}}
+                        {{--                                        </tr>--}}
+                        {{--                                        <tr>--}}
+                        {{--                                            <td class="pr-1">SWIFT code:</td>--}}
+                        {{--                                            <td>BR91905</td>--}}
+                        {{--                                        </tr>--}}
+                        {{--                                        </tbody>--}}
+                        {{--                                    </table>--}}
                     </div>
                 </div>
 
@@ -177,7 +196,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <span class="font-weight-bold">Nota:</span>
+                        <span class="font-weight-bold">Observaciones:</span>
                         <span>{{ $invoice->note }}</span>
                     </div>
                 </div>

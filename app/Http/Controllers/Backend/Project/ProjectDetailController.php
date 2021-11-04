@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ProjectDetailController extends Controller
 {
     public function index(string $locale, Project $project){
-        $project = Project::where('id', $project->id)->with('project_categories', 'typeProject', 'customer.position', 'customer.companyCategory','customer.user.country', 'customer.user.city')->first();
+        $project = Project::where('id', $project->id)->with('project_categories', 'invoices', 'typeProject', 'company', 'customer.position', 'customer.companyCategory','customer.user.country', 'customer.user.city')->first();
         return view('backend.pages.project.project-detail', compact('project'));
 //        return $project;
     }

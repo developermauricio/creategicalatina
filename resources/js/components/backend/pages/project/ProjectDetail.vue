@@ -31,22 +31,22 @@
             <div class="col-12">
                 <!-- navbar -->
                 <vs-tabs alignment="fixed" color="#F05E7D">
-                    <vs-tab label="Información">
+                    <vs-tab :label="this.$t('backend.project.project-detail.tab_titulo_información')">
                         <div>
                             <project-detail-information :projectInfo="project"></project-detail-information>
                         </div>
                     </vs-tab>
-                    <vs-tab label="Facturación">
+                    <vs-tab :label="this.$t('backend.project.project-detail.tab_titulo_facturacion')">
                         <div>
                             <invoice-project :projectInfo="project"></invoice-project>
                         </div>
                     </vs-tab>
-                    <vs-tab label="Flujo de Trabajo">
+                    <vs-tab :label="this.$t('backend.project.project-detail.tab_titulo_flujo_trabajo')">
                         <div>
                             <h1>Flujo de Traba </h1>
                         </div>
                     </vs-tab>
-                    <vs-tab label="Archivos">
+                    <vs-tab :label="this.$t('backend.project.project-detail.tab_titulo_archivos')">
                         <div>
                             <h1>Archivos </h1>
                         </div>

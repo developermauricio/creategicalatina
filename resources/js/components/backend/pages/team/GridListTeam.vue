@@ -58,6 +58,7 @@
     </div>
 </template>
 
+<script src="/node_modules/feather-icons/dist/feather.js"></script>
 <script>
 export default {
     name: "GridListTeam",
@@ -81,13 +82,14 @@ export default {
     },
     methods: {
         getListTeam() {
+
             axios.get('/api/grid-list-team')
                 .then(resp => {
                     setTimeout(() => {
                         this.skeletonValue = 0
                     }, 200)
                     this.teams = resp.data.data
-                    console.log(this.teams)
+                    window.feather.replace()
                 }).catch(err => {
                 this.skeletonValue = 0
             })
@@ -95,6 +97,10 @@ export default {
     },
     mounted() {
         this.getListTeam()
+        setTimeout(() =>{
+            window.feather.replace()
+        }, 500)
+
     },
     computed: {
         resultQuery(){

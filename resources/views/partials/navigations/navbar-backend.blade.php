@@ -52,143 +52,148 @@
                     {{--                        <i class="flag-icon flag-icon-us"></i> Inglés</a>--}}
                 </div>
             </li>
-            <li class="nav-item d-lg-block"
-                id="change-template-theme"><a
-                    class="nav-link nav-link-style icon-moon" data-toggle="modal"
-                    data-target="#modal-change-theme-backend"><i
-                        class="ficon" data-feather="moon"></i></a></li>
-            <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon"
-                                                                                   data-feather="search"></i></a>
-                <div class="search-input">
-                    <div class="search-input-icon"><i data-feather="search"></i></div>
-                    <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1"
-                           data-search="search">
-                    <div class="search-input-close"><i data-feather="x"></i></div>
-                    <ul class="search-list search-list-main"></ul>
-                </div>
+            <li class="nav-item d-lg-block">
+                <a class="nav-link nav-link-style" data-toggle="modal" data-target="#modal-change-theme-backend">
+                    <i class="ficon" data-feather="moon"></i>
+                </a>
             </li>
-            <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="javascript:void(0);"
-                                                                 data-toggle="dropdown"><i class="ficon"
-                                                                                           data-feather="shopping-cart"></i><span
-                        class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
-                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                    <li class="dropdown-menu-header">
-                        <div class="dropdown-header d-flex">
-                            <h4 class="notification-title mb-0 mr-auto">My Cart</h4>
-                            <div class="badge badge-pill badge-light-primary">4 Items</div>
-                        </div>
-                    </li>
-                    <li class="scrollable-container media-list">
-                        <div class="media align-items-center"><img class="d-block rounded mr-1"
-                                                                   src="/app-assets/images/pages/eCommerce/1.png"
-                                                                   alt="donuts" width="62">
-                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                <div class="media-heading">
-                                    <h6 class="cart-item-title"><a class="text-body"
-                                                                   href="app-ecommerce-details.html"> Apple watch
-                                            5</a></h6><small class="cart-item-by">By Apple</small>
-                                </div>
-                                <div class="cart-item-qty">
-                                    <div class="input-group">
-                                        <input class="touchspin-cart" type="number" value="1">
-                                    </div>
-                                </div>
-                                <h5 class="cart-item-price">$374.90</h5>
-                            </div>
-                        </div>
-                        <div class="media align-items-center"><img class="d-block rounded mr-1"
-                                                                   src="/app-assets/images/pages/eCommerce/7.png"
-                                                                   alt="donuts" width="62">
-                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                <div class="media-heading">
-                                    <h6 class="cart-item-title"><a class="text-body"
-                                                                   href="app-ecommerce-details.html"> Google Home
-                                            Mini</a></h6><small class="cart-item-by">By Google</small>
-                                </div>
-                                <div class="cart-item-qty">
-                                    <div class="input-group">
-                                        <input class="touchspin-cart" type="number" value="3">
-                                    </div>
-                                </div>
-                                <h5 class="cart-item-price">$129.40</h5>
-                            </div>
-                        </div>
-                        <div class="media align-items-center"><img class="d-block rounded mr-1"
-                                                                   src="/app-assets/images/pages/eCommerce/2.png"
-                                                                   alt="donuts" width="62">
-                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                <div class="media-heading">
-                                    <h6 class="cart-item-title"><a class="text-body"
-                                                                   href="app-ecommerce-details.html"> iPhone 11
-                                            Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                </div>
-                                <div class="cart-item-qty">
-                                    <div class="input-group">
-                                        <input class="touchspin-cart" type="number" value="2">
-                                    </div>
-                                </div>
-                                <h5 class="cart-item-price">$699.00</h5>
-                            </div>
-                        </div>
-                        <div class="media align-items-center"><img class="d-block rounded mr-1"
-                                                                   src="/app-assets/images/pages/eCommerce/3.png"
-                                                                   alt="donuts" width="62">
-                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                <div class="media-heading">
-                                    <h6 class="cart-item-title"><a class="text-body"
-                                                                   href="app-ecommerce-details.html"> iMac Pro</a>
-                                    </h6><small class="cart-item-by">By Apple</small>
-                                </div>
-                                <div class="cart-item-qty">
-                                    <div class="input-group">
-                                        <input class="touchspin-cart" type="number" value="1">
-                                    </div>
-                                </div>
-                                <h5 class="cart-item-price">$4,999.00</h5>
-                            </div>
-                        </div>
-                        <div class="media align-items-center"><img class="d-block rounded mr-1"
-                                                                   src="/app-assets/images/pages/eCommerce/5.png"
-                                                                   alt="donuts" width="62">
-                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                <div class="media-heading">
-                                    <h6 class="cart-item-title"><a class="text-body"
-                                                                   href="app-ecommerce-details.html"> MacBook
-                                            Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                </div>
-                                <div class="cart-item-qty">
-                                    <div class="input-group">
-                                        <input class="touchspin-cart" type="number" value="1">
-                                    </div>
-                                </div>
-                                <h5 class="cart-item-price">$2,999.00</h5>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown-menu-footer">
-                        <div class="d-flex justify-content-between mb-1">
-                            <h6 class="font-weight-bolder mb-0">Total:</h6>
-                            <h6 class="text-primary font-weight-bolder mb-0">$10,999.00</h6>
-                        </div>
-                        <a class="btn btn-primary btn-block" href="app-ecommerce-checkout.html">Checkout</a>
-                    </li>
-                </ul>
-            </li>
+            <!--=====================================
+		            BUSCADOR
+            ======================================-->
+{{--            <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>--}}
+{{--                <div class="search-input">--}}
+{{--                    <div class="search-input-icon"><i data-feather="search"></i></div>--}}
+{{--                    <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1"--}}
+{{--                           data-search="search">--}}
+{{--                    <div class="search-input-close"><i data-feather="x"></i></div>--}}
+{{--                    <ul class="search-list search-list-main"></ul>--}}
+{{--                </div>--}}
+{{--            </li>--}}
+            <!--=====================================
+		          CARRITO
+            ======================================-->
+{{--            <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="javascript:void(0);"--}}
+{{--                                                                 data-toggle="dropdown"><i class="ficon"--}}
+{{--                                                                                           data-feather="shopping-cart"></i><span--}}
+{{--                        class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>--}}
+{{--                <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">--}}
+{{--                    <li class="dropdown-menu-header">--}}
+{{--                        <div class="dropdown-header d-flex">--}}
+{{--                            <h4 class="notification-title mb-0 mr-auto">My Cart</h4>--}}
+{{--                            <div class="badge badge-pill badge-light-primary">4 Items</div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+{{--                    <li class="scrollable-container media-list">--}}
+{{--                        <div class="media align-items-center"><img class="d-block rounded mr-1"--}}
+{{--                                                                   src="/app-assets/images/pages/eCommerce/1.png"--}}
+{{--                                                                   alt="donuts" width="62">--}}
+{{--                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>--}}
+{{--                                <div class="media-heading">--}}
+{{--                                    <h6 class="cart-item-title"><a class="text-body"--}}
+{{--                                                                   href="app-ecommerce-details.html"> Apple watch--}}
+{{--                                            5</a></h6><small class="cart-item-by">By Apple</small>--}}
+{{--                                </div>--}}
+{{--                                <div class="cart-item-qty">--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input class="touchspin-cart" type="number" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h5 class="cart-item-price">$374.90</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="media align-items-center"><img class="d-block rounded mr-1"--}}
+{{--                                                                   src="/app-assets/images/pages/eCommerce/7.png"--}}
+{{--                                                                   alt="donuts" width="62">--}}
+{{--                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>--}}
+{{--                                <div class="media-heading">--}}
+{{--                                    <h6 class="cart-item-title"><a class="text-body"--}}
+{{--                                                                   href="app-ecommerce-details.html"> Google Home--}}
+{{--                                            Mini</a></h6><small class="cart-item-by">By Google</small>--}}
+{{--                                </div>--}}
+{{--                                <div class="cart-item-qty">--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input class="touchspin-cart" type="number" value="3">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h5 class="cart-item-price">$129.40</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="media align-items-center"><img class="d-block rounded mr-1"--}}
+{{--                                                                   src="/app-assets/images/pages/eCommerce/2.png"--}}
+{{--                                                                   alt="donuts" width="62">--}}
+{{--                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>--}}
+{{--                                <div class="media-heading">--}}
+{{--                                    <h6 class="cart-item-title"><a class="text-body"--}}
+{{--                                                                   href="app-ecommerce-details.html"> iPhone 11--}}
+{{--                                            Pro</a></h6><small class="cart-item-by">By Apple</small>--}}
+{{--                                </div>--}}
+{{--                                <div class="cart-item-qty">--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input class="touchspin-cart" type="number" value="2">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h5 class="cart-item-price">$699.00</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="media align-items-center"><img class="d-block rounded mr-1"--}}
+{{--                                                                   src="/app-assets/images/pages/eCommerce/3.png"--}}
+{{--                                                                   alt="donuts" width="62">--}}
+{{--                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>--}}
+{{--                                <div class="media-heading">--}}
+{{--                                    <h6 class="cart-item-title"><a class="text-body"--}}
+{{--                                                                   href="app-ecommerce-details.html"> iMac Pro</a>--}}
+{{--                                    </h6><small class="cart-item-by">By Apple</small>--}}
+{{--                                </div>--}}
+{{--                                <div class="cart-item-qty">--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input class="touchspin-cart" type="number" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h5 class="cart-item-price">$4,999.00</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="media align-items-center"><img class="d-block rounded mr-1"--}}
+{{--                                                                   src="/app-assets/images/pages/eCommerce/5.png"--}}
+{{--                                                                   alt="donuts" width="62">--}}
+{{--                            <div class="media-body"><i class="ficon cart-item-remove" data-feather="x"></i>--}}
+{{--                                <div class="media-heading">--}}
+{{--                                    <h6 class="cart-item-title"><a class="text-body"--}}
+{{--                                                                   href="app-ecommerce-details.html"> MacBook--}}
+{{--                                            Pro</a></h6><small class="cart-item-by">By Apple</small>--}}
+{{--                                </div>--}}
+{{--                                <div class="cart-item-qty">--}}
+{{--                                    <div class="input-group">--}}
+{{--                                        <input class="touchspin-cart" type="number" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <h5 class="cart-item-price">$2,999.00</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
+{{--                    <li class="dropdown-menu-footer">--}}
+{{--                        <div class="d-flex justify-content-between mb-1">--}}
+{{--                            <h6 class="font-weight-bolder mb-0">Total:</h6>--}}
+{{--                            <h6 class="text-primary font-weight-bolder mb-0">$10,999.00</h6>--}}
+{{--                        </div>--}}
+{{--                        <a class="btn btn-primary btn-block" href="app-ecommerce-checkout.html">Checkout</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
             <!--=====================================
 		            NOTIFICACIONES
             ======================================-->
             <notifications-backend :user_id="{{ auth()->user()->id }}"></notifications-backend>
-            <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
-                                                           id="dropdown-user" href="javascript:void(0);"
-                                                           data-toggle="dropdown" aria-haspopup="true"
-                                                           aria-expanded="false">
-                    <div class="user-nav d-sm-flex d-none"><span
-                            class="user-name font-weight-bolder">{{ auth()->user()->name }}</span>
+            <li class="nav-item dropdown dropdown-user">
+                <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="user-nav d-sm-flex d-none">
+                        <span class="user-name font-weight-bolder">{{ auth()->user()->name }}</span>
                         @php($rol = json_decode(auth()->user()->roles->pluck('language')->implode(', ')))
-                        <span class="user-status">{{ $rol->{session('language')} }}</span></div>
-                    <span class="avatar"><img id="photoProfile" class="round" src="{{ auth()->user()->picture }}"
-                                              alt="avatar" height="40" width="40"><span
-                            class="avatar-status-online"></span></span>
+                        <span class="user-status">{{ $rol->{session('language')} }}</span>
+                    </div>
+                    <span class="avatar">
+                        <img id="photoProfile" class="round" src="{{ auth()->user()->picture }}" alt="avatar" height="40" width="40">
+                        <span class="avatar-status-online"></span>
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a
                         class="dropdown-item"

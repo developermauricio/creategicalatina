@@ -35,4 +35,18 @@ class ProjectController extends Controller
             'finalizado' => $countFinalizadoProject,
         ]);
     }
+
+    public function getDataProject($id){
+        $project = Project::where('id', $id)->with('typeProject', 'project_categories')->first();
+        return response()->json(['data' => $project]);
+    }
+    public function getProjects(){
+        $project = Project::all();
+        return response()->json(['data' => $project]);
+    }
+
+    public function getDataProjectPurchase($id){
+        $project = Project::where('id', $id)->with('customer.user', 'customer.companyCategory', 'company.category', 'typeProject', 'project_categories')->first();
+        return response()->json(['data' => $project ]);
+    }
 }

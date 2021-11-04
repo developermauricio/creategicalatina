@@ -5,6 +5,7 @@ use App\Model\Customer;
 use App\Model\TypeProject;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,14 +24,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/mercado-pago', 'Payment\PaymentController@getConfigMercadoPago')->name('mercado.pago');
+Route::get('/prueba-email', function (){
+ return new \App\Mail\purchaseOrder\SendEmailPurchaseOrder('Mauricio', '985921', 'German Melez', 'oamoamsoamsoas', '27-23-2021', 'ORDEN DE PAGO', 'AAMSOAMSOAMSO');
+});
 
-Route::get('/project', function () {
-    $customer = Auth::user()->customer;
-    $projects = \App\Model\Project::with('user', 'typeProject', 'project_categories')->whereHas('customer', function ($q) use ($customer) {
-        $q->where('customer_id', $customer->id);
-    })->get();
-//    $projects = \App\Model\Project::with( 'user', 'typeProject', 'project_categories', 'customer')->get();
-    return $projects;
+Route::get('/project/{id}', function ($id) {
+    $project = \App\Model\Project::where('id', $id)->with('customer.user', 'company')->first();
+    return $project;
 });
 
 Route::get('/tiene-empresa', function () {
@@ -123,9 +124,15 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');
         Route::get('/admin/edit-profile/{user}', 'Profile\ProfileController@editProfile')->name('backend.edit.profile');
 
+        /* RUTAS ORDENES DE PAGO*/
+        Route::get('/purchase-orders', 'PurchaseOrder\PurchaseOrderController@index')->name('backend.purchase.orders');
+        Route::get('/new-purchase-order', 'PurchaseOrder\CreatePurchaseOrderController@index')->name('backend.purchase.orders');
+        Route::get('/admin/purchase-order-payment/{purchaseOrder}', 'PurchaseOrder\PurchaseOrderController@indexPurchaseOrderPayment')->name('backend.index.purcharse.send.payment');
+
 
         /* RUTAS FACTURAS*/
-        Route::get('/admin/invoice/{invoice}', 'Invoice\InvoiceController@indexPrint')->name('backend.invoice.print');
+        Route::get('/admin/invoice-print/{invoice}', 'Invoice\InvoiceController@indexPrint')->name('backend.invoice.print');
+        Route::get('/admin/invoice-payment/{invoice}', 'Invoice\InvoiceController@indexInvoicePayment')->name('backend.invoice.send.payment');
 
     });
     /*=============================================

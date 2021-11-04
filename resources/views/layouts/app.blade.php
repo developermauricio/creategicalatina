@@ -12,7 +12,7 @@
           content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords"
           content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
+    <meta name="author" content="">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- CSRF Token -->
@@ -45,6 +45,7 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/charts/chart-apex.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@voerro/vue-tagsinput@2.7.1/dist/style.css">
 
 {{--    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-toastr.css">--}}
 <!-- END: Page CSS-->
@@ -53,6 +54,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
+
         window.logoGreen = '{{ env('IMG_LOGO') }}'
         window.token = '{{ csrf_token() }}'
         window.lang = '{{ session('language') }}'
@@ -71,8 +73,6 @@
             window.cardsLoadingColor = '#ffffff'
         }
         window.rutaShowProject = '{{ request()->is(session('language').'/admin-projects*') }}'
-
-        console.log(themeSession);
     </script>
 
     <!--End of Tawk.to Script-->
@@ -81,7 +81,7 @@
 
 <!-- BEGIN: Body-->
 {{--@dd(request()->is(session('language').'/admin-projects*'))--}}
-@if(request()->is(session('language').'/admin-projects*'))
+@if(request()->is(session('language').'/admin-projects*') || request()->is(session('language').'/purchase-orders') || request()->is(session('language').'/new-purchase-order'))
     <body class="vertical-layout vertical-menu-modern menu-collapsed navbar-sticky footer-fixed" data-open="click"
           data-menu="vertical-menu-modern" data-col="" id="body-layout">
     @else
@@ -143,6 +143,8 @@
         <script src="/app-assets/js/core/app-menu.js"></script>
         <script src="/app-assets/js/core/app.js"></script>
         <script src="/app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+        <script src="/js/moment.js"></script>
+        <script src="/js/moment-locale.js"></script>
         <!-- END: Theme JS-->
 
         <!-- BEGIN: Page JS-->

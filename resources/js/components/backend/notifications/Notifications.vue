@@ -1,7 +1,7 @@
 <template>
     <div>
         <li class="nav-item dropdown dropdown-notification mr-25">
-            <a class="nav-link" href="javascript:void(0);" data-toggle="dropdown">
+            <a class="nav-link nav-link-style-bell" href="javascript:void(0);" data-toggle="dropdown">
                 <i class="ficon" data-feather="bell"></i>
                 <span class="badge badge-pill badge-danger badge-up" v-if="notifications.length">{{
                         notifications.length

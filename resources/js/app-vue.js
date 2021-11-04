@@ -39,11 +39,15 @@ Vue.use(SkeletonCards)
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import VoerroTagsInput from '@voerro/vue-tagsinput';
+
+Vue.component('tags-input', VoerroTagsInput);
+
 
 const numberFormat =  new Intl.NumberFormat('es-co', {
     style: 'currency',
     currency: 'COP',
-    minimumFractionDigits: 2
+    minimumFractionDigits: 0
 });
 
 window.currency = function (number) {
@@ -56,6 +60,7 @@ Vue.filter('currency', currency);
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
 Vue.component('preview-doc', require('./components/components/previewdoc/PreviewDoc.vue').default)
+Vue.component('custom-repetear', require('./components/components/vue-repeater/src/components/repeater.vue').default)
 
 /*=============================================
 COMPONENTES PARA LAS NOTIFICACIONES
@@ -96,18 +101,35 @@ Vue.component('type-invoice', require('./components/backend/pages/project/compon
 Vue.component('items-invoice', require('./components/backend/pages/project/components/invoice/components/ItemsInvoice.vue').default);
 Vue.component('create-invoice-project', require('./components/backend/pages/project/components/invoice/components/CreateInvoice.vue').default);
 
+/*=============================================
+COMPONENTES GLOBALES
+=============================================*/
+Vue.component('show-project-component', require('./components/components/project/ShowProject.vue').default);
+Vue.component('show-customer-component', require('./components/components/customer/ShowCustomer.vue').default);
 
 // BEGIN: Profile
 Vue.component('edit-profile', require('./components/backend/pages/profile/EditProfileUser.vue').default);
 // END: Profile
 
 // BEGIN: view Payment Platform
+Vue.component('card-payment-purchase-order', require('./components/payment/CardPyamentPurchaseOrder.vue').default);
+Vue.component('payu-payment-component', require('./components/payment/components/PayuComponent.vue').default);
+
+
 Vue.component('home-payment', require('./components/payment/HomePayment.vue').default);
 Vue.component('paypal-component', require('./components/payment/componentsPayment/PayPalComponent.vue').default);
 Vue.component('stripe-component', require('./components/payment/componentsPayment/StripeComponent.vue').default);
 Vue.component('secure-stripe-component', require('./components/payment/stripe/SecureComponent.vue').default);
 Vue.component('mercadopago-component', require('./components/payment/componentsPayment/MercadoPagoComponent.vue').default);
 Vue.component('payu-component', require('./components/payment/componentsPayment/PayUComponent.vue').default);
+
+/*=============================================
+COMPONENTES PARA LAS ORDENES DE PAGO
+=============================================*/
+Vue.component('create-new-purchase-order', require('./components/backend/pages/purchaseOrder/CreatePurchaseOrder.vue').default)
+Vue.component('items-purchase-order', require('./components/backend/pages/purchaseOrder/ItemsPurchaseOrder.vue').default)
+Vue.component('show-purchase-order', require('./components/backend/pages/purchaseOrder/ShowPurchaseOrder.vue').default)
+Vue.component('sidebar-send-purchase-order', require('./components/components/purchaseOrder/SidebarSendPurchaseOrder.vue').default)
 // END: view Payment Platform
 
 /**

@@ -1,0 +1,100 @@
+{
+  "_from": "vue-repeater",
+  "_id": "vue-repeater@1.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-dPp1S7gdiSRBfzIOkvim7mg78J6hhwe/G/d6SWMObn6Nhdc6yUkz24YLVyvaXpoAQEhoqHSjctzCYTZz6J379w==",
+  "_location": "/vue-repeater",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-repeater",
+    "name": "vue-repeater",
+    "escapedName": "vue-repeater",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-repeater/-/vue-repeater-1.1.2.tgz",
+  "_shasum": "2083eff68569bafa500156850eed7b0481c92304",
+  "_spec": "vue-repeater",
+  "_where": "/Users/mauriciogutierrez/Sites/creategicalatina",
+  "author": {
+    "name": "Eugen Guriev"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "bugs": {
+    "url": "https://github.com/gcofficial/vue-repeater/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10"
+  },
+  "deprecated": false,
+  "description": "The VueJS repeater component allows you to create a set of sub components which can be repeated again and again whilst editing content!",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "homepage": "https://github.com/gcofficial/vue-repeater#readme",
+  "keywords": [
+    "VueJS",
+    "repeater",
+    "ui",
+    "ux",
+    "gutenberg",
+    "builder"
+  ],
+  "license": "MIT",
+  "main": "dist/lib/vue-repeater.common.js",
+  "module": "dist/lib/vue-repeater.common.js",
+  "name": "vue-repeater",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcofficial/vue-repeater.git"
+  },
+  "scripts": {
+    "build": "vue-cli-service build --dest dist/app",
+    "lib": "vue-cli-service build --dest dist/lib --target lib --inline-vue src/components/repeater.vue --name VueRepeater --filename vue-repeater",
+    "lint": "vue-cli-service lint",
+    "serve": "vue-cli-service serve",
+    "wc": "vue-cli-service build --skip-plugins lodash --dest dist/wc --target wc --name vue-repeater --inline-vue src/components/repeater.vue"
+  },
+  "unpkg": "dist/lib/vue-repeater.umd.min.js",
+  "version": "1.1.2"
+}

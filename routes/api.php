@@ -53,6 +53,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/removed-archive-company','Customer\CreateCustomerController@removedArchiveCompany')->name('api.removed.archive.company');
         Route::post('/register/store-company','Customer\CreateCustomerController@storeCreateCompany')->name('api.store.create.company');
         Route::post('/register/store-customer-person-natural','Customer\CreateCustomerController@storeCreatePersonaNaturalCustomer')->name('api.store.create.company');
+        Route::get('/get-data-customer/{id}', 'Customer\CustomerController@getDataCustomer')->name('api.get.customer');
+        Route::get('/get-data-company/{id}', 'Customer\CustomerController@getDataCompany')->name('api.get.company.sho');
+
 
         /*=============================================
         API PARA MODULO PROVEEDOR
@@ -73,6 +76,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('count-state-project', 'Project\ProjectController@countStateProject')->name('api.count.state.project');
         Route::get('/get-brief-answer/{id}/{typeProject}', 'Project\ProjectDetailController@getAnswerBrief')->name('api.get.brief.answer.project');
         Route::get('/get-data-invoice-projects/{id}', 'Project\ProjectDetailController@getDataInvoice')->name('api.get.data.invoice.project');
+        Route::get('/get-data-project/{id}', 'Project\ProjectController@getDataProject')->name('api.get.data.project');
+        Route::get('/get-projects', 'Project\ProjectController@getProjects')->name('api.get.data.projects');
+        Route::get('/get-project-create-purchase/{id}', 'Project\ProjectController@getDataProjectPurchase')->name('api.get.data.project.purchase');
 
 
         /*=============================================
@@ -90,6 +96,19 @@ Route::group(['middleware' => 'auth'], function () {
             API PARA MODULO DE PERFIL
         ==================================*/
         Route::post('/update/user-profile','Profile\ProfileController@updateUserProfile')->name('api.update.user.profile');
+
+        /*=============================================
+        API PARA LAS FACTURAS
+        =============================================*/
+        Route::post('/register/store-invoice', 'Invoice\InvoiceController@storeCreateInvoice')->name('api.store.invoice.create');
+
+        /*=============================================
+        API PARA MODULO ORDENES DE PAGO
+        =============================================*/
+        Route::get('datable-all-purchase-orders', 'PurchaseOrder\PurchaseOrderController@getDatableProvider')->name('api.backend.all.purchase.order');
+        Route::post('/register/store-purchase-order', 'PurchaseOrder\CreatePurchaseOrderController@storeCreatePurchaseOrder')->name('api.store.purchase.order');
+        Route::post('/store-send-email-purchase-order', 'PurchaseOrder\PurchaseOrderController@sendEmailPurchaseOrder')->name('api.send.email.purchase.order');
+        Route::get('/get-data-purchase-order/{id}', 'PurchaseOrder\PurchaseOrderController@getDataPurchase')->name('api.get.data.purchase');
 
 
     });
@@ -123,6 +142,12 @@ Route::get('/get-type-company', 'Controller@getTypeCompanies')->name('api.get.ty
 Route::get('/get-type-entities', 'Controller@getTypeEntities')->name('api.get.type.entities');
 Route::get('/get-position-team/{idWorkArea}', 'Controller@getPositionTeam')->name('api.get.position.team');
 Route::get('/get-invoice-types', 'Controller@getInvoiceTypes')->name('api.get.invoice.type');
+
+/*=============================================
+        API PARA LOS METODOS DE PAGO
+        =============================================*/
+Route::get('/get-type-payments', 'Payment\PaymentController@getMethodsPayment')->name('get.methods.payment');
+
 /*=============================================
         API PARA LAS NOTIFICACIONES
 =============================================*/
@@ -132,5 +157,7 @@ Route::post('/viewed-notification', 'Controller@viewedNotificationProyect')->nam
 Route::get('/get-all-notifications-user', 'Controller@getNotificationAllUser')->name('get.all.notification.user');
 Route::post('/state-notification-change', 'Controller@stateNotificationChange')->name('state.notification.change');
 Route::post('/delete-notification', 'Controller@deleteNotification')->name('delete.notification');
+
+Route::get('/filter-email/{email}', 'Controller@filterEmail')->name('api.filter.email');
 
 

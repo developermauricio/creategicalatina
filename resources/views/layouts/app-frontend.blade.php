@@ -134,10 +134,11 @@
 
 
         <!-- END: Theme JS-->
-        <script src="/js/change-template.js"></script>
+
                 {{--<script src="/app-assets/js/scripts/extensions/ext-component-swiper.js"></script>--}}
         {{--<script src="/js/swiper-sliders.js"></script>--}}
         @stack('js')
+        <script src="/js/change-template.js"></script>
         <script>
             window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
             console.log(window.location.hostname);

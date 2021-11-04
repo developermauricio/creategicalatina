@@ -626,8 +626,8 @@ export default {
             dropzoneOptionsCompanyArchive: {
                 url: '/api/upload-archive-company',
                 // thumbnailWidth: 200,
-                maxFilesize: 10,
-                maxFiles: 20,
+                maxFilesize: 5,
+                maxFiles: 1,
                 paramName: 'archive',
                 acceptedFiles: "image/*,application/pdf,.doc,.docx,.xls,.xlsx,.csv,.tsv,.ppt,.pptx,.pages,.odt,.rtf",
                 addRemoveLinks: true,

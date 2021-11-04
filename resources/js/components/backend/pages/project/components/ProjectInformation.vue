@@ -10,32 +10,32 @@
                              ======================================-->
                             <vs-collapse-item :open="true" >
                                 <div slot="header">
-                                    <h3>Información del Proyecto</h3>
+                                    <h3>{{ this.$t('backend.project.project-detail.titulo_informacio_proyecto') }}</h3>
                                 </div>
                                 <div class="row pl-2 pr-2 pt-1 pb-3">
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Nombre del Proyecto:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_nombre_proyecto') }}</h5>
                                         <p class="card-text" v-text="projectInfo.name"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Area de Trabajo:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_area_trabajo') }}</h5>
                                         <p class="card-text" v-text="projectInfo.type_project.name[language]"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Categoría:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_categoria') }}</h5>
                                         <vs-chip v-for="chip in projectInfo.project_categories" :key="chip.id">
                                             {{  chip.name[language] }}
                                         </vs-chip>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Fecha de Registro:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_fecha_registro') }}</h5>
                                         <p class="card-text">
                                             {{ moment(projectInfo.created_at).locale(language).format("dddd, MMMM Do YYYY") }}</p>
                                     </div>
                                 </div>
                                 <div class="row pl-2 pr-2 pt-1 pb-3">
                                     <div class="col-6 col-md-3 col-lg-3">
-                                        <h5 class="mb-75">Fecha de Entrega:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_fecha_entrega') }}</h5>
                                         <p class="card-text" v-if="projectInfo.end_time">
                                             {{ moment(projectInfo.end_time).locale(language).format("dddd, MMMM Do YYYY") }}</p>
                                         <p class="card-text" v-else>
@@ -43,32 +43,32 @@
                                         </p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3">
-                                        <h5 class="mb-75">Estado:</h5>
-                                        <p class="card-text" v-if="projectInfo.state === '1'">Revisión</p>
-                                        <p class="card-text" v-else-if="projectInfo.state === '2'">Borrador</p>
-                                        <p class="card-text" v-else-if="projectInfo.state === '3'">Aprobado</p>
-                                        <p class="card-text" v-else-if="projectInfo.state === '4'">En Desarrollo</p>
-                                        <p class="card-text" v-else-if="projectInfo.state === '5'">Rechazado</p>
-                                        <p class="card-text" v-else-if="projectInfo.state === '6'">Finalizado</p>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_estado') }}</h5>
+                                        <p class="card-text" v-if="projectInfo.state === '1'">{{ this.$t('backend.project.project-detail.titulo_estado_revision') }}</p>
+                                        <p class="card-text" v-else-if="projectInfo.state === '2'">{{ this.$t('backend.project.project-detail.titulo_estado_borrador') }}</p>
+                                        <p class="card-text" v-else-if="projectInfo.state === '3'">{{ this.$t('backend.project.project-detail.titulo_estado_aprobado') }}</p>
+                                        <p class="card-text" v-else-if="projectInfo.state === '4'">{{ this.$t('backend.project.project-detail.titulo_estado_desarrollo') }}</p>
+                                        <p class="card-text" v-else-if="projectInfo.state === '5'">{{ this.$t('backend.project.project-detail.titulo_estado_rechazado') }}</p>
+                                        <p class="card-text" v-else-if="projectInfo.state === '6'">{{ this.$t('backend.project.project-detail.titulo_estado_finalizado') }}</p>
                                     </div>
                                     <div class="col-6 col-md-6 col-lg-6">
-                                        <h5 class="mb-75">Descripción Corta:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_descripcion_corta') }}</h5>
                                         <p class="card-text" v-if="projectInfo.description_short">{{ projectInfo.description_short }}</p>
-                                        <p class="card-text" v-else>No registrado</p>
+                                        <p class="card-text" v-else>{{ this.$t('backend.project.project-detail.titulo_no_registrado') }}</p>
                                     </div>
                                 </div>
                                 <div class="row pl-2 pr-2 pb-3">
                                     <div class="col-12">
-                                        <h5 class="mb-75">Descripción:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_descripcion') }}</h5>
                                         <p class="card-text" v-if="projectInfo.description">{{ projectInfo.description }}</p>
-                                        <p class="card-text" v-else>No registrado</p>
+                                        <p class="card-text" v-else>{{ this.$t('backend.project.project-detail.titulo_no_registrado') }}</p>
                                     </div>
                                 </div>
                                 <div class="row pl-2 pr-2 pb-3">
                                     <div class="col-12">
-                                        <h5 class="mb-75">Observaciones:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_observaciones') }}</h5>
                                         <p class="card-text" v-if="projectInfo.observations">{{ projectInfo.observations }}</p>
-                                        <p class="card-text" v-else>No registrado</p>
+                                        <p class="card-text" v-else>{{ this.$t('backend.project.project-detail.titulo_no_registrado') }}</p>
                                     </div>
                                 </div>
                             </vs-collapse-item>
@@ -101,7 +101,7 @@
                                                 </audio>
                                             </vue-plyr>
                                         </div>
-                                        <p style="text-align: justify" v-html="answer.answer ? answer.answer: `<p class='text-primary'>texto no registrado</p>`"></p>
+                                        <p style="text-align: justify" v-html="answer.answer ? answer.answer: `<p class='text-primary'>${$t('backend.project.project-detail.titulo_no_registrado')}</p>`"></p>
                                     </div>
                                 </div>
                             </vs-collapse-item>
@@ -110,48 +110,48 @@
                              ======================================-->
                             <vs-collapse-item>
                                 <div slot="header">
-                                    <h3>Información del Cliente</h3>
+                                    <h3>{{ this.$t('backend.project.project-detail.titulo_informacion_cliente') }}</h3>
                                 </div>
                                 <div class="row pl-2 pr-2 pt-1 pb-3">
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Nombre:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_nombre') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.name"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Apellidos:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_apellidos') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.last_name"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Correo Electrónico:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_correo_electronico') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.email"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Teléfono:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_telefono') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.phone"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Fecha de Nacimiento:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_fecha_nacimiento') }}</h5>
                                         <p class="card-text" v-text="moment(projectInfo.customer[0].user.birthday).locale(language).format('MMMM Do YYYY')"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Dirección:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_direccion') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.address"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">País:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_pais') }}</h5>
                                         <p class="card-text">{{ projectInfo.customer[0].user.country.name }} <img
                                             width="15" :src="projectInfo.customer[0].user.country.flag" alt=""></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1" v-if="projectInfo.customer[0].user.city">
-                                        <h5 class="mb-75">Ciudad:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_ciudad') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].user.city.name"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Cargo:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_cargo') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].position.name[language]"></p>
                                     </div>
                                     <div class="col-6 col-md-3 col-lg-3 pt-1">
-                                        <h5 class="mb-75">Categoría:</h5>
+                                        <h5 class="mb-75">{{ this.$t('backend.project.project-detail.titulo_categoria') }}</h5>
                                         <p class="card-text" v-text="projectInfo.customer[0].company_category.name[language]"></p>
                                     </div>
                                 </div>

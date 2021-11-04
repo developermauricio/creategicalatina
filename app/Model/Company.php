@@ -23,6 +23,10 @@ class Company extends Model
     {
         return $this->belongsTo(Manager::class);
     }
+
+    public function managerCustomer(){
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
     public function city()
     {
         return $this->belongsTo(City::class);
@@ -30,6 +34,10 @@ class Company extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function project(){
+        return $this->belongsToMany(Project::class, 'companies_projects', 'company_id', 'project_id');
     }
 
     public static function getCompany(){

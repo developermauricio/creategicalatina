@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-md-4 col-lg-4 pt-4">
                 <input-form
-                    label="Seleccione el tipo de facturación"
+                    :label="$t('backend.project.billing.titulo_selecciona_tipo_facturacion')"
                     id="txtTypeInvoice"
                     errorMsg
                     requiredMsg=""
@@ -11,13 +11,13 @@
                     :required="false"
                     type="multiselect"
                     @updatedValue="changeTypeInvoice"
-                    selectLabel="Selecciona una opción"
+                    :selectLabel="$t('backend.project.billing.titulo_selecciona_opcion')"
                     :multiselect="{
                                            options: optionsInvoice,
                                            selectLabel:this.$t('backend.customer.create-customers.multiselect_seleccionar'),
                                            selectedLabel:this.$t('backend.customer.create-customers.multiselect_seleccionado'),
                                            deselectLabel:this.$t('backend.customer.create-customers.multiselect_desmarcar'),
-                                          placeholder: 'Selecciona una opción',
+                                          placeholder: this.$t('backend.project.billing.titulo_selecciona_opcion'),
                                           taggable : true,
                                           'track-by':'id',
                                           label: 'name',

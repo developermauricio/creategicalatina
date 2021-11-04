@@ -477,7 +477,7 @@ mark,
 
 .img-thumbnail {
     padding: 0.25rem;
-    background-color: #f8f8f8;
+    /*background-color: #f8f8f8;*/
     border: 1px solid #dae1e7;
     border-radius: 0.357rem;
     max-width: 100%;
@@ -3382,7 +3382,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #7367f0;
+    background-color: #F05E7D;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {

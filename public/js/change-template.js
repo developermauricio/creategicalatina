@@ -1,9 +1,12 @@
 $(function () {
     var $html = $('html');
     var navLinkStyle = $('.nav-link-style'),
+    // let navLinkStyleBell = $('.nav-link-style-bell'),
+    //     navLinkStyleBell.find('.ficon').feather.icons['bell'].toSvg({class: 'ficon'});
         mainMenu = $('.main-menu'),
         navbar = $('.header-navbar');
     let theme = localStorage.getItem('theme') || '2';
+    let darkSystem = false
     let changeTheme = (value) => {
         if (value == '1') {
             $html.removeClass('semi-dark');
@@ -16,6 +19,7 @@ $(function () {
 
             $('.info-card').removeClass('light-mode-cards-vue');
             $('.info-card').addClass('dark-mode-cards-vue');
+            $(".img-logo-purchase-order").attr("src", window.logoGreen);
 
             $('.card-theme-change').addClass('border-dark-card-change-theme');
             $('.card-dark').addClass('active');
@@ -23,6 +27,11 @@ $(function () {
             $('.card-system').removeClass('active');
 
             $('.vs-popup').addClass('dark-layout');
+            $('.vs-sidebar').addClass('dark-layout');
+            $('.content-header-sidebar').addClass('dark-layout');
+            $('.pop-create-invoice').addClass('dark-layout-create-invoice');
+            $('.row-item-invoice').addClass('dark-layout-create-invoice');
+
             $('.multiselect__tags').addClass('dark-layout');
             $('.multiselect__content-wrapper').addClass('dark-layout');
             $('.multiselect__single').addClass('dark-layout');
@@ -43,10 +52,12 @@ $(function () {
 
             navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
             localStorage.setItem('theme', '1')
-            $.post('/api/session-theme-change/'+1+'',function (data) {})
+            $.post('/api/session-theme-change/' + 1 + '', function (data) {
+            })
         } else if (value == '2') {
             $html.removeClass('dark-layout');
             $html.addClass('semi-dark');
+            $(".img-logo-purchase-order").attr("src", window.logo_ligth);
             $('.span-text-dark-mode').text('Dark mode');
             mainMenu.removeClass('menu-dark').addClass('menu-dark');
 
@@ -70,6 +81,11 @@ $(function () {
             $('.card-system').removeClass('active');
             $('.multiselect__content-wrapper').removeClass('dark-layout');
             $('.vs-popup').removeClass('dark-layout');
+            $('.vs-sidebar').removeClass('dark-layout');
+            $('.content-header-sidebar').removeClass('dark-layout');
+            $('.pop-create-invoice').removeClass('dark-layout-create-invoice');
+            $('.row-item-invoice').removeClass('dark-layout-create-invoice');
+
             $('.multiselect__option--highlight').removeClass('dark-layout');
             $('.input-tel__input').removeClass('dark-layout');
 
@@ -81,14 +97,17 @@ $(function () {
 
             navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
             localStorage.setItem('theme', '2')
-            $.post('/api/session-theme-change/'+2+'',function (data) {})
-        }else{
+            $.post('/api/session-theme-change/' + 2 + '', function (data) {
+            })
+        } else {
             $('.card-dark').removeClass('active');
             $('.card-light').removeClass('active');
             $('.card-system').addClass('active');
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                darkSystem = true
                 $html.removeClass('semi-dark');
                 $html.addClass('dark-layout');
+                $(".img-logo-purchase-order").attr("src", window.logoGreen);
                 $('.span-text-dark-mode').text('Light mode');
                 mainMenu.removeClass('menu-light').addClass('menu-dark');
                 $('.footer-main').addClass('color-text-links-footer-green');
@@ -99,6 +118,10 @@ $(function () {
                 $('.info-card').addClass('dark-mode-cards-vue');
                 $('.btn-export-datatable').removeClass('theme-light');
                 $('.vs-popup').addClass('dark-layout');
+                $('.vs-sidebar').addClass('dark-layout');
+                $('.content-header-sidebar').addClass('dark-layout');
+                $('.pop-create-invoice').addClass('dark-layout-create-invoice');
+                $('.row-item-invoice').addClass('dark-layout-create-invoice');
                 $('.multiselect__option--highlight').addClass('dark-layout');
                 $('.country-selector__input').addClass('dark-layout');
                 $('.link').removeClass('link-light');
@@ -116,8 +139,10 @@ $(function () {
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
 
                 localStorage.setItem('theme', '3')
-                $.post('/api/session-theme-change/'+3+'',function (data) {})
-            }else{
+                $.post('/api/session-theme-change/' + 3 + '', function (data) {
+                })
+            }
+            if (darkSystem === false) {
                 $html.removeClass('dark-layout');
                 $html.addClass('semi-dark');
                 $('.span-text-dark-mode').text('Dark mode');
@@ -135,6 +160,10 @@ $(function () {
                 $('.info-card').addClass('light-mode-cards-vue');
                 $('.multiselect__tags').removeClass('dark-layout');
                 $('.vs-popup').removeClass('dark-layout');
+                $('.vs-sidebar').removeClass('dark-layout');
+                $('.content-header-sidebar').removeClass('dark-layout');
+                $('.pop-create-invoice').removeClass('dark-layout-create-invoice');
+                $('.row-item-invoice').removeClass('dark-layout-create-invoice');
                 $('.country-selector__input').removeClass('dark-layout');
                 $('.multiselect__option--highlight').removeClass('dark-layout');
                 $('.multiselect__single').removeClass('dark-layout');
@@ -150,9 +179,9 @@ $(function () {
                 navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
 
                 localStorage.setItem('theme', '4')
-                $.post('/api/session-theme-change/'+4+'',function (data) {})
+                $.post('/api/session-theme-change/' + 4 + '', function (data) {
+                })
             }
-
         }
     }
 
@@ -164,112 +193,127 @@ $(function () {
         let value = dataChangeValue
         changeTheme(value)
     });
-     let themeCurrent = localStorage.getItem('theme')
-    if (window.themeSession == '3' || themeCurrent == '3' || window.themeSession == '4' || themeCurrent == '4' || window.themeSession == '1' || themeCurrent == '1'){
+    let themeCurrent = localStorage.getItem('theme')
+
     window.matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', event => {
-            if (event.matches) {
-                $html.removeClass('semi-dark');
-                $html.addClass('dark-layout');
-                $('.span-text-dark-mode').text('Light mode');
-                mainMenu.removeClass('menu-light').addClass('menu-dark');
-                $('.footer-main').addClass('color-text-links-footer-green');
-                $('.footer-main').removeClass('color-text-links-footer-red');
-                $('.wizard-nav-pills').addClass('dark-layout');
-                $('.info-card').removeClass('light-mode-cards-vue');
-                $('.info-card').addClass('dark-mode-cards-vue');
-                $('.incon-help-brief').addClass('dark-layout');
-                $('.card-theme-change').addClass('border-dark-card-change-theme');
-                $('.vs-popup').addClass('dark-layout');
-                $('.multiselect__single').addClass('dark-layout');
-                $('.link').removeClass('link-light');
-                $('.link').addClass('link-dark');
-                $('.multiselect__tags').addClass('dark-layout');
-                $('.datatablescreategica').addClass('datatable-dark')
-                $('.datatablescreategica').removeClass('datatable-light')
-                $('.multiselect__option--highlight').addClass('dark-layout');
-                $('.country-selector__input').addClass('dark-layout');
+            let themeCurrent = localStorage.getItem('theme')
+            if (window.themeSession == '3' || themeCurrent == '3' || window.themeSession == '4' || themeCurrent == '4') {
+                if (event.matches) {
+                    $html.removeClass('semi-dark');
+                    $html.addClass('dark-layout');
+                    $('.span-text-dark-mode').text('Light mode');
+                    mainMenu.removeClass('menu-light').addClass('menu-dark');
+                    $('.footer-main').addClass('color-text-links-footer-green');
+                    $('.footer-main').removeClass('color-text-links-footer-red');
+                    $('.wizard-nav-pills').addClass('dark-layout');
+                    $('.info-card').removeClass('light-mode-cards-vue');
+                    $('.info-card').addClass('dark-mode-cards-vue');
+                    $('.incon-help-brief').addClass('dark-layout');
+                    $('.card-theme-change').addClass('border-dark-card-change-theme');
+                    $('.vs-popup').addClass('dark-layout');
+                    $('.vs-sidebar').addClass('dark-layout');
+                    $('.content-header-sidebar').addClass('dark-layout');
+                    $('.pop-create-invoice').addClass('dark-layout-create-invoice');
+                    $('.row-item-invoice').addClass('dark-layout-create-invoice');
+                    $('.multiselect__single').addClass('dark-layout');
+                    $('.link').removeClass('link-light');
+                    $('.link').addClass('link-dark');
+                    $('.multiselect__tags').addClass('dark-layout');
+                    $('.datatablescreategica').addClass('datatable-dark')
+                    $('.datatablescreategica').removeClass('datatable-light')
+                    $('.multiselect__option--highlight').addClass('dark-layout');
+                    $('.country-selector__input').addClass('dark-layout');
 
-                $('.multiselect__content-wrapper').addClass('dark-layout');
-                $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
-                $('.input-tel__input').addClass('dark-layout');
+                    $('.multiselect__content-wrapper').addClass('dark-layout');
+                    $('.body-cards-info-vue').addClass('dark-mode-cards-text-vue')
+                    $('.input-tel__input').addClass('dark-layout');
 
-                navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
-                localStorage.setItem('theme', '3')
-                $.post('/api/session-theme-change/'+3+'',function (data) {})
-            } else {
-                $html.removeClass('dark-layout');
-                $html.addClass('semi-dark');
-                $('.span-text-dark-mode').text('Dark mode');
-                mainMenu.removeClass('menu-dark').addClass('menu-dark');
+                    navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({class: 'ficon'}));
+                    localStorage.setItem('theme', '3')
+                    $.post('/api/session-theme-change/' + 3 + '', function (data) {
+                    })
+                } else {
+                    $html.removeClass('dark-layout');
+                    $html.addClass('semi-dark');
+                    $('.span-text-dark-mode').text('Dark mode');
+                    mainMenu.removeClass('menu-dark').addClass('menu-dark');
 
-                $('.footer-main').addClass('color-text-links-footer-red');
-                $('.footer-main').removeClass('color-text-links-footer-green');
-                $('.wizard-nav-pills').removeClass('dark-layout');
-                $('.card-theme-change').removeClass('border-dark-card-change-theme');
-                $('.vs-popup').removeClass('dark-layout');
-                $('.incon-help-brief').removeClass('dark-layout');
-                $('.link').removeClass('link-dark');
-                $('.link').addClass('link-light');
-                $('.multiselect__tags').removeClass('dark-layout');
-                $('.body-cards-info-vue').removeClass('dark-mode-cards-text-vue')
-                $('.multiselect__option--highlight').removeClass('dark-layout');
-                $('.country-selector__input').removeClass('dark-layout');
-                $('.info-card').removeClass('dark-mode-cards-vue');
-                $('.info-card').addClass('light-mode-cards-vue');
-                $('.input-tel__input').removeClass('dark-layout');
-                $('.multiselect__single').removeClass('dark-layout');
+                    $('.footer-main').addClass('color-text-links-footer-red');
+                    $('.footer-main').removeClass('color-text-links-footer-green');
+                    $('.wizard-nav-pills').removeClass('dark-layout');
+                    $('.card-theme-change').removeClass('border-dark-card-change-theme');
+                    $('.vs-popup').removeClass('dark-layout');
+                    $('.vs-sidebar').removeClass('dark-layout');
+                    $('.content-header-sidebar').removeClass('dark-layout');
+                    $('.pop-create-invoice').removeClass('dark-layout-create-invoice');
+                    $('.row-item-invoice').removeClass('dark-layout-create-invoice');
+                    $('.incon-help-brief').removeClass('dark-layout');
+                    $('.link').removeClass('link-dark');
+                    $('.link').addClass('link-light');
+                    $('.multiselect__tags').removeClass('dark-layout');
+                    $('.body-cards-info-vue').removeClass('dark-mode-cards-text-vue')
+                    $('.multiselect__option--highlight').removeClass('dark-layout');
+                    $('.country-selector__input').removeClass('dark-layout');
+                    $('.info-card').removeClass('dark-mode-cards-vue');
+                    $('.info-card').addClass('light-mode-cards-vue');
+                    $('.input-tel__input').removeClass('dark-layout');
+                    $('.multiselect__single').removeClass('dark-layout');
 
-                $('.multiselect__content-wrapper').removeClass('dark-layout');
+                    $('.multiselect__content-wrapper').removeClass('dark-layout');
 
-                $('.datatablescreategica').addClass('datatable-light')
-                $('.datatablescreategica').removeClass('datatable-dark')
+                    $('.datatablescreategica').addClass('datatable-light')
+                    $('.datatablescreategica').removeClass('datatable-dark')
 
-                navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
-                localStorage.setItem('theme', '4')
-                $.post('/api/session-theme-change/'+4+'',function (data) {})
+                    navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({class: 'ficon'}));
+                    localStorage.setItem('theme', '4')
+                    $.post('/api/session-theme-change/' + 4 + '', function (data) {
+                    })
+                }
             }
         })
-    }
+
 
     var win = window.location;
     var webPath = win.pathname;
     console.log(webPath);
 
-    var $body= $('body')
-    let menu =  window.sideBarMenu || '2'
+    var $body = $('body')
+    let menu = window.sideBarMenu || '2'
 
-    if (webPath === '/'+window.lang+'/new-project'){
+    if (webPath === '/' + window.lang + '/new-project') {
         $body.addClass('menu-collapsed')
         $body.removeClass('menu-expanded')
-        $('.logo-backend-vertical').css("display","block")
-        $('.logo-backend-horizontal').css("display","none")
+        $('.logo-backend-vertical').css("display", "block")
+        $('.logo-backend-horizontal').css("display", "none")
         return
     }
-    if (webPath === '/'+window.lang+'/admin-projects' || window.rutaShowProject == '1'){
+    if (webPath === '/' + window.lang + '/admin-projects' || webPath === '/' + window.lang + '/purchase-orders' || webPath === '/' + window.lang + '/new-purchase-order' || window.rutaShowProject == '1') {
         $body.addClass('menu-collapsed')
         $body.removeClass('menu-expanded')
-        $('.logo-backend-vertical').css("display","block")
-        $('.logo-backend-horizontal').css("display","none")
+        $('.logo-backend-vertical').css("display", "block")
+        $('.logo-backend-horizontal').css("display", "none")
         return
     }
 
     let changeMenu = (menuValue) => {
         console.log(menuValue)
-        if (menuValue == '1'){
-            $('.logo-backend-vertical').css("display","block")
-            $('.logo-backend-horizontal').css("display","none")
+        if (menuValue == '1') {
+            $('.logo-backend-vertical').css("display", "block")
+            $('.logo-backend-horizontal').css("display", "none")
             $body.removeClass('menu-expanded')
             $body.addClass('menu-collapsed')
             localStorage.setItem('menu-sidebar', '1')
-            $.post('/api/session-sidebar-backend/'+1+'',function (data) {})
-        }else{
+            $.post('/api/session-sidebar-backend/' + 1 + '', function (data) {
+            })
+        } else {
             $body.removeClass('menu-collapsed')
             $body.addClass('menu-expanded')
             localStorage.setItem('menu-sidebar', '2')
-            $('.logo-backend-vertical').css("display","none")
-            $('.logo-backend-horizontal').css("display","block")
-            $.post('/api/session-sidebar-backend/'+2+'',function (data) {})
+            $('.logo-backend-vertical').css("display", "none")
+            $('.logo-backend-horizontal').css("display", "block")
+            $.post('/api/session-sidebar-backend/' + 2 + '', function (data) {
+            })
         }
     }
     changeMenu(menu)

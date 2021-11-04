@@ -604,7 +604,7 @@ html .pace .pace-progress {
 
 @media (max-width: 575.98px) {
   html body .app-content {
-    padding : calc(2rem - 0.8rem + 4.45rem + 1.3rem) calc(2rem - 0.8rem) 0 calc(2rem - 0.8rem) !important;
+    padding : calc(2rem - 0.0rem + 0rem + 1.3rem) calc(2rem - 0.8rem) 0 calc(2rem - 0.8rem) !important;
   }
   html body.navbar-static .app-content {
     padding : calc(2rem - 0.8rem) calc(2rem - 0.8rem) 0 calc(2rem - 0.8rem) !important;

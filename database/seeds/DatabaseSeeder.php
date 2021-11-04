@@ -25,7 +25,10 @@ class DatabaseSeeder extends Seeder
         Storage::makeDirectory('companies');
         Storage::makeDirectory('typeProject');
         Storage::makeDirectory('archives');
+
         $this->call(UserTableSeeder::class);
+        $this->call(PaymentPlatformsTableSeeder::class);
+        $this->call(CurrenciesTableSeeder::class);
 
 
         app()->setLocale('es');
@@ -161,7 +164,7 @@ class DatabaseSeeder extends Seeder
         /*=============================================
             TIPOS DE PERSONAS NATURALES O JURIDICAS
         =============================================*/
-        $typeEntityEs = ['Es empresa', 'Es persona natural'];
+        $typeEntityEs = ['Es Empresa', 'Es Persona Natural'];
         $typeEntityEn = ['It is company', 'He is a natural person'];
 
         for ($i = 0; $i < count($typeEntityEs); $i++) {
@@ -450,15 +453,29 @@ class DatabaseSeeder extends Seeder
                     ->each(function (\App\Model\Customer $cn) use ($u) {
                         factory(\App\Model\Project::class, 3)->create()
                             ->each(function (\App\Model\Project $p) use ($cn) {
-                                factory(\App\Model\Invoice::class, 2)->create([
+
+                                factory(\App\Model\PurchaseOrder::class, 1)->create([
                                     'customer_id' => $cn->id,
                                     'user_id' => 2,
-                                    'project_id' => $p->id
-                                ])->each(function (\App\Model\Invoice $in) {
-                                    factory(\App\Model\InvoiceItems::class, 2)->create([
-                                        'invoice_id' => $in->id
+                                    'project_id' => $p->id,
+                                    'way_to_pay' => 1
+
+                                ])->each(function (\App\Model\PurchaseOrder $purch) use($cn, $p){
+                                    factory(\App\Models\ItemsPurchaseOrder::class, 2)->create([
+                                        'purchase_order_id' => $purch->id
                                     ]);
+                                    factory(\App\Model\Invoice::class, 1)->create([
+                                        'customer_id' => $cn->id,
+                                        'user_id' => 2,
+                                        'project_id' => $p->id,
+                                        'purchase_id' => $purch
+                                    ])->each(function (\App\Model\Invoice $in) {
+                                        factory(\App\Model\InvoiceItems::class, 2)->create([
+                                            'invoice_id' => $in->id
+                                        ]);
+                                    });
                                 });
+
                                 $ramdon = random_int(1, 8);
                                 $p->customer()->attach($cn->id);
                                 $p->project_categories()->attach($ramdon);

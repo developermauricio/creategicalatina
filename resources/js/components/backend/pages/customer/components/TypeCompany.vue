@@ -882,8 +882,8 @@ export default {
             dropzoneOptions: {
                 url: '/api/upload-picture-company',
                 // thumbnailWidth: 200,
-                maxFilesize: 1,
-                maxFiles: 20,
+                maxFilesize: 5,
+                maxFiles: 1,
                 paramName: 'picture',
                 acceptedFiles: 'image/jpeg,image/png,image/gif',
                 addRemoveLinks: true,

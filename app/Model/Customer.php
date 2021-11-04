@@ -29,7 +29,7 @@ class Customer extends Model
     }
 
     public function projects(){
-        return $this->hasMany(Project::class);
+        return $this->belongsToMany(Project::class, 'customer_projects', 'customer_id', 'project_id');
     }
 
     public function archive(){

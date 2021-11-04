@@ -18,7 +18,7 @@
                         data-feather="disc" data-ticon="disc"></i></a></li>
         </ul>
     </div>
-    <div class="shadow-bottom"></div>
+{{--    <div class="shadow-bottom"></div>--}}
     {{--    @php($userAdministrator = auth()->user()->hasRole('Administrator'))--}}
     {{--    @if($userAdministrator == 'Administrator')--}}
     {{--        @include('partials.menus.backend.admin-menu')--}}

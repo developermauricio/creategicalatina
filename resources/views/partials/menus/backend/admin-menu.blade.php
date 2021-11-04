@@ -57,6 +57,26 @@
                 </li>
             </ul>
         </li>
+
+        <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='shopping-cart'></i><span
+                    class="menu-title text-truncate"
+                    data-i18n="Todo">Ordenes de Pago</span></a>
+            <ul class="menu-content">
+                <li class="{{request()->is(session('language').'/purchase-orders') ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/purchase-orders">
+                        <i data-feather="circle"></i>
+                        <span class="menu-item text-truncate" data-i18n="Second Level">Ordenes de Pago</span>
+                    </a>
+                </li>
+                <li class="{{request()->is(session('language').'/new-purchase-order') ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/new-purchase-order"><i
+                            data-feather="circle"></i><span class="menu-item text-truncate"
+                                                            data-i18n="Second Level">Nueva Orden de Pago</span></a>
+                </li>
+            </ul>
+        </li>
+
+
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='edit'></i><span
                     class="menu-title text-truncate"
                     data-i18n="Calendar">{{ __('ordenes_compra') }}</span></a>

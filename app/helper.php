@@ -18,7 +18,7 @@ if (!function_exists('setCurrentLanguage')) {
     function setCurrentLanguage() {
         if (session('language')) {
             $configLanguage = config('languages.' .session('language'). '.language');
-            setlocale(LC_TIME, $configLanguage['lc']);
+//            setlocale(LC_TIME, $configLanguage['lc']);
         } else {
             session()->put('language', config('app.fallback_locale'));
             setlocale(LC_TIME, 'es_ES');
