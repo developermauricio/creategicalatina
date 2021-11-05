@@ -35,10 +35,13 @@
             </ul>
         </div>
         <ul class="nav navbar-nav align-items-center ml-auto">
+            <currency-list></currency-list>
             <li class="nav-item dropdown dropdown-language">
                 <a class="nav-link dropdown-toggle" id="dropdown-flag"
                    href="javascript:void(0);" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false"><i
+                   aria-haspopup="true" aria-expanded="false">
+                   <p style="margin: 0">Idioma</p>
+                   <i
                         class="flag-icon {{ session('language') == 'es' ? 'flag-icon-es' : 'flag-icon-us'  }} "></i><span
                         class="selected-language">{{ session('language') == 'es' ?  __('Español')  :  __('Inglés')  }}</span></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag">

@@ -43,14 +43,16 @@ import VoerroTagsInput from '@voerro/vue-tagsinput';
 
 Vue.component('tags-input', VoerroTagsInput);
 
-
 const numberFormat =  new Intl.NumberFormat('es-co', {
     style: 'currency',
     currency: 'COP',
     minimumFractionDigits: 0
 });
 
-window.currency = function (number) {
+window.currency = function (number, config = null) {
+    if (config){
+        return new Intl.NumberFormat('es-co', config).format(number);
+    }
     return numberFormat.format(number);
 };
 
@@ -61,6 +63,8 @@ Vue.component('input-form', require('./components/InputFormComponent.vue').defau
 Vue.component('changued-password', require('./components/components/user/ChangedPassword.vue').default)
 Vue.component('preview-doc', require('./components/components/previewdoc/PreviewDoc.vue').default)
 Vue.component('custom-repetear', require('./components/components/vue-repeater/src/components/repeater.vue').default)
+Vue.component('currency-display', require('./components/currency/CurrencyDisplay.vue').default)
+Vue.component('currency-list', require('./components/currency/CurrencyList.vue').default)
 
 /*=============================================
 COMPONENTES PARA LAS NOTIFICACIONES
