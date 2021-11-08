@@ -192,7 +192,7 @@
                                     if (JsonResultRow.subtotal === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">$${dollarUSLocale.format(JsonResultRow.subtotal)}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${fullFormatValue(JsonResultRow.subtotal)}</span>`;
                                     }
                                 },
                             },
@@ -201,7 +201,7 @@
                                     if (JsonResultRow.total === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">$${dollarUSLocale.format(JsonResultRow.total)}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${fullFormatValue(JsonResultRow.total)}</span>`;
                                     }
                                 },
                             },

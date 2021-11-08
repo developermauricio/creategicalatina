@@ -165,13 +165,21 @@
                                             <p class="card-text font-weight-bold mb-25">{{ purchase.item }}</p>
                                         </td>
                                         <td class="py-1">
-                                            <span class="font-weight-bold">{{ purchase.price | currency }}</span>
+                                            <span class="font-weight-bold">
+                                              {{ purchase.price | currency }}
+                                              <br>
+                                              <currency-display :value="purchase.price"></currency-display>
+                                            </span>
                                         </td>
                                         <td class="py-1">
                                             <span class="font-weight-bold">{{ purchase.quantity }}</span>
                                         </td>
                                         <td class="py-1">
-                                            <span class="font-weight-bold">{{ purchase.value_final | currency}}</span>
+                                            <span class="font-weight-bold">
+                                              {{ purchase.value_final | currency}}
+                                              <br>
+                                              <currency-display :value="purchase.value_final"></currency-display>
+                                            </span>
                                         </td>
                                     </tr>
 
@@ -192,7 +200,11 @@
                                         <div class="invoice-total-wrapper">
                                             <div class="invoice-total-item">
                                                 <p class="invoice-total-title pr-1">Subtotal:</p>
-                                                <p class="invoice-total-amount font-weight-bold">{{ subtotal | currency }}</p>
+                                                <p class="invoice-total-amount font-weight-bold">
+                                                  {{ subtotal | currency }}
+                                                  <br>
+                                                  <currency-display :value="subtotal"></currency-display>
+                                                </p>
                                             </div>
 <!--                                            <div class="invoice-total-item">-->
 <!--                                                <p class="invoice-total-title">Discount:</p>-->
@@ -205,7 +217,11 @@
                                             <hr class="my-50"/>
                                             <div class="invoice-total-item">
                                                 <p class="invoice-total-title">Total:</p>
-                                                <p class="invoice-total-amount font-weight-bold">{{ total | currency }}</p>
+                                                <p class="invoice-total-amount font-weight-bold">
+                                                  {{ total | currency }}
+                                                  <br>
+                                                  <currency-display :value="total"></currency-display>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>

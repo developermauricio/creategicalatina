@@ -43,20 +43,14 @@ import VoerroTagsInput from '@voerro/vue-tagsinput';
 
 Vue.component('tags-input', VoerroTagsInput);
 
-const numberFormat =  new Intl.NumberFormat('es-co', {
-    style: 'currency',
-    currency: 'COP',
-    minimumFractionDigits: 0
-});
+import { formatValue, formatCurrency, fullFormatValue } from './trm';
+Vue.filter('currency', formatCurrency);
 
-window.currency = function (number, config = null) {
-    if (config){
-        return new Intl.NumberFormat('es-co', config).format(number);
-    }
-    return numberFormat.format(number);
-};
 
-Vue.filter('currency', currency);
+window.formatValue = formatValue;
+window.currency = formatCurrency;
+window.fullFormatValue = fullFormatValue;
+
 
 /*COMPONENTES EXTERNOS*/
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
@@ -144,6 +138,8 @@ Vue.component('sidebar-send-purchase-order', require('./components/components/pu
 
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
+
+
 window.Vue.use(VueInternationalization);
 const i18n = new VueInternationalization({
     locale: window.lang,

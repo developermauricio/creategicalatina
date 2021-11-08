@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getCurrencies } from "../../trm";
+import { formatValue, getCurrencies } from "../../trm";
 
 export default {
   name: "CurrencyDisplay",
@@ -41,7 +41,7 @@ export default {
       if (this.convertTo === this.from) {
         return this.value;
       }
-      return this.formatValue(this.value, this.from);
+      return formatValue(this.value, this.convertTo, this.from);
     },
     convertTo() {
       return this.to ? this.to : this.convertDefault;
@@ -51,20 +51,6 @@ export default {
         return null;
       }
       return this.currencies[this.convertTo].config;
-    },
-  },
-  methods: {
-    formatValue(value, type, to = null) {
-      if (!this.currencies) {
-        return null;
-      }
-      if (this.currencies[type].unit == type) {
-        const currency = this.currencies[this.convertTo];
-        return value / currency.value;
-      } else {
-        console.error("falta implementar");
-        return 99999999;
-      }
     },
   },
 };

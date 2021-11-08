@@ -35,26 +35,7 @@
             </ul>
         </div>
         <ul class="nav navbar-nav align-items-center ml-auto">
-            <currency-list></currency-list>
-            <li class="nav-item dropdown dropdown-language">
-                <a class="nav-link dropdown-toggle" id="dropdown-flag"
-                   href="javascript:void(0);" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                   <p style="margin: 0">Idioma</p>
-                   <i
-                        class="flag-icon {{ session('language') == 'es' ? 'flag-icon-es' : 'flag-icon-us'  }} "></i><span
-                        class="selected-language">{{ session('language') == 'es' ?  __('Español')  :  __('Inglés')  }}</span></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-flag">
-                    @foreach(config('lenguages') as $key => $value)
-                        <a class="dropdown-item" href="{{ route('set_lenguage', [$key]) }}" data-language="">
-                            <i class="flag-icon {{ $value['flag'] }}"></i> {{__($value['language'])}}</a>
-                    @endforeach
-                    {{--                    <a class="dropdown-item" href="javascript:void(0);" data-language="en">--}}
-                    {{--                        <i class="flag-icon flag-icon-es"></i> Español</a>--}}
-                    {{--                    <a class="dropdown-item" href="javascript:void(0);" data-language="fr">--}}
-                    {{--                        <i class="flag-icon flag-icon-us"></i> Inglés</a>--}}
-                </div>
-            </li>
+            <currency-list route_lang="{{route('set_lenguage', '__NA__')}}" :langs="{{json_encode(config('lenguages'))}}" ></currency-list>
             <li class="nav-item d-lg-block">
                 <a class="nav-link nav-link-style" data-toggle="modal" data-target="#modal-change-theme-backend">
                     <i class="ficon" data-feather="moon"></i>
