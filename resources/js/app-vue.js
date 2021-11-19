@@ -4,7 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import { EchoPrivate } from './bootstrap';
+window.EchoPrivate = EchoPrivate;
 window.Vue = require('vue');
 
 import VueFormWizard from 'vue-form-wizard'
@@ -31,13 +32,13 @@ Vue.use(VueTheMask)
 
 
 import money from 'v-money'
-Vue.use(money, {precision: 3})
+Vue.use(money, { precision: 3 })
 
 import SkeletonCards from 'vue-ultimate-skeleton-cards'
 Vue.use(SkeletonCards)
 
 import CKEditor from '@ckeditor/ckeditor5-vue2';
-Vue.use( CKEditor );
+Vue.use(CKEditor);
 
 import VoerroTagsInput from '@voerro/vue-tagsinput';
 

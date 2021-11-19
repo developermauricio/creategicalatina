@@ -4,10 +4,12 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
+import { EchoPrivate } from './bootstrap';
+window.EchoPrivate = EchoPrivate;
 window.Vue = require('vue');
 import SkeletonCards from 'vue-ultimate-skeleton-cards'
+
+
 Vue.use(SkeletonCards)
 
 var VueScrollTo = require('vue-scrollto');
@@ -28,7 +30,7 @@ Vue.use(CxltToastr)
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
 
 import CKEditor from '@ckeditor/ckeditor5-vue2';
-Vue.use( CKEditor );
+Vue.use(CKEditor);
 
 import VueSocialChat from 'vue-social-chat'
 Vue.use(VueSocialChat)

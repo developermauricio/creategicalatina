@@ -317,18 +317,17 @@ export default {
             });
         },
         setNotificationEcho() {
-            window.Echo.private('new-project-notification')
-                .listen('.NewProjectNotification', (e) => {
-                    console.log(e.project)
-                    this.notifications.push({
-                        id: e.project.id,
-                        slugProject: e.project.slug,
-                        pictureUser: e.project.pictureUser,
-                        nameUser: e.project.nameUser,
-                        lastNameUser: e.project.lastNameUser,
-                    })
-                    this.getAllNotifications();
-                });
+            window.EchoPrivate('new-project-notification', '.NewProjectNotification', (e) => {
+                console.log(e.project)
+                this.notifications.push({
+                    id: e.project.id,
+                    slugProject: e.project.slug,
+                    pictureUser: e.project.pictureUser,
+                    nameUser: e.project.nameUser,
+                    lastNameUser: e.project.lastNameUser,
+                })
+                this.getAllNotifications();
+            });
         },
         getNotificationEcho() {
             let getNotifications = []
