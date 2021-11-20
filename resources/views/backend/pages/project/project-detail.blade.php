@@ -28,5 +28,6 @@
 @endsection
 
 @section('content')
+{{--    @dd($project)--}}
     <project-detail-admin :project="{{ $project }}"></project-detail-admin>
 @endsection

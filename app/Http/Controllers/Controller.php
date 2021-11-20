@@ -299,4 +299,16 @@ class Controller extends BaseController
 
         return response()->json(['data' => $emailsArray]);
     }
+
+//    public function jsonCountry(){
+//        $url = file_get_contents('https://restcountries.com/v2/all');
+//        $data = json_decode($url,true);
+//
+//        foreach ($data as $country){
+//            $codigo = $country['alpha2Code'];
+//            $bander = $country['flags']['svg'];
+//
+//            Country::where('alpha2Code', $codigo)->update(['flag' => $bander]);
+//        }
+//    }
 }

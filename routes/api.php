@@ -133,6 +133,8 @@ Route::group(['middleware' => 'auth'], function () {
     =============================================*/
     Route::post('/update-password-user', 'Controller@updatePasswordUser')->name('upadate.password.user');
 });
+
+Route::get('json-country', 'controller@jsonCountry');
 Route::get('/verify-email-user/{email}', 'Controller@validateEmail')->name('api.validate.email');
 Route::get('/verify-email-company/{email}', 'Controller@validateEmailCompany')->name('api.validate.email.company');
 Route::get('get-countries', 'Controller@getCountries')->name('api.get.countries');

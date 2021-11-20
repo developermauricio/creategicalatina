@@ -54,7 +54,7 @@
                                             Rechazada
                                         </div>
                                     </td>
-                                    <td>{{ row.total | currency }}</td>
+                                    <td><currency-display :value="row.total"></currency-display></td>
                                     <td>{{ moment(row.date).locale(language).format("dddd, MMMM Do YYYY") }}</td>
                                     <td>{{ moment(row.expiration).locale(language).format("dddd, MMMM Do YYYY") }}</td>
                                     <td>
