@@ -56,7 +56,9 @@
                             <th></th>
                             <th></th>
                             <th class="filter-6" style="max-width: 30% !important;"></th>
-                            <th></th>
+                            <th>
+                                <filter-date code="fecha_registro"></filter-date>
+                            </th>
                             <th></th>
                         </tr>
                         </thead>
@@ -150,9 +152,19 @@
                         //     {"width": '10%', targets: 0},
                         // ],
                         // "order": [[1, 'asc']],
-
                         "ajax": {
                             url: "{{route('api.backend.all.purchase.order')}}",
+                            data: function ( d ) {
+                                const min = $("#fecha_registro_max").val();
+                                if (min) {
+                                    d.fecha_registro_min = min;
+                                }
+                                const max = $("#fecha_registro_min").val();
+                                if (max) {
+                                    d.fecha_registro_max = max;
+                                }
+                                return d;
+                            }
                         },
                         "columns": [
                             {"data": "id"},
@@ -360,7 +372,11 @@
                             }
                         ],
 
-                    })
+                    });
+
+                    const callbackTable = function (){ table.ajax.reload(); };
+                    window.filters['fecha_registro'] = callbackTable;
+
                     let text = 'Todas las ordenes de pago'
                     $('div.head-label').html(`<h6 class="mb-0">${text}</h6>`);
                     table.on('order.dt search.dt', function () {

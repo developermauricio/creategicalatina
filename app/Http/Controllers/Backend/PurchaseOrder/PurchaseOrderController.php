@@ -17,10 +17,21 @@ class PurchaseOrderController extends Controller
         return view('backend.pages.purchase-order.list-purchase-orders');
     }
 
-    public function getDatableProvider()
+    public function getDatableProvider(Request $request)
     {
-        $purchaseOrder = PurchaseOrder::with('project', 'customer.user', 'company')->orderby('id', 'desc')->get();
-        return datatables()->of($purchaseOrder)->toJson();
+        $purchaseOrder = PurchaseOrder::with('project', 'customer.user', 'company')->orderby('id', 'desc');
+
+        $fecha_registro_min = $request->input('fecha_registro_min');
+        if ($fecha_registro_min){
+            $purchaseOrder->whereDate('created_at', '>=', $fecha_registro_min);
+        }
+
+        $fecha_registro_max = $request->input('fecha_registro_max');
+        if ($fecha_registro_max){
+            $purchaseOrder->whereDate('created_at', '<=', $fecha_registro_max);
+        }
+
+        return datatables()->of($purchaseOrder->get())->toJson();
     }
 
     public function indexPurchaseOrderPayment(string $locale, PurchaseOrder $purchaseOrder)

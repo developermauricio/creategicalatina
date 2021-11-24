@@ -166,8 +166,6 @@
                                         </td>
                                         <td class="py-1">
                                             <span class="font-weight-bold">
-                                              {{ purchase.price | currency }}
-                                              <br>
                                               <currency-display :value="purchase.price"></currency-display>
                                             </span>
                                         </td>
@@ -176,8 +174,6 @@
                                         </td>
                                         <td class="py-1">
                                             <span class="font-weight-bold">
-                                              {{ purchase.value_final | currency}}
-                                              <br>
                                               <currency-display :value="purchase.value_final"></currency-display>
                                             </span>
                                         </td>
@@ -201,8 +197,6 @@
                                             <div class="invoice-total-item">
                                                 <p class="invoice-total-title pr-1">Subtotal:</p>
                                                 <p class="invoice-total-amount font-weight-bold">
-                                                  {{ subtotal | currency }}
-                                                  <br>
                                                   <currency-display :value="subtotal"></currency-display>
                                                 </p>
                                             </div>
@@ -218,8 +212,6 @@
                                             <div class="invoice-total-item">
                                                 <p class="invoice-total-title">Total:</p>
                                                 <p class="invoice-total-amount font-weight-bold">
-                                                  {{ total | currency }}
-                                                  <br>
                                                   <currency-display :value="total"></currency-display>
                                                 </p>
                                             </div>
