@@ -60,6 +60,7 @@ Vue.component('preview-doc', require('./components/components/previewdoc/Preview
 Vue.component('custom-repetear', require('./components/components/vue-repeater/src/components/repeater.vue').default)
 Vue.component('currency-display', require('./components/currency/CurrencyDisplay.vue').default)
 Vue.component('currency-list', require('./components/currency/CurrencyList.vue').default)
+Vue.component('filter-date', require('./components/components/filters/FilterDate.vue').default)
 
 /*=============================================
 COMPONENTES PARA LAS NOTIFICACIONES
