@@ -54,7 +54,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
-
+        if (!window.filters){
+            window.filters = {};
+        }
         window.logoGreen = '{{ env('IMG_LOGO') }}'
         window.token = '{{ csrf_token() }}'
         window.lang = '{{ session('language') }}'
