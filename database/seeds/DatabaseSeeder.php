@@ -513,6 +513,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(1);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -525,6 +526,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(2);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -537,6 +539,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(3);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -549,6 +552,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(4);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -561,6 +565,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(5);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -573,6 +578,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(6);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -586,6 +592,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(7);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 
@@ -598,6 +605,7 @@ class DatabaseSeeder extends Seeder
                 factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
                     ->each(function (\App\Model\Team $t) {
                         $t->teamPosition()->attach(8);
+                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
                     });
             });
 

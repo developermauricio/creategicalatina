@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class CompaniesController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('frontend.pages.companies.companies');
     }
 
-    public function companiesCustomer(){
+    public function companiesCustomer()
+    {
         $customer = Auth::user()->customer;
         $getCompaniesCustomer = Company::where('customer_id', $customer->id)->with('category')->get();
-        if($getCompaniesCustomer){
+        if ($getCompaniesCustomer) {
             return response()->json(['data' => $getCompaniesCustomer]);
-        }else{
+        } else {
             return response()->json(['data' => 'No tiene empresas']);
         }
 

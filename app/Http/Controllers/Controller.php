@@ -88,7 +88,7 @@ class Controller extends BaseController
 
     public function getTypeProject()
     {
-        $getTypeProject = TypeProject::with('brief.question')->get();
+        $getTypeProject = TypeProject::with('brief.question', 'team.user')->get();
         return response()->json(['data' => $getTypeProject]);
     }
 

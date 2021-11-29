@@ -53,13 +53,13 @@ try {
         }
     });
 
-    // echo.connector.socket.on('disconnect', function () {
-    //     console.log('disconnected');
-    // });
+    echo.connector.socket.on('disconnect', function () {
+        console.log('disconnected');
+    });
 
-    // echo.connector.socket.on('reconnecting', function (attemptNumber) {
-    //     console.log('reconnecting', attemptNumber);
-    // });
+    echo.connector.socket.on('reconnecting', function (attemptNumber) {
+        console.log('reconnecting', attemptNumber);
+    });
 } catch (error) {
     console.log('init echo: ', error);
 }

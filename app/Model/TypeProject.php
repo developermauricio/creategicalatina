@@ -17,4 +17,8 @@ class TypeProject extends Model
     public function brief(){
        return $this->hasOne(Brief::class,'type_project_id');
     }
+
+    public function team(){
+        return $this->belongsToMany(Team::class, 'team_type_projects', 'type_project_id', 'team_id');
+    }
 }

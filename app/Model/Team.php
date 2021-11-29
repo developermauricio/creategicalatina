@@ -11,6 +11,10 @@ class Team extends Model
         return $this->belongsToMany(PositionMember::class, 'team_work_area', 'team_id', 'position_id');
     }
 
+    public function teamTypeProjects(){
+        return $this->belongsToMany(TypeProject::class, 'team_type_projects', 'team_id', 'type_project_id');
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
