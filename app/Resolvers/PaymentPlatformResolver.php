@@ -22,7 +22,7 @@ class PaymentPlatformResolver {
             return resolve($service);
         }
 
-        // The selected payment platform is not in the configuration
+        // The selected payment platform is not in the setup
         throw new Exception('La plataforma de pago seleccionada no está en la configuración');
     }
 }

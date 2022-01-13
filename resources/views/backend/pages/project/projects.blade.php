@@ -33,7 +33,7 @@
             <div class="col-12">
                 <div class="card p-2">
                     <table
-                        class="datatables-all-projects-company hover datatablescreategica datatables-basic table table-striped">
+                        class="datatables-all-projects-company table-responsive hover datatablescreategica datatables-basic table table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -75,7 +75,8 @@
 
                         "processing": true,
                         "lengthMenu": [7, 10, 25, 50, 75, 100],
-                        "scrollX": true,
+                        // "scrollX": true,
+                        "fixedHeader": true,
                         // "scrollCollapse": true,
                         // "paging": false,
                         // "fixedColumns": {

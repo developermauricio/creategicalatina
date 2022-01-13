@@ -58,6 +58,7 @@
         window.logo_base_64 = '{{ env('IMG_BASE64_LOGO_LIGTH') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
         window.banner_team = '{{ env('IMG_BANNER_TEAM') }}'
+        window.banner_project = '{{ env('IMG_BANNER_PROJECT') }}'
         window.url = '{{ env('APP_URL') }}'
         window.sessionTourRegisterProject = '{{ session('sessionTourRegisterProject') }}'
         themeSession = '{{ session('theme') }}'
@@ -67,6 +68,18 @@
             window.cardsLoadingColor = '#ffffff'
         }
     </script>
+    @auth
+        <script>
+            window.user = @json(\App\User::where('id',auth()->user()->id)->with('roles')->first());
+            @php
+                $roles = "";
+                auth()->user()->roles->each(function ($rol) use (&$roles){
+                    $roles .= $rol->name.",";
+                });
+            @endphp
+            const roles = "{{$roles}}";
+        </script>
+    @endauth
 </head>
 <!-- END: Head-->
 
@@ -159,5 +172,5 @@
         </script>
         </body>
         <!-- END: Body-->
-
+    </body>
 </html>

@@ -40,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/themes/semi-dark-layout.css">
     <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
+{{--    <link rel="stylesheet" type="text/css" href="/app-assets/css/plugins/forms/ext-component-sweet-alerts.css">--}}
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="/app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -54,7 +55,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!-- END: Custom CSS-->
     <script>
-        if (!window.filters){
+        if (!window.filters) {
             window.filters = {};
         }
         window.logoGreen = '{{ env('IMG_LOGO') }}'
@@ -67,6 +68,7 @@
         window.url = '{{ env('APP_URL') }}'
         window.sideBarMenu = '{{ session('sidebarMenuBackend') }}'
         window.userAuth = '{{ auth()->user()->name }} {{ auth()->user()->last_name }}'
+        window.role = 'au'
         window.stateShowPassword = 2
         themeSession = '{{ session('theme') }}'
         if (themeSession === '1' || themeSession === '3') {
@@ -77,7 +79,20 @@
         window.rutaShowProject = '{{ request()->is(session('language').'/admin-projects*') }}'
     </script>
 
-    <!--End of Tawk.to Script-->
+    @auth
+        <script>
+            window.user = @json(auth()->user());
+            @php
+                $roles = "";
+                auth()->user()->roles->each(function ($rol) use (&$roles){
+                    $roles .= $rol->name.",";
+                });
+            @endphp
+            const roles = "{{auth()->user()->roles}}";
+        </script>
+@endauth
+
+<!--End of Tawk.to Script-->
 </head>
 <!-- END: Head-->
 

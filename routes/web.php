@@ -114,11 +114,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'auth'], function () {
         /* RUTAS TEAM*/
         Route::get('/members-team', 'Team\TeamController@index')->name('backend.team.team');
         Route::get('/new-member', 'Team\TeamCreateController@index')->name('backend.team.create.team');
-        Route::get('/configuration-team', 'Team\ConfigurationTeamController@index')->name('backend.team.configuration.team');
+        Route::get('/setup-team', 'Team\ConfigurationTeamController@index')->name('backend.team.setup.team');
 
         /* RUTAS PROYECTOS*/
         Route::get('/admin-projects', 'Project\ProjectController@index')->name('backend.projects.projects');
         Route::get('/admin-projects/{project}', 'Project\ProjectDetailController@index')->name('backend.projects.projects');
+        Route::get('/project-setup', 'Project\ProjectSetupController@index')->name('backend.projects.setup');
 
         /* RUTAS PERFIL*/
         Route::get('/admin/profile/{user}', 'Profile\ProfileController@index')->name('backend.profile');

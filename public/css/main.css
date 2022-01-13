@@ -308,6 +308,36 @@ table.datatablescreategica.datatable-light.dataTable tbody tr:hover > .sorting_1
     color: #F05E7D;
 }
 
+.dark-layout .ck.ck-editor__main>.ck-editor__editable {
+    background: transparent !important;
+    border-radius: 0;
+}
+
+
+.dark-layout .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+    outline: none;
+    border-color: #79ebdf !important;
+    box-shadow: none !important;
+}
+
+.dark-layout .ar{
+    background-color: transparent !important;
+}
+.dark-layout .ar-player__time{
+    color: #AEAEAE !important;
+}
+.dark-layout .ar__text {
+    color: #AEAEAE !important;
+}
+.dark-layout .ar-volume__icon{
+    fill: #AEAEAE !important;
+}
+.dark-layout .ar-line-control__head {
+    position: absolute;
+    height: inherit;
+    background-color: #F05E7D !important;
+    border-radius: inherit;
+}
 .dark-layout .vdp-datepicker__calendar header .prev:not(.disabled):hover,
 .dark-layout .vdp-datepicker__calendar header .next:not(.disabled):hover,
 .dark-layout .vdp-datepicker__calendar header .up:not(.disabled):hover {

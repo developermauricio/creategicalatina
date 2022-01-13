@@ -47,6 +47,10 @@ Vue.component('tags-input', VoerroTagsInput);
 import { formatValue, formatCurrency, fullFormatValue } from './trm';
 Vue.filter('currency', formatCurrency);
 
+import Gate from './components/permissions/Gate';
+// Vue.prototype.$gate = new Gate(window.user);
+Vue.prototype.$gate = new Gate(window.user);
+
 
 window.formatValue = formatValue;
 window.currency = formatCurrency;
@@ -90,6 +94,8 @@ COMPONENTES PARA LOS PROYECTOS
 =============================================*/
 Vue.component('project-detail-admin', require('./components/backend/pages/project/ProjectDetail.vue').default);
 Vue.component('project-detail-information', require('./components/backend/pages/project/components/ProjectInformation.vue').default);
+Vue.component('project-configuration', require('./components/backend/pages/project/setup/ProjectConfiguration.vue').default);
+Vue.component('add-type-project', require('./components/backend/pages/project/setup/AddNewTypeProject.vue').default);
 
 /*=============================================
 COMPONENTES
@@ -140,6 +146,7 @@ Vue.component('sidebar-send-purchase-order', require('./components/components/pu
 
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
+import Vue from "vue";
 
 
 window.Vue.use(VueInternationalization);

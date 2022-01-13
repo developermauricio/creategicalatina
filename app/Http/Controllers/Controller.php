@@ -6,6 +6,7 @@ use App\Model\City;
 use App\Model\Company;
 use App\Model\CompanyCategory;
 use App\Model\Country;
+use App\Model\Customer;
 use App\Model\IdentificationType;
 use App\Model\InvoiceType;
 use App\Model\PositionMember;
@@ -300,15 +301,58 @@ class Controller extends BaseController
         return response()->json(['data' => $emailsArray]);
     }
 
-//    public function jsonCountry(){
-//        $url = file_get_contents('https://restcountries.com/v2/all');
-//        $data = json_decode($url,true);
-//
-//        foreach ($data as $country){
-//            $codigo = $country['alpha2Code'];
-//            $bander = $country['flags']['svg'];
-//
-//            Country::where('alpha2Code', $codigo)->update(['flag' => $bander]);
-//        }
-//    }
+    public function jsonCountry(){
+        $url = file_get_contents('https://restcountries.com/v2/all');
+        $data = json_decode($url,true);
+
+        foreach ($data as $country){
+            $codigo = $country['alpha2Code'];
+            $bander = $country['flags']['svg'];
+
+            Country::where('alpha2Code', $codigo)->update(['flag' => $bander]);
+        }
+    }
+
+    public function clientes(){
+        $dataDbCustomer = Customer::with('user.country','user.city', 'companyCategory', 'typeEntity','company.category', 'company.country', 'company.city')->get();
+
+        $arrayData = [];
+        foreach ($dataDbCustomer as $data){
+            if (count($data->company) > 0){
+                $dataCompany = $data->company;
+                foreach ($dataCompany as $dataCom){
+                    array_push($arrayData, (object)[
+                        'name' => $dataCom->name,
+                        'type_customer' => $data->typeEntity,
+                        'category' => $dataCom->category,
+                        'email' => $dataCom->email,
+                        'phone' => $dataCom->phone,
+                        'country' => $dataCom->country->name,
+                        'city' => $dataCom->city->name,
+                        'state' => $dataCom->state,
+                        'slug' => $dataCom->slug
+                    ]);
+                }
+
+            }else{
+                array_push($arrayData, (object)[
+                    'name' => $data->user->name .' '.$data->user->name,
+                    'type_customer' => $data->typeEntity,
+                    'category' => $data->companyCategory,
+                    'email' => $data->user->email,
+                    'phone' => $data->user->phone,
+                    'country' => $data->user->country->name,
+                    'city' => $data->user->city->name,
+                    'state' => $data->user->state,
+                    'slug' => $data->user->slug
+                ]);
+            }
+        }
+       $collection = collect($arrayData);
+        $sorted = $collection->sortBy('name');
+
+        $sorted->values()->all();
+//        return response()->json(['data' => $dataDbCustomer]);
+        return response()->json(['data' =>  $sorted->values()->all()]);
+    }
 }

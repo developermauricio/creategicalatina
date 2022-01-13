@@ -79,6 +79,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/get-data-project/{id}', 'Project\ProjectController@getDataProject')->name('api.get.data.project');
         Route::get('/get-projects', 'Project\ProjectController@getProjects')->name('api.get.data.projects');
         Route::get('/get-project-create-purchase/{id}', 'Project\ProjectController@getDataProjectPurchase')->name('api.get.data.project.purchase');
+        Route::get('/get-data-customer', 'Project\ProjectController@getDataCustomer')->name('api.get.data.project.customer');
+
+        /*=============================================
+        API PARA LA CONFIGURACIÓN PROYECTOS
+        =============================================*/
+        Route::get('/get-data-type-project', 'Project\ProjectSetupController@getDataTypeProject')->name('api.get.data.type.project');
+        Route::get('/get-data-type-project-info/{id}', 'Project\ProjectSetupController@getDataTypeProjectInfo')->name('api.get.data.type.project.info');
+        Route::post('/save-type-project', 'Project\ProjectSetupController@saveDataTypeProject')->name('api.save.data.type.project.info');
+        Route::post('/upload-type-image-project','Project\ProjectSetupController@uploadImageTypeProject')->name('api.upload.image.type.project');
+        Route::post('/removed-image-type-project','Project\ProjectSetupController@removedImageTypeProject')->name('api.removed.image.type.project');
+        Route::post('/save-image-type-project','Project\ProjectSetupController@saveImageTypeProject')->name('api.save.image.type.project');
+        Route::post('/save-team-project-type','Project\ProjectSetupController@saveTeamTypeProject')->name('api.save.team.type.project');
+
 
 
         /*=============================================
@@ -133,7 +146,7 @@ Route::group(['middleware' => 'auth'], function () {
     =============================================*/
     Route::post('/update-password-user', 'Controller@updatePasswordUser')->name('upadate.password.user');
 });
-
+Route::get('/clientes', 'controller@clientes');
 Route::get('json-country', 'controller@jsonCountry');
 Route::get('/verify-email-user/{email}', 'Controller@validateEmail')->name('api.validate.email');
 Route::get('/verify-email-company/{email}', 'Controller@validateEmailCompany')->name('api.validate.email.company');

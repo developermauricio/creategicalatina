@@ -105,4 +105,5 @@ class TeamCreateController extends Controller
             return response()->json('Error al realizar la transaccion', 500);
         }
     }
+
 }

@@ -4,6 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import Gate from './components/permissions/Gate';
+// Vue.prototype.$gate = new Gate(window.user, roles);
+
+Vue.prototype.$gate = new Gate(window.user, roles);
+
 import { EchoPrivate } from './bootstrap';
 window.EchoPrivate = EchoPrivate;
 window.Vue = require('vue');
@@ -72,6 +77,8 @@ Vue.component('register-client', require('./components/frontend/pages/RegisterCl
 COMPONENTES PARA LAS EMPRESAS
 =============================================*/
 Vue.component('grid-lists-companies', require('./components/frontend/pages/company/GridListCompanies.vue').default);
+
+Vue.component('show-customer-component', require('./components/components/customer/ShowCustomer.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -80,6 +87,7 @@ Vue.component('grid-lists-companies', require('./components/frontend/pages/compa
 
 import VueInternationalization from 'vue-i18n';
 import Locale from './vue-i18n-locales.generated';
+import Vue from "vue";
 window.Vue.use(VueInternationalization);
 const i18n = new VueInternationalization({
     locale: window.lang,

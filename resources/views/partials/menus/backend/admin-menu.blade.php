@@ -39,6 +39,11 @@
                             data-feather="circle"></i><span class="menu-item text-truncate"
                                                             data-i18n="Second Level">{{ __('menu_nuevo_proyecto') }}</span></a>
                 </li>
+                <li class="{{request()->is(session('language').'/project-setup') ? 'active' : '' }}">
+                    <a class="d-flex align-items-center" href="/{{ session('language') }}/project-setup"><i
+                            data-feather="circle"></i><span class="menu-item text-truncate"
+                                                            data-i18n="Second Level">{{ __('Configuración') }}</span></a>
+                </li>
             </ul>
         </li>
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='shopping-bag'></i><span
@@ -121,7 +126,7 @@
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather='settings'></i><span
                     class="menu-title text-truncate" data-i18n="Kanban">Configuración</span></a>
             <ul class="menu-content">
-                <li class="{{request()->is(session('language').'/configuration-team') ? 'active' : '' }}">
+                <li class="{{request()->is(session('language').'/setup-team') ? 'active' : '' }}">
                     <a class="d-flex align-items-center" href="/{{ session('language') }}/configuration-team"><i
                             data-feather="circle"></i><span class="menu-item text-truncate"
                                                             data-i18n="Second Level">Equipo de Trabajo</span></a>

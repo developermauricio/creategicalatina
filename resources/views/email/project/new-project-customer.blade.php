@@ -119,11 +119,17 @@
                                         <p style="font-weight: 600; font-size: 18px; margin-bottom: 0;">{{ __('frontend/email/new-project-customer.hola_cliente') }} 👋</p>
                                         <p style="font-weight: 700; font-size: 20px; margin-top: 0; --text-opacity: 1; color: #ff5850 !important;">{{ $name }}
                                             !</p>
+                                        @if(auth()->user()->hasRole('Administrator'))
                                         <p class="sm-leading-32"
                                            style="font-weight: 600; font-size: 20px; margin: 0 0 24px; --text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity));">
-                                            🚀 {{ __('frontend/email/new-project-customer.has_registrado_nuevo_proyecto') }}
+                                            🚀 Se ha registrado un nuevo proyecto!
                                         </p>
-
+                                        @else
+                                            <p class="sm-leading-32"
+                                               style="font-weight: 600; font-size: 20px; margin: 0 0 24px; --text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity));">
+                                                🚀 {{ __('frontend/email/new-project-customer.has_registrado_nuevo_proyecto') }}
+                                            </p>
+                                        @endif
                                         <p style="margin: 24px 0; text-align: justify">
                                             {{ __('frontend/email/new-project-customer.en_conector') }} <span style="font-weight: 600;">{{ config('app.name') }}</span>
                                             {{__('frontend/email/new-project-customer.contenido_texto_creategica') }} 🤩

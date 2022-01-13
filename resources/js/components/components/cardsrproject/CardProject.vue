@@ -328,6 +328,45 @@ TARJETAS TIPO PROYECTO PARA MOBILE
                         rows: 5
                     }"
               ></input-form>
+              <!--=====================================
+		              CUANDO ES ADMINISTRADOR - ASIGNAR CLIENTE
+              ======================================-->
+              <div v-if="$gate.allow('addCustomerProject', 'project')">
+                <div class="row">
+                  <div class="col-12 col-lg-5 col-md-5">
+                    <input-form
+                      label="Seleccionar el cliente"
+                      id="txtTypeClient"
+                      class="d-inline-block w-75"
+                      errorMsg
+                      requiredMsg=""
+                      :modelo.sync="modelCustomer"
+                      :required="false"
+                      type="multiselect"
+                      @updatedValue="changeTypeCustomer"
+                      selectLabel="Seleccionar cliente"
+                      :multiselect="{
+                                           options: optionCustomers,
+                                           selectLabel:this.$t('backend.customer.create-customers.multiselect_seleccionar'),
+                                           selectedLabel:this.$t('backend.customer.create-customers.multiselect_seleccionado'),
+                                           deselectLabel:this.$t('backend.customer.create-customers.multiselect_desmarcar'),
+                                          placeholder: 'Seleccionar cliente',
+                                          taggable : true,
+                                          'track-by':'id',
+                                          label: 'name',
+                                          'custom-label': customer=>customer.name
+                                        }"
+                    >
+                    </input-form>
+                    <div @click="openModalCustomer" class="d-inline-block">
+                      <vs-tooltip v-if="modelCustomer" position="right" class="pr-1 d-inline-block"
+                                  text="Clic para consultar la información del cliente">
+                        <vs-icon icon="help_outline" style="font-size: 1.3rem; cursor: pointer"></vs-icon>
+                      </vs-tooltip>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row" v-if="optionToAssingProject && optionToAssingProject.length > 0">
@@ -367,6 +406,10 @@ TARJETAS TIPO PROYECTO PARA MOBILE
       </div>
     </div>
 
+    <!--=====================================
+    MODAL CLIENTE
+    ======================================-->
+    <show-customer-component :idCustomerProject = "idCustomer"></show-customer-component>
     <!--=====================================
     MODAL BRIEF
     ======================================-->
@@ -437,6 +480,8 @@ export default {
       textBriefIcheck: false,
       classBorderCheckBrief: false,
       classBorderICheckBrief: false,
+      modelCustomer: null,
+      idCustomer: null,
       brief: {
         title: {
           en: '',
@@ -522,7 +567,8 @@ export default {
       listCategoriesProject: [],
       optionsTypeProject: [], //Arreglo con los tipos de proyectos
       optionsCategoriesProject: [], //Arreglo con las categorias de proyectos
-      optionToAssingProject: []
+      optionToAssingProject: [],
+      optionCustomers: [],
 
     }
   },
@@ -586,6 +632,15 @@ export default {
         let resp = this;
         const data = new FormData();
         data.append('nameProject', this.nameProject);
+        if (this.$gate.allow('addCustomerProject', 'project')){
+          data.append('idCustomer', this.modelCustomer.id);
+          data.append('idTypeCustomer', this.modelCustomer.type_customer.id);
+          data.append('idManager', this.modelCustomer.id_manager);
+          data.append('customerEmail', this.modelCustomer.email);
+          data.append('customerName', this.modelCustomer.name);
+          data.append('customerPicture', this.modelCustomer.picture);
+        }
+
         data.append('typeProject', JSON.stringify(this.selectProjectType));
         data.append('categoriesProject', JSON.stringify(this.listCategoriesProject));
         data.append('briefProject', JSON.stringify(this.selectProjectType.brief.question));
@@ -617,7 +672,7 @@ export default {
                 hideDuration: 5000,
                 position: 'top right',
               })
-              window.location = '/' + this.language + "/projects";
+              // window.location = '/' + this.language + "/projects";
             }).catch(err => {
               this.$toast.error({
                 title: this.$t('frontend.projects.new-project.title_atención_toast'),
@@ -739,6 +794,14 @@ export default {
 
     },
 
+    openModalCustomer(){
+      this.idCustomer = this.modelCustomer
+    },
+
+    changeTypeCustomer(customer){
+      this.modelCustomer = customer
+    },
+
     /*=============================================
          TRAE TODOS LOS TIPOS DE PROYECTOS
     =============================================*/
@@ -764,6 +827,20 @@ export default {
 
       })
     },
+
+      getDataCustomer(){
+        axios.get('/api/get-data-customer').then(resp =>{
+            this.optionCustomers = resp.data.data
+        }).catch(err =>{
+          this.$toast.error({
+            title: 'Error',
+            message: 'Error al cargar la información',
+            showDuration: 1000,
+            hideDuration: 6000,
+            position: 'top right',
+          })
+        })
+      },
     /*=============================================
          EVENTO QUE PERMITE HACER SCROLL
     =============================================*/
@@ -829,6 +906,7 @@ export default {
   mounted() {
     this.getHasCompanies();
     this.getTypeProjects();
+    this.getDataCustomer();
   },
 
 }

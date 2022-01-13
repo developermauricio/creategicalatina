@@ -30,7 +30,7 @@
             <div class="col-12">
                 <div class="card p-2">
                     <table
-                        class="datatables-all-clients hover datatablescreategica datatables-basic table table-striped"
+                        class="datatables-all-clients hover table-responsive datatablescreategica datatables-basic table table-striped"
                         style="width:100%">
                         <thead>
                         <tr>
@@ -79,7 +79,7 @@
                         "lengthMenu": [7, 10, 25, 50, 75, 100],
                         // "scrollY": 800,
                         // "scrollX": true,
-                        "responsive": true,
+                        // "responsive": true,
                         // "scrollCollapse": true,
                         // "paging": false,
                         // "fixedColumns": {
@@ -94,7 +94,7 @@
                         // "columnDefs": [
                         //     {"width": '10%', targets: 0},
                         // ],
-                        // "order": [[1, 'asc']],
+                        "order": [[1, 'asc']],
 
                         "ajax": {
                             url: "{{route('api.backend.all.customer')}}",
@@ -106,16 +106,16 @@
                                     if (JsonResultRow.name === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold"><a href="/${window.lang}/customers/profile/${JsonResultRow.slug}">${JsonResultRow.user.name}</a></span>`;
+                                        return `<span class="label text-center font-weight-bold"><a href="/${window.lang}/customers/profile/${JsonResultRow.slug}">${JsonResultRow.name}</a></span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.type_entity === null) {
+                                    if (JsonResultRow.type_customer === null) {
                                         return `<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>`;
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.type_entity.name[window.lang]}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.type_customer.name[window.lang]}</span>`;
                                     }
 
                                 },
@@ -123,53 +123,53 @@
 
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.company_category === null) {
+                                    if (JsonResultRow.category === null) {
                                         return `<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>`
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.company_category.name[window.lang]}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.category.name[window.lang]}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.user.email === null) {
+                                    if (JsonResultRow.email === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.email}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.email}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.user.phone === null) {
+                                    if (JsonResultRow.phone === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.phone}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.phone}</span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.user.country === null) {
+                                    if (JsonResultRow.country === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.country.name} <img class="brand-logo"  width="20" src="${JsonResultRow.user.country.flag}" alt=""></span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.country} <img class="brand-logo"  width="20" src="${JsonResultRow.flagCountry}" alt=""></span>`;
                                     }
                                 },
                             },
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.user.city === null) {
+                                    if (JsonResultRow.city === null) {
                                         return '<span class="label label-danger text-center" style="color:#F05E7D !important">{{ __('nigun_valor_defecto') }}</span>'
                                     } else {
-                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.user.city.name}</span>`;
+                                        return `<span class="label text-center font-weight-bold">${JsonResultRow.city}</span>`;
                                     }
                                 },
                             },
 
                             {
                                 render: function (data, type, JsonResultRow, meta) {
-                                    if (JsonResultRow.user.state === "1") {
+                                    if (JsonResultRow.state === "1") {
                                         return '<div class="badge badge-pill badge-glow badge-success">{{ __('estado_tabla_activo') }}</div>'
                                     } else {
                                         return `<div class="badge badge-pill badge-glow badge-danger">{{ __('estado_tabla_inactivo') }}</div>`;

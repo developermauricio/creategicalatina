@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class ConfigurationTeamController extends Controller
 {
     public function index(){
-        return view('backend.pages.configuration.configuration-team');
+        return view('backend.pages.setup.setup-team');
     }
 }
