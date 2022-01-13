@@ -183,6 +183,8 @@
         {{--    })();--}}
         {{--</script>--}}
         <!--Start of Tawk.to Script-->
+       
+        @if(env('APP_DEBUG') === true)
         <script>
             window.laravelEchoPort = '{{ env('LARAVEL_ECHO_PORT') }}'
             console.log(window.location.hostname);
@@ -200,7 +202,7 @@
                 }
             });
         </script>
-
+        @endif
         </body>
         <!-- END: Body-->
     </body>
