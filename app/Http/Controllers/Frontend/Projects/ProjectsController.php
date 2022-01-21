@@ -17,6 +17,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Session;
@@ -45,7 +46,7 @@ class ProjectsController extends Controller
 
     public function storeNewProyect(Request $request)
     {
-//        dd(json_decode($request->toAssingCompany));
+        //        dd(json_decode($request->toAssingCompany));
         $customer = Customer::where('user_id', \auth()->user()->id)->with('user')->first();
         $idCustomer = $request->idCustomer;
         $typeCustomer = $request->idTypeCustomer;
@@ -70,7 +71,6 @@ class ProjectsController extends Controller
             $slugProject = Str::slug($project_name . '-' . $ramdon, '-');
         } else {
             $slugProject = Str::slug($project_name . '-' . $ramdon, '-');
-
         }
 
         $items = [];
@@ -80,126 +80,147 @@ class ProjectsController extends Controller
         $categoriesProjectName = implode(', ', $items);
         $success = true;
         $project = null;
-//        DB::beginTransaction();
-//        try {
-
-        $project = Project::create([
-            'name' => $project_name,
-            'picture' => $path,
-            'type_project_id' => $typeProject->id,
-            'slug' => $slugProject,
-            'observations' => $observationsProject,
-        ]);
-        foreach ($categoriesProject as $category) {
-            $project->project_categories()->attach($category->id);
-        }
-        foreach ($briefProject as $value) {
-            if (isset($value->model) || !empty($value->pathsRecording)) {
-                $answer = new Answer;
-                $answer->answer = isset($value->model) ? $value->model : null;
-                $answer->project_id = $project->id;
-                $answer->question_id = $value->id;
-                $answer->audio = json_encode($value->pathsRecording);
-                $answer->save();
-
+        DB::beginTransaction();
+        try {
+            $project = Project::create([
+                'name' => $project_name,
+                'picture' => $path,
+                'type_project_id' => $typeProject->id,
+                'slug' => $slugProject,
+                'observations' => $observationsProject,
+            ]);
+            foreach ($categoriesProject as $category) {
+                $project->project_categories()->attach($category->id);
             }
-        }
+            foreach ($briefProject as $value) {
+                if (isset($value->model) || !empty($value->pathsRecording)) {
+                    $answer = new Answer;
+                    $answer->answer = isset($value->model) ? $value->model : null;
+                    $answer->project_id = $project->id;
+                    $answer->question_id = $value->id;
+                    $answer->audio = json_encode($value->pathsRecording);
+                    $answer->save();
+                }
+            }
 
-        if ($userAdministrator) {
+            if ($userAdministrator) {
 
-            if ($typeCustomer === 1) {
-                $project->customer()->attach($idManager);
-                $project->company()->attach($idCustomer);
+                if ($typeCustomer === 1) {
+                    $project->customer()->attach($idManager);
+                    $project->company()->attach($idCustomer);
+                } else {
+                    $project->customer()->attach($idCustomer);
+                }
             } else {
-                $project->customer()->attach($idCustomer);
+                if ($company) {
+                    $project->customer()->attach($customer->id);
+                    $project->company()->attach($company->id);
+                } else {
+                    $project->customer()->attach($customer->id);
+                }
             }
+
+
+            $urlProject = env('APP_URL') . '/project/' . $slugProject;
+            if ($userAdministrator) {
+                $itemsLanguage = [];
+                foreach ($categoriesProject as $names) {
+                    array_push($itemsLanguage, $names->name->$languageApplication);
+                }
+                $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
+                try {
+                    Mail::to($customerEmail)->locale(session('language'))->send(
+                        new NewProjectCustomer(
+                            $customerName,
+                            $company ? $company->name : null,
+                            $project_name,
+                            $urlProject,
+                            $observationsProject,
+                            $typeProject->name->$languageApplication,
+                            $categoriesProjectNameLanguages
+                        )
+                    );
+                } catch (\Throwable $th) {
+                    Log::error('Error al enviar correo', [
+                        'message' => $th->getMessage(),
+                        'error' => $th->getTraceAsString()
+                    ]);
+                }
+            } else {
+                $itemsLanguage = [];
+                foreach ($categoriesProject as $names) {
+                    array_push($itemsLanguage, $names->name->$languageApplication);
+                }
+                $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
+                try {
+                    Mail::to(\auth()->user()->email)->locale(session('language'))->send(
+                        new NewProjectCustomer(
+                            $user_name,
+                            $company ? $company->name : null,
+                            $project_name,
+                            $urlProject,
+                            $observationsProject,
+                            $typeProject->name->$languageApplication,
+                            $categoriesProjectNameLanguages
+                        )
+                    );
+                } catch (\Throwable $th) {
+                    Log::error('Error al enviar correo', [
+                        'message' => $th->getMessage(),
+                        'error' => $th->getTraceAsString()
+                    ]);
+                }
+            }
+            /*Función para enviar notificación a un canal de TELEGRAM*/
+            try {
+                $this->sendMessageTelegramNewProject($company ? $company->name : null, $project_name, $categoriesProjectName, $typeProject, $urlProject, $customerName, $typeCustomer);
+            } catch (\Throwable $th) {
+                Log::error('Error al enviar notificación telegram', [
+                    'message' => $th->getMessage(),
+                    'error' => $th->getTraceAsString()
+                ]);
+            }
+        } catch (\Exception $exception) {
+            $success = $exception->getMessage();
+            DB::rollBack();
+        }
+        if ($success === true) {
+            DB::commit();
+            $projectGet = Project::where('id', $project->id)->first();
+
+            if ($userAdministrator) {
+                $notificationProject = (object)[
+                    'id' => $projectGet->id,
+                    'nameUser' => $customerName,
+                    'pictureUser' => $customerPicture,
+                    'nameProject' => $projectGet->name,
+                    'slugProject' => $projectGet->slug,
+                ];
+            } else {
+                $notificationProject = (object)[
+                    'id' => $projectGet->id,
+                    'nameUser' => $customer->user->name,
+                    'lastNameUser' => $customer->user->last_name,
+                    'pictureUser' => $customer->user->picture,
+                    'nameProject' => $projectGet->name,
+                    'slugProject' => $projectGet->slug,
+                ];
+            }
+
+            $users = User::role('Administrator')->get();
+            $notifications = null;
+            foreach ($users as $user => $valor) {
+                $notification = new \App\Model\Notification;
+                $notification->notification = json_encode($notificationProject);
+                $notification->user_id = $valor->id;
+                $notification->save();
+            }
+
+            broadcast(new NewProjectNotification($notificationProject))->toOthers();
+            return response()->json('Transacción realizada exitosamente', 200);
         } else {
-            if ($company) {
-                $project->customer()->attach($customer->id);
-                $project->company()->attach($company->id);
-            } else {
-                $project->customer()->attach($customer->id);
-            }
+            return response()->json('Error al realizar la transaccion', 500);
         }
-
-
-        $urlProject = env('APP_URL') . '/project/' . $slugProject;
-        if ($userAdministrator) {
-            $itemsLanguage = [];
-            foreach ($categoriesProject as $names) {
-                array_push($itemsLanguage, $names->name->$languageApplication);
-            }
-            $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
-//            Mail::to($customerEmail)->locale(session('language'))->send(
-//                new NewProjectCustomer(
-//                    $customerName,
-//                    $company ? $company->name : null,
-//                    $project_name,
-//                    $urlProject,
-//                    $observationsProject, $typeProject->name->$languageApplication,
-//                    $categoriesProjectNameLanguages
-//                ));
-
-        }else{
-            $itemsLanguage = [];
-            foreach ($categoriesProject as $names) {
-                array_push($itemsLanguage, $names->name->$languageApplication);
-            }
-            $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
-//            Mail::to(\auth()->user()->email)->locale(session('language'))->send(
-//                new NewProjectCustomer(
-//                    $user_name,
-//                    $company ? $company->name : null,
-//                    $project_name,
-//                    $urlProject,
-//                    $observationsProject, $typeProject->name->$languageApplication,
-//                    $categoriesProjectNameLanguages
-//                ));
-        }
-        /*Función para enviar notificación a un canal de TELEGRAM*/
-        $this->sendMessageTelegramNewProject($company ? $company->name : null, $project_name, $categoriesProjectName, $typeProject, $urlProject, $customerName, $typeCustomer);
-//        } catch (\Exception $exception) {
-//            $success = $exception->getMessage();
-//            DB::rollBack();
-//        }
-//        if ($success === true) {
-        DB::commit();
-        $projectGet = Project::where('id', $project->id)->first();
-
-        if ($userAdministrator) {
-            $notificationProject = (object)[
-                'id' => $projectGet->id,
-                'nameUser' => $customerName,
-                'pictureUser' => $customerPicture,
-                'nameProject' => $projectGet->name,
-                'slugProject' => $projectGet->slug,
-            ];
-
-        }else{
-            $notificationProject = (object)[
-                'id' => $projectGet->id,
-                'nameUser' => $customer->user->name,
-                'lastNameUser' => $customer->user->last_name,
-                'pictureUser' => $customer->user->picture,
-                'nameProject' => $projectGet->name,
-                'slugProject' => $projectGet->slug,
-            ];
-        }
-
-        $users = User::role('Administrator')->get();
-        $notifications = null;
-        foreach ($users as $user => $valor) {
-            $notification = new \App\Model\Notification;
-            $notification->notification = json_encode($notificationProject);
-            $notification->user_id = $valor->id;
-            $notification->save();
-        }
-
-        broadcast(new NewProjectNotification($notificationProject))->toOthers();
-        return response()->json('Transacción realizada exitosamente', 200);
-//        } else {
-//            return response()->json('Error al realizar la transaccion', 500);
-//        }
     }
 
     public function sendMessageTelegramNewProject($company, $project_name, $categoriesProject, $typeProject, $url, $customerName, $typeCustomer)
@@ -210,7 +231,7 @@ class ProjectsController extends Controller
         $userAdministrator = \auth()->user()->hasRole('Administrator');
         $text = null;
         if ($company || $typeCustomer === "1") {
-            if ($userAdministrator){
+            if ($userAdministrator) {
                 $text =
                     "Este mensaje es para notificar \n"
                     . "que se ha registrado un nuevo proyecto llamado <b>" . $project_name . ".</b>\n"
@@ -226,7 +247,7 @@ class ProjectsController extends Controller
                     . "" . $typeProject->name->es . "\n"
                     . "<b>Características: </b>\n"
                     . "" . $categoriesProject . "";
-            }else {
+            } else {
                 $text =
                     "Este mensaje es para notificar \n"
                     . "que la empresa <b>" . $company . "</b>\n"
@@ -246,7 +267,7 @@ class ProjectsController extends Controller
             }
         } else {
 
-            if ($userAdministrator){
+            if ($userAdministrator) {
                 $text =
                     "Este mensaje es para notificar \n"
                     . "que se ha registrado un nuevo proyecto llamado <b>" . $project_name . ".</b>\n"
@@ -262,7 +283,7 @@ class ProjectsController extends Controller
                     . "" . $typeProject->name->es . "\n"
                     . "<b>Características: </b>\n"
                     . "" . $categoriesProject . "";
-            }else{
+            } else {
                 $text =
                     "Este mensaje es para notificar \n"
                     . "que el cliente <b>" . $user_name . " " . $user_lastname . "</b>\n"
@@ -279,7 +300,6 @@ class ProjectsController extends Controller
                     . "<b>Características: </b>\n"
                     . "" . $categoriesProject . "";
             }
-
         }
 
 
