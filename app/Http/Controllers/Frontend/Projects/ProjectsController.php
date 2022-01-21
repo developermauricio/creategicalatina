@@ -130,15 +130,15 @@ class ProjectsController extends Controller
                 array_push($itemsLanguage, $names->name->$languageApplication);
             }
             $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
-            Mail::to($customerEmail)->locale(session('language'))->send(
-                new NewProjectCustomer(
-                    $customerName,
-                    $company ? $company->name : null,
-                    $project_name,
-                    $urlProject,
-                    $observationsProject, $typeProject->name->$languageApplication,
-                    $categoriesProjectNameLanguages
-                ));
+//            Mail::to($customerEmail)->locale(session('language'))->send(
+//                new NewProjectCustomer(
+//                    $customerName,
+//                    $company ? $company->name : null,
+//                    $project_name,
+//                    $urlProject,
+//                    $observationsProject, $typeProject->name->$languageApplication,
+//                    $categoriesProjectNameLanguages
+//                ));
 
         }else{
             $itemsLanguage = [];
@@ -146,15 +146,15 @@ class ProjectsController extends Controller
                 array_push($itemsLanguage, $names->name->$languageApplication);
             }
             $categoriesProjectNameLanguages = implode(', ', $itemsLanguage);
-            Mail::to(\auth()->user()->email)->locale(session('language'))->send(
-                new NewProjectCustomer(
-                    $user_name,
-                    $company ? $company->name : null,
-                    $project_name,
-                    $urlProject,
-                    $observationsProject, $typeProject->name->$languageApplication,
-                    $categoriesProjectNameLanguages
-                ));
+//            Mail::to(\auth()->user()->email)->locale(session('language'))->send(
+//                new NewProjectCustomer(
+//                    $user_name,
+//                    $company ? $company->name : null,
+//                    $project_name,
+//                    $urlProject,
+//                    $observationsProject, $typeProject->name->$languageApplication,
+//                    $categoriesProjectNameLanguages
+//                ));
         }
         /*Función para enviar notificación a un canal de TELEGRAM*/
         $this->sendMessageTelegramNewProject($company ? $company->name : null, $project_name, $categoriesProjectName, $typeProject, $urlProject, $customerName, $typeCustomer);
