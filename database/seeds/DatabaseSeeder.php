@@ -395,17 +395,17 @@ class DatabaseSeeder extends Seeder
                         $t->teamPosition()->attach(7);
                     });
             });
+        if (env('APP_DEBUG') === true) {
+            /*=============================================
+                CREANDO 10 EMPRESAS Y 10 REPRESENTANTES
+            =============================================*/
 
-        /*=============================================
-            CREANDO 10 EMPRESAS Y 10 REPRESENTANTES
-        =============================================*/
 
-
-        factory(\App\User::class, 10)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['2']);
-                factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
-                    ->each(function (\App\Model\Customer $customer) use ($u) {
+            factory(\App\User::class, 10)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['2']);
+                    factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
+                        ->each(function (\App\Model\Customer $customer) use ($u) {
 //                        $logos = [
 //                            '/images/logos-companies/img-logo-yamaha.png',
 //                            '/images/logos-companies/img-logo-mazda.png',
@@ -419,196 +419,197 @@ class DatabaseSeeder extends Seeder
 //                            '/images/logos-companies/img-logo-pepsi.png'];
 //                        $ramdon = Str::random(10);
 //                        for ($i = 0; $i < count($logos); $i++) {
-                        factory(\App\Model\Company::class, 1)->create(['customer_id' => $customer->id])
-                            ->each(function (\App\Model\Company $company) use ($customer) {
-                                factory(\App\Model\Project::class, 3)->create()
-                                    ->each(function (\App\Model\Project $p) use ($company, $customer) {
-                                        factory(\App\Model\Invoice::class, 2)->create([
-                                            'company_id' => $company->id,
-                                            'customer_id' => $customer->id,
+                            factory(\App\Model\Company::class, 1)->create(['customer_id' => $customer->id])
+                                ->each(function (\App\Model\Company $company) use ($customer) {
+                                    factory(\App\Model\Project::class, 3)->create()
+                                        ->each(function (\App\Model\Project $p) use ($company, $customer) {
+                                            factory(\App\Model\Invoice::class, 2)->create([
+                                                'company_id' => $company->id,
+                                                'customer_id' => $customer->id,
+                                                'user_id' => 2,
+                                                'project_id' => $p->id
+                                            ])->each(function (\App\Model\Invoice $in) {
+                                                factory(\App\Model\InvoiceItems::class, 2)->create([
+                                                    'invoice_id' => $in->id
+                                                ]);
+                                            });
+
+                                            $ramdon = random_int(1, 8);
+                                            $p->customer()->attach($customer->id);
+                                            $p->company()->attach($company->id);
+                                            $p->project_categories()->attach($ramdon);
+                                        });
+                                });
+//                        }
+                        });
+                });
+            /*=============================================
+                CREAMOS 10 CLIENTES COMO PERSONA NATURAL
+            =============================================*/
+            factory(\App\User::class, 10)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['2']);
+                    factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2])
+                        ->each(function (\App\Model\Customer $cn) use ($u) {
+                            factory(\App\Model\Project::class, 3)->create()
+                                ->each(function (\App\Model\Project $p) use ($cn) {
+
+                                    factory(\App\Model\PurchaseOrder::class, 1)->create([
+                                        'customer_id' => $cn->id,
+                                        'user_id' => 2,
+                                        'project_id' => $p->id,
+                                        'way_to_pay' => 1
+
+                                    ])->each(function (\App\Model\PurchaseOrder $purch) use ($cn, $p) {
+                                        factory(\App\Models\ItemsPurchaseOrder::class, 2)->create([
+                                            'purchase_order_id' => $purch->id
+                                        ]);
+                                        factory(\App\Model\Invoice::class, 1)->create([
+                                            'customer_id' => $cn->id,
                                             'user_id' => 2,
-                                            'project_id' => $p->id
+                                            'project_id' => $p->id,
+                                            'purchase_id' => $purch
                                         ])->each(function (\App\Model\Invoice $in) {
                                             factory(\App\Model\InvoiceItems::class, 2)->create([
                                                 'invoice_id' => $in->id
                                             ]);
                                         });
-
-                                        $ramdon = random_int(1, 8);
-                                        $p->customer()->attach($customer->id);
-                                        $p->company()->attach($company->id);
-                                        $p->project_categories()->attach($ramdon);
                                     });
-                            });
-//                        }
-                    });
-            });
-        /*=============================================
-            CREAMOS 10 CLIENTES COMO PERSONA NATURAL
-        =============================================*/
-        factory(\App\User::class, 10)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['2']);
-                factory(\App\Model\Customer::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2])
-                    ->each(function (\App\Model\Customer $cn) use ($u) {
-                        factory(\App\Model\Project::class, 3)->create()
-                            ->each(function (\App\Model\Project $p) use ($cn) {
 
-                                factory(\App\Model\PurchaseOrder::class, 1)->create([
-                                    'customer_id' => $cn->id,
-                                    'user_id' => 2,
-                                    'project_id' => $p->id,
-                                    'way_to_pay' => 1
-
-                                ])->each(function (\App\Model\PurchaseOrder $purch) use($cn, $p){
-                                    factory(\App\Models\ItemsPurchaseOrder::class, 2)->create([
-                                        'purchase_order_id' => $purch->id
-                                    ]);
-                                    factory(\App\Model\Invoice::class, 1)->create([
-                                        'customer_id' => $cn->id,
-                                        'user_id' => 2,
-                                        'project_id' => $p->id,
-                                        'purchase_id' => $purch
-                                    ])->each(function (\App\Model\Invoice $in) {
-                                        factory(\App\Model\InvoiceItems::class, 2)->create([
-                                            'invoice_id' => $in->id
-                                        ]);
-                                    });
+                                    $ramdon = random_int(1, 8);
+                                    $p->customer()->attach($cn->id);
+                                    $p->project_categories()->attach($ramdon);
                                 });
+                        });
+                });
 
-                                $ramdon = random_int(1, 8);
-                                $p->customer()->attach($cn->id);
-                                $p->project_categories()->attach($ramdon);
-                            });
-                    });
-            });
+            /*=============================================
+                CREANDO 10 PROVEEDORES Y 10 REPRESENTANTES
+            =============================================*/
+            factory(\App\User::class, 10)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['4']);
+                    factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
+                        ->each(function (\App\Model\Provider $p) use ($u) {
+                            factory(\App\Model\Company::class, 1)->create(['provider_id' => $p->id]);
+                        });
+                });
 
-        /*=============================================
-            CREANDO 10 PROVEEDORES Y 10 REPRESENTANTES
-        =============================================*/
-        factory(\App\User::class, 10)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['4']);
-                factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 1])
-                    ->each(function (\App\Model\Provider $p) use ($u) {
-                        factory(\App\Model\Company::class, 1)->create(['provider_id' => $p->id]);
-                    });
-            });
+            /*=============================================
+                CREAMOS 10 CLIENTES COMO PERSONA NATURAL
+            =============================================*/
+            factory(\App\User::class, 10)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['4']);
+                    factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2]);
+                });
 
-        /*=============================================
-            CREAMOS 10 CLIENTES COMO PERSONA NATURAL
-        =============================================*/
-        factory(\App\User::class, 10)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['4']);
-                factory(\App\Model\Provider::class, 1)->create(['user_id' => $u->id, 'type_entitity_id' => 2]);
-            });
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(1);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
 
-        /*=============================================
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(2);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
+
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(3);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
+
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(4);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
+
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(5);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
+
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(6);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
+
+
+            /*=============================================
             CREAMOS 10 MIEMBROS
         =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(1);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(7);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
 
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(2);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(3);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(4);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(5);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(6);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
+            /*=============================================
+                CREAMOS 10 MIEMBROS
+            =============================================*/
+            factory(\App\User::class, 2)->create()
+                ->each(function (\App\User $u) {
+                    $u->roles()->attach(['3']);
+                    factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
+                        ->each(function (\App\Model\Team $t) {
+                            $t->teamPosition()->attach(8);
+                            $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
+                        });
+                });
 
 
-        /*=============================================
-        CREAMOS 10 MIEMBROS
-    =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(7);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-        /*=============================================
-            CREAMOS 10 MIEMBROS
-        =============================================*/
-        factory(\App\User::class, 2)->create()
-            ->each(function (\App\User $u) {
-                $u->roles()->attach(['3']);
-                factory(\App\Model\Team::class, 1)->create(['user_id' => $u->id])
-                    ->each(function (\App\Model\Team $t) {
-                        $t->teamPosition()->attach(8);
-                        $t->teamTypeProjects()->attach(\App\Model\TypeProject::all()->random()->id);
-                    });
-            });
-
-
+        }
     }
 }
